@@ -1,35 +1,43 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+// TODO: !!!IMPORTANT!!! fix blog post header
+
+const Header = (props) => {
+  
+  const StyledHeader = styled.header `
+    padding: 1rem 2rem;
+    color: ${props.position === 'absolute' ? 'white' : '#333'};
+    position: ${props.position};
+    top: 0;
+    right: 0;
+    left: 0;
+
+    h1 {
+      margin-bottom: .5rem;
+    }
+
+    a {
+      margin-left: 5px;
+      border-bottom: 1px solid;
+      padding-bottom: 4px;
+    }
+  `
+
+  return (
+      <StyledHeader>
+        <h1>
+          You're 
+          {
+            props.title === 'Home' ? ' Home' : props.title === 'About' ? ' at my Bio' : ' Reading An Article'
+          }
+        </h1>
+        {props.title === 'Home' ? <Link to='/about'>Go to my bio.</Link> : <Link to='/'>Go back home.</Link>}
+      </StyledHeader>
+  );
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
