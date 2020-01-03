@@ -82,7 +82,7 @@ const aboutPage = () => {
           />
           <img src={require('../images/portrait.jpg')} alt='portrait' />
         </ImageWrapper>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quo repellat excepturi expedita vel ducimus temporibus quae! Voluptatum eius eligendi iste ea explicabo! Voluptatibus id reprehenderit recusandae suscipit nihil, praesentium soluta quos laudantium, est quia aut sit eius omnis reiciendis tempore porro labore ipsum fuga sunt iure dolorum veritatis dolorem repudiandae earum. Dolores eligendi explicabo alias? Omnis inventore aliquid repellendus id quis voluptatibus vitae corporis officia fugit nobis cupiditate labore aperiam eligendi, nulla quas eum corrupti possimus ipsum commodi officiis neque odit.</p>
+        <p>Hey stranger, thanks for dropping by! I am Evan, a frontend developer from sunny Athens, Greece. Professionally, I am trained in the dark arts of sound design and am currently working for a video game company in Barcelona called <a>Social Point</a>. My coding journey (seriously) began at the beginning of 2019, when I dove head-first into web development. I have been coding pretty much every day since then, while at my day-job I work mostly with C#, handling the audio of the company's games and marketing campaigns.</p>
         <Social>
           <a href="https://twitter.com/evankapantais"><img src={require('../images/twitter.png')} alt=""/></a>
           <a href="https://www.instagram.com/evan_kapantais/"><img src={require('../images/instagram.png')} alt=""/></a>
