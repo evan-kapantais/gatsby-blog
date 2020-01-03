@@ -11,6 +11,7 @@ import '../stylesheets/globals.scss'
 
 // TODO: rework grid
 // TODO: scss in styled components
+// TODO: adjust grid dependng on article count
 
 const styles = {
   circleWidth: '420px',
@@ -54,34 +55,6 @@ const HeroContainer = styled.div `
   }
 `
 
-const BlogWrapper = styled.div `
-  max-width: 1000px;
-  margin: -50px auto 2rem auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 2rem;
-
-  a:first-child {
-    grid-column: 1 / -1;
-    z-index: 999;
-
-    article {
-      display: flex;
-
-      p {
-        font-size: 1.2rem;
-        line-height: 1.5rem;
-      }
-    }
-  }
-
-  a:nth-child(2) {grid-column: 1 / span 2;}
-  a:nth-child(3) {grid-column: 3 / span 2;}
-  a:nth-child(4) {grid-column: 5 / span 2;}
-  a:nth-child(5) {grid-column: 1 / span 3;}
-  a:nth-child(6) {grid-column: 4 / span 3;}
-`
-
 const spin = keyframes `
   0% {
     transform: rotate(0deg);
@@ -103,24 +76,36 @@ const Circle = styled.div `
   animation: ${spin} 80s linear forwards infinite;
 `
 
-const IndexPage = ({ data }) => (
-  <Layout title='Home' position='absolute'>
-    <SEO title='Home' />
-    <Hero>
-      <Circle />
-      <HeroContainer>
-        <h1>{data.site.siteMetadata.title}</h1>
-        <small>A Blog By</small>
-        <h4>{data.site.siteMetadata.author}</h4>
-      </HeroContainer>
-    </Hero>
-    <BlogWrapper>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <PostCard node={node} />
-      ))}
-    </BlogWrapper>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+
+  const BlogWrapper = styled.div `
+    max-width: 1000px;
+    margin: -50px auto 2rem auto;
+    display: grid;
+    grid-template-columns: ${data.allMarkdownRemark.totalCount % 3 === 0 ? `repeat(3, 1fr)` : `repeat(2, 1fr)`};
+    gap: 2rem;
+  `
+
+  return (
+    <Layout title='Home' position='absolute'>
+      <SEO title='Home' />
+      <Hero>
+        <Circle />
+        <HeroContainer>
+          <h1>{data.site.siteMetadata.title}</h1>
+          <small>A Blog By</small>
+          <h4>{data.site.siteMetadata.author}</h4>
+        </HeroContainer>
+      </Hero>
+      <BlogWrapper>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <PostCard node={node} />
+        ))}
+      </BlogWrapper>
+    </Layout>
+  )
+}
+
 
 export const postsQuery = graphql`
 {
@@ -155,6 +140,7 @@ export const postsQuery = graphql`
         }
       }
     }
+    totalCount
   }
 }
 `

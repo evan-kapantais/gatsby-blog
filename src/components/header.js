@@ -14,6 +14,7 @@ const Header = (props) => {
     top: 0;
     right: 0;
     left: 0;
+    margin-bottom: 4rem;
 
     h1 {
       margin-bottom: .5rem;

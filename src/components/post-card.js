@@ -67,8 +67,6 @@ const PostCard = ({ node }) => {
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
-  console.log(tags);
-
   return (
     <Link to={`/blog/${slug}`}>
       <Card>

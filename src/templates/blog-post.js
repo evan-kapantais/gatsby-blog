@@ -1,22 +1,23 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import MorePosts from '../components/more-posts'
+import PostCard from '../components/post-card'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-// TODO: increase paragraph font size
-// TODO: reduce article max-width
 
 const PostContainer = styled.div `
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 850px;
+  margin: 3rem auto;
   
   article {
-    margin: 2rem auto;
+    margin: -10rem auto 2rem auto;
     line-height: 2rem;
-    font-size: 22px;
+    font-size: 1.1rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #f2f2f2;
+    padding: 2.5rem;
+    border-radius: 5px;
 
     blockquote {
       border-left: 5px solid #333;
@@ -50,8 +51,27 @@ const PostHeader = styled.div `
   }
 `
 
-const MorePostsWrapper = styled.div `
+const FeatureImageWrapper = styled.div `
+  max-width: 1200px;
+  margin: 0 auto;
+`
 
+const MorePostsContainer = styled.section `
+  background: rgba(0, 0, 0, 0.1);
+  padding: 2rem 10rem;
+
+  h3 {margin-bottom: 2rem;}
+`
+
+const PostsWrapper = styled.div `
+  display: flex;
+  justify-content: space-evenly;
+
+  a {margin: 0 1rem;}
+
+  a:first-child {margin-left: 0;}
+
+  a:last-child {margin-right: 0;}
 `
 
 export const query = graphql`
@@ -60,7 +80,7 @@ export const query = graphql`
       frontmatter {
         title
         author
-        date
+        date (formatString: "DD MMMM YYYY")
         tags
         featuredImage {
           childImageSharp {
@@ -73,6 +93,30 @@ export const query = graphql`
       html
       timeToRead
     }
+    allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}) {
+      edges {
+        node {
+          html
+          excerpt
+          timeToRead
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            date (formatString: "DD-MM-YYYY")
+            tags
+            featuredImage {
+              childImageSharp {
+                fluid (maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -83,22 +127,28 @@ export const query = graphql`
 
     return (
       <Layout position='relative' title={title}>
+        <PostHeader>
+          <h5>{date} / {data.markdownRemark.timeToRead} MIN READ</h5>
+          <h1>{title}</h1>
+          {tags.map(tag => (
+            <h6>#{tag}</h6>
+          ))}
+        </PostHeader>
+        <FeatureImageWrapper>
+          <Img style={{zIndex: -2,}}fluid={featuredImage} />
+        </FeatureImageWrapper>
         <PostContainer>
-          <PostHeader>
-            <h5>{date} / {data.markdownRemark.timeToRead} MIN READ</h5>
-            <h1>{title}</h1>
-            {tags.map(tag => (
-              <h6>#{tag}</h6>
-            ))}
-          </PostHeader>
-          <Img fluid={featuredImage} />
           <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-          <hr/>
-          <MorePostsWrapper>
-            <h3>Here, read some more.</h3>
-            <MorePosts />
-          </MorePostsWrapper>
+          <hr />
         </PostContainer>
+        <MorePostsContainer>
+          <h3>Here, read some more.</h3>
+          <PostsWrapper>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <PostCard node={node}/>
+            ))}
+          </PostsWrapper>
+        </MorePostsContainer>
       </Layout>
     );
   }
