@@ -31,8 +31,8 @@ const CardContent = styled.div `
     }
 
   p {
-    font-size: .8rem;
-    line-height: 1.2rem;
+    font-size: .95rem;
+    line-height: 1.4rem;
   }
 ` 
 

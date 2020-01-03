@@ -8,22 +8,25 @@ import styled from 'styled-components'
 const Header = (props) => {
   
   const StyledHeader = styled.header `
-    padding: 1rem 2rem;
-    color: ${props.position === 'absolute' ? 'white' : '#333'};
+    padding: 2rem 4rem;
+    color: ${props.color};
     position: ${props.position};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     right: 0;
     left: 0;
     margin-bottom: 4rem;
 
     h1 {
-      margin-bottom: .5rem;
+      margin: 0;
+      font-size: 2rem;
     }
 
     a {
-      margin-left: 5px;
-      border-bottom: 1px solid;
-      padding-bottom: 4px;
+      margin-left: 1.5rem;
+      font-size: 0.8rem;
     }
   `
 
@@ -35,7 +38,10 @@ const Header = (props) => {
             props.title === 'Home' ? ' Home' : props.title === 'About' ? ' at my Bio' : ' Reading An Article'
           }
         </h1>
-        {props.title === 'Home' ? <Link to='/about'>Go to my bio.</Link> : <Link to='/'>Go back home.</Link>}
+        <nav>
+          <Link to='/'>HOME</Link>
+          <Link to='/about'>ABOUT</Link>
+        </nav>
       </StyledHeader>
   );
 }

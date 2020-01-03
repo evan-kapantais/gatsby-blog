@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import PostCard from '../components/post-card'
 import Img from 'gatsby-image'
@@ -56,24 +56,6 @@ const FeatureImageWrapper = styled.div `
   margin: 0 auto;
 `
 
-const MorePostsContainer = styled.section `
-  background: rgba(0, 0, 0, 0.1);
-  padding: 2rem 10rem;
-
-  h3 {margin-bottom: 2rem;}
-`
-
-const PostsWrapper = styled.div `
-  display: flex;
-  justify-content: space-evenly;
-
-  a {margin: 0 1rem;}
-
-  a:first-child {margin-left: 0;}
-
-  a:last-child {margin-right: 0;}
-`
-
 export const query = graphql`
   query ($slug: String!) {
     markdownRemark (fields: { slug: { eq: $slug } }) {
@@ -93,7 +75,7 @@ export const query = graphql`
       html
       timeToRead
     }
-    allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}) {
+    allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {ne: $slug}}}) {
       edges {
         node {
           html
@@ -125,8 +107,10 @@ export const query = graphql`
     const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
     const { title, date, tags } = data.markdownRemark.frontmatter;
 
+    console.log(title);
+
     return (
-      <Layout position='relative' title={title}>
+      <Layout position='relative' title={title} color='#333'>
         <PostHeader>
           <h5>{date} / {data.markdownRemark.timeToRead} MIN READ</h5>
           <h1>{title}</h1>
@@ -140,15 +124,13 @@ export const query = graphql`
         <PostContainer>
           <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
           <hr />
-        </PostContainer>
-        <MorePostsContainer>
-          <h3>Here, read some more.</h3>
-          <PostsWrapper>
+          <Link to='/'>More Posts</Link>
+          <div>
             {data.allMarkdownRemark.edges.map(({ node }) => (
-              <PostCard node={node}/>
+              <Link to={`/blog/${node.fields.slug}`}>{node.frontmatter.title}</Link>
             ))}
-          </PostsWrapper>
-        </MorePostsContainer>
+          </div>
+        </PostContainer>
       </Layout>
     );
   }

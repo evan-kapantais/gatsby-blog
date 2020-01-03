@@ -87,7 +87,7 @@ const IndexPage = ({ data }) => {
   `
 
   return (
-    <Layout title='Home' position='absolute'>
+    <Layout title='Home' position='absolute' color='white'>
       <SEO title='Home' />
       <Hero>
         <Circle />
