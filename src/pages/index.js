@@ -9,16 +9,14 @@ import PostCard from '../components/post-card'
 import heroImg from '../images/zach-lezniewicz-o8cMgOUB-Z0-unsplash.jpg'
 import '../stylesheets/globals.scss'
 
-// TODO: rework grid
-// TODO: scss in styled components
-// TODO: adjust grid dependng on article count
+// TODO: adjust grid depending on article count
 
 const styles = {
-  circleWidth: '420px',
+  circleWidth: '800px',
 }
 
 const Hero = styled.div `
-  height: 80vh;
+  height: 100vh;
   background: #111 url(${heroImg}) no-repeat center/cover;
   display: flex;
   justify-content: center;
@@ -31,21 +29,16 @@ const Hero = styled.div `
 
 const HeroContainer = styled.div `
   text-align: center;
-  mix-blend-mode: difference;
   position: relative;
   user-select: none;
   
   h1 {
-    font-size: 4rem;
+    mix-blend-mode: difference;
+    font-size: 6rem;
     letter-spacing: 6px;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     position: relative;
-  }
-
-  small {
-    font-weight: 600;
-    text-transform: uppercase;
   }
 
   h4 {
@@ -67,20 +60,20 @@ const spin = keyframes `
 const Circle = styled.div `
   border-style: dashed solid dashed solid;
   border-width: 2px;
-  width: ${styles.circleWidth};
-  height: ${styles.circleWidth};
+  width: ${props => props.width};
+  height: ${props => props.width};
   position: absolute;
   border-radius: 50%;
   mix-blend-mode: overlay;
-  background: rgba(0, 0, 0, .3);
-  animation: ${spin} 80s linear forwards infinite;
+  background: rgba(0, 0, 0, .2);
+  animation: ${spin} ${props => props.duration} linear ${props => props.direction} infinite;
 `
 
 const IndexPage = ({ data }) => {
 
   const BlogWrapper = styled.div `
     max-width: 1000px;
-    margin: -50px auto 2rem auto;
+    margin: 2rem auto 2rem auto;
     display: grid;
     grid-template-columns: ${data.allMarkdownRemark.totalCount % 3 === 0 ? `repeat(3, 1fr)` : `repeat(2, 1fr)`};
     gap: 2rem;
@@ -90,11 +83,10 @@ const IndexPage = ({ data }) => {
     <Layout title='Home' position='absolute' color='white'>
       <SEO title='Home' />
       <Hero>
-        <Circle />
+        <Circle width='800px' duration='100s' direction='forwards' />
         <HeroContainer>
           <h1>{data.site.siteMetadata.title}</h1>
-          <small>A Blog By</small>
-          <h4>{data.site.siteMetadata.author}</h4>
+          <h4>{data.site.siteMetadata.description}</h4>
         </HeroContainer>
       </Hero>
       <BlogWrapper>

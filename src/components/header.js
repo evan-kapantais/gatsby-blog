@@ -17,7 +17,7 @@ const Header = (props) => {
     top: 0;
     right: 0;
     left: 0;
-    margin-bottom: 4rem;
+    /* margin-bottom: 4rem; */
 
     h1 {
       margin: 0;
@@ -36,7 +36,7 @@ const Header = (props) => {
         <h1>
           You're 
           {
-            props.title === 'Home' ? ' Home' : props.title === 'About' ? ' at my Bio' : ' Reading An Article'
+            props.title === 'Home' ? ' Home' : props.title === 'About' ? ' at my Bio' : props.title === 'Blog' ? ' at my Blog' : ' Reading An Article'
           }
         </h1>
         <nav>
