@@ -14,20 +14,30 @@ const Header = styled.header `
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 8rem;
   }
 
   small {font-size: 1rem;}
+
+  nav {
+    font-weight: 600;
+    a {margin: 0 1rem;}
+  }
 `
 
 
 const blogPage = () => {
   return (
-    <Layout position='relative' color='#333'>
+    <Layout position='relative' color='#333' header='none'>
       <Header>
-        <h1>The Morning Herald</h1>
-        <small>Select Articles By</small>
-        <h2>Evan Kapantais</h2>
+        <h1>The Morning Digest</h1>
+        {/* <small>Select Articles By</small>
+        <h2>Evan Kapantais</h2> */}
+        <nav>
+          <Link to='/'>HOME</Link>
+          <Link to='/about'>ABOUT</Link>
+          <Link to='/blog'>BLOG</Link>
+        </nav>
       </Header>
     </Layout>
   );

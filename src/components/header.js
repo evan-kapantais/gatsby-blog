@@ -11,7 +11,7 @@ const Header = (props) => {
     padding: 2rem 4rem;
     color: ${props.color};
     position: ${props.position};
-    display: flex;
+    display: ${props.header === 'none' ? 'none' : 'flex'};
     justify-content: space-between;
     align-items: center;
     top: 0;
