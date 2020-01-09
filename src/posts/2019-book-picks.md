@@ -1,5 +1,6 @@
 ---
 title: 2019 Book Picks
+subtitle: A full list of the books I read during 2019, along with a short review of my favourite ones among them.
 author: Evan Kapantais
 date: '2020-01-08'
 featuredImage: ./images/sharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg

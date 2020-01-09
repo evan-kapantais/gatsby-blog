@@ -14,7 +14,6 @@ const PostContainer = styled.div `
     margin: -10rem auto 2rem auto;
     line-height: 2rem;
     font-size: 1.1rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     background: #f2f2f2;
     padding: 2.5rem;
     border-radius: 5px;
@@ -43,11 +42,10 @@ const PostHeader = styled.div `
   }
 
   h6 {
-    color: grey;
     text-transform: uppercase;
     color: rgb(3, 159, 255);
     display: inline-block;
-    margin-right: 10px
+    margin-right: 10px;
   }
 `
 
