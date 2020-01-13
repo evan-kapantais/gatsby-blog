@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
@@ -8,13 +8,13 @@ import PostCard from '../components/post-card'
 
 import '../stylesheets/globals.scss'
 
-const IndexPage = ({ data }) => {
+const BlogWrapper = styled.div `
+  max-width: 800px;
+  margin: 2rem auto 2rem auto;
+  gap: 2rem;
+`
 
-  const BlogWrapper = styled.div `
-    max-width: 800px;
-    margin: 2rem auto 2rem auto;
-    gap: 2rem;
-  `
+const IndexPage = ({ data }) => {
 
   return (
     <Layout>
@@ -30,7 +30,6 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
-
 
 export const postsQuery = graphql`
 {

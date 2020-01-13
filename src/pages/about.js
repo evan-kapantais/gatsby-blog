@@ -23,11 +23,11 @@ const ImageWrapper = styled.div `
   margin-bottom: 3rem;
   position: relative;
 
-    img {
-      margin: 0;
-      max-width: 150px;
-      border-radius: 50%;
-    }
+  img {
+    margin: 0;
+    max-width: 150px;
+    border-radius: 50%;
+  }
 `
 
 const Social = styled.div `
@@ -80,11 +80,11 @@ const aboutPage = () => {
           />
           <img src={require('../images/portrait.jpg')} alt='portrait' />
         </ImageWrapper>
-        <p>Hey stranger, thanks for dropping by! I am Evan, a frontend developer from sunny Athens, Greece. Professionally, I am trained in the dark arts of sound design and am currently working for a video game company in Barcelona called <a>Social Point</a>. My coding journey (seriously) began at the beginning of 2019, when I dove head-first into web development. I have been coding pretty much every day since then, while at my day-job I work mostly with C#, handling the audio of the company's games and marketing campaigns.</p>
+        <p>Hey stranger, thanks for dropping by! I am Evan, a frontend developer from sunny Athens, Greece. Professionally, I am trained in the dark arts of sound design and am currently working for a video game company in Barcelona called <a href='https://www.socialpoint.es/' alt='Social Point Webpage'>Social Point</a>. My coding journey (seriously) began at the beginning of 2019, when I dove head-first into web development. I have been coding pretty much every day since then, while at my day-job I work mostly with C#, handling the audio of the company's games and marketing campaigns.</p>
         <Social>
-          <a href="https://twitter.com/evankapantais"><img src={require('../images/twitter.png')} alt=""/></a>
-          <a href="https://www.instagram.com/evan_kapantais/"><img src={require('../images/instagram.png')} alt=""/></a>
-          <a href="https://github.com/evan-kapantais"><img src={require('../images/github.png')} alt=""/></a>
+          <a href="https://twitter.com/evankapantais"><img src={require('../images/twitter.png')} alt=''/></a>
+          <a href="https://www.instagram.com/evan_kapantais/"><img src={require('../images/instagram.png')} alt=''/></a>
+          <a href="https://github.com/evan-kapantais"><img src={require('../images/github.png')} alt=''/></a>
         </Social>
       </Container>
     </Layout>

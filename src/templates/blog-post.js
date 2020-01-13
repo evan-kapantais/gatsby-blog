@@ -1,17 +1,49 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import Layout from '../components/layout'
-import PostCard from '../components/post-card'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+import Layout from '../components/layout'
+import SmallPost from '../components/small-post'
+
+const PostHeader = styled.div `
+  max-width: 850px;
+  margin: 6rem auto 4rem auto;
+  text-align: center;
+
+  h5 {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin: 1rem auto;
+  }
+
+  h6 {
+    text-transform: uppercase;
+    color: rgb(3, 159, 255);
+    display: inline-block;
+    margin: 0;
+    margin-right: 10px;
+
+    &:last-child { margin: 0; }
+  }
+`
+
+const FeatureImageWrapper = styled.div `
+  max-width: 1200px;
+  margin: 0 auto;
+`
 
 const PostContainer = styled.div `
   max-width: 850px;
-  margin: 3rem auto;
+  margin: -10rem auto 4rem auto;
   
   article {
-    margin: -10rem auto 2rem auto;
     line-height: 2rem;
     font-size: 1.1rem;
     background: #fff;
@@ -44,39 +76,60 @@ const PostContainer = styled.div `
       margin: 2rem auto;
     }
   }
-
 `
 
-const PostHeader = styled.div `
-  margin: 4rem 0 2rem 0;
-  text-align: center;
-
-  h5 {
-    color: rgb(3, 159, 255);
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  h6 {
-    text-transform: uppercase;
-    color: rgb(3, 159, 255);
-    display: inline-block;
-    margin-right: 10px;
+const MorePosts = styled.div`
+  h3 {
+    margin-bottom: 2rem;
   }
 `
 
-const FeatureImageWrapper = styled.div `
-  max-width: 1200px;
-  margin: 0 auto;
+const MorePostsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 `
 
-export const query = graphql`
+  const blogPost = ({ data }) => {
+
+    const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
+    const { title, date, tags } = data.markdownRemark.frontmatter;
+
+    console.log(title);
+
+    return (
+      <Layout>
+        <PostHeader>
+          <h5>{date}</h5>
+          <h1>{title}</h1>
+          {tags.map(tag => (
+            <h6>#{tag}</h6>
+          ))}
+        </PostHeader>
+        <FeatureImageWrapper>
+          <Img style={{zIndex: -2,}}fluid={featuredImage} />
+        </FeatureImageWrapper>
+        <PostContainer>
+          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+          <hr />
+          <MorePosts>
+            <h3 to='/'>Here, read some more.</h3>
+            <MorePostsWrapper>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <SmallPost node={ node }/>
+              ))}
+            </MorePostsWrapper>
+          </MorePosts>
+        </PostContainer>
+      </Layout>
+    );
+  }
+
+  export const query = graphql`
   query ($slug: String!) {
     markdownRemark (fields: { slug: { eq: $slug } }) {
+      html
+      timeToRead
       frontmatter {
         title
         author
@@ -90,8 +143,6 @@ export const query = graphql`
           }
         }
       }
-      html
-      timeToRead
     }
     allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {ne: $slug}}}) {
       edges {
@@ -119,38 +170,5 @@ export const query = graphql`
     }
   }
 `
-
-  const blogPost = ({ data }) => {
-
-    const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-    const { title, date, tags } = data.markdownRemark.frontmatter;
-
-    console.log(title);
-
-    return (
-      <Layout>
-        <PostHeader>
-          <h5>{date} / {data.markdownRemark.timeToRead} MIN READ</h5>
-          <h1>{title}</h1>
-          {tags.map(tag => (
-            <h6>#{tag}</h6>
-          ))}
-        </PostHeader>
-        <FeatureImageWrapper>
-          <Img style={{zIndex: -2,}}fluid={featuredImage} />
-        </FeatureImageWrapper>
-        <PostContainer>
-          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-          <hr />
-          <Link to='/'>More Posts</Link>
-          <div>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <Link to={`/blog/${node.fields.slug}`}>{node.frontmatter.title}</Link>
-            ))}
-          </div>
-        </PostContainer>
-      </Layout>
-    );
-  }
 
 export default blogPost;
