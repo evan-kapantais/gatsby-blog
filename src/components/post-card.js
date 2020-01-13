@@ -4,59 +4,45 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const Card = styled.article `
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  transition: transform 300ms ease;
-  background: #fff;
-  min-height: 300px;
+  margin: 6rem 0;
+  padding: 1rem;
+`
 
-  &:hover {
-    transform: translateY(-5px);
+const CardHeader = styled.div `
+  h2 { text-align: center; font-size: 2rem; }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    * {
+      margin: 0;
+    }
   }
+`
+
+const CardContent = styled.div`
+  p { line-height: 1.75; }
 `
 
 const ImageWrapper = styled.div `
-  flex: 2;
-`
-
-const CardContent = styled.div `
-  padding: 1rem;
-  min-height: 280px;
-  position: relative;
-  flex: 1;
-
-  h1 {
-    font-size: 1.2rem;
-    }
-
-  p {
-    font-size: .95rem;
-    line-height: 1.4rem;
-  }
-` 
-
-const Tag = styled.h5 `
-  display: inline-block;
-  margin-right: 10px;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin-bottom: 1rem;
-  color: rgb(3, 159, 255);
+  margin: 1rem 0;
 `
 
 const CardFooter = styled.div `
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  align-items: center;
 
-  h5 {
-    margin: 0;
-    font-size: .7rem;
-    color: #555;
+  * { margin: 0; }
+
+  h6 { text-transform: uppercase; }
+
+  a {
+    background: lightskyblue;
+    padding: .5rem;
+    border-radius: 3px;
   }
 `
 
@@ -68,28 +54,26 @@ const PostCard = ({ node }) => {
   const { slug } = node.fields;
 
   return (
-    <Link to={`/blog/${slug}`}>
       <Card>
-        <ImageWrapper>
-          <Img fluid={featuredImage} />
-        </ImageWrapper>
-        <CardContent>
-          <div>
-            {tags.map(tag => (
-              <Tag>#{tag}</Tag>
-            ))}
-            <h1>{title}</h1>
-          </div>
-          <div>
+        <Link to={`/blog/${slug}`}>
+          <CardHeader>
+            <h2>{title}</h2>
+            <div>
+              <h6>{date}</h6>
+              <h6>{timeToRead} MINUTE READ</h6>
+            </div>
+          </CardHeader>
+          <ImageWrapper>
+            <Img fluid={featuredImage} />
+          </ImageWrapper>
+          <CardContent>
             <p>{excerpt}</p>
-          </div>
-          <CardFooter>
-            <h5>{date}</h5>
-            <h5>{timeToRead} MIN READ</h5>
-          </CardFooter>
-        </CardContent>
+          </CardContent>
+        </Link>
+        <CardFooter>
+          {tags.map(tag => <h6>#{tag}</h6>)}
+        </CardFooter>
       </Card>
-    </Link>
   );
 }
 

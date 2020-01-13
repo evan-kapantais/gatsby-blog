@@ -15,7 +15,7 @@ const PostContainer = styled.div `
     line-height: 2rem;
     font-size: 1.1rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: #f2f2f2;
+    background: #fff;
     padding: 2.5rem;
     border-radius: 5px;
 

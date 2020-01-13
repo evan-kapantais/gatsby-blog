@@ -1,23 +1,18 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-// TODO: !!!IMPORTANT!!! fix blog post header
-
-const Header = (props) => {
+const Header = () => {
   
   const StyledHeader = styled.header `
-    padding: 2rem 4rem;
-    color: ${props.color};
-    position: ${props.position};
-    display: ${props.header === 'none' ? 'none' : 'flex'};
+    padding: 1.5rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    top: 0;
-    right: 0;
-    left: 0;
-    /* margin-bottom: 4rem; */
+    border-bottom: 1px solid lightgrey;
 
     h1 {
       margin: 0;
@@ -25,26 +20,41 @@ const Header = (props) => {
       user-select: none;
     }
 
-    a {
-      margin-left: 1.5rem;
+    p { margin: 0; }
+
+    nav {
       font-size: 0.8rem;
+
+      a:first-child { margin-right: 1.5rem; }
     }
   `
 
   return (
-      <StyledHeader>
-        <h1>
-          You're 
-          {
-            props.title === 'Home' ? ' Home' : props.title === 'About' ? ' at my Bio' : props.title === 'Blog' ? ' at my Blog' : ' Reading An Article'
+    <StaticQuery
+      query={graphql`
+        query HeadingQuery {
+          site {
+            siteMetadata {
+              title
+              description
+              author
+            }
           }
-        </h1>
-        <nav>
-          <Link to='/'>HOME</Link>
-          <Link to='/about'>ABOUT</Link>
-          <Link to='/blog'>BLOG</Link>
-        </nav>
-      </StyledHeader>
+        }
+      `}
+      render={data => (
+        <StyledHeader>
+          <Link to='/'>
+            <h1>{data.site.siteMetadata.title.toUpperCase()}</h1>
+            <small>{data.site.siteMetadata.description}</small>
+          </Link>
+          <nav>
+            <Link to='/blog'>BLOG</Link>
+            <Link to='/about'>ABOUT</Link>
+          </nav>
+        </StyledHeader>
+      )}
+    />
   );
 }
 

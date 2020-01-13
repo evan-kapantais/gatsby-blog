@@ -6,92 +6,25 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 
-import heroImg from '../images/zach-lezniewicz-o8cMgOUB-Z0-unsplash.jpg'
 import '../stylesheets/globals.scss'
-
-// TODO: adjust grid depending on article count
-
-const styles = {
-  circleWidth: '800px',
-}
-
-const Hero = styled.div `
-  height: 100vh;
-  background: #111 url(${heroImg}) no-repeat center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  box-shadow: inset 0 10px 100px 100px rgba(0, 0, 0, .2);
-  
-  * {margin: 0;}
-  `
-
-const HeroContainer = styled.div `
-  text-align: center;
-  position: relative;
-  user-select: none;
-  
-  h1 {
-    mix-blend-mode: difference;
-    font-size: 6rem;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    position: relative;
-  }
-
-  h4 {
-    font-size: 2rem;
-    font-weight: 200;
-    letter-spacing: 4px;
-  }
-`
-
-const spin = keyframes `
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`
-
-const Circle = styled.div `
-  border-style: dashed solid dashed solid;
-  border-width: 2px;
-  width: ${props => props.width};
-  height: ${props => props.width};
-  position: absolute;
-  border-radius: 50%;
-  mix-blend-mode: overlay;
-  background: rgba(0, 0, 0, .2);
-  animation: ${spin} ${props => props.duration} linear ${props => props.direction} infinite;
-`
 
 const IndexPage = ({ data }) => {
 
   const BlogWrapper = styled.div `
-    max-width: 1000px;
+    max-width: 800px;
     margin: 2rem auto 2rem auto;
-    display: grid;
-    grid-template-columns: ${data.allMarkdownRemark.totalCount % 3 === 0 ? `repeat(3, 1fr)` : `repeat(2, 1fr)`};
     gap: 2rem;
   `
 
   return (
     <Layout title='Home' position='absolute' color='white'>
       <SEO title='Home' />
-      <Hero>
-        <Circle width='800px' duration='100s' direction='forwards' />
-        <HeroContainer>
-          <h1>{data.site.siteMetadata.title}</h1>
-          <h4>{data.site.siteMetadata.description}</h4>
-        </HeroContainer>
-      </Hero>
       <BlogWrapper>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <PostCard node={node} />
+          <>
+            <PostCard node={node} />
+            <hr />
+          </>
         ))}
       </BlogWrapper>
     </Layout>
@@ -112,7 +45,7 @@ export const postsQuery = graphql`
     totalCount
     edges {
       node {
-        excerpt
+        excerpt (pruneLength: 600)
         timeToRead
         fields {
           slug
@@ -124,7 +57,7 @@ export const postsQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid (maxWidth: 800, maxHeight: 500) {
+              fluid (maxWidth: 1000, maxHeight: 400) {
                 ...GatsbyImageSharpFluid
               }
             }
