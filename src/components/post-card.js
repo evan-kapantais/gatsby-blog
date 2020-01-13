@@ -4,12 +4,16 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const Card = styled.article `
-  margin: 6rem 0;
+  margin: 4rem 0;
   padding: 1rem;
 `
 
 const CardHeader = styled.div `
-  h2 { text-align: center; font-size: 2rem; }
+  h2 { 
+    text-align: center;
+    font-size: 2rem; 
+    margin-bottom: 2rem;
+  }
 
   div {
     display: flex;
@@ -27,23 +31,25 @@ const CardContent = styled.div`
 `
 
 const ImageWrapper = styled.div `
-  margin: 1rem 0;
+  margin: 1rem 0 2rem 0;
 `
 
 const CardFooter = styled.div `
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   * { margin: 0; }
 
-  h6 { text-transform: uppercase; }
+  a{ 
+    font-size: .8rem;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(3, 159, 255);
+    text-transform: uppercase;
+    margin-right: .5rem;
 
-  a {
-    background: lightskyblue;
-    padding: .5rem;
-    border-radius: 3px;
-  }
+    &:last-child { margin: 0; }
+   }
 `
 
 const PostCard = ({ node }) => {
@@ -71,7 +77,9 @@ const PostCard = ({ node }) => {
           </CardContent>
         </Link>
         <CardFooter>
-          {tags.map(tag => <h6>#{tag}</h6>)}
+          {tags.map(tag => (
+          <Link to='/'>#{tag} </Link>
+          ))}
         </CardFooter>
       </Card>
   );

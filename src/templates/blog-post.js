@@ -14,10 +14,28 @@ const PostContainer = styled.div `
     margin: -10rem auto 2rem auto;
     line-height: 2rem;
     font-size: 1.1rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     background: #fff;
     padding: 2.5rem;
     border-radius: 5px;
+    font-family: inherit;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    h4 {
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
 
     blockquote {
       border-left: 5px solid #333;
@@ -26,10 +44,11 @@ const PostContainer = styled.div `
       margin: 2rem auto;
     }
   }
+
 `
 
 const PostHeader = styled.div `
-  margin-bottom: 2rem;
+  margin: 4rem 0 2rem 0;
   text-align: center;
 
   h5 {
@@ -52,7 +71,7 @@ const PostHeader = styled.div `
 `
 
 const FeatureImageWrapper = styled.div `
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 `
 
@@ -110,7 +129,7 @@ export const query = graphql`
     console.log(title);
 
     return (
-      <Layout position='relative' title={title} color='#333'>
+      <Layout>
         <PostHeader>
           <h5>{date} / {data.markdownRemark.timeToRead} MIN READ</h5>
           <h1>{title}</h1>

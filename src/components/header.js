@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Header = () => {
   
   const StyledHeader = styled.header `
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -49,7 +49,7 @@ const Header = () => {
             <small>{data.site.siteMetadata.description}</small>
           </Link>
           <nav>
-            <Link to='/blog'>BLOG</Link>
+            <Link to='/'>BLOG</Link>
             <Link to='/about'>ABOUT</Link>
           </nav>
         </StyledHeader>
