@@ -6,12 +6,11 @@ import Circle from '../components/circle'
 
 const Container = styled.div `
   max-width: 500px;
-  margin: 4rem auto;
+  margin: 8rem auto;
   text-align: center;
   
   p {
     line-height: 1.75rem;
-    background: #f2f2f2;
     z-index: 2;
     margin: 0;
   }
@@ -28,7 +27,6 @@ const ImageWrapper = styled.div `
       margin: 0;
       max-width: 150px;
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 `
 
@@ -53,7 +51,7 @@ const Social = styled.div `
       width: 100%;
       background: #333;
       opacity: 0;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
       transition: all 400ms ease;
     }
 
