@@ -8,6 +8,8 @@ import PostCard from '../components/post-card'
 
 import '../stylesheets/globals.scss'
 
+// TODO: configure tag pages in gatsby-node
+
 const BlogWrapper = styled.div `
   max-width: 800px;
   margin: 2rem auto 2rem auto;

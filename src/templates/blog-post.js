@@ -90,78 +90,78 @@ const MorePostsWrapper = styled.div`
   gap: 2rem;
 `
 
-  const blogPost = ({ data }) => {
+const blogPost = ({ data }) => {
 
-    const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-    const { title, date, tags } = data.markdownRemark.frontmatter;
+  const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
+  const { title, date, tags } = data.markdownRemark.frontmatter;
 
-    console.log(title);
+  return (
+    <Layout>
+      <PostHeader>
+        <h5>{date}</h5>
+        <h1>{title}</h1>
+        {tags.map(tag => (
+          <h6>#{tag}</h6>
+        ))}
+      </PostHeader>
+      <FeatureImageWrapper>
+        <Img style={{zIndex: -2,}}fluid={featuredImage} />
+      </FeatureImageWrapper>
+      <PostContainer>
+        <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+        <hr />
+        <MorePosts>
+          <h3 to='/'>Here, read some more.</h3>
+          <MorePostsWrapper>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <SmallPost node={ node }/>
+            ))}
+          </MorePostsWrapper>
+        </MorePosts>
+      </PostContainer>
+    </Layout>
+  );
+}
 
-    return (
-      <Layout>
-        <PostHeader>
-          <h5>{date}</h5>
-          <h1>{title}</h1>
-          {tags.map(tag => (
-            <h6>#{tag}</h6>
-          ))}
-        </PostHeader>
-        <FeatureImageWrapper>
-          <Img style={{zIndex: -2,}}fluid={featuredImage} />
-        </FeatureImageWrapper>
-        <PostContainer>
-          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-          <hr />
-          <MorePosts>
-            <h3 to='/'>Here, read some more.</h3>
-            <MorePostsWrapper>
-              {data.allMarkdownRemark.edges.map(({ node }) => (
-                <SmallPost node={ node }/>
-              ))}
-            </MorePostsWrapper>
-          </MorePosts>
-        </PostContainer>
-      </Layout>
-    );
-  }
-
-  export const query = graphql`
-  query ($slug: String!) {
-    markdownRemark (fields: { slug: { eq: $slug } }) {
-      html
-      timeToRead
-      frontmatter {
-        title
-        author
-        date (formatString: "DD MMMM YYYY")
-        tags
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 1200, maxHeight: 600) {
-              ...GatsbyImageSharpFluid
-            }
+export const query = graphql`
+query ($slug: String!) {
+  markdownRemark (fields: { slug: { eq: $slug } }) {
+    html
+    timeToRead
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      author
+      date (formatString: "DD MMMM YYYY")
+      tags
+      featuredImage {
+        childImageSharp {
+          fluid(maxWidth: 1200, maxHeight: 600) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
-    allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {ne: $slug}}}) {
-      edges {
-        node {
-          html
-          excerpt
-          timeToRead
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date (formatString: "DD-MM-YYYY")
-            tags
-            featuredImage {
-              childImageSharp {
-                fluid (maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
+  }
+  allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {ne: $slug}}}) {
+    edges {
+      node {
+        html
+        excerpt
+        timeToRead
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date (formatString: "DD-MM-YYYY")
+          tags
+          featuredImage {
+            childImageSharp {
+              fluid (maxWidth: 300) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -169,6 +169,7 @@ const MorePostsWrapper = styled.div`
       }
     }
   }
+}
 `
 
 export default blogPost;
