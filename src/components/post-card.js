@@ -10,6 +10,8 @@ const Card = styled.article `
 
 const CardHeader = styled.div `
   h2 { 
+    width: 60%;
+    margin: 0 auto;
     text-align: center;
     font-size: 2rem; 
     margin-bottom: 2rem;

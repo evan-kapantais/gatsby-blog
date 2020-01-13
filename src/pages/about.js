@@ -6,7 +6,7 @@ import Circle from '../components/circle'
 
 const Container = styled.div `
   max-width: 500px;
-  margin: 4rem auto;
+  margin: 8rem auto;
   text-align: center;
   
   p {
