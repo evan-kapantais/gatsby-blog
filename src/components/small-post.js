@@ -9,7 +9,7 @@ const Card = styled.div`
   min-height: 550px;
   position: relative;
 
-  &:hover { transform: translateY(-0.5rem); }
+  &:hover { transform: translateY(-5px); }
 
   * {
     margin: 0;

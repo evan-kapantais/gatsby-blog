@@ -67,50 +67,30 @@ I am not very big on novels, but I knew that Huxley's 1931 classic is a staple o
 
 ## Notable Mentions
 
-### Love, Poverty & War
-
-*Christopher Hitchens*
-
-### The Road To Wigan Pier
-
-*George Orwell*
-
-### Lying
-
-*Sam Harris*
-
-### The Other America
-
-*Michael Harrington*
-
-### Letter To A Christian Nation
-
-*Sam Harris*
-
-### Letters To A Young Contrarian
-
-*Christopher Hitchens*
-
-### A History Of The Middle East
-
-*Peter Mansfield*
+- Love, Poverty & War by *Christopher Hitchens*
+- The Road To Wigan Pier *George Orwell*
+- Lying by *Sam Harris*
+- The Other America by *Michael Harrington*
+- Letter To A Christian Nation by *Sam Harris*
+- Letters To A Young Contrarian by *Christopher Hitchens*
+- A History Of The Middle East by *Peter Mansfield*
 
 ## Also Read This Year
 
-***Note*:** *None of the books listed below are bad or sub-par. Each and every one bears valuable lessons and information and should not be disregarded as not worth the read. Depending on your interests, though, dear reader, you will find that some of them are of greater value to you than others. They cover a wide spectrum of topics that I found myself interested in and I would recommend each one to you as such. Most of them have received critical acclaim and this is partly the reason I chose to read them among others of similar thematology.*
+***Note:*** *None of the books listed below are bad or sub-par. Each and every one bears valuable lessons and information and should not be disregarded as not worth the read. Depending on your interests, though, dear reader, you will find that some of them are of greater value to you than others. They cover a wide spectrum of topics that I found myself interested in and I would recommend each one to you as such. Most of them have received critical acclaim and this is partly the reason I chose to read them among others of similar thematology.*
 
-- The Subtle Art Of Not Giving A Fuck - Mark Manson
-- The 4-Hour Work Week - Tim Ferriss
-- Tap Dancing To Work: Warren Buffett On Practically Everything, 1966 - 2013 - Carol Loomis
-- Rich Dad, Poor Dad - Robert T. Kiyosaki
-- Welcome To The Poisoned Chalice: The Destruction Of Greece And The Future Of Europe - James Kenneth Galbraith
-- Notes On A Nervous Planet - Matt Haig
-- So Good They Can't Ignore You - Cal Newport
-- The Power Of Habit: Why We Do What We Do And How To Change - Charles Duhigg
-- Talking To My Daughter: A Brief History Of Capitalism - Yanis Varoufakis
-- The Heretics - Will Storr
-- A Universe From Nothing - Lawrence M. Krauss
-- On Palestine - Noam Chomsky & Ilan Pappe
-- The Six Day War - Randolph S. Churchill, Winston S. Churchil
-- No One Left To Lie To - Christopher Hitchens
-- Money - Rob Moore
+- The Subtle Art Of Not Giving A Fuck by *Mark Manson*
+- The 4-Hour Work Week by *Tim Ferriss*
+- Tap Dancing To Work: Warren Buffett On Practically Everything, 1966 - 2013 by *Carol Loomis*
+- Rich Dad, Poor Dad - *Robert T. Kiyosaki*
+- Welcome To The Poisoned Chalice: The Destruction Of Greece And The Future Of Europe by *James Kenneth Galbraith*
+- Notes On A Nervous Planet by *Matt Haig*
+- So Good They Can't Ignore You by *Cal Newport*
+- The Power Of Habit: Why We Do What We Do And How To Change by *Charles Duhigg*
+- Talking To My Daughter: A Brief History Of Capitalism by *Yanis Varoufakis*
+- The Heretics by *Will Storr*
+- A Universe From Nothing by *Lawrence M. Krauss*
+- On Palestine by *Noam Chomsky & Ilan Pappe*
+- The Six Day War by *Randolph S. Churchill, Winston S. Churchil*
+- No One Left To Lie To by *Christopher Hitchens*
+- Money by *Rob Moore*

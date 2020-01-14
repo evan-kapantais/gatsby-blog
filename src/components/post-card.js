@@ -9,22 +9,27 @@ const Card = styled.article `
 `
 
 const CardHeader = styled.div `
-  h2 { 
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 2rem; 
-    margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-end;
+
+  * {
+    margin: 0;
   }
 
-  div {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  div { 
+    flex: 6;
 
-    * {
-      margin: 0;
+    h2 {
+      font-size: 2rem; 
     }
+  }
+
+  h4 {
+    flex: 3;
+    color: #666;
+    text-align: right;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
   }
 `
 
@@ -33,30 +38,43 @@ const CardContent = styled.div`
 `
 
 const ImageWrapper = styled.div `
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  perspective: 300px;
+  transition: all 300ms ease;
+
+  &:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+
+  }
 `
 
 const CardFooter = styled.div `
   display: flex;
+  justify-content: space-between;
   align-items: center;
 
   * { margin: 0; }
 
-  a{ 
+  a { 
     font-size: .8rem;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
     color: rgb(3, 159, 255);
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-right: .5rem;
 
-    &:last-child { margin: 0; }
+    &:last-child { margin-right: 0; }
+
+    &:hover { text-decoration: underline; }
    }
+
+   h6 { color: #666; }
 `
 
 const PostCard = ({ node }) => {
 
-  const { title, date, tags } = node.frontmatter;
+  const { title, subtitle, date, tags } = node.frontmatter;
   const { excerpt, timeToRead } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
@@ -65,11 +83,11 @@ const PostCard = ({ node }) => {
       <Card>
         <Link to={`/blog/${slug}`}>
           <CardHeader>
-            <h2>{title}</h2>
             <div>
-              <h6>{date}</h6>
-              <h6>{timeToRead} MINUTE READ</h6>
+              <h2>{title}</h2>
+              {/* <small>{subtitle}</small> */}
             </div>
+            <h4>{date}</h4>
           </CardHeader>
           <ImageWrapper>
             <Img fluid={featuredImage} />
@@ -79,9 +97,12 @@ const PostCard = ({ node }) => {
           </CardContent>
         </Link>
         <CardFooter>
-          {tags.map(tag => (
-          <Link to='/'>#{tag} </Link>
-          ))}
+          <div>
+            {tags.map(tag => (
+            <Link to='/'>#{tag} </Link>
+            ))}
+          </div>
+            <h6>{timeToRead} Minute Read</h6>
         </CardFooter>
       </Card>
   );

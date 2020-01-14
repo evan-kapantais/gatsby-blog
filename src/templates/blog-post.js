@@ -1,10 +1,14 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
+
+// TODO: remove top margin from article on small screens
+// TODO: configure a newsletter
+// TODO: responsive more posts grid
 
 const PostHeader = styled.div `
   max-width: 850px;
@@ -51,13 +55,15 @@ const PostContainer = styled.div `
     border-radius: 5px;
     font-family: inherit;
 
-    p {
-      margin-bottom: 1rem;
+    a {
+      color: rgb(3, 159, 255);
+
+      &:hover { text-decoration: underline; }
     }
 
-    h2 {
-      font-size: 2rem;
-    }
+    p {margin-bottom: 1rem;}
+
+    h2 {font-size: 2rem;}
 
     h3 {
       margin-bottom: 1rem;
@@ -79,15 +85,17 @@ const PostContainer = styled.div `
 `
 
 const MorePosts = styled.div`
-  h3 {
-    margin-bottom: 2rem;
-  }
+  h3 {margin-bottom: 2rem;}
 `
 
 const MorePostsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+`
+
+const Newsletter = styled.div`
+  
 `
 
 const blogPost = ({ data }) => {
@@ -110,6 +118,9 @@ const blogPost = ({ data }) => {
       <PostContainer>
         <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
         <hr />
+        <Newsletter>
+
+        </Newsletter>
         <MorePosts>
           <h3 to='/'>Here, read some more.</h3>
           <MorePostsWrapper>
