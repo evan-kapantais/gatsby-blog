@@ -4,6 +4,7 @@ import Seo from '../components/seo'
 import styled, { keyframes } from 'styled-components'
 
 // TODO: rework the header with 2 headings and a div instead
+// TODO: responsive
 
 const Container = styled.div `
   max-width: 1000px;
