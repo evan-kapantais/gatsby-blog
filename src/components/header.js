@@ -24,10 +24,6 @@ const StyledHeader = styled.header `
     }
   }
 
-  small {
-    font-size: 1rem;
-  }
-
   p { margin: 0; }
 
   nav {
@@ -46,7 +42,7 @@ const StyledHeader = styled.header `
         position: absolute;
         bottom: -5px;
         left: 0;
-        height: 2px;
+        height: 1px;
         width: 100%;
         background: #333;
         opacity: 0;

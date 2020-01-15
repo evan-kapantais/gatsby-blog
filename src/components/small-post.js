@@ -28,7 +28,10 @@ const Card = styled.div`
     justify-content: space-between;
     color: #666;
 
-    h5:first-child { text-transform: capitalize; }
+    h5:first-child {
+      text-transform: capitalize;
+      color: rgb(3, 159, 255);
+    }
   }
 `
 
@@ -46,7 +49,6 @@ const SmallPost = ({ node }) => {
           <p>{node.excerpt}</p>
           <footer>
             <h5>{node.frontmatter.tags.length > 1 ? `#${node.frontmatter.tags[0]}, [...]` : `#${node.frontmatter.tags[0]}`}</h5>
-            {/* <h5>#{node.frontmatter.tags[0]}</h5> */}
             <h5>{node.frontmatter.date}</h5>
             <h5>{node.timeToRead} Min Read</h5>
           </footer>
