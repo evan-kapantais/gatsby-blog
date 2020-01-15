@@ -1,7 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+// TODO: rework the header with 2 headings and a div instead
 
 const Container = styled.div `
   max-width: 1000px;
@@ -18,22 +20,50 @@ const ImageWrapper = styled.div `
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   overflow: hidden;
-  filter: sepia(0.6);
 
   img {margin: 0;}
+`
+
+const title = keyframes `
+  100% {
+    top: 0;
+  }
 `
 
 const Content = styled.div `
 box-sizing: padding-box;
 padding: 0 2rem;
 
-  a {
+  h2 {
+    position: relative;
+    overflow: hidden;
+    padding: 1px 0;
     color: rgb(3, 159, 255);
+    user-select: none;
+
+    &::after {
+      content: "Hello Friend!";
+      background: white;
+      position: absolute;
+      color: #333;
+      top: 40px;
+      width: 50%;
+      left: 0;
+      padding: 1px 0;
+      animation: ${title} 10s ease 1000ms forwards;
+    }
   }
 
+  
   p {
     margin: 3rem 0;
     line-height: 2;
+    
+    a {
+      color: rgb(3, 159, 255);
+
+      &:hover {text-decoration: underline;}
+    }
   }
 `
 
