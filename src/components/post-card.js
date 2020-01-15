@@ -31,22 +31,38 @@ const CardHeader = styled.div `
     font-weight: normal;
     font-family: 'Raleway', sans-serif;
   }
+
+  @media only screen and (max-width: 590px) {
+    display: block;
+    text-align: center;
+
+    div {
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      text-align: center;
+    }
+  }
 `
 
 const CardContent = styled.div`
   p { line-height: 1.75; }
+
+  @media only screen and (max-width: 590px) {
+    text-align: justify;
+    /* display: none; */
+  }
 `
 
 const ImageWrapper = styled.div `
-  margin: 1rem 0;
+  margin: 2rem 0;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  perspective: 300px;
   transition: all 300ms ease;
 
   &:hover {
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1.01);
-
   }
 `
 

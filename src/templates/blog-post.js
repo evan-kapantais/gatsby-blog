@@ -6,9 +6,9 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 
-// TODO: remove top margin from article on small screens
 // TODO: configure a newsletter
 // TODO: responsive more posts grid
+// TODO: responsive
 
 const PostHeader = styled.div `
   max-width: 850px;
@@ -25,6 +25,10 @@ const PostHeader = styled.div `
   h1 {
     font-size: 4rem;
     margin: 1rem auto;
+
+    @media only screen and (max-width: 528px) {
+      font-size: 3.7rem;
+    }
   }
 
   h6 {
@@ -45,7 +49,11 @@ const FeatureImageWrapper = styled.div `
 
 const PostContainer = styled.div `
   max-width: 850px;
-  margin: -10rem auto 4rem auto;
+  margin: -8rem auto 4rem auto;
+
+  @media(max-width: 1000px) {
+    margin: 0 auto 4rem auto;
+  }
   
   article {
     line-height: 2rem;
@@ -54,6 +62,11 @@ const PostContainer = styled.div `
     padding: 2.5rem;
     border-radius: 5px;
     font-family: inherit;
+
+
+    @media only screen and (max-width: 700px) {
+      text-align: justify;
+    }
 
     a {
       color: rgb(3, 159, 255);
@@ -90,8 +103,13 @@ const MorePosts = styled.div`
 
 const MorePostsWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+
+  @media only screen and (max-width: 822px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 `
 
 const Newsletter = styled.div`
@@ -167,11 +185,11 @@ query ($slug: String!) {
         }
         frontmatter {
           title
-          date (formatString: "DD-MM-YYYY")
+          date (formatString: "DD.MM.YYYY")
           tags
           featuredImage {
             childImageSharp {
-              fluid (maxWidth: 300) {
+              fluid (maxWidth: 500) {
                 ...GatsbyImageSharpFluid
               }
             }

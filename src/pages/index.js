@@ -9,6 +9,7 @@ import PostCard from '../components/post-card'
 import '../stylesheets/globals.scss'
 
 // TODO: configure tag pages in gatsby-node
+// TODO: replace Markdown with MDX
 
 const BlogWrapper = styled.div `
   max-width: 800px;
@@ -46,7 +47,7 @@ export const postsQuery = graphql`
     totalCount
     edges {
       node {
-        excerpt (pruneLength: 600)
+        excerpt (pruneLength: 400)
         timeToRead
         fields {
           slug
@@ -59,7 +60,7 @@ export const postsQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid (maxWidth: 1000, maxHeight: 400) {
+              fluid (maxWidth: 1000, maxHeight: 600) {
                 ...GatsbyImageSharpFluid
               }
             }
