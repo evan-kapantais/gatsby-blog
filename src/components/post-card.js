@@ -51,7 +51,6 @@ const CardContent = styled.div`
 
   @media only screen and (max-width: 590px) {
     text-align: justify;
-    /* display: none; */
   }
 `
 
@@ -77,7 +76,6 @@ const CardFooter = styled.div `
     font-size: .8rem;
     font-weight: 600;
     color: rgb(3, 159, 255);
-    text-transform: capitalize;
     margin-right: .5rem;
 
     &:last-child { margin-right: 0; }
@@ -90,7 +88,7 @@ const CardFooter = styled.div `
 
 const PostCard = ({ node }) => {
 
-  const { title, subtitle, date, tags } = node.frontmatter;
+  const { title, date, tags } = node.frontmatter;
   const { excerpt, timeToRead } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
@@ -101,7 +99,6 @@ const PostCard = ({ node }) => {
           <CardHeader>
             <div>
               <h2>{title}</h2>
-              {/* <small>{subtitle}</small> */}
             </div>
             <h4>{date}</h4>
           </CardHeader>

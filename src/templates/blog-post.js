@@ -19,7 +19,6 @@ const PostHeader = styled.div `
     font-size: 1rem;
     color: #666;
     margin: 0;
-    text-transform: uppercase;
   }
 
   h1 {
@@ -32,7 +31,6 @@ const PostHeader = styled.div `
   }
 
   h6 {
-    text-transform: uppercase;
     color: rgb(3, 159, 255);
     display: inline-block;
     margin: 0;

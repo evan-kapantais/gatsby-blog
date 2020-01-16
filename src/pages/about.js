@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 // TODO: rework the header with 2 headings and a div instead
 // TODO: responsive
@@ -25,36 +25,9 @@ const ImageWrapper = styled.div `
   img {margin: 0;}
 `
 
-const title = keyframes `
-  100% {
-    top: 0;
-  }
-`
-
 const Content = styled.div `
 box-sizing: padding-box;
 padding: 0 2rem;
-
-  h2 {
-    position: relative;
-    overflow: hidden;
-    padding: 1px 0;
-    color: rgb(3, 159, 255);
-    user-select: none;
-
-    &::after {
-      content: "Hello Friend!";
-      background: white;
-      position: absolute;
-      color: #333;
-      top: 40px;
-      width: 50%;
-      left: 0;
-      padding: 1px 0;
-      animation: ${title} 10s ease 1000ms forwards;
-    }
-  }
-
   
   p {
     margin: 3rem 0;

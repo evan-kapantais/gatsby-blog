@@ -10,6 +10,7 @@ import '../stylesheets/globals.scss'
 
 // TODO: configure tag pages in gatsby-node
 // TODO: replace Markdown with MDX
+// TODO: try a side card version
 
 const BlogWrapper = styled.div `
   max-width: 800px;
@@ -31,7 +32,7 @@ const IndexPage = ({ data }) => {
         ))}
       </BlogWrapper>
     </Layout>
-  )
+  );
 }
 
 export const postsQuery = graphql`
