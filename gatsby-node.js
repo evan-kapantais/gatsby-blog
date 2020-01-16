@@ -1,6 +1,8 @@
 const path = require('path');
 const _ = require('lodash');
 
+// TODO: replace /blog path with /[tag-name] path 
+
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
