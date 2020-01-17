@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
@@ -30,13 +30,15 @@ const PostHeader = styled.div `
     }
   }
 
-  h6 {
+  a {
     color: rgb(3, 159, 255);
-    display: inline-block;
-    margin: 0;
+    font-weight: bold;
     margin-right: 10px;
+    text-transform: capitalize;
 
     &:last-child { margin: 0; }
+
+    &:hover {text-decoration: underline;}
   }
 `
 
@@ -125,7 +127,7 @@ const blogPost = ({ data }) => {
         <h5>{date}</h5>
         <h1>{title}</h1>
         {tags.map(tag => (
-          <h6>#{tag}</h6>
+          <Link to={`/tags/${tag}`}>#{tag}</Link>
         ))}
       </PostHeader>
       <FeatureImageWrapper>

@@ -3,7 +3,7 @@ title: The Only Conversation Worth Having
 author: Evan Kapantais
 date: '2019-12-26'
 featuredImage: ./images/hitchens-blair.jpg
-tags: ['Religion']
+tags: ['religion']
 ---
 
 A sentence that doesn't stir up any particularly arousing emotion, to be sure, but contemplated in the right context it holds enormous power and strength. It was uttered by Christopher Hitchens back in 2010, a year before his unfortunate demise, [while debating Tony Blair](https://www.youtube.com/watch?v=ZSJ5CrZ_3Pg) on the positive impact of religion upon the world. The full content of the excerpt is well worth noting here:
