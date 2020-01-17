@@ -77,6 +77,7 @@ const CardFooter = styled.div `
     font-weight: 600;
     color: rgb(3, 159, 255);
     margin-right: .5rem;
+    text-transform: capitalize;
 
     &:last-child { margin-right: 0; }
 
@@ -95,7 +96,7 @@ const PostCard = ({ node }) => {
 
   return (
       <Card>
-        <Link to={`/blog/${slug}`}>
+        <Link to={`/${slug}`}>
           <CardHeader>
             <div>
               <h2>{title}</h2>
@@ -112,7 +113,7 @@ const PostCard = ({ node }) => {
         <CardFooter>
           <div>
             {tags.map(tag => (
-            <Link to='/'>#{tag} </Link>
+            <Link to={`/tags/${tag}`}>#{tag} </Link>
             ))}
           </div>
             <h6>{timeToRead} Minute Read</h6>

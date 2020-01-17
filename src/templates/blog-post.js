@@ -31,18 +31,23 @@ const PostHeader = styled.div `
   }
 
   a {
+<<<<<<< HEAD
     font-weight: bold;
     text-transform: capitalize;
+=======
+>>>>>>> e4f19a4ff4b5f7b21112e678ea149e1c23d39b5c
     color: rgb(3, 159, 255);
-    display: inline-block;
-    margin: 0;
+    font-weight: bold;
     margin-right: 10px;
+    text-transform: capitalize;
 
     &:hover {
       text-decoration: underline;
     }
 
     &:last-child { margin: 0; }
+
+    &:hover {text-decoration: underline;}
   }
 `
 
