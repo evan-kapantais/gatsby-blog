@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+
+import Layout from '../components/layout'
+
+const Container = styled.div `
+  max-width: 800px;
+  margin: 0 auto;
+`
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
@@ -8,21 +16,23 @@ const Tags = ({ pageContext, data }) => {
   const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
 
   return (
-    <div>
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields;
-          const { title } = node.frontmatter;
-          return (
-            <li key={slug}>
-              <Link to={`/blog/${slug}`}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      <Link to="/tags">All tags</Link>
-    </div>
+    <Layout>
+      <Container>
+        <h1>#{tag}</h1>
+        <ul>
+          {edges.map(({ node }) => {
+            const { slug } = node.fields;
+            const { title } = node.frontmatter;
+            return (
+              <li key={slug}>
+                <Link to={`/blog/${slug}`}>{title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+        <Link to="/tags">All tags</Link>
+      </Container>
+    </Layout>
   )
 }
 

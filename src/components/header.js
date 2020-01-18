@@ -46,7 +46,7 @@ const StyledHeader = styled.header `
         width: 100%;
         background: #333;
         opacity: 0;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
         transition: all 300ms ease;
       }
 
