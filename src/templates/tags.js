@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+
+import Layout from '../components/layout'
+
+const Container = styled.div `
+  max-width: 800px;
+  margin: 0 auto;
+`
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -12,6 +20,7 @@ const Tags = ({ pageContext, data }) => {
 
   return (
     <Layout>
+<<<<<<< HEAD
       <h1>{tagHeader}</h1>
       <ul>
         {edges.map(({ node }) => {
@@ -27,6 +36,25 @@ const Tags = ({ pageContext, data }) => {
       <Link to="/tags">All tags</Link>
     </Layout>
   );
+=======
+      <Container>
+        <h1>#{tag}</h1>
+        <ul>
+          {edges.map(({ node }) => {
+            const { slug } = node.fields;
+            const { title } = node.frontmatter;
+            return (
+              <li key={slug}>
+                <Link to={`/blog/${slug}`}>{title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+        <Link to="/tags">All tags</Link>
+      </Container>
+    </Layout>
+  )
+>>>>>>> ebe195d5a467edeaaf410c862f47a6854bf944a2
 }
 
 Tags.propTypes = {

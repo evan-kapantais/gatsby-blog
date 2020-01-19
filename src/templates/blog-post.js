@@ -31,11 +31,6 @@ const PostHeader = styled.div `
   }
 
   a {
-<<<<<<< HEAD
-    font-weight: bold;
-    text-transform: capitalize;
-=======
->>>>>>> e4f19a4ff4b5f7b21112e678ea149e1c23d39b5c
     color: rgb(3, 159, 255);
     font-weight: bold;
     margin-right: 10px;

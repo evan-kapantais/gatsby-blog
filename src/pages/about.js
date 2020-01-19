@@ -7,10 +7,15 @@ import styled from 'styled-components'
 // TODO: responsive
 
 const Container = styled.div `
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 8rem auto;
   display: flex;
   align-items: center;
+
+  @media only screen and (max-width: 980px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 const ImageWrapper = styled.div `
@@ -23,20 +28,39 @@ const ImageWrapper = styled.div `
   overflow: hidden;
 
   img {margin: 0;}
+
+  @media only screen and (max-width: 980px) {
+    max-width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    max-width: 200px;
+    height: 200px;
+  }
 `
 
 const Content = styled.div `
 box-sizing: padding-box;
 padding: 0 2rem;
   
-  p {
+  div {
     margin: 3rem 0;
-    line-height: 2;
+    line-height: 1.75;
     
     a {
       color: rgb(3, 159, 255);
 
       &:hover {text-decoration: underline;}
+    }
+
+    @media only screen and (max-width: 980px) {
+      text-align: center;
+    }
+
+    @media only screen and (max-width: 480px) {
+      text-align: justify;
     }
   }
 `
@@ -79,6 +103,10 @@ const Social = styled.div `
       left: 0;
     }
   }
+
+  @media only screen and (max-width: 980px) {
+    justify-content: center;
+  }
 `
 
 const aboutPage = () => {
@@ -90,8 +118,12 @@ const aboutPage = () => {
           <img src={require('../images/portrait_01.jpg')} alt='portrait' />
         </ImageWrapper>
         <Content>
-          <h2>Hey Stranger!</h2>
-          <p>Thanks for dropping by! I am Evan, a frontend developer from sunny Athens, Greece. Professionally, I am trained in the dark arts of sound design and am currently working for a video game company in Barcelona called <a href='https://www.socialpoint.es/' alt='Social Point Webpage'>Social Point</a>. My coding journey (seriously) began at the beginning of 2019, when I dove head-first into web development. I have been coding pretty much every day since then, while at my day-job I work mostly with C#, handling the audio of the company's games and marketing campaigns.</p>
+          <div>
+            <h2>Hey Stranger!</h2>
+            <p>If you haven't noticed by now, this is my blog; thanks for dropping by! I'll give you a bit of info so we can become real friends. By training, I am a sound designer specializing in video games. Currently I am based in beautiful Barcelona, Spain, but my country of origin is Greece. Besides my day job, I like to code websites and apps and write stuff about topics that interest me. Here you can find posts on religion, a bit of politics, books and tech. Although this page is solely dedicated to my writing, you can also find my frontend work over at my <a href=''>other website</a> &#40;the link is broken, I know, I know&#41;.</p>
+            <p>Should you want to reach out to me, you can find me on my social media below.</p>
+            <p>Happy reading!</p>
+          </div>
           <Social>
             <a href="https://twitter.com/evankapantais"><img src={require('../images/twitter.png')} alt=''/></a>
             <a href="https://www.instagram.com/evan_kapantais/"><img src={require('../images/instagram.png')} alt=''/></a>
