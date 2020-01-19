@@ -7,6 +7,8 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import SideCard from '../components/side-card'
 
+// TODO: add an image header
+
 const Container = styled.div `
   max-width: 1200px;
   margin: 4rem auto;

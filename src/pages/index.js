@@ -11,6 +11,8 @@ import '../stylesheets/globals.scss'
 // TODO: configure tag pages in gatsby-node
 // TODO: replace Markdown with MDX
 // TODO: try a side card version
+// TODO: add categories in header || add a browse by topic list
+// TODO: add contact page
 
 const BlogWrapper = styled.div `
   max-width: 800px;

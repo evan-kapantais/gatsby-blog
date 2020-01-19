@@ -30,7 +30,9 @@ const StyledHeader = styled.header `
     font-size: 0.8rem;
     font-weight: normal;
     
-    a:first-child { margin-right: 1.5rem; }
+    a {margin-right: 1.5rem;}
+    
+    a:last-child {margin: 0;}
     
     a {
       display: inline-block;
@@ -86,6 +88,7 @@ const Header = () => {
           <nav>
             <Link to='/'>BLOG</Link>
             <Link to='/about'>ABOUT</Link>
+            <Link to='/contact'>CONTACT</Link>
           </nav>
         </StyledHeader>
       )}
