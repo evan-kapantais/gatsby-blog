@@ -10,7 +10,7 @@ const HeroCard = ({ node }) => {
       </div>
       <div>
         {node.frontmatter.tags.map(tag => (
-          <h4>#{tag}</h4>
+          <h4># {tag}</h4>
         ))}
         <h1>{node.frontmatter.title}</h1>
         <h3>{node.frontmatter.subtitle}</h3>

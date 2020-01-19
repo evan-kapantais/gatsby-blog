@@ -14,7 +14,7 @@ import '../stylesheets/globals.scss'
 
 const BlogWrapper = styled.div `
   max-width: 800px;
-  margin: 2rem auto 2rem auto;
+  margin: 2rem auto;
   gap: 2rem;
 `
 

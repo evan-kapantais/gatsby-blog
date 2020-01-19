@@ -6,7 +6,6 @@ import Img from 'gatsby-image'
 const Card = styled.div`
   transition: all 300ms ease;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* min-height: 550px; */
   position: relative;
 
   &:hover { transform: translateY(-5px); }
@@ -24,7 +23,12 @@ const Content = styled.div`
   header {
     min-height: 5rem;
 
-    h3 {margin-bottom: 0.5rem;}
+    h3 {margin-bottom: 1rem;}
+
+    h5 {
+      color: #666;
+      font-weight: normal;
+    }
   }
 
   p {
@@ -43,6 +47,9 @@ const Content = styled.div`
     div a {
       color: rgb(3, 159, 255);
       font-size: 0.8rem;
+      margin-right: 0.5rem;
+
+      &:last-child {margin: 0;}
 
       &:hover {text-decoration: underline;}
     }
@@ -57,7 +64,7 @@ const SmallPost = ({ node }) => {
         <Img fluid={node.frontmatter.featuredImage.childImageSharp.fluid} />
       </Link>
       <Content>
-        <Link>
+        <Link to={`/${node.fields.slug}`}>
         <header>
           <h3>{node.frontmatter.title}</h3>
           <h5>{node.frontmatter.date}</h5>
@@ -67,7 +74,7 @@ const SmallPost = ({ node }) => {
         <footer>
           <div>
             {node.frontmatter.tags.map(tag => (
-              <Link key={tag} to={`/tags/${tag}`}>#{tag} </Link>
+              <Link key={tag} to={`/tags/${tag}`}># {tag} </Link>
             ))}
           </div>
           <h5>{node.timeToRead} Min Read</h5>

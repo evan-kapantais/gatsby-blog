@@ -4,57 +4,53 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
+import Seo from '../components/seo'
+import SideCard from '../components/side-card'
 
 const Container = styled.div `
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 4rem auto;
+
+  h1 {
+    text-transform: capitalize;
+  }
 `
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+const Posts = styled.div `
+  margin: 2rem 0;
+`
+
+const AllTags = styled.div `
+  a {
+    color: rgb(3, 159, 255);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
+  // const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
 
   return (
     <Layout>
-<<<<<<< HEAD
-      <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields;
-          const { title } = node.frontmatter;
-          return (
-            <li key={slug}>
-              <Link to={`/blog/${slug}`}>{title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      <Link to="/tags">All tags</Link>
-    </Layout>
-  );
-=======
+      <Seo title='Tags' />
       <Container>
         <h1>#{tag}</h1>
-        <ul>
-          {edges.map(({ node }) => {
-            const { slug } = node.fields;
-            const { title } = node.frontmatter;
-            return (
-              <li key={slug}>
-                <Link to={`/blog/${slug}`}>{title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-        <Link to="/tags">All tags</Link>
+        <Posts>
+          {edges.map(({ node }) => (
+            <SideCard node={ node } />
+          ))}
+        </Posts>
+        <AllTags>
+          <Link to="/tags">All Tags</Link>
+        </AllTags>
       </Container>
     </Layout>
   )
->>>>>>> ebe195d5a467edeaaf410c862f47a6854bf944a2
 }
 
 Tags.propTypes = {
@@ -92,11 +88,24 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          timeToRead
+          excerpt
           fields {
             slug
           }
           frontmatter {
             title
+            subtitle
+            author
+            date (formatString: "D MMMM YYYY")
+            tags
+            featuredImage {
+              childImageSharp {
+                fluid (maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

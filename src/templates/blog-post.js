@@ -131,7 +131,7 @@ const blogPost = ({ data }) => {
         <h5>{date}</h5>
         <h1>{title}</h1>
         {tags.map(tag => (
-          <Link to={`/tags/${tag}`}>#{tag}</Link>
+          <Link to={`/tags/${tag}`}># {tag}</Link>
         ))}
       </PostHeader>
       <FeatureImageWrapper>
@@ -189,7 +189,7 @@ query ($slug: String!) {
         }
         frontmatter {
           title
-          date (formatString: "DD.MM.YYYY")
+          date (formatString: "D MMMM YYYY")
           tags
           featuredImage {
             childImageSharp {
