@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Seo from'../components/seo'
 
 const Form = styled.form `
-  width: 600px;
+  min-width: 600px;
   margin: 0 auto;
 
   div:first-child {
@@ -25,19 +25,19 @@ const Form = styled.form `
 
   label {
     display: block;
-    /* margin-bottom: 0.2rem; */
   }
 
   input,
   textarea {
     width: 100%;
+    display: block;
+    padding: 0.5rem;
     border: none;
     border-bottom: 1px solid grey;
   }
 
   input {
     margin-bottom: 2rem;
-    padding: 0.5rem;
     outline: none;
 
     &:focus {
@@ -48,9 +48,27 @@ const Form = styled.form `
 
 const Buttons = styled.div `
   display: flex;
-  justify-content: flex-start;
+  width: auto;
+  margin: 1rem 0;
+  padding: 0;
+  position: relative;
+  
+  input {
+    border: 1px solid #333;
+    background: #fff;
+    width: 200px;
+    transition: all 200ms ease;
+    
+    &:first-child {
+      margin-right: 1rem;
+    }
 
-  * {margin: 0 0.5rem;}
+    &:hover {
+      background: #333;
+      color: #fff;
+      border: 1px solid #333;
+    }
+  }
 `
 
 class ContactForm extends React.Component {
@@ -75,7 +93,7 @@ class ContactForm extends React.Component {
   }
 
   onFocus = () => {
-    this.labelRef.current.style.top = '-1rem';
+    this.labelRef.current.style.top = '-1.5rem';
   }
 
   onBlur = () => {
@@ -83,7 +101,7 @@ class ContactForm extends React.Component {
       this.labelRef.current.style.top = '0.5rem';
       this.labelRef.current.style.color = 'red';
     } else {
-      this.labelRef.current.style.top = '-1rem';
+      this.labelRef.current.style.top = '-1.5rem';
     }
   }
 
@@ -116,19 +134,35 @@ class ContactForm extends React.Component {
 const Container = styled.div `
   max-width: 1200px;
   margin: 4rem auto;
-`
 
-const Email = styled.section `
-
-  h1 {
-    font-size: 6rem;
-    text-align: center;
-    margin-bottom: 4rem;
+  section {
+    margin: 10rem 0;
   }
 `
 
-const Mail = styled.section `
+const Email = styled.section `
+  display: flex;
+`
 
+const SectionHeading = styled.h1`
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  text-align: left;
+  text-shadow: 5px 5px rgb(3, 159, 255);
+  text-shadow: 5px 5px lightskyblue;
+`
+
+const Mail = styled.section `
+  display: flex;
+
+  h1 {
+    text-align: right;
+  }
+
+  div {
+    min-width: 600px;
+  }
 `
 
 const contactPage = () =>  {
@@ -138,11 +172,14 @@ const contactPage = () =>  {
       <Seo title='Contact' />
       <Container>
         <Email>
-          <h1>You can reach me through email,</h1>
+          <SectionHeading>You can reach me through email &rarr;</SectionHeading>
           <ContactForm />
         </Email>
         <Mail>
-
+          <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.590729276319!2d2.1429936157408034!3d41.40469370288429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a09c49bfdf%3A0x58ec251a3ee70da9!2sCarrer%20de%20Saragossa%2C%20133%2C%2008006%20Barcelona!5e0!3m2!1sen!2ses!4v1579561266214!5m2!1sen!2ses" width="600" height="450" frameborder="0" allowfullscreen=""></iframe>
+          </div>
+          <SectionHeading>or via regular mail. <br /> &larr;</SectionHeading>
         </Mail>
       </Container>
     </Layout>

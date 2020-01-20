@@ -31,6 +31,8 @@ const StyledHeader = styled.header `
     font-weight: normal;
     
     a {margin-right: 1.5rem;}
+
+    a::selection {color: red;}
     
     a:last-child {margin: 0;}
     
