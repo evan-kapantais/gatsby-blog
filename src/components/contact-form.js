@@ -15,51 +15,33 @@ const Form = styled.form `
       left: 0.5rem;
       transition: all 200ms ease;
     }
-  }
 
-  input,
-  textarea {
-    width: 100%;
-    margin-bottom: 2rem;
-    display: block;
-    padding: 0.5rem;
-    border: 2px solid #333;
-    background: #fff;
-  }
-
-  input {
-    outline: none;
-
-
-    &:focus {
-      border-color: rgb(3, 159, 255);
+    input,
+    textarea {
+      width: 100%;
+      outline: none;
+      margin-bottom: 2rem;
+      display: block;
+      padding: 0.5rem;
+      border: 2px solid #333;
+      background: #fff;
+      transition: all 200ms ease;
     }
   }
+
 `
 
 const Buttons = styled.div `
-  display: flex;
-  width: auto;
-  margin: 1rem 0;
-  padding: 0;
   position: relative;
   
   input {
-    border: 2px solid #333;
-    background: #fff;
     width: 200px;
-    box-shadow: none;
     transition: all 200ms ease;
-    
-    &:first-child {
-      margin-right: 1rem;
-    }
 
     &:hover {
       cursor: pointer;
       background: #333;
       color: #fff;
-      border: 1px solid #333;
     }
   }
 `
@@ -85,13 +67,18 @@ class ContactForm extends React.Component {
 
   onFocus = (event) => {
     const labelStyle = event.target.nextSibling.style;
+    const divStyle = event.target.style;
 
     labelStyle.top = '-1.5rem';
     labelStyle.fontSize = '0.8rem';
+    // divStyle.boxShadow = '5px 5px lightskyblue';
   }
 
   onBlur = (event) => {
     const labelStyle = event.target.nextSibling.style;
+    const divStyle = event.target.style;
+
+    // divStyle.boxShadow = 'none';
 
     if (this.state[event.target.id] === '') {
       labelStyle.top = '0.5rem';

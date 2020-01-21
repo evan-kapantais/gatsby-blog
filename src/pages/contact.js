@@ -14,8 +14,9 @@ const Container = styled.div`
   }
 `
 
-const Email = styled.section`
+const Section = styled.section `
   display: flex;
+  justify-content: space-between;
 `
 
 const SectionHeading = styled.h1`
@@ -31,24 +32,14 @@ const SectionHeading = styled.h1`
   }
 `
 
-const Mail = styled.section`
-  display: flex;
-
-  h1 {
-    text-align: right;
-  }
-`
 const Address = styled.div`
   display: flex;
   align-items: center;
 
-  &:first-child {
-    margin-bottom: 2rem;
-  }
-
   p {
     font-size: 2rem;
     line-height: 1.5;
+    width: 500px;
   }
 `
 
@@ -91,9 +82,7 @@ const SocialImage = styled(Image)`
   margin: 0;
 `
 
-const Social = styled.section`
-  display: flex;
-  justify-content: space-between;
+const Social = styled(Section)`
 
   a {
     display: block;
@@ -115,52 +104,48 @@ const Social = styled.section`
   }
 `
 
-const contactPage = () =>  {
-
-  return (
-    <Layout>
-      <Seo title='Contact' />
-      <Container>
-        <Email>
-          <SectionHeading>You can reach me via email, <br /> &rarr;</SectionHeading>
-          <ContactForm />
-        </Email>
-        <Mail>
-          <Address>
-            <Image src={require('../images/building.png')} alt='company' />
-            <p>
-              Carrer de la Llacuna 166 <br />
-              10th Floor <br />
-              08018 <br />
-              Barcelona <br />
-              Spain <br />
-            </p>
-          </Address>
-          <SectionHeading>traditional mail,<br />&larr;</SectionHeading>
-        </Mail>
-        <Social>
-          <SectionHeading>or my<br /> social <br />media.<br />&rarr;</SectionHeading>
-          <div>
-            <a href='https://github.com/evan-kapantais'>
-              <SocialImage src={require('../images/github-colour.png')} alt='github icon' delay='100ms' />
-            </a>
-            <a href='https://twitter.com/evankapantais'>
-              <SocialImage src={require('../images/twitter-colour.png')} alt='twitter icon' delay='600ms' />
-            </a>
-            <a href='https://www.instagram.com/evan_kapantais/'>
-              <SocialImage src={require('../images/instagram-colour.png')} alt='instagram icon' delay='1100ms' />
-            </a>
-            <a href='https://www.facebook.com/evankapantais'>
-              <SocialImage src={require('../images/facebook-colour.png')} alt='facebook icon' delay='600ms' />
-            </a>
-            <a href='https://www.linkedin.com/in/evankapantais/'>
-              <SocialImage src={require('../images/linkedin-colour.png')} alt='linkedin icon' delay='1100ms' />
-            </a>
-          </div>
-        </Social>
-      </Container>
-    </Layout>
-  );
-}
+const contactPage = () => (
+  <Layout>
+    <Seo title='Contact' />
+    <Container>
+      <Section>
+        <SectionHeading>You can reach me by email, <br /> &rarr;</SectionHeading>
+        <ContactForm />
+      </Section>
+      <Section>
+        <Address>
+          <p>
+            Carrer de la Llacuna 166 <br />
+            10th Floor <br />
+            08018 <br />
+            Barcelona <br />
+            Spain <br />
+          </p>
+        </Address>
+        <SectionHeading style={{textAlign: `right`}}>traditional mail,<br />&larr;</SectionHeading>
+      </Section>
+      <Social>
+        <SectionHeading>or<br /> social <br />media.<br />&rarr;</SectionHeading>
+        <div>
+          <a href='https://github.com/evan-kapantais'>
+            <SocialImage src={require('../images/github-colour.png')} alt='github icon' delay='100ms' />
+          </a>
+          <a href='https://twitter.com/evankapantais'>
+            <SocialImage src={require('../images/twitter-colour.png')} alt='twitter icon' delay='600ms' />
+          </a>
+          <a href='https://www.instagram.com/evan_kapantais/'>
+            <SocialImage src={require('../images/instagram-colour.png')} alt='instagram icon' delay='1100ms' />
+          </a>
+          <a href='https://www.facebook.com/evankapantais'>
+            <SocialImage src={require('../images/facebook-colour.png')} alt='facebook icon' delay='600ms' />
+          </a>
+          <a href='https://www.linkedin.com/in/evankapantais/'>
+            <SocialImage src={require('../images/linkedin-colour.png')} alt='linkedin icon' delay='1100ms' />
+          </a>
+        </div>
+      </Social>
+    </Container>
+  </Layout>
+)
 
 export default contactPage;
