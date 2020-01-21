@@ -10,121 +10,70 @@ import ContactForm from '../components/contact-form'
 
 const Container = styled.div`
   max-width: 1200px;
-  margin: 4rem auto;
-`
+  margin: 18rem auto;
 
-const Section = styled.section `
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-`
+  h1 {
+    text-align: center;
+    line-height: 1.75;
+    font-weight: normal;
 
-const signLeft = keyframes `
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(20px);
-  }
-`
+    a {
+      color: lightskyblue;
+      position: relative;
 
-const signRight = keyframes `
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(-20px);
-  }
-`
+      &::after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: lightskyblue;
+        bottom: -10px;
+        opacity: 0;
+        left: 0;
+        transition: all 500ms ease;
+      }
 
-const SectionHeading = styled.h1`
-  font-size: 6rem;
-  text-align: center;
-  margin: 0;
-  text-align: ${props => props.align || 'left'};
-  text-shadow: 5px 5px lightskyblue;
-  transition: all 200ms ease-in-out;
-
-  &:hover {
-    text-shadow: 10px 10px wheat;
-  }
-
-  span {
-    display: block;
-    animation: ${props => props.side === 'right' ? signRight : signLeft} 1s linear infinite alternate;
-  }
-`
-
-const Address = styled.div`
-  display: flex;
-  align-items: center;
-
-  p {
-    font-size: 2rem;
-    line-height: 1.5;
-    width: 500px;
-  }
-`
-
-const float = keyframes`
-  0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(0, 12px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-`
-
-const Image = styled.img`
-  max-width: 160px;
-  max-height: 160px;
-  margin-right: 4rem;
-  animation: ${float} 5s ease-in-out infinite;
-  animation-delay: ${props => props.delay || 0};
-`
-
-const wiggle = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  33% {
-    transform: rotate(5deg);
-  }
-  66% {
-    transform: rotate(-5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-`
-
-const SocialImage = styled(Image)`
-  margin: 0;
-`
-
-const Social = styled(Section)`
-
-  a {
-    display: block;
-    transition: all 300ms ease;
-
-    &:hover {
-      transform: scale(1.1);
-      animation: ${wiggle} 300ms ease-in-out both alternate;
+      &:hover::after {
+        opacity: 1;
+        bottom: -4px;
+      }
     }
   }
 
   div {
-    display: grid;
-    grid-template-columns: repeat(3, 160px);
-    grid-template-rows: 160px 160px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 4rem;
-    min-width: 600px;
+
+    a {
+      margin: 4rem .5rem;
+      position: relative;
+      display: block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        height: 3px;
+        width: 100%;
+        background: #333;
+        opacity: 0;
+        transition: all 500ms ease;
+      }
+
+      &:hover::after {
+        bottom: -10px;
+        opacity: 1;
+      }
+
+      img {
+        margin: 0;
+        display: block;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 `
 
@@ -132,42 +81,18 @@ const contactPage = () => (
   <Layout>
     <Seo title='Contact' />
     <Container>
-      <Section>
-        <SectionHeading>You can reach me by email, <br /><span>&rarr;</span></SectionHeading>
-        <ContactForm />
-      </Section>
-      <Section>
-        <Address>
-          <p>
-            Carrer de la Llacuna 166 <br />
-            10th Floor <br />
-            08018 <br />
-            Barcelona <br />
-            Spain <br />
-          </p>
-        </Address>
-        <SectionHeading align='right'>traditional mail,<br /><span side='right'>&larr;</span></SectionHeading>
-      </Section>
-      <Social>
-        <SectionHeading>or<br /> social <br />media.<br /><span>&rarr;</span></SectionHeading>
-        <div>
-          <a href='https://github.com/evan-kapantais'>
-            <SocialImage src={require('../images/github-colour.png')} alt='github icon' delay='100ms' />
-          </a>
-          <a href='https://twitter.com/evankapantais'>
-            <SocialImage src={require('../images/twitter-colour.png')} alt='twitter icon' delay='600ms' />
-          </a>
-          <a href='https://www.instagram.com/evan_kapantais/'>
-            <SocialImage src={require('../images/instagram-colour.png')} alt='instagram icon' delay='1100ms' />
-          </a>
-          <a href='https://www.facebook.com/evankapantais'>
-            <SocialImage src={require('../images/facebook-colour.png')} alt='facebook icon' delay='600ms' />
-          </a>
-          <a href='https://www.linkedin.com/in/evankapantais/'>
-            <SocialImage src={require('../images/linkedin-colour.png')} alt='linkedin icon' delay='1100ms' />
-          </a>
-        </div>
-      </Social>
+      <h1>You can send me an email at <a href='mailto: evankapantais@gmail.com'>evankapantais@gmail.com</a> <br/> or find me on my social media.</h1>
+      <div>
+        <a href="">
+          <img src={require('../images/github.png')} alt=""/>
+        </a>
+        <a href="">
+          <img src={require('../images/twitter.png')} alt=""/>
+        </a>
+        <a href="">
+          <img src={require('../images/instagram.png')} alt=""/>
+        </a>
+      </div>
     </Container>
   </Layout>
 )

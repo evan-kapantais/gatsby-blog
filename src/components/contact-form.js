@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Form = styled.form `
-  min-width: 600px;
   margin: 0 auto;
+  max-width: ${props => props.width || 'auto'};
+  /* max-width: 600px; */
 
   div {
     position: relative;
@@ -101,8 +102,9 @@ class ContactForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.width)
     return (
-      <Form name='contact' data-netlify='true'>
+      <Form width={this.props.width} name='contact' data-netlify='true'>
         <div>
           <input type='text' id='name' onChange={this.onChange} value={this.state.name} onFocus={this.onFocus} onBlur={this.onBlur} required />
           <label htmlFor='name'>Name *</label>
