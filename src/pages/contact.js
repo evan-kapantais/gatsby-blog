@@ -83,13 +83,13 @@ const contactPage = () => (
     <Container>
       <h1>You can send me an email at <a href='mailto: evankapantais@gmail.com'>evankapantais@gmail.com</a> <br/> or find me on my social media.</h1>
       <div>
-        <a href="">
+        <a href="https://twitter.com/evankapantais">
           <img src={require('../images/github.png')} alt=""/>
         </a>
-        <a href="">
+        <a href="https://github.com/evan-kapantais">
           <img src={require('../images/twitter.png')} alt=""/>
         </a>
-        <a href="">
+        <a href="https://www.instagram.com/evan_kapantais/">
           <img src={require('../images/instagram.png')} alt=""/>
         </a>
       </div>
