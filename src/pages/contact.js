@@ -16,20 +16,42 @@ const Section = styled.section `
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin: 10rem 0; */
   height: 100vh;
+`
+
+const signLeft = keyframes `
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(20px);
+  }
+`
+
+const signRight = keyframes `
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-20px);
+  }
 `
 
 const SectionHeading = styled.h1`
   font-size: 6rem;
   text-align: center;
   margin: 0;
-  text-align: left;
+  text-align: ${props => props.align || 'left'};
   text-shadow: 5px 5px lightskyblue;
   transition: all 200ms ease-in-out;
 
   &:hover {
     text-shadow: 10px 10px wheat;
+  }
+
+  span {
+    display: block;
+    animation: ${props => props.side === 'right' ? signRight : signLeft} 1s linear infinite alternate;
   }
 `
 
@@ -110,7 +132,7 @@ const contactPage = () => (
     <Seo title='Contact' />
     <Container>
       <Section>
-        <SectionHeading>You can reach me by email, <br /> &rarr;</SectionHeading>
+        <SectionHeading>You can reach me by email, <br /><span>&rarr;</span></SectionHeading>
         <ContactForm />
       </Section>
       <Section>
@@ -123,10 +145,10 @@ const contactPage = () => (
             Spain <br />
           </p>
         </Address>
-        <SectionHeading style={{textAlign: `right`}}>traditional mail,<br />&larr;</SectionHeading>
+        <SectionHeading align='right'>traditional mail,<br /><span side='right'>&larr;</span></SectionHeading>
       </Section>
       <Social>
-        <SectionHeading>or<br /> social <br />media.<br />&rarr;</SectionHeading>
+        <SectionHeading>or<br /> social <br />media.<br /><span>&rarr;</span></SectionHeading>
         <div>
           <a href='https://github.com/evan-kapantais'>
             <SocialImage src={require('../images/github-colour.png')} alt='github icon' delay='100ms' />
