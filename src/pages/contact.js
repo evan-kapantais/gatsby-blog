@@ -5,18 +5,19 @@ import Layout from '../components/layout'
 import Seo from'../components/seo'
 import ContactForm from '../components/contact-form'
 
+// TODO: animation library
+
 const Container = styled.div`
   max-width: 1200px;
   margin: 4rem auto;
-
-  section {
-    margin: 10rem 0;
-  }
 `
 
 const Section = styled.section `
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  /* margin: 10rem 0; */
+  height: 100vh;
 `
 
 const SectionHeading = styled.h1`

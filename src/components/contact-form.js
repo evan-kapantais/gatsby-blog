@@ -8,12 +8,13 @@ const Form = styled.form `
   div {
     position: relative;
 
+    * {transition: all 200ms ease;}
+
     label {
       display: block;
       position: absolute;
       top: 0.5rem;
       left: 0.5rem;
-      transition: all 200ms ease;
     }
 
     input,
@@ -25,23 +26,38 @@ const Form = styled.form `
       padding: 0.5rem;
       border: 2px solid #333;
       background: #fff;
-      transition: all 200ms ease;
+
+      &:focus {
+        box-shadow: 5px 5px lightskyblue;
+      }
+    }
+
+    textarea {
+      transition: none;
+      transition: box-shadow 200ms ease;
+      resize: vertical;
+      min-height: 50px;
     }
   }
-
 `
 
 const Buttons = styled.div `
-  position: relative;
   
   input {
     width: 200px;
     transition: all 200ms ease;
+    box-shadow: none;
 
     &:hover {
       cursor: pointer;
       background: #333;
       color: #fff;
+    }
+
+    &:focus {
+      background: #333;
+      color: #fff;
+      box-shadow: none;
     }
   }
 `
@@ -67,18 +83,13 @@ class ContactForm extends React.Component {
 
   onFocus = (event) => {
     const labelStyle = event.target.nextSibling.style;
-    const divStyle = event.target.style;
 
     labelStyle.top = '-1.5rem';
     labelStyle.fontSize = '0.8rem';
-    // divStyle.boxShadow = '5px 5px lightskyblue';
   }
 
   onBlur = (event) => {
     const labelStyle = event.target.nextSibling.style;
-    const divStyle = event.target.style;
-
-    // divStyle.boxShadow = 'none';
 
     if (this.state[event.target.id] === '') {
       labelStyle.top = '0.5rem';
@@ -105,7 +116,7 @@ class ContactForm extends React.Component {
           <label htmlFor='subject'>Subject</label>
         </div>
         <div>
-          <textarea name='message' id='message' cols='30' rows='10' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
+          <textarea name='message' id='message' cols='30' rows='8' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
           <label htmlFor='message'>Message *</label>
         </div>
         <Buttons>
