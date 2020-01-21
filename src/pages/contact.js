@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Layout from '../components/layout'
 import Seo from'../components/seo'
@@ -159,10 +159,48 @@ const Mail = styled.section `
   h1 {
     text-align: right;
   }
+`
 
-  div {
+const AddressContainer = styled.div `
     min-width: 600px;
+    display: flex;
+    flex-direction: column;
+`
+
+const Address = styled.div `
+  display: flex;
+  align-items: center;
+
+  &:first-child {
+    margin-bottom: 2rem;
   }
+
+  p {
+    font-size: 1.8rem;
+    line-height: 1.25;
+  }
+`
+
+const float = keyframes `
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 12px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+`
+
+const Image = styled.img `
+  display: block;
+  max-width: 160px;
+  max-height: 160px;
+  margin-right: 4rem;
+  animation: ${float} 5s ease-in-out infinite;
+  animation-delay: ${props => props.delay || 0};
 `
 
 const contactPage = () =>  {
@@ -176,9 +214,28 @@ const contactPage = () =>  {
           <ContactForm />
         </Email>
         <Mail>
-          <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.590729276319!2d2.1429936157408034!3d41.40469370288429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a09c49bfdf%3A0x58ec251a3ee70da9!2sCarrer%20de%20Saragossa%2C%20133%2C%2008006%20Barcelona!5e0!3m2!1sen!2ses!4v1579561266214!5m2!1sen!2ses" width="600" height="450" frameborder="0" allowfullscreen=""></iframe>
-          </div>
+          <AddressContainer>
+           <Address>
+             <Image src={require('../images/home.png')} alt='home'/>
+             <p>
+               Carrer de Saragossa 133 <br />
+               Floor 1, Apartment 3 <br />
+               08006 <br />
+               Barcelona <br />
+               Spain
+             </p>
+           </Address>
+           <Address>
+             <Image delay='1000ms' src={require('../images/building.png')} alt='company' />
+             <p>
+               Carrer de Llacuna <br />
+               10th Floor <br />
+               08018 <br />
+               Barcelona <br />
+               Spain <br />
+             </p>
+           </Address>
+          </AddressContainer>
           <SectionHeading>or via regular mail. <br /> &larr;</SectionHeading>
         </Mail>
       </Container>
