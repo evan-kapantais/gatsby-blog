@@ -32,13 +32,16 @@ const Form = styled.form `
     width: 100%;
     display: block;
     padding: 0.5rem;
-    border: none;
-    border-bottom: 1px solid grey;
+    border: 2px solid #333;
+    /* border-bottom: 1px solid grey; */
+    background: #fff;
+    box-shadow: 5px 5px #333;
   }
 
   input {
     margin-bottom: 2rem;
     outline: none;
+
 
     &:focus {
       border-color: rgb(3, 159, 255);
@@ -54,9 +57,10 @@ const Buttons = styled.div `
   position: relative;
   
   input {
-    border: 1px solid #333;
+    border: 2px solid #333;
     background: #fff;
     width: 200px;
+    box-shadow: none;
     transition: all 200ms ease;
     
     &:first-child {
