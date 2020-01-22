@@ -3,12 +3,10 @@ import styled from 'styled-components'
 
 const Form = styled.form `
   margin: 0 auto;
-  width: ${props => props.width || 'auto'};
   font-size: 0.8rem;
 
   div {
     position: relative;
-    /* display: flex; */
 
     label {
       font-size: 0.8rem;
@@ -21,7 +19,6 @@ const Form = styled.form `
       margin-bottom: 1rem;
       display: block;
       padding: 0.3rem;
-      outline: none;
       border: 1px solid lightgrey;
     }
 
@@ -33,7 +30,6 @@ const Form = styled.form `
 
   button {
     width: 100%;
-    /* background: white; */
     transition: all 200ms ease;
     border: 1px solid #333;
     text-transform: uppercase;
@@ -56,6 +52,44 @@ const Form = styled.form `
   }
 `
 
+const Social = styled.div `
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+
+  a {
+    margin: 0 0.5rem;
+    position: relative;
+    display: block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: #333;
+      opacity: 0;
+      transition: all 500ms ease;
+    }
+
+    &:hover::after {
+      bottom: -10px;
+      opacity: 1;
+    }
+
+    img {
+      width: 1.5rem;
+      margin: 0;
+      display: block;
+      max-width: auto;
+      top: 0;
+      left: 0;
+    }
+  }
+`
+
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
@@ -66,6 +100,8 @@ class ContactForm extends React.Component {
       subject: '',
       message: '',
     };
+
+    this.formRef = React.createRef();
   }
 
   onChange = (event) => {
@@ -75,9 +111,19 @@ class ContactForm extends React.Component {
     });
   }
 
+  onFocus = (event) => {
+    const content = this.formRef.current.parentNode;
+    // content.style.transform = 'scale(1.05) translateX(-10rem)';
+  }
+
+  onBlur = (event) => {
+    const content = this.formRef.current.parentNode;
+    // content.style.transform = 'scale(1) translateX(-10rem)';
+  }
+
   render() {
     return (
-      <Form width={this.props.width} name='contact' data-netlify='true'>
+      <Form width={this.props.width} name='contact' data-netlify='true' ref={this.formRef}>
         <div>
           <label htmlFor='name'>Name *</label>
           <input type='text' id='name' placeholder='' onChange={this.onChange} value={this.state.name} onFocus={this.onFocus} onBlur={this.onBlur} required />
@@ -94,7 +140,18 @@ class ContactForm extends React.Component {
           <label htmlFor='message'>Message *</label>
           <textarea name='message' id='message' placeholder='' cols='30' rows='5' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
         </div>
-        <button type='submit' value='Submit'>Submit</button>
+        <button type='submit' value='Submit' onFocus={this.onFocus} onBlur={this.onBlur}>Submit</button>
+        <Social>
+          <a href="https://twitter.com/evankapantais">
+            <img src={require('../images/github.png')} alt=""/>
+          </a>
+          <a href="https://github.com/evan-kapantais">
+            <img src={require('../images/twitter.png')} alt=""/>
+          </a>
+          <a href="https://www.instagram.com/evan_kapantais/">
+            <img src={require('../images/instagram.png')} alt=""/>
+          </a>
+        </Social>
       </Form>
     );
   }

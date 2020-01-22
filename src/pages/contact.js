@@ -9,85 +9,65 @@ import ContactForm from '../components/contact-form'
 // TODO: merge it
 
 const Card = styled.div`
-  /* max-width: 1800px; */
-  margin: 6rem auto;
+  margin: 6rem auto 0 auto;
   position: relative;
-  display: flex;
-  align-items: center;
+  max-width: 1200px;
 
-  section img {
-    display: block;
-    margin: 0;
+  h1 {
+    font-size: 4rem;
+  }
+
+  section:first-child {
+    img {
+      display: block;
+      margin: 0 auto;
+    }
   }
 `
 
 const Content = styled.section `
+  max-width: 500px;
+  margin: 0 auto;
+  transform: translate(18rem, -30rem);
   padding: 2rem;
-  transform: translateX(8rem);
   background: white;
   border-radius: 5px;
-  box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 300ms ease;
 
-  h1 {
-    font-weight: normal;
-  
-    a {
-      color: rgb(3, 159, 255);
-      position: relative;
-  
-      &::after {
-        content: '';
-        position: absolute;
-        height: 3px;
-        width: 100%;
-        background: rgb(3, 159, 255);
-        bottom: -10px;
-        opacity: 0;
-        left: 0;
-        transition: all 500ms ease;
-      }
-  
-      &:hover::after {
-        opacity: 1;
-        bottom: -4px;
-      }
-    }
+  @media (max-width: 1175px) {
+    transform: translate(0, -20rem);
   }
-`
 
-const Social = styled.div `
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
+  @media (max-width: 800px) {
+    transform: translate(0, -10rem);
+  }
+
+  @media (max-width: 600px) {
+    transform: translate(0, 0);
+    margin: 2rem auto;
+  }
 
   a {
-    margin: 0 0.3rem;
+    color: rgb(3, 159, 255);
     position: relative;
-    display: block;
-    width: 1.2rem;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -20px;
-      left: 0;
       height: 3px;
       width: 100%;
-      background: #333;
+      background: rgb(3, 159, 255);
+      bottom: -10px;
       opacity: 0;
+      left: 0;
       transition: all 500ms ease;
     }
 
     &:hover::after {
-      bottom: -10px;
       opacity: 1;
-    }
-
-    img {
-      margin: 0;
-      display: block;
-      top: 0;
-      left: 0;
+      bottom: -4px;
     }
   }
 `
@@ -96,24 +76,13 @@ const contactPage = () => (
   <Layout>
     <Seo title='Contact' />
     <Card>
-      <Content>
-        <h2>Contact</h2>
-        <ContactForm width='400px' />
-        <Social>
-          <a href="https://twitter.com/evankapantais">
-            <img src={require('../images/github.png')} alt=""/>
-          </a>
-          <a href="https://github.com/evan-kapantais">
-            <img src={require('../images/twitter.png')} alt=""/>
-          </a>
-          <a href="https://www.instagram.com/evan_kapantais/">
-            <img src={require('../images/instagram.png')} alt=""/>
-          </a>
-        </Social>
-      </Content>
+      {/* <h1>Contact</h1> */}
       <section>
         <img src={require('../images/benjamin-gremler-q_TzfAt4NQ8-unsplash.jpg')} alt='Barcelona Aerial View'/>
       </section>
+      <Content>
+        <ContactForm width='500px' />
+      </Content>
     </Card>
   </Layout>
 )
