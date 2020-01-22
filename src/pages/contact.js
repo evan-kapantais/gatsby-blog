@@ -6,7 +6,7 @@ import Seo from'../components/seo'
 import ContactForm from '../components/contact-form'
 
 // TODO: animation library
-// TODO: burn it to the ground
+// TODO: merge it
 
 const Container = styled.div`
   max-width: 1200px;
