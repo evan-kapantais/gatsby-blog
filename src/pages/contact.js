@@ -5,9 +5,6 @@ import Layout from '../components/layout'
 import Seo from'../components/seo'
 import ContactForm from '../components/contact-form'
 
-// TODO: animation library
-// TODO: merge it
-
 const Card = styled.div`
   margin: 4rem auto 10rem auto;
   position: relative;

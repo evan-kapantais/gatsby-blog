@@ -28,34 +28,38 @@ const Form = styled.form `
     }
   }
 
-  button {
-    width: 100%;
-    transition: all 200ms ease;
-    border: 1px solid #333;
-    text-transform: uppercase;
-    font-weight: bold;
-    background: #333;
-    color: #fff;
-    padding: 0.5rem;
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    &:hover {
-      background: #fff;
-      cursor: pointer;
-      color: #333;
-    }
-
-    &:focus {
+    button {
+      transition: all 200ms ease;
+      border: 1px solid #333;
+      text-transform: uppercase;
+      font-weight: bold;
       background: #333;
       color: #fff;
-      box-shadow: none;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        background: #fff;
+        cursor: pointer;
+        color: #333;
+      }
+
+      &:focus {
+        background: #333;
+        color: #fff;
+        box-shadow: none;
+      }
     }
   }
 `
 
 const Social = styled.div `
   display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
+  align-items: flex-end;
 
   a {
     margin: 0 0.5rem;
@@ -140,18 +144,20 @@ class ContactForm extends React.Component {
           <label htmlFor='message'>Message *</label>
           <textarea name='message' id='message' placeholder='' cols='30' rows='5' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
         </div>
-        <button type='submit' value='Submit' onFocus={this.onFocus} onBlur={this.onBlur}>Submit</button>
-        <Social>
-          <a href="https://twitter.com/evankapantais">
-            <img src={require('../images/github.png')} alt=""/>
-          </a>
-          <a href="https://github.com/evan-kapantais">
-            <img src={require('../images/twitter.png')} alt=""/>
-          </a>
-          <a href="https://www.instagram.com/evan_kapantais/">
-            <img src={require('../images/instagram.png')} alt=""/>
-          </a>
-        </Social>
+        <footer>
+          <button type='submit' value='Submit' onFocus={this.onFocus} onBlur={this.onBlur}>Submit</button>
+          <Social>
+            <a href="https://twitter.com/evankapantais">
+              <img src={require('../images/github-333.png')} alt=""/>
+            </a>
+            <a href="https://github.com/evan-kapantais">
+              <img src={require('../images/twitter-333.png')} alt=""/>
+            </a>
+            <a href="https://www.instagram.com/evan_kapantais/">
+              <img src={require('../images/instagram-333.png')} alt=""/>
+            </a>
+          </Social>
+        </footer>
       </Form>
     );
   }
