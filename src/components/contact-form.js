@@ -3,56 +3,49 @@ import styled from 'styled-components'
 
 const Form = styled.form `
   margin: 0 auto;
-  max-width: ${props => props.width || 'auto'};
-  /* max-width: 600px; */
+  width: ${props => props.width || 'auto'};
+  font-size: 0.8rem;
 
   div {
     position: relative;
-
-    * {transition: all 200ms ease;}
+    /* display: flex; */
 
     label {
-      display: block;
-      position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
+      font-size: 0.8rem;
+      transition: all 200ms ease;
     }
 
     input,
     textarea {
       width: 100%;
-      outline: none;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       display: block;
-      padding: 0.5rem;
-      border: 2px solid #333;
-      background: #fff;
-
-      &:focus {
-        box-shadow: 5px 5px lightskyblue;
-      }
+      padding: 0.3rem;
+      outline: none;
+      border: 1px solid lightgrey;
     }
 
     textarea {
-      transition: none;
-      transition: box-shadow 200ms ease;
       resize: vertical;
       min-height: 50px;
     }
   }
-`
 
-const Buttons = styled.div `
-  
-  input {
-    width: 200px;
+  button {
+    width: 100%;
+    /* background: white; */
     transition: all 200ms ease;
-    box-shadow: none;
+    border: 1px solid #333;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #333;
+    color: #fff;
+    padding: 0.5rem;
 
     &:hover {
+      background: #fff;
       cursor: pointer;
-      background: #333;
-      color: #fff;
+      color: #333;
     }
 
     &:focus {
@@ -82,48 +75,26 @@ class ContactForm extends React.Component {
     });
   }
 
-  onFocus = (event) => {
-    const labelStyle = event.target.nextSibling.style;
-
-    labelStyle.top = '-1.5rem';
-    labelStyle.fontSize = '0.8rem';
-  }
-
-  onBlur = (event) => {
-    const labelStyle = event.target.nextSibling.style;
-
-    if (this.state[event.target.id] === '') {
-      labelStyle.top = '0.5rem';
-      labelStyle.fontSize = '1rem';
-    } else {
-      labelStyle.top = '-1.5rem';
-      labelStyle.fontSize = '0.8rem';
-    }
-  }
-
   render() {
-    console.log(this.props.width)
     return (
       <Form width={this.props.width} name='contact' data-netlify='true'>
         <div>
-          <input type='text' id='name' onChange={this.onChange} value={this.state.name} onFocus={this.onFocus} onBlur={this.onBlur} required />
           <label htmlFor='name'>Name *</label>
+          <input type='text' id='name' placeholder='' onChange={this.onChange} value={this.state.name} onFocus={this.onFocus} onBlur={this.onBlur} required />
         </div>
         <div>
-          <input type='email' id='email' onChange={this.onChange} value={this.state.email} onFocus={this.onFocus} onBlur={this.onBlur} required />
           <label htmlFor='email'>Email *</label>
+          <input type='email' id='email' placeholder=''onChange={this.onChange} value={this.state.email} onFocus={this.onFocus} onBlur={this.onBlur} required />
         </div>
         <div>
-          <input type='text' id='subject' onChange={this.onChange} value={this.state.subject} onFocus={this.onFocus} onBlur={this.onBlur} />
           <label htmlFor='subject'>Subject</label>
+          <input type='text' id='subject' placeholder='' onChange={this.onChange} value={this.state.subject} onFocus={this.onFocus} onBlur={this.onBlur} />
         </div>
         <div>
-          <textarea name='message' id='message' cols='30' rows='8' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
           <label htmlFor='message'>Message *</label>
+          <textarea name='message' id='message' placeholder='' cols='30' rows='5' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
         </div>
-        <Buttons>
-          <input type='submit' value='Submit' />
-        </Buttons>
+        <button type='submit' value='Submit'>Submit</button>
       </Form>
     );
   }
