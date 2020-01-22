@@ -6,14 +6,13 @@ import styled from 'styled-components'
 // TODO: responsive
 
 const Card = styled.div `
-
   transition: all 300ms ease;
 
   &:hover {
     transform: translateY(-0.3rem);
   }
   a {
-    margin: 4rem 0;
+    margin: 6rem 0;
     display: flex;
   }
 `
