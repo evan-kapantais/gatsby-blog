@@ -18,7 +18,7 @@ const Container = styled.div`
     font-weight: normal;
 
     a {
-      color: lightskyblue;
+      color: rgb(3, 159, 255);
       position: relative;
 
       &::after {
@@ -26,7 +26,7 @@ const Container = styled.div`
         position: absolute;
         height: 3px;
         width: 100%;
-        background: lightskyblue;
+        background: rgb(3, 159, 255);
         bottom: -10px;
         opacity: 0;
         left: 0;
