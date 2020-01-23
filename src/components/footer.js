@@ -10,9 +10,9 @@ const Beat = keyframes`
 `
 
 const StyledFooter = styled.footer `
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 2rem 4rem;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
 

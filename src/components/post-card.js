@@ -6,11 +6,14 @@ import styled from 'styled-components'
 const Card = styled.article `
   margin: 4rem 0;
   padding: 1rem;
+  grid-column: 2 / 3;
+  color: #000;
 `
 
 const CardHeader = styled.div `
   display: flex;
   align-items: flex-end;
+  margin-bottom: 1.5rem;
 
   * {
     margin: 0;
@@ -48,10 +51,6 @@ const CardHeader = styled.div `
 
 const CardContent = styled.div`
   p { line-height: 1.75; }
-
-  @media only screen and (max-width: 590px) {
-    text-align: justify;
-  }
 `
 
 const ImageWrapper = styled.div `
@@ -90,7 +89,7 @@ const CardFooter = styled.div `
 const PostCard = ({ node }) => {
 
   const { title, date, tags } = node.frontmatter;
-  const { excerpt, timeToRead } = node;
+  const { excerpt, timeToRead, html } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
@@ -107,7 +106,7 @@ const PostCard = ({ node }) => {
             <Img fluid={featuredImage} />
           </ImageWrapper>
           <CardContent>
-            <p>{excerpt}</p>
+            <div dangerouslySetInnerHTML={{__html: excerpt}} />
           </CardContent>
         </Link>
         <CardFooter>

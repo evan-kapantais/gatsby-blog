@@ -11,7 +11,7 @@ tags: ['books']
 
 ### The Future Of An Illusion
 
-#### *Sigmund Freud*
+*Sigmund Freud*
 
 This is the one book on this list I feel I cannot do enough justice to. Part of the reason is that I would like to automatically assume that people are already familiar with it. That said, I find it laughable to have to state the importance of Freud's contributions to the fields of psychoanalysis and, later on, philosophy. Along with The Interpretation Of Dreams, The Future Of An Illusion is one of his most widely syndicated books. 
 
@@ -19,7 +19,7 @@ Originally published in 1927, it sets the basis for the argument against religio
 
 ### Meditations
 
-#### *Marcus Aurelius*
+*Marcus Aurelius*
 
 Meditations is easily one of the most important books I have read this year. Written by one of the most important figures of the Stoic philosophy, Marcus Aurelius, born in 121 AD was the last emperor of Pax Romana, a 200-year period of inner stability and peace, and also the last of "The Good Emperors", a term coined by Niccolò Machiavelli. Not given the throne by birth as many other before him and after, he earned the respect and praise of his peers, subjects and later governors and philosophers through his humanitarian rule and moral governing of the empire.
 
@@ -29,13 +29,13 @@ Meditations is the epitome of what the Stoic movement represents and offers inva
 
 ### Deep Work: Rules For Focused Success In A Distracted World
 
-#### *Cal Newport*
+*Cal Newport*
 
 If we want to be honest with ourselves, we can gracefully concede that most of us tend to procrastinate when it comes to work - either work we love, or work we have to get through regardless. In my case, at the beginning of the year, I found myself falling in love with programming, but like most, I found my attention easily shifting away from what I had to work on - what I actually wanted to work on, absurdly enough. Distraction is work-agnostic, admittedly, and I felt I needed to look into the causes and possible solutions to a messy studying process. A simple Google search on [productivity books](https://www.google.com/search?q=productivity+books) returns Deep Work as one of the first results. Cal Newport is praised for his work on productivity and how to maximize it, and his fifth book is no exception. The aspect he focuses mostly on is the unnoticed effect modern-day life has on our daily routine and how we can consciously invest our time better, while moving away from distractions and social media. As implied in the title, the author argues that [knowledge work](https://en.wikipedia.org/wiki/Knowledge_worker) can only bear fruits if it is unimpeded and unwavering in the face of a continuous stream of distractions. Newport argues that long sessions of study are the only way to solidify a given subject, as even small shifts of attention can ruin even hours of focused work. Also valuable in the book are examples of successful individuals across various disciplines, who - each in their unique way - have managed to develop environments and habits in which their concentration can go unimpeded. Carl Jung [built his own retreat](https://en.wikipedia.org/wiki/Bollingen_Tower) in the village of Bollingen near [Lake Zurich](https://www.google.com/maps/place/Lake+Zurich/@47.2225216,8.7527114,12z/data=!4m13!1m7!3m6!1s0x479aba90b8887a5f:0x6ac6428c5e8536ef!2sLake+Zurich!3b1!8m2!3d47.2225216!4d8.7527114!3m4!1s0x479aba90b8887a5f:0x6ac6428c5e8536ef!8m2!3d47.2225216!4d8.7527114) to focus on his writing, J.K. Rowling stayed completely absent from social media while writing the Harry Potter series and Bill Gates used to take [two "Think Weeks" per year in an isolated forest cabin to read and think](https://www.cnbc.com/2019/07/26/bill-gates-took-solo-think-weeks-in-a-cabin-in-the-woods.html). It should be in everyone's interest to invest their time in the best way possible, and among others, Cal Newport's book offers valuable insight on the subject.
 
 ### Factfulness
 
-#### *Hans Rosling, Anna Rosling Rönnlund, Ola Rosling*
+*Hans Rosling, Anna Rosling Rönnlund, Ola Rosling*
 
 In the strange era of fear-mongering and disinformation stemming primarily from news outlets and social media, having a glib view of the world and the holistic living conditions of its inhabitants would seem justifiable, to say the least. If you're like most people with a generic daily routine, I would be safe in assuming that the outlets mentioned above are the sole sources of information you rely on. I would even go as far as arguing that you are not even making an effort to read the news - or even more so - accurate news. They just happen to appear before your eyes are you are scrolling through Facebook and Twitter. I am guilty of said behaviour myself, and many a time I have caught myself taking headlines at face value without even reading the damn article. This, I claim, is dangerous. It is dangerous because the news are everywhere and, if you don't actually make the effort to read them, cross-examine them and scrutinize their author, they subconsciously help form your opinions, even on subjects you have no knowledge on. 
 
@@ -45,7 +45,7 @@ After reading it, it comes as no surprise to me how many people I notice every d
 
 ### The Aquariums Of Pyongyang, Ten Years In The North Korean Gulag
 
-#### *Kang Chol-hwan, Pierre Rigoulot*
+*Kang Chol-hwan, Pierre Rigoulot*
 
 What comes to your mind when you hear the term "concentration camp"? I'd guess it'd be Auschwitz-Birkenau. Or maybe Treblinka, Chelmno or Dachau. Many would think that such atrocities that were conducted by the Nazis in the 40's are a thing of the past and that after two devastating World Wars we would have moved past such conduct. Most would also be familiar with the tyrannical regime of North Korea that has been ruling the country since the Korean split that started at the end of World War II. Kang Chol-hwan is no stranger to it. An emigrant from Japan, he was promised a lavish life in North Korea, but was imprisoned in the [Yodok concentration camp](https://en.wikipedia.org/wiki/Yodok_concentration_camp) for ten years before he managed to escape to the South in 1992.
 
@@ -55,13 +55,13 @@ You might think that North Korea is just an oppressive state. This books will ma
 
 ### Free Will
 
-#### *Sam Harris*
+*Sam Harris*
 
 Sam Harris' greatest appeal is that he can explain complex topics in a simple way. A neuroscientist by trade, he never shies away from discussing philosophical matters, either in writing or on his [podcast](https://samharris.org/podcast/). Although Free Will spans less than seventy pages, it managed to alter my perception on the concept of free will and whether we actually have it. His conclusions on the lack thereof derive from a series of well-articulated arguments, both of the philosophical as well as purely materialistic and neurological nature. The book offers valuable insight on issues like human behaviour, morals and our daily discourse towards each other, while claiming that a lack of free will does not imply a lack of need for social and political liberty.
 
 ### Brave New World
 
-#### *Aldous Huxley*
+*Aldous Huxley*
 
 I am not very big on novels, but I knew that Huxley's 1931 classic is a staple of 20th century literature and - in hindsight - justifiably so. Although there is no room for comparison, readers that might have read George Orwell's 1984 will be easily able to draw a parallel between the two novels, as they both delve into a dystopian version of the world, experimenting with themes of oppression, significant lack of personal freedom and a stereotypical and sterile existence for the inhabitants of their respective fictional society. While Orwell's 1984 primarily revolves around the oppressive and the totalitarian elements of the elite, Brave New World deals with the deep-rooted rules of class-based affiliation and behaviour; the alphas and the epsilons, the betas and the gammas. Genetic modifications are the underbelly of society and intelligence is the separator between the classes. If you enjoy fiction novels, happen to be an admirer of George Orwell's (and, somehow, Brave New World has evaded your attention), or looking for the next thought-provoking read, Brave New World rightly deserves a spot on your bookshelf.
 

@@ -11,7 +11,7 @@ import SmallPost from '../components/small-post'
 // TODO: responsive
 
 const PostHeader = styled.div `
-  max-width: 850px;
+  max-width: 1200px;
   margin: 6rem auto 4rem auto;
   text-align: center;
 
@@ -58,18 +58,22 @@ const PostContainer = styled.div `
   @media(max-width: 1000px) {
     margin: 0 auto 4rem auto;
   }
-  
+
   article {
     line-height: 2rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     background: #fff;
     padding: 2.5rem;
     border-radius: 5px;
     font-family: inherit;
+    font-weight: 400;
 
+    @media (max-width: 700px) {
+      padding: 2.5rem 0rem;
+    }
 
-    @media only screen and (max-width: 700px) {
-      text-align: justify;
+    @media (max-width: 450px) {
+      padding: 2.5rem 1rem;
     }
 
     a {
@@ -80,11 +84,13 @@ const PostContainer = styled.div `
 
     p {margin-bottom: 1rem;}
 
-    h2 {font-size: 2rem;}
-
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
     h3 {
-      margin-bottom: 1rem;
-      margin-top: 2rem;
+      margin: 2rem auto 1rem auto;
+      font-family: inherit;
     }
 
     h4 {
