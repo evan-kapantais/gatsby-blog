@@ -10,6 +10,7 @@ import '../stylesheets/globals.scss'
 
 // TODO: configure tag pages in gatsby-node
 // TODO: replace Markdown with MDX
+// TODO: check duplicate transformer-remark plugin
 
 const Container = styled.div `
 
@@ -45,7 +46,6 @@ const Container = styled.div `
           width: 100%;
           background: #333;
           opacity: 0;
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
           transition: all 400ms ease;
         }
 

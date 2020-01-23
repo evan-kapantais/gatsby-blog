@@ -9,6 +9,8 @@ import SmallPost from '../components/small-post'
 // TODO: configure a newsletter
 // TODO: responsive more posts grid
 // TODO: responsive
+// TODO: rework more posts
+// TODO: show similar posts or not if there are not any
 
 const PostHeader = styled.div `
   max-width: 1200px;
