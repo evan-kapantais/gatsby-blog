@@ -4,27 +4,26 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledHeader = styled.header `
-  padding: 1rem 0;
-  max-width: 1200px;
+  padding: 2rem;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
-  border-bottom: 1px solid lightgrey;
+
+  @media (max-width: 800px) {
+    padding: 2rem 0;
+  }
+
+  & > a {
+    display: ${props => props.notitle ? 'none' : 'auto'};
+  }
 
   h1 {
-    margin: 0 0 0.2rem 0;
+    margin: 0;
     font-size: 2rem;
     user-select: none;
     text-transform: uppercase;
-    letter-spacing: 2px;
-
-    span:last-child {
-      font-weight: 200;
-    }
   }
-
-  p { margin: 0; }
 
   nav {
     font-size: 0.8rem;
@@ -60,7 +59,7 @@ const StyledHeader = styled.header `
   }
 `
 
-const Header = () => {
+const Header = (props) => {
   
   return (
     <StaticQuery
@@ -76,12 +75,9 @@ const Header = () => {
         }
       `}
       render={data => (
-        <StyledHeader>
+        <StyledHeader notitle={props.notitle}>
           <Link to='/'>
-            <h1>
-              <span>{data.site.siteMetadata.title.slice(0, 4)}</span>
-              <span>{data.site.siteMetadata.title.slice(5)}</span>
-            </h1>
+            <h1>{data.site.siteMetadata.title}</h1>
             <small>{data.site.siteMetadata.description}</small>
           </Link>
           <nav>

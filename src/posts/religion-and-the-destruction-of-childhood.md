@@ -6,8 +6,6 @@ featuredImage: ./images/bernard-law.jpg
 tags: ['religion', 'crime']
 ---
 
-<!-- **BACKGROUND** -->
-
 On the evening of the 23rd of March a young woman from Cyprus was found unconscious in her home and was later pronounced dead after having been transferred to the hospital. Elena Frantzi was only 29 when she allegedly took her own life after having endured a lifetime of rape and abuse in the hands of her foster parents.
 The news of the woman’s death made the headlines for a couple of days after her death, but that was it. Like every case that rightly deserves our attention and outrage, as well as the attention of each respective government agency and news outlet, it was forgotten in mere days. Elena was not famous; not a celebrity, not an actor, not a pop star, so her 11 minutes of fame were quickly done away with. It appears that such news have become some sort of a triviality that our societies are growing increasingly numb to. Although Elena’s name is bound to fade from the public’s memory before long, the time is long overdue for the public to speak up and condemn the atrocious behaviour of the sick individuals who forced her actions and were complicit in her abuse.
 
@@ -15,7 +13,7 @@ The news of the woman’s death made the headlines for a couple of days after he
 
 At the age of four, and because of her mother being a drug addict, Elena was given to her foster family by the government. Her foster father, Stylianos Savas was a priest. Like many helpless children who have happened over the years to have the privilege of priestly care, she was repeatedly raped all the way through her childhood. When she tried to speak up at the age of ten — and I can only imagine the courage and resolve it takes to do so — no one believed her. Ax expected, the mental and physical rape, torture and abuse held on. Some years later, another attempt was made and, being an adult now, her allegations were taken seriously. Her godly caretaker was convicted in 2013 and, enjoying the justice that the pious so suspiciously often do, served a mere two years in prison only to be released in 2015.
 
-**INSTITUTIONAL RAPE**
+### INSTITUTIONAL RAPE
 
 It takes a very credulous and deluded individual to believe that this is justice served. Most times the occupation of criminals is of no particular interest to the case, but I often struggle to disassociate the Church from such heinous crimes. For an institution that reportedly promotes love for thy neighbour and enemy alike, it appears to be constantly involved in scandals of the sort. It is also worth pointing out that said priest was not even excommunicated from his own church. Since this is the case, then, it logically follows that the Church condones such behaviour and, dare I say, promotes it, given that the criminal priest was later appointed to a women’s monastery and given a new home next to a primary school (coincidence is a word that should be used with suspicion here).
 
@@ -23,7 +21,7 @@ Readers that have been following the Church's dealings might have already drawn 
 
 ![Bernard Law / Joe Readle](images/bernard-law-01.jpg)
 
-**CONTRADICTIONS**
+### CONTRADICTIONS
 
 In a statement made by the superior of Elena Frantzi’s step father — whose face and name the major media outlets were conspicuously reluctant to release — it was mentioned that the laws of the land do not directly apply to the holy institution of the Orthodox Church, which had reportedly exhausted their disciplinary measures against him. Such was also the case in 2001, when it was revealed that the law did not yet apply to complicit and enabling parties in crimes within religious institutions.
 
@@ -33,7 +31,7 @@ The case is also made that religion is needed for the good it does in the form o
 
 It is about time we grew out of this childishness.
 
-**PERPETUAL RELUCTANCE**
+### PERPETUAL RELUCTANCE
 
 The continuous reluctance of the Church — and by that I mean both predominant divisions — to condemn acts of violence and terrorism against the young should be a constant reminder to all of the rotten core of our societal structure. This biggest and most obviously criminal organisation keeps expanding in plain sight, while in a painfully obvious manner keeps reassuring us of its dominant status. The Church was, is and probably will keep being exempt from any form of punishment or regulation, even when the crimes their members commit are condemned by the states they operate in. The fear of governments to stand up to the pious lest they cause uproar, be branded as unbelievers (and, god forbid, atheists) or lose a significant portion of their political base, even when their agenda is obviously indifferent to religion, is significantly slowing down our progress by preserving a monolithic dogma that came to be back when humans didn’t even know where diseases came from.
 

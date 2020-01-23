@@ -5,24 +5,37 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
-import SideCard from '../components/side-card'
+import PostCard from '../components/post-card'
 
 // TODO: add an image header
 
 const Container = styled.div `
-  max-width: 1200px;
-  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  margin: 8rem auto;
 
   h1 {
+    position: sticky;
+    top: 2rem;
     text-transform: capitalize;
+    margin-left: 2rem;
+    /* text-align: right; */
   }
 `
 
 const Posts = styled.div `
-  margin: 2rem 0;
+  max-width: 700px;
+  margin: 0 auto 0 4rem;
+  justify-content: center;
+
+  article:first-child {
+    margin-top: 0;
+  }
 `
 
 const AllTags = styled.div `
+  grid-column: 2 / 3;
+  margin-left: 5rem;
   a {
     color: rgb(3, 159, 255);
 
@@ -41,10 +54,12 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <Seo title='Tags' />
       <Container>
-        <h1>#{tag}</h1>
+        <section>
+          <h1>#{tag}</h1>
+        </section>
         <Posts>
           {edges.map(({ node }) => (
-            <SideCard node={ node } />
+            <PostCard node={ node } />
           ))}
         </Posts>
         <AllTags>
@@ -91,7 +106,7 @@ export const pageQuery = graphql`
       edges {
         node {
           timeToRead
-          excerpt
+          excerpt (pruneLength: 600, format: HTML)
           fields {
             slug
           }
