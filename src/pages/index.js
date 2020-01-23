@@ -9,8 +9,11 @@ import PostCard from '../components/post-card'
 import '../stylesheets/globals.scss'
 
 // TODO: configure tag pages in gatsby-node
+// TODO: configure all-tags page
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
+// TODO: configure a newsletter
+// TODO: hamburget menu
 
 const Container = styled.div `
 

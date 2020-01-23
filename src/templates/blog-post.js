@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 
-// TODO: configure a newsletter
 // TODO: responsive more posts grid
 // TODO: responsive
 // TODO: rework more posts
