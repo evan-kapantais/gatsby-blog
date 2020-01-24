@@ -60,7 +60,6 @@ const StyledHeader = styled.header `
 `
 
 const Header = (props) => {
-  console.log(window.innerWidth);
   
   return (
     <StaticQuery

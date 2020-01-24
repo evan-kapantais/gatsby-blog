@@ -20,6 +20,7 @@ import '../stylesheets/globals.scss'
 // TODO: query contact and about images
 // TODO: typography
 // TODO: header: remove margins
+// TODO: header queries not working in production !!!IMPORTANT
 
 const Container = styled.div `
 
