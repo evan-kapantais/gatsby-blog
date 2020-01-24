@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import PostCard from '../components/post-card'
+import HamburgerMenu from '../components/hamburger'
 
 // TODO: add an image header
 // TODO: responsive
@@ -61,6 +62,7 @@ const Tags = ({ pageContext, data }) => {
   return (
     <Layout>
       <Seo title='Tags' />
+      <HamburgerMenu />
       <Container>
         <section>
           <h1>#{tag}</h1>

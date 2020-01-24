@@ -62,7 +62,7 @@ const Social = styled.div `
   align-items: flex-end;
 
   a {
-    margin: 0 0.5rem;
+    margin: 0 0.3rem;
     position: relative;
     display: block;
 
