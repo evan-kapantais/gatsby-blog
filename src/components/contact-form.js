@@ -35,21 +35,21 @@ const Form = styled.form `
 
     button {
       transition: all 200ms ease;
-      border: 1px solid #333;
+      border: 1px solid #000;
       text-transform: uppercase;
       font-weight: bold;
-      background: #333;
+      background: #000;
       color: #fff;
       padding: 0.5rem 1rem;
 
       &:hover {
         background: #fff;
         cursor: pointer;
-        color: #333;
+        color: #000;
       }
 
       &:focus {
-        background: #333;
+        background: #000;
         color: #fff;
         box-shadow: none;
       }
@@ -73,7 +73,7 @@ const Social = styled.div `
       left: 0;
       height: 3px;
       width: 100%;
-      background: #333;
+      background: #000;
       opacity: 0;
       transition: all 500ms ease;
     }
@@ -148,13 +148,13 @@ class ContactForm extends React.Component {
           <button type='submit' value='Submit' onFocus={this.onFocus} onBlur={this.onBlur}>Submit</button>
           <Social>
             <a href="https://twitter.com/evankapantais">
-              <img src={require('../images/github-333.png')} alt=""/>
+              <img src={require('../images/github.png')} alt=""/>
             </a>
             <a href="https://github.com/evan-kapantais">
-              <img src={require('../images/twitter-333.png')} alt=""/>
+              <img src={require('../images/twitter.png')} alt=""/>
             </a>
             <a href="https://www.instagram.com/evan_kapantais/">
-              <img src={require('../images/instagram-333.png')} alt=""/>
+              <img src={require('../images/instagram.png')} alt=""/>
             </a>
           </Social>
         </footer>

@@ -14,7 +14,7 @@ import HamburgerMenu from '../components/hamburger'
 
 const PostHeader = styled.div `
   max-width: 1200px;
-  margin: 6rem auto 4rem auto;
+  margin: 10rem auto 4rem auto;
   text-align: center;
 
   h5 {

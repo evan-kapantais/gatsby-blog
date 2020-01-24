@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
-import HamburgerMenu from '../components/hamburger'
 
 import '../stylesheets/globals.scss'
 
@@ -88,7 +87,6 @@ const IndexPage = ({ data }) => {
     <Layout notitle>
       <SEO title='Home' />
       <Container>
-        <HamburgerMenu />
         <header>
           <h1> {data.site.siteMetadata.title} </h1>
           <p> {data.site.siteMetadata.description} </p>

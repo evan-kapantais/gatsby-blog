@@ -4,10 +4,9 @@ import styled, { keyframes } from 'styled-components'
 import Layout from '../components/layout'
 import Seo from'../components/seo'
 import ContactForm from '../components/contact-form'
-import HamburgerMenu from '../components/hamburger'
 
 const Card = styled.div`
-  margin: 4rem auto 10rem auto;
+  margin: 8rem auto 10rem auto;
   position: relative;
   max-width: 1200px;
   min-width: 500px;
@@ -58,7 +57,6 @@ const Content = styled.section `
 const contactPage = () => (
   <Layout>
     <Seo title='Contact' />
-    <HamburgerMenu />
     <Card>
       <section>
         <img src={require('../images/benjamin-gremler-q_TzfAt4NQ8-unsplash.jpg')} alt='Barcelona Aerial View'/>

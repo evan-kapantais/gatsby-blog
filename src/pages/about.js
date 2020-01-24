@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import styled from 'styled-components'
 
-import HamburgerMenu from '../components/hamburger'
 
 // TODO: rework the header with 2 headings and a div instead
 // TODO: responsive
@@ -17,6 +16,7 @@ const Container = styled.div `
   @media only screen and (max-width: 980px) {
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
   }
 `
 
@@ -32,14 +32,9 @@ const ImageWrapper = styled.div `
   img {margin: 0;}
 
   @media only screen and (max-width: 980px) {
-    max-width: 300px;
-    height: 300px;
-    border-radius: 50%;
-  }
-
-  @media only screen and (max-width: 480px) {
     max-width: 200px;
     height: 200px;
+    border-radius: 50%;
   }
 `
 
@@ -55,14 +50,6 @@ padding: 0 2rem;
       color: rgb(3, 159, 255);
 
       &:hover {text-decoration: underline;}
-    }
-
-    @media only screen and (max-width: 980px) {
-      text-align: center;
-    }
-
-    @media only screen and (max-width: 480px) {
-      text-align: justify;
     }
   }
 `
@@ -115,7 +102,6 @@ const aboutPage = () => {
   return (
     <Layout title='About'>
       <Seo title='About' />
-      <HamburgerMenu />
       <Container>
         <ImageWrapper>
           <img src={require('../images/portrait_01.jpg')} alt='portrait' />

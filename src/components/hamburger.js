@@ -14,13 +14,12 @@ const slideIn = keyframes `
 `
 
 const Menu = styled.div `
-  display: block;
   width: 40px;
   height: 40px;
   background: ${props => props.isOpen ? '#fff' : '#000'};
   position: absolute;
-  top: 1.5rem;
-  left: -100%;
+  top: 2rem;
+  right: -100px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -30,6 +29,10 @@ const Menu = styled.div `
   z-index: 999;
   transition: all 800ms ease-in-out;
 
+  @media (max-width: 750px) {
+    right: 2rem;
+  }
+
   &::after,
   &::before {
     display: ${props => props.isOpen ? 'none' : 'auto'};
@@ -37,7 +40,7 @@ const Menu = styled.div `
     color: #000;
     position: absolute;
     top: 10px;
-    left: 50px;
+    left: -60px;
     font-size: 0.8rem;
     opacity: 0;
     transition: all 400ms ease;
@@ -58,11 +61,6 @@ const Menu = styled.div `
     opacity: 1;
   }
 
-  @media (max-width: 750px) {
-    display: auto;
-    left: 2rem;
-  }
-
  div {
     width: 15px;
     height: 2px;
@@ -76,7 +74,7 @@ const Menu = styled.div `
 const Panel = styled.nav`
   position: fixed;
   top: 0;
-  left: ${props => props.isOpen ? '0' : '-100%'};
+  right: ${props => props.isOpen ? '0' : '-100%'};
   background: #000;
   height: 100vh;
   width: 100%;
