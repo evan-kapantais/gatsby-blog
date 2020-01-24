@@ -30,7 +30,7 @@ const Menu = styled.div `
 const Panel = styled.nav`
   position: fixed;
   top: 0;
-  left: 0;
+  left: ${props => props.isOpen ? '0' : '-100%'};
   background: #000;
   height: 100vh;
   width: 100%;
@@ -40,6 +40,7 @@ const Panel = styled.nav`
   align-items: center;
   justify-content: center;
   z-index: 998;
+  transition: all 500ms ease;
 
   a {
     margin: 1rem auto;
@@ -50,20 +51,21 @@ class HamburgerMenu extends React.Component  {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
+      isOpen: false
     }
     this.panelRef = React.createRef();
   }
 
-  handlePanel = () => {
-    
+  onChange = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
-
 
   render() {
     return (
       <>
-        <Menu onClick={this.handlePanel}>
+        <Menu onMouseDown={this.onChange}>
           <div />
           <div />
           <div />
