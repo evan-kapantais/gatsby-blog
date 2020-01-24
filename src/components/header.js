@@ -21,14 +21,14 @@ const StyledHeader = styled.header `
 
   h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     user-select: none;
     text-transform: uppercase;
   }
 
   nav {
     font-size: 0.8rem;
-    font-weight: normal;
+    font-weight: 600;
     
     a {margin-right: 1.5rem;}
     
@@ -79,7 +79,6 @@ const Header = (props) => {
         <StyledHeader notitle={props.notitle}>
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
-            <small>{data.site.siteMetadata.description}</small>
           </Link>
           <nav>
             <Link to='/'>BLOG</Link>

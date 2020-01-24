@@ -8,18 +8,26 @@ import Seo from '../components/seo'
 import PostCard from '../components/post-card'
 
 // TODO: add an image header
+// TODO: responsive
+// TODO: add hamburger
+
 
 const Container = styled.div `
   display: grid;
   grid-template-columns: 2fr 5fr;
   margin: 8rem auto;
 
+  section:first-child {
+    position: relative;    
+    border-right: 2px solid;
+  }
+
   h1 {
     position: sticky;
     top: 2rem;
     text-transform: capitalize;
-    margin-left: 2rem;
-    /* text-align: right; */
+    margin-top: 1rem;
+    /* border-bottom: 2px solid; */
   }
 `
 

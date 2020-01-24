@@ -90,6 +90,7 @@ const PostContainer = styled.div `
       font-size: 2rem;
       margin-bottom: 3rem;
     }
+
     h3 {
       margin: 2rem auto 1rem auto;
       font-family: inherit;

@@ -17,6 +17,9 @@ import '../stylesheets/globals.scss'
 // TODO: hamburget menu
 // TODO: active classes in nav links
 // TODO: hide full header on query
+// TODO: query contact and about images
+// TODO: typography
+// TODO: header: remove margins
 
 const Container = styled.div `
 
