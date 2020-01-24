@@ -15,6 +15,8 @@ import '../stylesheets/globals.scss'
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
 // TODO: hamburget menu
+// TODO: active classes in nav links
+// TODO: hide full header on query
 
 const Container = styled.div `
 
@@ -79,7 +81,6 @@ const BlogWrapper = styled.div `
 `
 
 const IndexPage = ({ data }) => {
-
   return (
     <Layout notitle>
       <SEO title='Home' />
@@ -96,10 +97,10 @@ const IndexPage = ({ data }) => {
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <>
+            <div key={node.frontmatter.title}>
               <PostCard node={node} />
               <hr />
-            </>
+            </div>
           ))}
         </BlogWrapper>
       </Container>

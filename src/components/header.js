@@ -4,14 +4,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledHeader = styled.header `
-  padding: 2rem;
+  padding: 2rem 0;
   margin: 0 auto;
   display: flex;
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
+  transition: all 500ms ease-in-out;
 
-  @media (max-width: 800px) {
-    padding: 2rem 0;
+  @media (max-width: 750px) {
+    margin-top: -104px;
   }
 
   & > a {
@@ -59,6 +60,7 @@ const StyledHeader = styled.header `
 `
 
 const Header = (props) => {
+  console.log(window.innerWidth);
   
   return (
     <StaticQuery

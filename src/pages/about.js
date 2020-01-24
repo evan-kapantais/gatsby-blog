@@ -3,6 +3,8 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import styled from 'styled-components'
 
+import HamburgerMenu from '../components/hamburger'
+
 // TODO: rework the header with 2 headings and a div instead
 // TODO: responsive
 
@@ -113,6 +115,7 @@ const aboutPage = () => {
   return (
     <Layout title='About'>
       <Seo title='About' />
+      <HamburgerMenu />
       <Container>
         <ImageWrapper>
           <img src={require('../images/portrait_01.jpg')} alt='portrait' />

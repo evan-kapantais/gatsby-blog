@@ -112,7 +112,7 @@ const PostCard = ({ node }) => {
         <CardFooter>
           <div>
             {tags.map(tag => (
-            <Link to={`/tags/${tag}`}>#{tag} </Link>
+            <Link key={tag} to={`/tags/${tag}`}>#{tag} </Link>
             ))}
           </div>
             <h6>{timeToRead} Minute Read</h6>
