@@ -25,7 +25,7 @@ const Container = styled.div `
 
   header {
     text-align: center;
-    margin: 10rem auto;
+    margin: 10rem auto 10rem auto;
 
     h1 {
       text-transform: uppercase;
