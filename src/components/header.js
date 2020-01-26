@@ -8,7 +8,7 @@ const StyledHeader = styled.header `
   top: 0;
   left: 0;
   right: 0;
-  padding: 2rem;
+  padding: 1rem;
   height: 100px;
   margin: 0 auto;
   display: flex;
@@ -22,12 +22,11 @@ const StyledHeader = styled.header `
 
   & > a {
     display: ${props => props.notitle ? 'none' : 'flex'};
-    align-items: center;
 
     img {
       display: block;
       margin: 0 0.5rem 0 0;
-      max-width:50px;
+      max-width: 50px;
     }
 
     h1 {

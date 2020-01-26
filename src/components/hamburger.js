@@ -10,7 +10,7 @@ const Menu = styled.div `
   height: 40px;
   background: ${props => props.isOpen ? '#fff' : '#000'};
   position: absolute;
-  top: 2rem;
+  top: 1rem;
   right: -100px;
   border-radius: 50%;
   display: flex;
@@ -22,7 +22,7 @@ const Menu = styled.div `
   transition: all 800ms ease-in-out;
 
   @media (max-width: 750px) {
-    right: 2rem;
+    right: 1rem;
   }
 
   &::after,
@@ -86,9 +86,8 @@ const Panel = styled.div`
     color: white;
     position: absolute;
     display: flex;
-    align-items: center;
-    top: 1.5rem;
-    left: 2rem;
+    top: 1rem;
+    left: 1rem;
 
     img {
       max-width: 50px;
