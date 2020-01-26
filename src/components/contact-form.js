@@ -115,37 +115,27 @@ class ContactForm extends React.Component {
     });
   }
 
-  onFocus = (event) => {
-    const content = this.formRef.current.parentNode;
-    // content.style.transform = 'scale(1.05) translateX(-10rem)';
-  }
-
-  onBlur = (event) => {
-    const content = this.formRef.current.parentNode;
-    // content.style.transform = 'scale(1) translateX(-10rem)';
-  }
-
   render() {
     return (
-      <Form width={this.props.width} name='contact' data-netlify='true' ref={this.formRef}>
+      <Form name='contact' data-netlify='true' ref={this.formRef}>
         <div>
           <label htmlFor='name'>Name *</label>
-          <input type='text' id='name' placeholder='' onChange={this.onChange} value={this.state.name} onFocus={this.onFocus} onBlur={this.onBlur} required />
+          <input type='text' id='name' onChange={this.onChange} value={this.state.name} required />
         </div>
         <div>
           <label htmlFor='email'>Email *</label>
-          <input type='email' id='email' placeholder=''onChange={this.onChange} value={this.state.email} onFocus={this.onFocus} onBlur={this.onBlur} required />
+          <input type='email' id='email' onChange={this.onChange} value={this.state.email} required />
         </div>
         <div>
           <label htmlFor='subject'>Subject</label>
-          <input type='text' id='subject' placeholder='' onChange={this.onChange} value={this.state.subject} onFocus={this.onFocus} onBlur={this.onBlur} />
+          <input type='text' id='subject' onChange={this.onChange} value={this.state.subject} />
         </div>
         <div>
           <label htmlFor='message'>Message *</label>
-          <textarea name='message' id='message' placeholder='' cols='30' rows='5' onChange={this.onChange} value={this.state.message} onFocus={this.onFocus} onBlur={this.onBlur} required />
+          <textarea name='message' id='message' cols='30' rows='5' onChange={this.onChange} value={this.state.message} required />
         </div>
         <footer>
-          <button type='submit' value='Submit' onFocus={this.onFocus} onBlur={this.onBlur}>Submit</button>
+          <button type='submit' value='Submit'>Submit</button>
           <Social>
             <a href="https://twitter.com/evankapantais">
               <img src={require('../images/github.png')} alt=""/>

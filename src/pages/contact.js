@@ -15,6 +15,7 @@ const Card = styled.div`
   @media (max-width: 660px) {
     height: unset;
     margin-bottom: 4rem;
+    min-width: unset;
   }
 
   section:first-child {
@@ -52,6 +53,11 @@ const Content = styled.section `
     left: 0;
     margin: 2rem auto;
   }
+
+  @media (max-width: 540px) {
+    margin: 2rem auto;
+    width: auto;
+  }
 `
 
 const contactPage = () => (
@@ -62,7 +68,7 @@ const contactPage = () => (
         <img src={require('../images/benjamin-gremler-q_TzfAt4NQ8-unsplash.jpg')} alt='Barcelona Aerial View'/>
       </section>
       <Content>
-        <ContactForm width='500px' />
+        <ContactForm />
       </Content>
     </Card>
   </Layout>
