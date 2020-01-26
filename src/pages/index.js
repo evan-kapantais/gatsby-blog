@@ -9,6 +9,9 @@ import PostCard from '../components/post-card'
 import '../stylesheets/globals.scss'
 
 // TODO: fix index logo !!!IMPORTANT
+// TODO: remove ::after and ::before elements from hamburger on small screens
+// TODO: configure 404 page
+// TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query contact and about images
 // TODO: configure all-tags page
 // TODO: replace Markdown with MDX
