@@ -3,15 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { Link } from 'gatsby'
 
 // TODO: animate nav links
-
-const slideIn = keyframes `
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`
+// TODO: resolve null target on logo click
 
 const Menu = styled.div `
   width: 40px;
@@ -71,7 +63,7 @@ const Menu = styled.div `
   }
 `
 
-const Panel = styled.nav`
+const Panel = styled.div`
   position: fixed;
   top: 0;
   right: ${props => props.isOpen ? '0' : '-100%'};
@@ -90,24 +82,49 @@ const Panel = styled.nav`
     display: flex;
   }
 
-  a {
-    margin: 1rem auto;
-    position: relative;
+  & > a {
+    color: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 1.5rem;
+    left: 2rem;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      height: 2px;
-      width: 0px;
-      background: #fff;
-      transition: all 300ms ease;
+    img {
+      max-width: 50px;
+      margin: 0 0.5rem 0 0;
     }
 
-    &:hover::after {
-      left: 0;
-      width: 100%;
+    h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+      margin: 1rem auto;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        height: 2px;
+        width: 0px;
+        background: #fff;
+        transition: all 300ms ease;
+      }
+
+      &:hover::after {
+        left: 0;
+        width: 100%;
+      }
     }
   }
 `
@@ -115,10 +132,10 @@ const Panel = styled.nav`
 class HamburgerMenu extends React.Component  {
   constructor(props) {
     super(props);
+    this.logoRef = React.createRef();
     this.state = {
       isOpen: false
     }
-    this.panelRef = React.createRef();
   }
 
   onChange = () => {
@@ -127,13 +144,17 @@ class HamburgerMenu extends React.Component  {
     });
   }
 
-  clickLink= (e) => {
+  clickLink = (e) => {
     e.preventDefault();
 
     const target = e.target.getAttribute('href');
 
     setTimeout(() => {
-      window.location.href = target;
+      if (target === null) {
+        window.location.href = '/';
+      } else {
+        window.location.href = target;
+      }
     }, 500);
 
     this.setState({
@@ -149,10 +170,16 @@ class HamburgerMenu extends React.Component  {
           <div />
           <div />
         </Menu>
-        <Panel ref={this.panelRef} isOpen={this.state.isOpen}>
-          <Link to='/' onClick={this.clickLink}>BLOG</Link>
-          <Link to='/about' onClick={this.clickLink} delay='500ms'>ABOUT</Link>
-          <Link to='/contact' onClick={this.clickLink} delay='1000ms'>CONTACT</Link>
+        <Panel isOpen={this.state.isOpen}>
+          <Link to='/' onClick={this.clickLink}>
+            <img src={require('../images/noose-white.png')} alt=''/>
+            <h1>EVAN KAPANTAIS</h1>
+          </Link>
+          <nav>
+            <Link to='/' onClick={this.clickLink}>BLOG</Link>
+            <Link to='/about' onClick={this.clickLink} delay='500ms'>ABOUT</Link>
+            <Link to='/contact' onClick={this.clickLink} delay='1000ms'>CONTACT</Link>
+          </nav>
         </Panel>
       </>
     );

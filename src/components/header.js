@@ -21,19 +21,25 @@ const StyledHeader = styled.header `
   }
 
   & > a {
-    display: ${props => props.notitle ? 'none' : 'auto'};
-  }
+    display: ${props => props.notitle ? 'none' : 'flex'};
+    align-items: center;
 
-  h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    user-select: none;
-    text-transform: uppercase;
+    img {
+      display: block;
+      margin: 0 0.5rem 0 0;
+      max-width:50px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      user-select: none;
+      text-transform: uppercase;
+    }
   }
 
   nav {
     font-size: 0.8rem;
-    font-weight: 600;
     transition: all 500ms ease-in-out;
 
     @media (max-width: 750px) {
@@ -87,6 +93,7 @@ const Header = (props) => {
       render={data => (
         <StyledHeader notitle={props.notitle}>
           <Link to='/'>
+            <img src={require('../images/noose.png')} alt='logo'/>
             <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <nav>

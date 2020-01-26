@@ -13,7 +13,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0 2rem;
+  // padding: 0 2rem;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -216,6 +216,7 @@ html {
   box-sizing: inherit;
 }
 img {
+  display: block;
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;

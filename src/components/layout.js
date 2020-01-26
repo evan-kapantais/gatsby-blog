@@ -8,7 +8,7 @@ import HamburgerMenu from '../components/hamburger'
 import "../stylesheets/layout.scss"
 
 const StyledLayout = styled.div `
-  /* min-height: 100vh; */
+
 `
 
 const Layout = (props) => {

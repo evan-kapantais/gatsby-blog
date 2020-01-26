@@ -11,12 +11,13 @@ const Beat = keyframes`
 
 const StyledFooter = styled.footer `
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
 
   span {
     display: inline-block;
+    user-select: none;
     animation: ${Beat} 1000ms ease infinite forwards;
   }
 `

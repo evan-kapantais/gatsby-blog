@@ -8,24 +8,38 @@ import PostCard from '../components/post-card'
 
 import '../stylesheets/globals.scss'
 
-// TODO: configure tag pages in gatsby-node
+// TODO: query contact and about images
 // TODO: configure all-tags page
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
-// TODO: hamburget menu
 // TODO: active classes in nav links
 // TODO: hide full header on query
-// TODO: query contact and about images
 // TODO: typography
 // TODO: header: remove margins
-// TODO: header queries not working in production !!!IMPORTANT
+// TODO: responsive form
+// TODO: play noose animation regardless of mouseout
+// TODO: even out general margins
+
+const Logo = styled.div `
+  margin: 0;
+
+  img {
+    display: block;
+    max-width: 100px;
+    margin: 0;
+    transform-origin: top;
+    position: relative;    
+  }
+`
 
 const Container = styled.div `
 
   header {
     text-align: center;
+    position: relative;
     margin: 10rem auto 10rem auto;
+
 
     h1 {
       text-transform: uppercase;
@@ -78,9 +92,7 @@ const BlogWrapper = styled.div `
   max-width: 700px;
   margin: 2rem auto;
 
-  hr:last-child {
-    display: none;
-  }
+  div:last-child hr {display: none;}
 `
 
 const IndexPage = ({ data }) => {
@@ -89,6 +101,9 @@ const IndexPage = ({ data }) => {
       <SEO title='Home' />
       <Container>
         <header>
+          <Logo>
+            <img src={require('../images/noose.png')} alt=""/>
+          </Logo>
           <h1> {data.site.siteMetadata.title} </h1>
           <p> {data.site.siteMetadata.description} </p>
           <div>
