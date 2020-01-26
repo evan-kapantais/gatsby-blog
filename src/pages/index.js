@@ -8,6 +8,7 @@ import PostCard from '../components/post-card'
 
 import '../stylesheets/globals.scss'
 
+// TODO: fix index logo !!!IMPORTANT
 // TODO: query contact and about images
 // TODO: configure all-tags page
 // TODO: replace Markdown with MDX
@@ -20,16 +21,16 @@ import '../stylesheets/globals.scss'
 // TODO: responsive form
 // TODO: play noose animation regardless of mouseout
 // TODO: even out general margins
+// TODO: split posts in more pages
 
 const Logo = styled.div `
   margin: 0;
 
   img {
     display: block;
-    max-width: 100px;
+    width: 100px;
+    height: 100px;
     margin: 0;
-    transform-origin: top;
-    position: relative;    
   }
 `
 
