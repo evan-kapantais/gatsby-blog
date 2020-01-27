@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import SocialContainer from '../components/social'
+
 const Form = styled.form `
   margin: 0 auto;
   font-size: 0.8rem;
@@ -57,59 +59,18 @@ const Form = styled.form `
   }
 `
 
-const Social = styled.div `
-  display: flex;
-  align-items: flex-end;
-
-  a {
-    margin: 0 0.3rem;
-    position: relative;
-    display: block;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-      height: 3px;
-      width: 100%;
-      background: #000;
-      opacity: 0;
-      transition: all 500ms ease;
-    }
-
-    &:hover::after {
-      bottom: -10px;
-      opacity: 1;
-    }
-
-    img {
-      width: 1.5rem;
-      margin: 0;
-      display: block;
-      max-width: auto;
-      top: 0;
-      left: 0;
-    }
-  }
-`
-
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: '',
       email: '',
       subject: '',
       message: '',
     };
-
-    this.formRef = React.createRef();
   }
 
   onChange = (event) => {
-
     this.setState({
       [event.target.id]: event.target.value,
     });
@@ -117,7 +78,7 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <Form name='contact' data-netlify='true' ref={this.formRef}>
+      <Form name='contact' data-netlify='true'>
         <div>
           <label htmlFor='name'>Name *</label>
           <input type='text' id='name' onChange={this.onChange} value={this.state.name} required />
@@ -136,17 +97,7 @@ class ContactForm extends React.Component {
         </div>
         <footer>
           <button type='submit' value='Submit'>Submit</button>
-          <Social>
-            <a href="https://twitter.com/evankapantais">
-              <img src={require('../images/github.png')} alt=""/>
-            </a>
-            <a href="https://github.com/evan-kapantais">
-              <img src={require('../images/twitter.png')} alt=""/>
-            </a>
-            <a href="https://www.instagram.com/evan_kapantais/">
-              <img src={require('../images/instagram.png')} alt=""/>
-            </a>
-          </Social>
+          <SocialContainer margin='0' />
         </footer>
       </Form>
     );

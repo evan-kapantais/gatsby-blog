@@ -9,7 +9,7 @@ import Layout from '../components/layout'
 // TODO: responsive
 
 const Container = styled.div `
-  max-width: 700px;
+  max-width: 600px;
   margin: 10rem auto 2rem auto;
   display: flex;
   align-items: center;

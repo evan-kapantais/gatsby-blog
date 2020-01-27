@@ -8,6 +8,7 @@ const StyledLink = styled(Link) `
   letter-spacing: 1px;
   margin-right: 1.5rem;
   font-size: 0.8rem;
+  color: ${props => props.activeStyle || '#000'};
 
   &:last-child {margin: 0;}
 
@@ -30,7 +31,12 @@ const StyledLink = styled(Link) `
 `
 
 const NavLink = (props) => (
-  <StyledLink to={props.to}>{props.text}</StyledLink>
+  <StyledLink 
+  to={props.to} 
+  activeStyle={{fontWeight: 600}}
+  >
+    {props.text}
+  </StyledLink>
 );
 
 export default NavLink;

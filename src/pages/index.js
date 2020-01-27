@@ -29,6 +29,7 @@ import '../stylesheets/globals.scss'
 // TODO: play noose animation regardless of mouseout
 // TODO: even out general margins
 // TODO: split posts in more pages
+// TODO: turn hamburger into X when panel is open
 
 const Logo = styled.div `
   margin: 0;

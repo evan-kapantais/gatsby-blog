@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SocialContainer = styled.div `
-  margin: 2rem;
+  margin: ${props => props.margin || `2rem`};
   display: flex;
   justify-content: center;
 
@@ -41,8 +41,8 @@ const SocialContainer = styled.div `
   }
 `
 
-const Social = () => (
-  <SocialContainer>
+const Social = (props) => (
+  <SocialContainer margin={props.margin}>
     <a href="https://twitter.com/evankapantais">
       <img src={require('../images/twitter.png')} alt=''/>
     </a>
