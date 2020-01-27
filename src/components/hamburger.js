@@ -2,9 +2,6 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Link } from 'gatsby'
 
-// TODO: animate nav links
-// TODO: resolve null target on logo click
-
 const Menu = styled.div `
   width: 40px;
   height: 40px;
@@ -25,7 +22,7 @@ const Menu = styled.div `
     right: 1rem;
   }
 
-  &::after,
+  /* &::after,
   &::before {
     display: ${props => props.isOpen ? 'none' : 'auto'};
     content: 'MENU';
@@ -42,16 +39,17 @@ const Menu = styled.div `
     display: ${props => props.isOpen ? 'block' : 'none'};
     content: 'CLOSE';
     color: #fff;
-  }
+  } */
 
   &:hover {
     cursor: pointer;
   }
 
-  &:hover::after,
+  /* &:hover::after,
   &:hover::before {
     opacity: 1;
-  }
+  } */
+
 
  div {
     width: 15px;
@@ -59,7 +57,22 @@ const Menu = styled.div `
     border-radius: 2px;
     margin: 2px auto;
     background: ${props => props.isOpen ? '#000' : '#fff'};
-    transition: all 800ms ease;
+    transition: all 500ms ease;
+
+    &:first-child {
+      transform-origin: center;
+      transform: ${props => props.isOpen ? 'rotate(45deg) translate(4px, 5px)' : 'none'};
+      width: ${props => props.isOpen ? '20px' : '15px'};
+    }
+
+    &:nth-child(2) {
+      transform: ${props => props.isOpen ? 'translateX(100px)' : 'none'};
+    }
+
+    &:last-child {
+      transform: ${props => props.isOpen ? 'rotate(-45deg) translate(4px, -4px)' : 'none'};
+      width: ${props => props.isOpen ? '20px' : '15px'};
+    }
   }
 `
 
@@ -92,7 +105,6 @@ const Panel = styled.div`
     img {
       max-width: 50px;
       height: 50px;
-      margin: 0 0.5rem 0 0;
     }
 
     h1 {
@@ -138,7 +150,7 @@ class HamburgerMenu extends React.Component  {
     }
   }
 
-  onChange = () => {
+  onChange = (e) => {
     this.setState({
       isOpen: !this.state.isOpen
     });

@@ -8,7 +8,11 @@ import HamburgerMenu from '../components/hamburger'
 import "../stylesheets/layout.scss"
 
 const StyledLayout = styled.div `
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100%;
 `
 
 const Layout = (props) => {

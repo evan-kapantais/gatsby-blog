@@ -6,7 +6,7 @@ import Seo from'../components/seo'
 import ContactForm from '../components/contact-form'
 
 const Card = styled.div`
-  margin: 8rem auto 10rem auto;
+  margin: 2rem auto 4rem auto;
   position: relative;
   max-width: 1200px;
   min-width: 500px;

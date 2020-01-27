@@ -7,29 +7,17 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
-import '../stylesheets/globals.scss'
-
-// TODO: fix index logo !!!IMPORTANT
-// TODO: logo appears stretched on mobile !!!IMPORTANT
-// TODO: resize blog-post header on small screens
-// TODO: replace Links with NavLink component
-// TODO: remove ::after and ::before elements from hamburger on small screens
-// TODO: configure 404 page
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query contact and about images
 // TODO: configure all-tags page
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
-// TODO: active classes in nav links
-// TODO: hide full header on query
 // TODO: typography
 // TODO: header: remove margins
-// TODO: responsive form
-// TODO: play noose animation regardless of mouseout
 // TODO: even out general margins
 // TODO: split posts in more pages
-// TODO: turn hamburger into X when panel is open
+// TODO: rss feed?
 
 const Logo = styled.div `
   margin: 0;

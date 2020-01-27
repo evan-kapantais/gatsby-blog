@@ -6,10 +6,7 @@ import styled from 'styled-components'
 import NavLink from '../components/nav-link'
 
 const StyledHeader = styled.header `
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   padding: 1rem;
   height: 100px;
   margin: 0 auto;
@@ -24,10 +21,11 @@ const StyledHeader = styled.header `
 
   & > a {
     display: ${props => props.notitle ? 'none' : 'flex'};
+    min-width: 278px;
 
     img {
       display: block;
-      margin: 0 0.5rem 0 0;
+      margin: 0;
       max-width: 50px;
       height: 50px;
     }

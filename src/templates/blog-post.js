@@ -27,8 +27,8 @@ const PostHeader = styled.div `
     font-size: 4rem;
     margin: 1rem auto;
 
-    @media only screen and (max-width: 528px) {
-      font-size: 3.7rem;
+    @media only screen and (max-width: 750px) {
+      font-size: 3rem;
     }
   }
 
@@ -137,7 +137,7 @@ const blogPost = ({ data }) => {
         <h5>{date}</h5>
         <h1>{title}</h1>
         {tags.map(tag => (
-          <Link to={`/tags/${tag}`}># {tag}</Link>
+          <Link to={`/tags/${tag}`} key={tag}># {tag}</Link>
         ))}
       </PostHeader>
       <FeatureImageWrapper>

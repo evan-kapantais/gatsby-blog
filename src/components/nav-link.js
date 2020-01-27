@@ -8,7 +8,7 @@ const StyledLink = styled(Link) `
   letter-spacing: 1px;
   margin-right: 1.5rem;
   font-size: 0.8rem;
-  color: ${props => props.activeStyle || '#000'};
+  color: ${props => props.color || '#000'};
 
   &:last-child {margin: 0;}
 
