@@ -37,7 +37,7 @@ const aboutPage = () => {
       <Container>
         <h2>Hey Stranger!</h2>
         <div>
-          <p>If you haven't noticed by now, this is my blog; thanks for dropping by! I'll give you a bit of info so we can become real friends. By training, I am a sound designer specializing in video games. Currently I am based in beautiful Barcelona, Spain, but my country of origin is Greece. Besides my day job, I like to code websites and apps and write stuff about topics that interest me. Here you can find posts on religion, a bit of politics, books and tech. Although this page is solely dedicated to my writing, you can also find my frontend work over at my <a href=''>other website</a> &#40;the link is broken, I know, I know&#41;.</p>
+          <p>If you haven't noticed by now, this is my blog; thanks for dropping by! I'll give you a bit of info so we can become real friends. By training, I am a sound designer specializing in video games. Currently I am based in beautiful Barcelona, Spain, but my country of origin is Greece. Besides my day job, I like to code websites and apps and write stuff about topics that interest me. Here you can find posts on religion, a bit of politics, books and tech. Although this page is solely dedicated to my writing, you can also find my frontend work over at my <a href='https://www.evankapantais.com'>other website</a> &#40;the link is broken, I know, I know&#41;.</p>
           <p>Should you want to reach out to me, you can email me <Link to='/contact'>here</Link> or find me on my social media.</p>
           <p>Happy reading!</p>
         </div>

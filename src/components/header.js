@@ -68,7 +68,7 @@ const Header = (props) => {
           </Link>
           <nav>
             <NavLink to='/' text='BLOG'/>
-            <NavLink to='/about' text='ABOUT'/>
+            {/* <NavLink to='/about' text='ABOUT'/> */}
             <NavLink to='/contact' text='CONTACT'/>
           </nav>
         </StyledHeader>

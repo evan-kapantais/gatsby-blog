@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
+// TODO: responsive more-posts container
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query contact and about images
 // TODO: configure all-tags page
@@ -35,7 +36,7 @@ const Container = styled.div `
   header {
     text-align: center;
     position: relative;
-    margin: 10rem auto 10rem auto;
+    margin: 5rem auto 10rem auto;
 
 
     h1 {

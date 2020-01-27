@@ -89,7 +89,7 @@ const CardFooter = styled.div `
 const PostCard = ({ node }) => {
 
   const { title, date, tags } = node.frontmatter;
-  const { excerpt, timeToRead, html } = node;
+  const { excerpt, timeToRead } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
