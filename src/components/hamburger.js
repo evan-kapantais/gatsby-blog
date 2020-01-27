@@ -91,6 +91,7 @@ const Panel = styled.div`
 
     img {
       max-width: 50px;
+      height: 50px;
       margin: 0 0.5rem 0 0;
     }
 

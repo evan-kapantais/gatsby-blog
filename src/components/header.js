@@ -27,6 +27,7 @@ const StyledHeader = styled.header `
       display: block;
       margin: 0 0.5rem 0 0;
       max-width: 50px;
+      height: 50px;
     }
 
     h1 {
