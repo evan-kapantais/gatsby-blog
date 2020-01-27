@@ -71,10 +71,6 @@ const PostContainer = styled.div `
     font-weight: 400;
 
     @media (max-width: 700px) {
-      padding: 2.5rem 0rem;
-    }
-
-    @media (max-width: 450px) {
       padding: 2.5rem 1rem;
     }
 

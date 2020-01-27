@@ -5,11 +5,14 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
+import SocialContainer from '../components/social'
 
 import '../stylesheets/globals.scss'
 
 // TODO: fix index logo !!!IMPORTANT
 // TODO: logo appears stretched on mobile !!!IMPORTANT
+// TODO: resize blog-post header on small screens
+// TODO: replace Links with NavLink component
 // TODO: remove ::after and ::before elements from hamburger on small screens
 // TODO: configure 404 page
 // TODO: add tag sort method at homepage and display tags below if sorted like so
@@ -111,11 +114,7 @@ const IndexPage = ({ data }) => {
           </Logo>
           <h1> {data.site.siteMetadata.title} </h1>
           <p> {data.site.siteMetadata.description} </p>
-          <div>
-            <a href="https://twitter.com/evankapantais"><img src={require('../images/twitter.png')} alt=''/></a>
-            <a href="https://www.instagram.com/evan_kapantais/"><img src={require('../images/instagram.png')} alt=''/></a>
-            <a href="https://github.com/evan-kapantais"><img src={require('../images/github.png')} alt=''/></a>
-          </div>
+          <SocialContainer />
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (

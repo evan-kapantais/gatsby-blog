@@ -86,7 +86,7 @@ const Panel = styled.div`
     color: white;
     position: absolute;
     display: flex;
-    top: 1rem;
+    top: 1.5rem;
     left: 1rem;
 
     img {

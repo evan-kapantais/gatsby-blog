@@ -3,6 +3,8 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import NavLink from '../components/nav-link'
+
 const StyledHeader = styled.header `
   position: absolute;
   top: 0;
@@ -39,39 +41,9 @@ const StyledHeader = styled.header `
   }
 
   nav {
-    font-size: 0.8rem;
     transition: all 500ms ease-in-out;
 
-    @media (max-width: 750px) {
-      margin-top: -200px;
-    }
-    
-    a {margin-right: 1.5rem;}
-    
-    a:last-child {margin: 0;}
-    
-    a {
-      display: inline-block;
-      position: relative;
-      letter-spacing: 1px;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        height: 2px;
-        width: 100%;
-        background: #333;
-        opacity: 0;
-        transition: all 300ms ease;
-      }
-
-      &:hover::after {
-        bottom: 0px;
-        opacity: 1;
-      }
-    }
+    @media (max-width: 750px) {margin-top: -200px;}
   }
 `
 
@@ -97,9 +69,9 @@ const Header = (props) => {
             <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <nav>
-            <Link to='/'>BLOG</Link>
-            <Link to='/about'>ABOUT</Link>
-            <Link to='/contact'>CONTACT</Link>
+            <NavLink to='/' text='BLOG'/>
+            <NavLink to='/about' text='ABOUT'/>
+            <NavLink to='/contact' text='CONTACT'/>
           </nav>
         </StyledHeader>
       )}
