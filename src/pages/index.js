@@ -19,6 +19,7 @@ import SocialContainer from '../components/social'
 // TODO: even out general margins
 // TODO: split posts in more pages
 // TODO: rss feed?
+// TODO: add dark mode
 
 const Logo = styled.div `
   margin: 0;
