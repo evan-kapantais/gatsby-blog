@@ -27,7 +27,12 @@ const PostHeader = styled.div `
     font-size: 4rem;
     margin: 1rem auto;
 
-    @media only screen and (max-width: 750px) {
+  }
+
+  @media only screen and (max-width: 750px) {
+    margin: 4rem auto;
+    
+    h1 {
       font-size: 3rem;
     }
   }

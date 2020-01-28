@@ -14,7 +14,7 @@ import Tag from '../components/tag'
 const Container = styled.div `
   display: grid;
   grid-template-columns: 2fr 5fr;
-  margin: 10rem auto;
+  margin: 5rem auto;
   padding: 0 2rem;
 
   section:first-child {
@@ -72,10 +72,18 @@ const Posts = styled.div `
 const MoreTags = styled.div`
   p {margin-bottom: 0.5rem;}
 
-  div a{
-    display: block;
-    width: fit-content;
-    margin: 0.5rem 0;
+  div {
+    max-width: 300px;
+
+    a {
+      margin: .2rem;
+      display: inline-block;
+      transition: all 300ms ease;
+    
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 `
 
