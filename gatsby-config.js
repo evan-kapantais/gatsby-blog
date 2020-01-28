@@ -7,9 +7,9 @@ module.exports = {
   plugins: [
     {
       resolve: `gatsby-plugin-typography`,
-      option: {
-        pathToConfigureModule: `src/utils/typography`,
-      }
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
