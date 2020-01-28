@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
-import HamburgerMenu from '../components/hamburger'
 
 // TODO: responsive more posts grid
 // TODO: responsive
@@ -140,7 +139,6 @@ const blogPost = ({ data }) => {
 
   return (
     <Layout>
-      <HamburgerMenu />
       <PostHeader>
         <h5>{date}</h5>
         <h1>{title}</h1>

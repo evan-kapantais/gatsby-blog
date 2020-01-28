@@ -6,9 +6,6 @@ const Menu = styled.div `
   width: 40px;
   height: 40px;
   background: ${props => props.isOpen ? '#fff' : '#000'};
-  position: absolute;
-  top: 1rem;
-  right: -100px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -17,10 +14,6 @@ const Menu = styled.div `
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   z-index: 999;
   transition: all 800ms ease-in-out;
-
-  @media (max-width: 750px) {
-    right: 1rem;
-  }
 
   &:hover {
     cursor: pointer;
@@ -119,7 +112,6 @@ const Panel = styled.div`
 class HamburgerMenu extends React.Component  {
   constructor(props) {
     super(props);
-    this.logoRef = React.createRef();
     this.state = {
       isOpen: false
     }

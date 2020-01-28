@@ -7,9 +7,10 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
-// TODO: responsive more-posts container
+// TODO: fix side panel not opening
+// TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
-// TODO: query contact and about images
+// TODO: query all images
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter

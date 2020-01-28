@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import NavLink from '../components/nav-link'
+import ModeBtn from './mode'
+import HamburgerMenu from './hamburger'
 
 const StyledHeader = styled.header `
   width: 100%;
@@ -39,9 +41,9 @@ const StyledHeader = styled.header `
   }
 
   nav {
+    display: flex;
+    align-items: center;
     transition: all 500ms ease-in-out;
-
-    @media (max-width: 750px) {margin-top: -200px;}
   }
 `
 
@@ -67,9 +69,10 @@ const Header = (props) => {
             <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <nav>
-            <NavLink to='/' text='BLOG'/>
-            {/* <NavLink to='/about' text='ABOUT'/> */}
-            <NavLink to='/contact' text='CONTACT'/>
+            <ModeBtn />
+            {/* <NavLink to='/' text='BLOG'/>
+            <NavLink to='/contact' text='CONTACT'/> */}
+            <HamburgerMenu />
           </nav>
         </StyledHeader>
       )}
