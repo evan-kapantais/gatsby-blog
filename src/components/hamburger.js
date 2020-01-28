@@ -52,16 +52,12 @@ const Panel = styled.div`
   height: 100vh;
   width: 100%;
   color: #fff;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 998;
   transition: all 500ms ease;
-
-  @media (max-width: 750px) {
-    display: flex;
-  }
 
   & > a {
     color: white;

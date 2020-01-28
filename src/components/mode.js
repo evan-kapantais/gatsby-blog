@@ -7,7 +7,7 @@ const ModeBtn = styled.button `
   width: 56px;
   height: 30px;
   border-radius: 20px;
-  background: ${props => props.isDarkModeOn ? '#fff' : '#333'};
+  background: ${props => props.isDarkModeOn ? '#fff' : '#000'};
   border: none;
   transition: all 300ms ease;
 
