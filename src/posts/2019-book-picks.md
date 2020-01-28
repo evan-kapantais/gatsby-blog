@@ -68,7 +68,7 @@ I am not very big on novels, but I knew that Huxley's 1931 classic is a staple o
 ## Notable Mentions
 
 - Love, Poverty & War by *Christopher Hitchens*
-- The Road To Wigan Pier *George Orwell*
+- The Road To Wigan Pier by *George Orwell*
 - Lying by *Sam Harris*
 - The Other America by *Michael Harrington*
 - Letter To A Christian Nation by *Sam Harris*
@@ -82,7 +82,7 @@ I am not very big on novels, but I knew that Huxley's 1931 classic is a staple o
 - The Subtle Art Of Not Giving A Fuck by *Mark Manson*
 - The 4-Hour Work Week by *Tim Ferriss*
 - Tap Dancing To Work: Warren Buffett On Practically Everything, 1966 - 2013 by *Carol Loomis*
-- Rich Dad, Poor Dad - *Robert T. Kiyosaki*
+- Rich Dad, Poor Dad by *Robert T. Kiyosaki*
 - Welcome To The Poisoned Chalice: The Destruction Of Greece And The Future Of Europe by *James Kenneth Galbraith*
 - Notes On A Nervous Planet by *Matt Haig*
 - So Good They Can't Ignore You by *Cal Newport*

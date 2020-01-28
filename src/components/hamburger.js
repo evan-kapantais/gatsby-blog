@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Menu = styled.div `
@@ -22,34 +22,9 @@ const Menu = styled.div `
     right: 1rem;
   }
 
-  /* &::after,
-  &::before {
-    display: ${props => props.isOpen ? 'none' : 'auto'};
-    content: 'MENU';
-    color: #000;
-    position: absolute;
-    top: 10px;
-    left: -60px;
-    font-size: 0.8rem;
-    opacity: 0;
-    transition: all 400ms ease;
-  }
-  
-  &::before {
-    display: ${props => props.isOpen ? 'block' : 'none'};
-    content: 'CLOSE';
-    color: #fff;
-  } */
-
   &:hover {
     cursor: pointer;
   }
-
-  /* &:hover::after,
-  &:hover::before {
-    opacity: 1;
-  } */
-
 
  div {
     width: 15px;
@@ -189,7 +164,6 @@ class HamburgerMenu extends React.Component  {
           </Link>
           <nav>
             <Link to='/' onClick={this.clickLink}>BLOG</Link>
-            <Link to='/about' onClick={this.clickLink} delay='500ms'>ABOUT</Link>
             <Link to='/contact' onClick={this.clickLink} delay='1000ms'>CONTACT</Link>
           </nav>
         </Panel>

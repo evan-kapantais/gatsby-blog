@@ -50,6 +50,7 @@ const PostHeader = styled.div `
 
 const FeatureImageWrapper = styled.div `
   max-width: 1200px;
+  padding: 1rem;
   margin: 0 auto;
 `
 
@@ -107,7 +108,9 @@ const PostContainer = styled.div `
 `
 
 const MorePosts = styled.div`
-  h3 {margin-bottom: 2rem;}
+  padding: 1rem;
+
+  h3 {margin-bottom: 4rem;}
 `
 
 const MorePostsWrapper = styled.div`
@@ -150,7 +153,7 @@ const blogPost = ({ data }) => {
 
         </Newsletter>
         <MorePosts>
-          <h3 to='/'>Here, read some more.</h3>
+          <h3 to='/'>Now Read This</h3>
           <MorePostsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <SmallPost node={ node }/>

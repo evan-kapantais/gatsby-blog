@@ -10,7 +10,6 @@ import SocialContainer from '../components/social'
 // TODO: responsive more-posts container
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query contact and about images
-// TODO: configure all-tags page
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter

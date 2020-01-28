@@ -7,10 +7,8 @@ import Layout from '../components/layout'
 import Seo from '../components/seo'
 import PostCard from '../components/post-card'
 import HamburgerMenu from '../components/hamburger'
+import Tag from '../components/tag'
 
-// TODO: add an image header
-// TODO: responsive
-// TODO: add hamburger
 // TODO: add more-tags list
 
 const Container = styled.div `
@@ -23,17 +21,20 @@ const Container = styled.div `
     position: relative;    
     border-right: 1px solid;
 
-    h3 {
+    div {
       position: sticky;
       top: 2rem;
-      margin-top: 1rem;
-      line-height: 1.5;
-      text-transform: capitalize;
 
-      a {
-        color: rgb(3, 159, 255);
-
-        &:hover {text-decoration: underline;}
+      h3 {
+        margin: 0;
+        line-height: 1.5;
+        text-transform: capitalize;
+  
+        a {
+          color: rgb(3, 159, 255);
+  
+          &:hover {text-decoration: underline;}
+        }
       }
     }
   }
@@ -45,9 +46,9 @@ const Container = styled.div `
     section:first-child {
       border: none;
 
-      h3 {
-        margin-left: 1rem;
-
+      div {
+        padding-left: 1rem;
+  
         br {display: none;}
       }
     }
@@ -61,30 +62,26 @@ const Posts = styled.div `
 
   article:first-child {margin-top: 0;}
 
-  /* div:last-child hr {display: none;} */
+  div:last-child hr {display: none;}
 
   @media (max-width: 900px) {
     margin: 0 auto;
   }
 `
 
-const AllTags = styled.div `
-  grid-column: 2 / 3;
-  margin-left: 5rem;
+const MoreTags = styled.div`
+  p {margin-bottom: 0.5rem;}
 
-  a {
-    color: rgb(3, 159, 255);
-
-    &:hover {text-decoration: underline;}
+  div a{
+    display: block;
+    width: fit-content;
+    margin: 0.5rem 0;
   }
-
-  @media (max-width: 900px) {margin-left: 1rem;}
 `
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
-  // const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
+  const { edges, totalCount } = data.taggedBooks;
 
   return (
     <Layout>
@@ -92,7 +89,18 @@ const Tags = ({ pageContext, data }) => {
       <HamburgerMenu />
       <Container>
         <section>
-          <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
+          <div>
+            <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
+            <p>{totalCount} posts found</p>
+            <MoreTags>
+              <p>More Tags</p>
+              <div>
+                {data.allTags.group.map(({ tag }) => (
+                  <Tag tag={tag} />
+                ))}
+              </div>
+            </MoreTags>
+          </div>
         </section>
         <Posts>
           {edges.map(({ node }) => (
@@ -102,9 +110,6 @@ const Tags = ({ pageContext, data }) => {
             </div>
           ))}
         </Posts>
-        <AllTags>
-          <Link to="/tags">All Tags</Link>
-        </AllTags>
       </Container>
     </Layout>
   )
@@ -137,7 +142,7 @@ export default Tags
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allMarkdownRemark(
+    taggedBooks: allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
@@ -165,6 +170,12 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    allTags: allMarkdownRemark {
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
   }
