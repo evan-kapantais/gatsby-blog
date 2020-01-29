@@ -50,8 +50,6 @@ const Panel = styled.div`
   position: fixed;
   top: 0;
   right: ${props => props.isOpen ? '0' : '-400px'};
-  /* right: 0; */
-  /* width: 400px; */
   height: 100%;
   border-left: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
@@ -60,7 +58,6 @@ const Panel = styled.div`
   justify-content: space-between;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  /* color: #fff; */
   z-index: 990;
   transition: all 500ms ease;
 
@@ -85,8 +82,6 @@ const Panel = styled.div`
       align-items: center;
       margin: 0.5rem 0;
       font-size: 0.8rem;
-      /* font-weight: 600; */
-      /* color: rgba(255, 255, 255, 0.8); */
       background:rgba(255, 255, 255, 0.1); 
       border: 2px solid #999;
       width: fit-content;
@@ -95,11 +90,7 @@ const Panel = styled.div`
       user-select: none;
       transition: all 200ms ease;
 
-      &:hover {
-        transform: scale(1.05);
-        /* color: #fff; */
-        /* border-color: #fff; */
-      }
+      &:hover {transform: scale(1.05);}
 
       img {
         width: 20px;
@@ -123,6 +114,12 @@ class HamburgerMenu extends React.Component  {
     this.state = {
       isOpen: false
     }
+  }
+
+  togglePanel = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   openPanel = () => {
@@ -150,7 +147,7 @@ class HamburgerMenu extends React.Component  {
   render() {
     return (
       <>
-        <Menu onMouseEnter={this.openPanel} onClick={this.closePanel} isOpen={this.state.isOpen}>
+        <Menu onMouseEnter={this.openPanel} onClick={this.togglePanel} isOpen={this.state.isOpen}>
           <div />
           <div />
           <div />
