@@ -36,6 +36,12 @@ const Container = styled.div `
         }
       }
     }
+
+    @media (max-width: 900px) {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
   }
 
   @media (max-width: 900px) {
@@ -45,7 +51,7 @@ const Container = styled.div `
     section:first-child {
       border: none;
 
-      div {
+      & > div {
         padding-left: 1rem;
   
         br {display: none;}
@@ -69,15 +75,18 @@ const Posts = styled.div `
 `
 
 const MoreTags = styled.div`
+  padding: 0;
   p {margin-bottom: 0.5rem;}
 
   div {
     max-width: 300px;
 
     a {
-      margin: .2rem;
+      margin: 0 0.5rem 0.5rem 0;
       display: inline-block;
       transition: all 300ms ease;
+
+      &:last-child {margin-right: 0;}
     
       &:hover {
         transform: scale(1.05);
