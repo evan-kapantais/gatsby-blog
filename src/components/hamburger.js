@@ -47,63 +47,69 @@ const Menu = styled.div `
 const Panel = styled.div`
   position: fixed;
   top: 0;
-  right: ${props => props.isOpen ? '0' : '-100%'};
-  background: #000;
-  height: 100vh;
-  width: 100%;
-  color: #fff;
+  right: ${props => props.isOpen ? '0' : '-400px'};
+  width: 400px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 998;
+  justify-content: space-between;
+  background: #000;
+  color: #fff;
+  z-index: 990;
   transition: all 500ms ease;
 
-  & > a {
-    color: white;
-    position: absolute;
-    display: flex;
-    top: 1.5rem;
-    left: 1rem;
+  header {
+    padding: 1rem;
 
-    img {
-      max-width: 50px;
+    a > img {
+      width: 50px;
       height: 50px;
-    }
-
-    h1 {
-      font-size: 1.5rem;
       margin: 0;
     }
   }
 
-  nav {
+  main {
+    margin: 4rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-end;
 
     a {
-      margin: 1rem auto;
-      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      background:rgba(255, 255, 255, 0.1); 
+      border: 2px solid #999;
+      width: fit-content;
+      padding: 5px 10px;
+      border-radius: 20px;
+      user-select: none;
+      transition: all 200ms ease;
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        height: 2px;
-        width: 0px;
-        background: #fff;
-        transition: all 300ms ease;
+      &:hover {
+        transform: scale(1.05);
+        color: #fff;
+        border-color: #fff;
       }
 
-      &:hover::after {
-        left: 0;
-        width: 100%;
+      img {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        margin-left: 10px;
       }
     }
   }
+
+  footer {
+    padding: 1rem;
+  }
+
 `
+
 
 class HamburgerMenu extends React.Component  {
   constructor(props) {
@@ -113,47 +119,61 @@ class HamburgerMenu extends React.Component  {
     }
   }
 
-  onChange = (e) => {
+  openPanel = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: true
     });
   }
 
-  clickLink = (e) => {
-    e.preventDefault();
-
-    const target = e.target.getAttribute('href');
-
-    setTimeout(() => {
-      if (target === null) {
-        window.location.href = '/';
-      } else {
-        window.location.href = target;
-      }
-    }, 500);
-
-    this.setState({
-      isOpen: false,
-    });
+  closePanel = (e) => {
+    
+    if (e.type === 'click') {
+      this.setState({
+        isOpen: false
+      });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          isOpen: false
+        });
+      }, 500);
+    }
   }
 
   render() {
     return (
       <>
-        <Menu onClick={this.onChange} isOpen={this.state.isOpen}>
+        <Menu onMouseEnter={this.openPanel} onClick={this.closePanel} isOpen={this.state.isOpen}>
           <div />
           <div />
           <div />
         </Menu>
-        <Panel isOpen={this.state.isOpen}>
-          <Link to='/' onClick={this.clickLink}>
-            <img src={require('../images/noose-white.png')} alt=''/>
-            <h1>EVAN KAPANTAIS</h1>
-          </Link>
-          <nav>
-            <Link to='/' onClick={this.clickLink}>BLOG</Link>
-            <Link to='/contact' onClick={this.clickLink} delay='1000ms'>CONTACT</Link>
-          </nav>
+        <Panel isOpen={this.state.isOpen} onMouseLeave={this.closePanel}>
+          <header>
+            <Link to='/' onClick={this.clickLink}>
+              <img src={require('../images/noose-white.png')} alt=''/>
+            </Link>
+          </header>
+          <main>
+            <a href='https://github.com/evan-kapantais'>
+              evan-kapantais
+              <img src={require('../images/github-colour.png')} alt=""/>
+            </a>
+            <a href='https://twitter.com/evankapantais'>
+              @evan-kapantais
+              <img src={require('../images/twitter-colour.png')} alt=""/>
+            </a>
+            <a href='https://instagram.com/evan_kapantais'>
+              evan_kapantais
+              <img src={require('../images/instagram-colour.png')} alt=""/>
+            </a>
+            <a href="mailto:evankapantais@gmail.com?subject=Hey%20Evan!">say hello</a>
+            <a href="https://evankapantais.com">my web stuff website</a>
+          </main>
+          <footer>
+            <small>&copy; Evan Kapantais</small>
+
+          </footer>
         </Panel>
       </>
     );

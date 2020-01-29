@@ -7,7 +7,8 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
-// TODO: fix side panel not opening
+// TODO: make header logo component
+// TODO: add social to side panel
 // TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images

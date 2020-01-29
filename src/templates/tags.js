@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import PostCard from '../components/post-card'
-import HamburgerMenu from '../components/hamburger'
 import Tag from '../components/tag'
 
 // TODO: add more-tags list
@@ -94,7 +93,6 @@ const Tags = ({ pageContext, data }) => {
   return (
     <Layout>
       <Seo title='Tags' />
-      <HamburgerMenu />
       <Container>
         <section>
           <div>
