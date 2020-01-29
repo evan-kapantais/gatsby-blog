@@ -6,6 +6,7 @@ const Menu = styled.div `
   width: 40px;
   height: 40px;
   background: ${props => props.isOpen ? '#fff' : '#000'};
+  background: #000;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -25,6 +26,7 @@ const Menu = styled.div `
     border-radius: 2px;
     margin: 2px auto;
     background: ${props => props.isOpen ? '#000' : '#fff'};
+    background: #fff;
     transition: all 500ms ease;
 
     &:first-child {
@@ -48,13 +50,17 @@ const Panel = styled.div`
   position: fixed;
   top: 0;
   right: ${props => props.isOpen ? '0' : '-400px'};
-  width: 400px;
+  /* right: 0; */
+  /* width: 400px; */
   height: 100%;
+  border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #000;
-  color: #fff;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* color: #fff; */
   z-index: 990;
   transition: all 500ms ease;
 
@@ -79,8 +85,8 @@ const Panel = styled.div`
       align-items: center;
       margin: 0.5rem 0;
       font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.8);
+      /* font-weight: 600; */
+      /* color: rgba(255, 255, 255, 0.8); */
       background:rgba(255, 255, 255, 0.1); 
       border: 2px solid #999;
       width: fit-content;
@@ -91,8 +97,8 @@ const Panel = styled.div`
 
       &:hover {
         transform: scale(1.05);
-        color: #fff;
-        border-color: #fff;
+        /* color: #fff; */
+        /* border-color: #fff; */
       }
 
       img {
@@ -132,6 +138,7 @@ class HamburgerMenu extends React.Component  {
         isOpen: false
       });
     } else {
+      console.log(e.target);
       setTimeout(() => {
         this.setState({
           isOpen: false
@@ -151,7 +158,7 @@ class HamburgerMenu extends React.Component  {
         <Panel isOpen={this.state.isOpen} onMouseLeave={this.closePanel}>
           <header>
             <Link to='/' onClick={this.clickLink}>
-              <img src={require('../images/noose-white.png')} alt=''/>
+              <img src={require('../images/noose.png')} alt=''/>
             </Link>
           </header>
           <main>

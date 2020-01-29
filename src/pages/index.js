@@ -97,7 +97,7 @@ const BlogWrapper = styled.div `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout notitle>
+    <Layout notitle='true'>
       <SEO title='Home' />
       <Container>
         <header>
