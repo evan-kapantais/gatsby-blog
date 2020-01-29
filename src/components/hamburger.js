@@ -63,6 +63,7 @@ const Panel = styled.div`
 
   header {
     padding: 1rem;
+    width: 100%;
 
     a > img {
       width: 50px;
@@ -129,13 +130,11 @@ class HamburgerMenu extends React.Component  {
   }
 
   closePanel = (e) => {
-    
     if (e.type === 'click') {
       this.setState({
         isOpen: false
       });
     } else {
-      console.log(e.target);
       setTimeout(() => {
         this.setState({
           isOpen: false

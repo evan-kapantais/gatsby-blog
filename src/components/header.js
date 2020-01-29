@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import HamburgerMenu from './hamburger'
 import Brand from './brand'
+import DarkMode from './mode'
 
 const StyledHeader = styled.header `
   width: 100%;
@@ -14,6 +15,11 @@ const StyledHeader = styled.header `
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: flex-start;
   transition: all 500ms ease-in-out;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 
   @media (max-width: 450px) {
     display: auto;
@@ -38,7 +44,10 @@ const Header = (props) => {
       render={data => (
         <StyledHeader notitle={props.notitle}>
           <Brand notitle={props.notitle} title={data.site.siteMetadata.title}/>
-          <HamburgerMenu />
+          <div>
+            <DarkMode />
+            <HamburgerMenu />
+          </div>
         </StyledHeader>
       )}
     />

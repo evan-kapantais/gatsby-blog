@@ -13,7 +13,7 @@ import SmallPost from '../components/small-post'
 
 const PostHeader = styled.div `
   max-width: 1200px;
-  margin: 10rem auto 4rem auto;
+  margin: 4rem auto 2rem auto;
   text-align: center;
 
   h5 {
@@ -143,7 +143,7 @@ const blogPost = ({ data }) => {
         <h5>{date}</h5>
         <h1>{title}</h1>
         {tags.map(tag => (
-          <Link to={`/tags/${tag}`} key={tag}># {tag}</Link>
+          <Link to={`/tags/${tag}`} key={tag}>#{tag}</Link>
         ))}
       </PostHeader>
       <FeatureImageWrapper>
@@ -159,7 +159,7 @@ const blogPost = ({ data }) => {
           <h3 to='/'>Now Read This</h3>
           <MorePostsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
-              <SmallPost node={ node }/>
+              <SmallPost key={node.frontmatter.title} node={ node }/>
             ))}
           </MorePostsWrapper>
         </MorePosts>

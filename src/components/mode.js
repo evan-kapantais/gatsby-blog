@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 const ModeBtn = styled.button `
   position: relative;
-  margin: 0 1rem;
+  margin: 0 1rem 0 0;
   width: 56px;
   height: 30px;
   border-radius: 20px;
-  background: ${props => props.isDarkModeOn ? '#fff' : '#000'};
+  background: ${props => props.isDarkModeOn ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.7)'};
   border: none;
   transition: all 300ms ease;
 
@@ -60,9 +60,16 @@ class Mode extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-    console.log(`is dark mode on: ` + this.state.isDarkModeOn);
+  componentDidMount() {
+    console.log('did mount');
 
+    const storedMode = localStorage.getItem('dark-mode');
+
+    console.log(storedMode);
+  }
+
+  componentDidUpdate() {
+    console.log('did update');
     if (this.state.isDarkModeOn) {
       document.body.style.backgroundColor = '#111';
       document.body.style.color = '#fff';

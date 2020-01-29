@@ -7,8 +7,9 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
-// TODO: make header logo component
-// TODO: add social to side panel
+// TODO: sync dark mode with local storage
+// TODO: add dark mode
+// TODO: smaller burger menu btn
 // TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images
@@ -16,11 +17,8 @@ import SocialContainer from '../components/social'
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
 // TODO: typography
-// TODO: header: remove margins
-// TODO: even out general margins
 // TODO: split posts in more pages
 // TODO: rss feed?
-// TODO: add dark mode
 
 const Logo = styled.div `
   margin: 0;

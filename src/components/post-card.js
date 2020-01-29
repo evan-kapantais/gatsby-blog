@@ -7,7 +7,6 @@ const Card = styled.article `
   margin: 4rem 0;
   padding: 1rem;
   grid-column: 2 / 3;
-  color: #000;
 `
 
 const CardHeader = styled.div `
