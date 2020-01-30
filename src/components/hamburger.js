@@ -16,9 +16,7 @@ const Menu = styled.div `
   z-index: 999;
   transition: all 800ms ease-in-out;
 
-  &:hover {
-    cursor: pointer;
-  }
+  &:hover {cursor: pointer;}
 
  div {
     width: 15px;
@@ -135,7 +133,6 @@ class HamburgerMenu extends React.Component  {
         isOpen: false
       });
     } else {
-      console.log(e.target);
       setTimeout(() => {
         this.setState({
           isOpen: false

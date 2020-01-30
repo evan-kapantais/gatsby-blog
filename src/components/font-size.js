@@ -63,7 +63,6 @@ class FontSize extends React.Component {
     const article = document.querySelector('article');
     article.style.fontSize = `${this.state.size}rem`;
     article.style.lineHeight = this.state.lineHeight;
-    console.log(article.style.fontSize);
   }
   
   render() {

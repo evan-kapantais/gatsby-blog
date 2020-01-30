@@ -115,7 +115,7 @@ const Tags = ({ pageContext, data }) => {
               <p>More Tags</p>
               <div>
                 {data.allTags.group.map(({ tag }) => (
-                  <Tag tag={tag} />
+                  <Tag key={tag} tag={tag} />
                 ))}
               </div>
             </MoreTags>
