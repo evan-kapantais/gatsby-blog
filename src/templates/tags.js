@@ -14,50 +14,55 @@ const Container = styled.div `
   margin: 5rem auto;
   padding: 0 2rem;
 
-  section:first-child {
-    position: relative;    
-    border-right: 1px solid;
+  @media (max-width: 900px) {
+    display: block;
+    max-width: 700px;
+  }
+`
 
-    div {
-      position: sticky;
-      top: 2rem;
+const Header = styled.section `
+  position: relative;    
+  border-right: 1px solid;
+
+  & > div {
+    position: sticky;
+    top: 2rem;
+
+    header {
 
       h3 {
         margin: 0;
         line-height: 1.5;
-  
+
         a {
           color: rgb(3, 159, 255);
-  
+
           &:hover {text-decoration: underline;}
         }
       }
     }
-
-    @media (max-width: 900px) {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-    }
   }
 
   @media (max-width: 900px) {
-    display: block;
-    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: none;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid lightgrey;
 
-    section:first-child {
-      border: none;
-
-      & > div {
+    & > div {
+        width: 100%;
         padding-left: 1rem;
+        display: flex;
+        justify-content: space-between;
   
         br {display: none;}
       }
-    }
   }
 `
 
-const Posts = styled.div `
+const Posts = styled.section `
   max-width: 700px;
   margin: 0 auto 0 4rem;
   justify-content: center;
@@ -100,10 +105,12 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <Seo title='Tags' />
       <Container>
-        <section>
+        <Header>
           <div>
-            <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
-            <p>{totalCount} posts found</p>
+            <header>
+              <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
+              <p>{totalCount} posts found</p>
+            </header>
             <MoreTags>
               <p>More Tags</p>
               <div>
@@ -113,7 +120,7 @@ const Tags = ({ pageContext, data }) => {
               </div>
             </MoreTags>
           </div>
-        </section>
+        </Header>
         <Posts>
           {edges.map(({ node }) => (
             <div>
