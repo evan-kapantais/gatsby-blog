@@ -26,15 +26,13 @@ const LargerFont = styled(Button) `
   font-size: 1.5rem;
 `
 
-const Reset = styled(Button) `
-
-`
+const Reset = styled(Button) ``
 
 class FontSize extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: 1,
+      size: 1.1,
       lineHeight: 1.75
     }
   }
@@ -56,15 +54,16 @@ class FontSize extends React.Component {
 
   reset = () => {
     this.setState({
-      size: 1,
+      size: 1.1,
       lineHeight: 1.75
     });
   }
-  
+
   componentDidUpdate() {
     const article = document.querySelector('article');
     article.style.fontSize = `${this.state.size}rem`;
     article.style.lineHeight = this.state.lineHeight;
+    console.log(article.style.fontSize);
   }
   
   render() {

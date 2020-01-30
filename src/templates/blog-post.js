@@ -7,9 +7,6 @@ import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 import FontSize from '../components/font-size'
 
-// TODO: responsive more posts grid
-// TODO: responsive
-// TODO: rework more posts
 // TODO: show similar posts or not if there are not any
 
 const PostHeader = styled.div `
@@ -32,9 +29,7 @@ const PostHeader = styled.div `
   @media only screen and (max-width: 750px) {
     margin: 4rem auto;
     
-    h1 {
-      font-size: 3rem;
-    }
+    h1 {font-size: 3rem;}
   }
 
   a {
@@ -42,11 +37,9 @@ const PostHeader = styled.div `
     font-weight: bold;
     margin-right: 10px;
 
-    &:hover {
-      text-decoration: underline;
-    }
+    &:hover {text-decoration: underline;}
 
-    &:last-child { margin: 0; }
+    &:last-child {margin: 0;}
 
     &:hover {text-decoration: underline;}
   }
@@ -65,25 +58,20 @@ const PostContainer = styled.div `
   border-radius: 5px;
   padding: 2rem 2.5rem;
 
-  @media(max-width: 1000px) {
-    margin: 0 auto 4rem auto;
-  }
+  @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
-  @media (max-width: 700px) {
-    padding: 2.5rem 1rem;
-  }
+  @media (max-width: 700px) {padding: 2.5rem 1rem;}
   
   article {
     line-height: 1.75rem;
     font-family: inherit;
-    font-size: 1rem;
     font-weight: 400;
-
+    font-size: 1.1rem;
 
     a {
       color: rgb(3, 159, 255);
 
-      &:hover { text-decoration: underline; }
+      &:hover {text-decoration: underline;}
     }
 
     p {margin-bottom: 1rem;}
