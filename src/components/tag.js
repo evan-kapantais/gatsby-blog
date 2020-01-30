@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const StyledLink = styled(Link) `
-  padding: 4px 12px;
+  padding: 0 10px;
   border-radius: 20px;
   border: 1px solid lightskyblue;
   color: rgb(3, 159, 255);

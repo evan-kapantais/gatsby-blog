@@ -14,7 +14,6 @@ const Card = styled.div`
     margin: 0;
     padding: 0;
   }
-
 `
 
 const Content = styled.div`
@@ -33,16 +32,20 @@ const Content = styled.div`
 
   p {
     margin: 1rem 0;
+    line-height: 1.5;
   }
 
   footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: #666;
-    text-transform: capitalize;
     font-weight: bold;
   
-    h5 {font-size: 0.8rem;}
+    h5 {
+      font-size: 0.8rem;
+      text-transform: capitalize;
+    }
 
     div a {
       color: rgb(3, 159, 255);
@@ -50,7 +53,7 @@ const Content = styled.div`
       margin-right: 0.5rem;
 
       &:last-child {margin: 0;}
-
+      
       &:hover {text-decoration: underline;}
     }
   }
@@ -74,7 +77,7 @@ const SmallPost = ({ node }) => {
         <footer>
           <div>
             {node.frontmatter.tags.map(tag => (
-              <Link key={tag} to={`/tags/${tag}`}># {tag} </Link>
+              <Link key={tag} to={`/tags/${tag}`}>#{tag} </Link>
             ))}
           </div>
           <h5>{node.timeToRead} Min Read</h5>

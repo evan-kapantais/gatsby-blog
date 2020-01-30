@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
+import FontSize from '../components/font-size'
 
 // TODO: responsive more posts grid
 // TODO: responsive
@@ -40,7 +41,6 @@ const PostHeader = styled.div `
     color: rgb(3, 159, 255);
     font-weight: bold;
     margin-right: 10px;
-    text-transform: capitalize;
 
     &:hover {
       text-decoration: underline;
@@ -61,23 +61,24 @@ const FeatureImageWrapper = styled.div `
 const PostContainer = styled.div `
   max-width: 850px;
   margin: -8rem auto 4rem auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 2rem 2.5rem;
 
   @media(max-width: 1000px) {
     margin: 0 auto 4rem auto;
   }
 
+  @media (max-width: 700px) {
+    padding: 2.5rem 1rem;
+  }
+  
   article {
-    line-height: 2rem;
-    font-size: 1rem;
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 5px;
+    line-height: 1.75rem;
     font-family: inherit;
+    font-size: 1rem;
     font-weight: 400;
 
-    @media (max-width: 700px) {
-      padding: 2.5rem 1rem;
-    }
 
     a {
       color: rgb(3, 159, 255);
@@ -105,7 +106,10 @@ const PostContainer = styled.div `
     blockquote {
       border-left: 5px solid #333;
       padding-left: 20px;
-      font-style: italic;
+      font-size: 1.1rem;
+      font-size: 120%;
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
       margin: 2rem auto;
     }
   }
@@ -150,6 +154,7 @@ const blogPost = ({ data }) => {
         <Img style={{zIndex: -2,}}fluid={featuredImage} />
       </FeatureImageWrapper>
       <PostContainer>
+        <FontSize />
         <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
         <hr />
         <Newsletter>

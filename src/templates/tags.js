@@ -27,7 +27,6 @@ const Container = styled.div `
       h3 {
         margin: 0;
         line-height: 1.5;
-        text-transform: capitalize;
   
         a {
           color: rgb(3, 159, 255);

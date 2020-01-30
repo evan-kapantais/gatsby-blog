@@ -148,7 +148,7 @@ export const postsQuery = graphql`
           tags
           featuredImage {
             childImageSharp {
-              fluid (maxWidth: 1000, maxHeight: 600) {
+              fluid (maxWidth: 700, maxHeight: 350) {
                 ...GatsbyImageSharpFluid
               }
             }

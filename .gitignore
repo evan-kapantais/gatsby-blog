@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # General text files
-*.txt
+# *.txt
 
 # Runtime data
 pids

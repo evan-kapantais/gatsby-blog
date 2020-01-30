@@ -1,0 +1,9 @@
+Fonts
+
+Work Sans
+Open Sans
+Josephin Sans
+Questrial
+
+paragraphs - Questrial
+headings - Josefin Sans

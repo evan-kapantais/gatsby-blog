@@ -32,7 +32,6 @@ const CardHeader = styled.div `
     color: #666;
     text-align: right;
     font-weight: normal;
-    font-family: 'Raleway', sans-serif;
   }
 
   @media only screen and (max-width: 590px) {
@@ -76,7 +75,6 @@ const CardFooter = styled.div `
     font-weight: 600;
     color: rgb(3, 159, 255);
     margin-right: .5rem;
-    text-transform: capitalize;
 
     &:last-child { margin-right: 0; }
 
