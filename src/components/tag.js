@@ -7,7 +7,7 @@ const StyledLink = styled(Link) `
   border-radius: 20px;
   border: 1px solid lightskyblue;
   color: rgb(3, 159, 255);
-  background-color: rgba(3, 159, 255, 0.2);
+  background-color: rgba(3, 159, 255, 0.1);
 `
 
 const Tag = (props) => {

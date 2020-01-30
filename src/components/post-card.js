@@ -7,7 +7,6 @@ const Card = styled.article `
   margin: 4rem 0;
   padding: 1rem;
   grid-column: 2 / 3;
-  color: #000;
 `
 
 const CardHeader = styled.div `
@@ -15,16 +14,12 @@ const CardHeader = styled.div `
   align-items: flex-end;
   margin-bottom: 1.5rem;
 
-  * {
-    margin: 0;
-  }
+  * {margin: 0;}
 
   div { 
     flex: 6;
 
-    h2 {
-      font-size: 2rem; 
-    }
+    h2 {font-size: 2rem; }
   }
 
   h4 {
@@ -38,13 +33,9 @@ const CardHeader = styled.div `
     display: block;
     text-align: center;
 
-    div {
-      margin-bottom: 0.5rem;
-    }
+    div {margin-bottom: 0.5rem;}
 
-    h4 {
-      text-align: center;
-    }
+    h4 {text-align: center;}
   }
 `
 
