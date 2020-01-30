@@ -35,6 +35,7 @@ class FontSize extends React.Component {
     super(props);
     this.state = {
       size: 1,
+      lineHeight: 1.75
     }
   }
 
@@ -56,6 +57,7 @@ class FontSize extends React.Component {
   reset = () => {
     this.setState({
       size: 1,
+      lineHeight: 1.75
     });
   }
   

@@ -8,8 +8,6 @@ import Seo from '../components/seo'
 import PostCard from '../components/post-card'
 import Tag from '../components/tag'
 
-// TODO: add more-tags list
-
 const Container = styled.div `
   display: grid;
   grid-template-columns: 2fr 5fr;
