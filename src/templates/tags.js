@@ -20,6 +20,8 @@ const Container = styled.div `
   }
 `
 
+// Header > div > header + MoreTags
+
 const Header = styled.section `
   position: relative;    
   border-right: 1px solid;
@@ -60,24 +62,17 @@ const Header = styled.section `
         br {display: none;}
       }
   }
-`
 
-const Posts = styled.section `
-  max-width: 700px;
-  margin: 0 auto 0 4rem;
-  justify-content: center;
-
-  article:first-child {margin-top: 0;}
-
-  div:last-child hr {display: none;}
-
-  @media (max-width: 900px) {
-    margin: 0 auto;
+  @media (max-width: 450px) {
+    & > div {
+      display: block;
+    }
   }
 `
 
 const MoreTags = styled.div`
   padding: 0;
+
   p {margin-bottom: 0.5rem;}
 
   div {
@@ -97,6 +92,21 @@ const MoreTags = styled.div`
   }
 `
 
+const Posts = styled.section `
+  max-width: 700px;
+  margin: 0 auto 0 4rem;
+  justify-content: center;
+
+  article:first-child {margin-top: 0;}
+
+  div:last-child hr {display: none;}
+
+  @media (max-width: 900px) {
+    margin: 0 auto;
+  }
+`
+
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.taggedBooks;
@@ -109,7 +119,7 @@ const Tags = ({ pageContext, data }) => {
           <div>
             <header>
               <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
-              <p>{totalCount} posts found</p>
+              <p>{totalCount} post{totalCount > 1 ? 's' : ''} found</p>
             </header>
             <MoreTags>
               <p>More Tags</p>

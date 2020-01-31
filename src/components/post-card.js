@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+import Tag from './tag'
+
 const Card = styled.article `
   margin: 4rem 0;
   padding: 1rem;
@@ -59,20 +61,9 @@ const CardFooter = styled.div `
   justify-content: space-between;
   align-items: center;
 
-  * { margin: 0; }
-
-  a { 
-    font-size: .8rem;
-    font-weight: 600;
-    color: rgb(3, 159, 255);
-    margin-right: .5rem;
-
-    &:last-child { margin-right: 0; }
-
-    &:hover { text-decoration: underline; }
-   }
-
-   h6 { color: #666; }
+   h6 {
+    color: #666; margin: 0;
+  }
 `
 
 const PostCard = ({ node }) => {
@@ -101,7 +92,7 @@ const PostCard = ({ node }) => {
         <CardFooter>
           <div>
             {tags.map(tag => (
-            <Link key={tag} to={`/tags/${tag}`}>#{tag} </Link>
+            <Tag key={tag} tag={tag} />
             ))}
           </div>
             <h6>{timeToRead} Minute Read</h6>
