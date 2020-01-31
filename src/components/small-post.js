@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
+import Tag from './tag'
+
 const Card = styled.div`
   transition: all 300ms ease;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +14,6 @@ const Card = styled.div`
 
   * {
     margin: 0;
-    padding: 0;
   }
 `
 
@@ -39,23 +40,15 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #666;
-    font-weight: bold;
+    padding: 0.5rem 0;
   
     h5 {
+      color: #666;
       font-size: 0.8rem;
       text-transform: capitalize;
     }
 
-    div a {
-      color: rgb(3, 159, 255);
-      font-size: 0.8rem;
-      margin-right: 0.5rem;
-
-      &:last-child {margin: 0;}
-      
-      &:hover {text-decoration: underline;}
-    }
+    div a {margin-right: 0.5rem;}
   }
 
 `
@@ -77,7 +70,7 @@ const SmallPost = ({ node }) => {
         <footer>
           <div>
             {node.frontmatter.tags.map(tag => (
-              <Link key={tag} to={`/tags/${tag}`}>#{tag} </Link>
+              <Tag key={tag} tag={tag} />
             ))}
           </div>
           <h5>{node.timeToRead} Min Read</h5>

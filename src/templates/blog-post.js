@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 import FontSize from '../components/font-size'
+import Tag from '../components/tag'
 
 // TODO: show similar posts or not if there are not any
 
@@ -31,18 +32,6 @@ const PostHeader = styled.div `
     
     h1 {font-size: 3rem;}
   }
-
-  a {
-    color: rgb(3, 159, 255);
-    font-weight: bold;
-    margin-right: 10px;
-
-    &:hover {text-decoration: underline;}
-
-    &:last-child {margin: 0;}
-
-    &:hover {text-decoration: underline;}
-  }
 `
 
 const FeatureImageWrapper = styled.div `
@@ -63,7 +52,7 @@ const PostContainer = styled.div `
   @media (max-width: 700px) {padding: 2.5rem 1rem;}
   
   article {
-    line-height: 1.75rem;
+    line-height: 2rem;
     font-family: inherit;
     font-weight: 400;
     font-size: 1.1rem;
@@ -94,10 +83,8 @@ const PostContainer = styled.div `
     blockquote {
       border-left: 5px solid #333;
       padding-left: 20px;
-      font-size: 1.1rem;
       font-size: 120%;
       font-family: 'Josefin Sans', sans-serif;
-      font-weight: 300;
       margin: 2rem auto;
     }
   }
@@ -135,7 +122,7 @@ const blogPost = ({ data }) => {
         <h5>{date}</h5>
         <h1>{title}</h1>
         {tags.map(tag => (
-          <Link to={`/tags/${tag}`} key={tag}>#{tag}</Link>
+          <Tag key={tag} tag={tag} />
         ))}
       </PostHeader>
       <FeatureImageWrapper>
@@ -152,7 +139,7 @@ const blogPost = ({ data }) => {
           <h3 to='/'>Now Read This</h3>
           <MorePostsWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
-              <SmallPost node={ node }/>
+              <SmallPost key={node.frontmatter.title} node={ node }/>
             ))}
           </MorePostsWrapper>
         </MorePosts>

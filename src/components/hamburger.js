@@ -102,7 +102,6 @@ const Panel = styled.div`
   footer {padding: 1rem;}
 `
 
-
 class HamburgerMenu extends React.Component  {
   constructor(props) {
     super(props);
@@ -118,7 +117,6 @@ class HamburgerMenu extends React.Component  {
   }
 
   mouseLeave = (e) => {
-    console.log(e.target.getAttribute('aria-current'));
     if (e.target.getAttribute('aria-current') === 'page') {
       return;
     } else {
@@ -140,7 +138,7 @@ class HamburgerMenu extends React.Component  {
     e.preventDefault();
 
     let target = e.target.getAttribute('href');
-    
+
     if (target === null) {
       target = '/';
     }

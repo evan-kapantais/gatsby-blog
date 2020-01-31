@@ -9,7 +9,7 @@ const StyledLink = styled(Link) `
   border: 1px solid lightskyblue;
   color: rgb(3, 159, 255);
   background-color: rgba(3, 159, 255, 0.1);
-  margin-right: 0.5rem;
+  margin: 0 0.5rem 0 0;
 
   &:last-child {margin-right: 0;}
 
