@@ -99,9 +99,7 @@ const Panel = styled.div`
     }
   }
 
-  footer {
-    padding: 1rem;
-  }
+  footer {padding: 1rem;}
 
 `
 
@@ -126,50 +124,51 @@ class HamburgerMenu extends React.Component  {
     });
   }
 
-  closePanel = (e) => {
+  clickLink = (e) => {
+    e.preventDefault();
+
+    let target = e.target.getAttribute('href');
     
-    if (e.type === 'click') {
-      this.setState({
-        isOpen: false
-      });
-    } else {
-      setTimeout(() => {
-        this.setState({
-          isOpen: false
-        });
-      }, 500);
+    if (target === null) {
+      target = '/';
     }
+
+    setTimeout(() => {
+      window.location = target;
+    }, 500);
+
+    this.setState({isOpen: false});
   }
 
   render() {
     return (
       <>
-        <Menu onMouseEnter={this.openPanel} onClick={this.togglePanel} isOpen={this.state.isOpen}>
+        <Menu onClick={this.togglePanel} isOpen={this.state.isOpen}>
           <div />
           <div />
           <div />
         </Menu>
-        <Panel isOpen={this.state.isOpen} onMouseLeave={this.closePanel}>
+        <Panel isOpen={this.state.isOpen}>
           <header>
             <Link to='/' onClick={this.clickLink}>
               <img src={require('../images/noose.png')} alt=''/>
             </Link>
           </header>
           <main>
-            <a href='https://github.com/evan-kapantais'>
+            <a href='https://github.com/evan-kapantais' onClick={this.clickLink}>
               evan-kapantais
               <img src={require('../images/github-colour.png')} alt=""/>
             </a>
-            <a href='https://twitter.com/evankapantais'>
+            <a href='https://twitter.com/evankapantais' onClick={this.clickLink}>
               @evan-kapantais
               <img src={require('../images/twitter-colour.png')} alt=""/>
             </a>
-            <a href='https://instagram.com/evan_kapantais'>
+            <a href='https://instagram.com/evan_kapantais' onClick={this.clickLink}>
               evan_kapantais
               <img src={require('../images/instagram-colour.png')} alt=""/>
             </a>
-            <a href="mailto:evankapantais@gmail.com?subject=Hey%20Evan!">say hello</a>
-            <a href="https://evankapantais.com">my web stuff website</a>
+            <a href="mailto:evankapantais@gmail.com?subject=Hey%20Evan!" onClick={this.clickLink}>say hello</a>
+            <a href="https://evankapantais.com" onClick={this.clickLink}>my web stuff website</a>
           </main>
           <footer>
             <small>&copy; Evan Kapantais</small>
