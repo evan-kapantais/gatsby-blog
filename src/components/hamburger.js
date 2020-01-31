@@ -100,7 +100,6 @@ const Panel = styled.div`
   }
 
   footer {padding: 1rem;}
-
 `
 
 
@@ -118,10 +117,17 @@ class HamburgerMenu extends React.Component  {
     });
   }
 
-  openPanel = () => {
-    this.setState({
-      isOpen: true
-    });
+  closePanel = (e) => {
+    console.log(e.target.getAttribute('aria-current'));
+    if (e.target.getAttribute('aria-current') === 'page') {
+      return;
+    } else {
+      setTimeout(() => {
+        this.setState({
+          isOpen: false
+        });
+      }, 300);
+    }
   }
 
   clickLink = (e) => {
@@ -148,7 +154,7 @@ class HamburgerMenu extends React.Component  {
           <div />
           <div />
         </Menu>
-        <Panel isOpen={this.state.isOpen}>
+        <Panel isOpen={this.state.isOpen} onMouseLeave={this.closePanel}>
           <header>
             <Link to='/' onClick={this.clickLink}>
               <img src={require('../images/noose.png')} alt=''/>
