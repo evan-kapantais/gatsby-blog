@@ -178,7 +178,7 @@ class HamburgerMenu extends React.Component  {
               <img src={require('../images/instagram-colour.png')} alt=""/>
             </a>
             <a href="mailto:evankapantais@gmail.com?subject=Hey%20Evan!" onClick={this.clickLink}>say hello</a>
-            <a href="https://evankapantais.com" onClick={this.clickLink}>my web stuff website</a>
+            {/* <a href="https://evankapantais.com" onClick={this.clickLink}>my web stuff website</a> */}
           </main>
           <footer>
             <small>&copy; Evan Kapantais</small>
