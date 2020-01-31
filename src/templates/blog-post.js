@@ -67,7 +67,7 @@ const PostContainer = styled.div `
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 3rem;
+      margin: 3rem 0 1rem 0;
     }
 
     h3 {
@@ -84,7 +84,7 @@ const PostContainer = styled.div `
       border-left: 5px solid #333;
       padding-left: 20px;
       font-size: 120%;
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       margin: 2rem auto;
     }
   }
