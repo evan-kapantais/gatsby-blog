@@ -7,6 +7,8 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
+// TODO: optimise SEO
+// TODO: page metadata with React Helmet
 // TODO: make header logo component
 // TODO: add social to side panel
 // TODO: unify styles (color and background)
@@ -15,7 +17,6 @@ import SocialContainer from '../components/social'
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
-// TODO: typography
 // TODO: header: remove margins
 // TODO: even out general margins
 // TODO: split posts in more pages
