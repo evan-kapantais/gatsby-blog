@@ -9,6 +9,11 @@ import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
 // TODO: page metadata with React Helmet
+// TODO: add dev.to and medium to social
+// TODO: adjust header on small screens
+  // TODO: add bottom border to header on small screens
+  // TODO: reduce font size on header logo
+  // TODO: center logo text on small screens
 // TODO: make header logo component
 // TODO: add social to side panel
 // TODO: unify styles (color and background)

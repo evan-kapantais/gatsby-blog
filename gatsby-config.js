@@ -3,6 +3,7 @@ module.exports = {
     title: `Evan Kapantais`,
     description: `Writer, developer, learner.`,
     author: `Evan Kapantais`,
+    url: `https://blog.evankapantais.com`
   },
   plugins: [
     `gatsby-plugin-sass`,
