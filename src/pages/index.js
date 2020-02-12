@@ -9,6 +9,8 @@ import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
 // TODO: page metadata with React Helmet
+// TODO: add site icon on
+// TODO: configure page logo (for apps)
 // TODO: check mailto link on a mac (works on windows and iphone)
 // TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
@@ -38,11 +40,12 @@ const Container = styled.div `
     position: relative;
     margin: 5rem auto 10rem auto;
 
-
     h1 {
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
+
+    p {margin: 0.5rem;}
 
     div {
       margin: 2rem;
@@ -102,8 +105,9 @@ const IndexPage = ({ data }) => {
           <Logo>
             <img src={require('../images/noose.png')} alt=""/>
           </Logo>
-          <h1> {data.site.siteMetadata.title} </h1>
-          <p> {data.site.siteMetadata.description} </p>
+          <h1>{data.site.siteMetadata.title}</h1>
+          <p>{data.site.siteMetadata.subtitle}</p>
+          <p>{data.site.siteMetadata.description}</p>
           <SocialContainer />
         </header>
         <BlogWrapper>
@@ -124,6 +128,7 @@ export const postsQuery = graphql`
   site {
     siteMetadata {
       title
+      subtitle
       description
       author
     }

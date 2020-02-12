@@ -87,7 +87,7 @@ const Panel = styled.div`
       user-select: none;
       transition: all 200ms ease;
 
-      &:hover {transform: scale(1.05);}
+      &:hover {transform: translateX(-0.3rem);}
 
       img {
         width: 20px;
