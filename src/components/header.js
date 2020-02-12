@@ -1,27 +1,46 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import HamburgerMenu from './hamburger'
-import Brand from './brand'
 
 const StyledHeader = styled.header `
   width: 100%;
   padding: 1rem;
-  height: 100px;
   display: flex;
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
-  align-items: flex-start;
+  align-items: center;
   transition: all 500ms ease-in-out;
 
-  @media (max-width: 450px) {
-    display: auto;
+  & > a:first-child,
+  & > a:nth-child(2) {
+    display: ${props => props.notitle ? 'none' : 'auto'};
+  }
+
+  img {
+      display: block;
+      margin: 0;
+      max-width: 50px;
+      height: 50px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      user-select: none;
+      text-transform: uppercase;
+    }
+
+  @media (max-width: 670px) {
+    box-shadow: ${props => props.notitle ? 'none' : '0 0 3px lightgrey'};
+    padding: 0.5rem 1rem;
+
+    h1 {font-size: 1rem;}
   }
 `
 
 const Header = (props) => {
-  
   return (
     <StaticQuery
       query={graphql`
@@ -37,7 +56,12 @@ const Header = (props) => {
       `}
       render={data => (
         <StyledHeader notitle={props.notitle}>
-          <Brand notitle={props.notitle} title={data.site.siteMetadata.title}/>
+          <Link to='/'>
+            <img src={require('../images/noose.png')} alt=''/>
+          </Link>
+          <Link to='/'>
+            <h1>{data.site.siteMetadata.title}</h1>
+          </Link>
           <HamburgerMenu />
         </StyledHeader>
       )}

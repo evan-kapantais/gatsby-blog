@@ -159,11 +159,7 @@ class HamburgerMenu extends React.Component  {
           <div />
         </Menu>
         <Panel isOpen={this.state.isOpen} onMouseLeave={this.mouseLeave} onTouchMove={this.closePanel}>
-          <header>
-            <Link to='/' onClick={this.clickLink}>
-              <img src={require('../images/noose.png')} alt=''/>
-            </Link>
-          </header>
+          <header/>
           <main>
             <a href='https://github.com/evan-kapantais' onClick={this.clickLink}>
               evan-kapantais
@@ -182,7 +178,6 @@ class HamburgerMenu extends React.Component  {
           </main>
           <footer>
             <small>&copy; Evan Kapantais</small>
-
           </footer>
         </Panel>
       </>
