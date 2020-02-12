@@ -9,23 +9,13 @@ import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
 // TODO: page metadata with React Helmet
-// TODO: remove overflow in small devices
-  // the X side is overflowing when the panel is open
-// TODO: add dev.to and medium to social
-// TODO: adjust header on small screens
-  // TODO: add bottom border to header on small screens
-  // TODO: reduce font size on header logo
-  // TODO: center logo text on small screens (?)
-// TODO: make header logo component
-// TODO: add social to side panel
+// TODO: check mailto link on a mac (works on windows and iphone)
 // TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
-// TODO: header: remove margins
-// TODO: even out general margins
 // TODO: split posts in more pages
 // TODO: rss feed?
 // TODO: add dark mode

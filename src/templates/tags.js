@@ -20,11 +20,9 @@ const Container = styled.div `
   }
 `
 
-// Header > div > header + MoreTags
-
 const Header = styled.section `
   position: relative;    
-  border-right: 1px solid;
+  border-right: 1px solid lightgrey;
 
   & > div {
     position: sticky;

@@ -165,6 +165,14 @@ class HamburgerMenu extends React.Component  {
               evan-kapantais
               <img src={require('../images/github-colour.png')} alt=""/>
             </a>
+            <a href='https://dev.to/evankapantais' onClick={this.clickLink}>
+              evankapantais
+              <img src={require('../images/dev.png')} alt=""/>
+            </a>
+            <a href='https://medium.com/@evan_kapantais' onClick={this.clickLink}>
+              evan_kapantais
+              <img src={require('../images/medium.png')} alt=""/>
+            </a>
             <a href='https://twitter.com/evankapantais' onClick={this.clickLink}>
               @evan-kapantais
               <img src={require('../images/twitter-colour.png')} alt=""/>

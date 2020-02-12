@@ -47,13 +47,6 @@ const CardContent = styled.div`
 
 const ImageWrapper = styled.div `
   margin: 2rem 0;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  transition: all 300ms ease;
-
-  &:hover {
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.01);
-  }
 `
 
 const CardFooter = styled.div `
