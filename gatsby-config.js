@@ -4,7 +4,8 @@ module.exports = {
     subtitle: `Writer, developer, learner.`,
     description: `This is my blog.`,
     author: `Evan Kapantais`,
-    url: `https://blog.evankapantais.com`
+    url: `https://blog.evankapantais.com`,
+    image: `src/images/noose-white.png`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -63,6 +64,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+        icon: `src/images/noose-white.png`,
       },
     },
     {
