@@ -8,11 +8,10 @@ import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
+// TODO: image attributions
 // TODO: page metadata with React Helmet
-// TODO: add site icon on
-// TODO: configure page logo (for apps)
+// TODO: configure page logo 64x64 and 32x32 (for apps)
 // TODO: check mailto link on a mac (works on windows and iphone)
-// TODO: unify styles (color and background)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images
 // TODO: replace Markdown with MDX
