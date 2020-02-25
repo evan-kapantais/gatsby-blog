@@ -1,13 +1,13 @@
 ---
-title: Differently Abled?
+title: A Matter Of Language
 subtitle: A case of misguided political correctness where safe doesn't always mean just.
 author: Evan Kapantais
 date: '2020-02-22'
 featuredImage: ./images/daniil-kuzelev-C4G18Paw0d4-unsplash.jpg
-tags: ['midnight thoughts']
+tags: ['thoughts']
 ---
 
-## Differently abled?
+## A Matter Of Language
 
 After we got rid of all the demeaning and derogatory phrases from the English dictionary, the time has come for the merely descriptive ones to follow suit.
 
