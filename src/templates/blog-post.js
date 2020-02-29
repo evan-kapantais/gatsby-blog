@@ -5,26 +5,28 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
-import FontSize from '../components/font-size'
+// import FontSize from '../components/font-size'
 import Tag from '../components/tag'
 
 // TODO: show similar posts or not if there are not any
 
 const PostHeader = styled.div `
-  max-width: 1200px;
-  margin: 6rem auto 2rem auto;
-  text-align: center;
-
-  h5 {
-    font-size: 1rem;
-    color: #666;
-    margin: 0;
-  }
+  max-width: 850px;
+  margin: 4rem auto;
 
   h1 {
     font-size: 4rem;
     margin: 1rem auto;
+  }
 
+  h2 {
+    font-family: 'Questrial', sans-serif;
+    font-weight: normal;
+    color: #555;
+  }
+
+  h4 {
+    color: #888;
   }
 
   @media only screen and (max-width: 750px) {
@@ -35,17 +37,18 @@ const PostHeader = styled.div `
 `
 
 const FeatureImageWrapper = styled.div `
+  position: relative;
   max-width: 1200px;
   padding: 1rem;
-  margin: 0 auto;
+  margin: 4rem auto;
 `
 
 const PostContainer = styled.div `
   max-width: 850px;
-  margin: -8rem auto 4rem auto;
+  margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
-  padding: 2rem 2.5rem;
+  /* padding: 2rem 2.5rem; */
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
@@ -107,34 +110,28 @@ const MorePostsWrapper = styled.div`
   }
 `
 
-const Newsletter = styled.div`
-  
-`
-
 const blogPost = ({ data }) => {
 
   const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-  const { title, date, tags } = data.markdownRemark.frontmatter;
+  const { title, subtitle, author, date, tags } = data.markdownRemark.frontmatter;
 
   return (
     <Layout>
-      <PostHeader>
-        <h5>{date}</h5>
-        <h1>{title}</h1>
-        {tags.map(tag => (
-          <Tag key={tag} tag={tag} />
-        ))}
-      </PostHeader>
       <FeatureImageWrapper>
-        <Img style={{zIndex: -2,}}fluid={featuredImage} />
+        <Img style={{zIndex: -2,}} fluid={featuredImage} />
       </FeatureImageWrapper>
+      <PostHeader>
+        <h4>{date}</h4>
+        <h1>{title}</h1>
+        <h2>{subtitle}</h2>
+        {/* {tags.map(tag => (
+          <Tag key={tag} tag={tag} />
+        ))} */}
+      </PostHeader>
       <PostContainer>
-        <FontSize />
+        {/* <FontSize /> */}
         <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
         <hr />
-        <Newsletter>
-
-        </Newsletter>
         <MorePosts>
           <h3 to='/'>Now Read This</h3>
           <MorePostsWrapper>
@@ -158,7 +155,7 @@ query ($slug: String!) {
     }
     frontmatter {
       title
-      author
+      subtitle
       date (formatString: "DD MMMM YYYY")
       tags
       featuredImage {
@@ -181,6 +178,7 @@ query ($slug: String!) {
         }
         frontmatter {
           title
+          subtitle
           date (formatString: "D MMMM YYYY")
           tags
           featuredImage {

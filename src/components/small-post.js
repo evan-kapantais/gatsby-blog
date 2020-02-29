@@ -22,6 +22,7 @@ const Content = styled.div`
   
   header {
     min-height: 5rem;
+    text-align: center;
 
     h3 {margin-bottom: 1rem;}
 
@@ -63,9 +64,9 @@ const SmallPost = ({ node }) => {
         <Link to={`/${node.fields.slug}`}>
         <header>
           <h3>{node.frontmatter.title}</h3>
-          <h5>{node.frontmatter.date}</h5>
+          {/* <h5>{node.frontmatter.date}</h5> */}
         </header>
-        <p>{node.excerpt}</p>
+        {/* <p>{node.excerpt}</p> */}
         </Link>
         <footer>
           <div>

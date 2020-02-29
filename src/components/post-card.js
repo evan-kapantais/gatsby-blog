@@ -61,7 +61,7 @@ const CardFooter = styled.div `
 
 const PostCard = ({ node }) => {
 
-  const { title, date, tags } = node.frontmatter;
+  const { title, subtitle, date, tags } = node.frontmatter;
   const { excerpt, timeToRead } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
@@ -72,6 +72,7 @@ const PostCard = ({ node }) => {
           <CardHeader>
             <div>
               <h2>{title}</h2>
+              <h3>{subtitle}</h3>
             </div>
             <h4>{date}</h4>
           </CardHeader>
