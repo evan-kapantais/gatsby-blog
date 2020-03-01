@@ -7,22 +7,31 @@ import Tag from './tag'
 
 const Card = styled.article `
   margin: 4rem 0;
-  padding: 1rem;
-  grid-column: 2 / 3;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: all 300ms ease;
+
+  &:hover {transform: translateY(-5px);}
 `
 
 const CardHeader = styled.div `
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  max-width: 80%;
 
   * {margin: 0;}
 
-  div { 
-    flex: 6;
 
-    h2 {font-size: 2rem; }
-  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    }
+
+  h3 {
+    color: #777;
+    font-weight: normal;
+    }
 
   h4 {
     flex: 3;
@@ -46,7 +55,7 @@ const CardContent = styled.div`
 `
 
 const ImageWrapper = styled.div `
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `
 
 const CardFooter = styled.div `
@@ -69,18 +78,16 @@ const PostCard = ({ node }) => {
   return (
       <Card>
         <Link to={`/${slug}`}>
-          <CardHeader>
-            <div>
-              <h2>{title}</h2>
-              <h3>{subtitle}</h3>
-            </div>
-            <h4>{date}</h4>
-          </CardHeader>
           <ImageWrapper>
             <Img fluid={featuredImage} />
           </ImageWrapper>
+          <CardHeader>
+            <h2>{title}</h2>
+            <h3>{subtitle}</h3>
+            {/* <h4>{date}</h4> */}
+          </CardHeader>
           <CardContent>
-            <div dangerouslySetInnerHTML={{__html: excerpt}} />
+            {/* <div dangerouslySetInnerHTML={{__html: excerpt}} /> */}
           </CardContent>
         </Link>
         <CardFooter>

@@ -12,7 +12,8 @@ import Tag from '../components/tag'
 
 const PostHeader = styled.div `
   max-width: 850px;
-  margin: 4rem auto;
+  margin: 10rem auto 2rem auto;
+  /* text-align: center; */
 
   h1 {
     font-size: 4rem;
@@ -22,12 +23,10 @@ const PostHeader = styled.div `
   h2 {
     font-family: 'Questrial', sans-serif;
     font-weight: normal;
-    color: #555;
+    color: #777;
   }
 
-  h4 {
-    color: #888;
-  }
+  h4 {color: #777;}
 
   @media only screen and (max-width: 750px) {
     margin: 4rem auto;
@@ -38,8 +37,7 @@ const PostHeader = styled.div `
 
 const FeatureImageWrapper = styled.div `
   position: relative;
-  max-width: 1200px;
-  padding: 1rem;
+  max-width: 850px;
   margin: 4rem auto;
 `
 
@@ -48,7 +46,6 @@ const PostContainer = styled.div `
   margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
-  /* padding: 2rem 2.5rem; */
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
@@ -86,15 +83,26 @@ const PostContainer = styled.div `
     blockquote {
       border-left: 5px solid #333;
       padding-left: 20px;
-      font-size: 120%;
-      font-family: 'Work Sans', sans-serif;
       margin: 2rem auto;
     }
   }
+
+  & > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  hr {margin: 2rem auto;}
 `
 
 const MorePosts = styled.div`
-  padding: 1rem;
+  /* padding: 1rem; */
 
   h3 {margin-bottom: 4rem;}
 `
@@ -117,20 +125,22 @@ const blogPost = ({ data }) => {
 
   return (
     <Layout>
-      <FeatureImageWrapper>
-        <Img style={{zIndex: -2,}} fluid={featuredImage} />
-      </FeatureImageWrapper>
       <PostHeader>
         <h4>{date}</h4>
         <h1>{title}</h1>
         <h2>{subtitle}</h2>
-        {/* {tags.map(tag => (
-          <Tag key={tag} tag={tag} />
-        ))} */}
       </PostHeader>
+      <FeatureImageWrapper>
+        <Img style={{zIndex: -2}} fluid={featuredImage} />
+      </FeatureImageWrapper>
       <PostContainer>
-        {/* <FontSize /> */}
         <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+        <footer>
+          <p>by <b>{author}</b></p>
+          {tags.map(tag => (
+            <Tag key={tag} tag={tag} />
+          ))}
+        </footer>
         <hr />
         <MorePosts>
           <h3 to='/'>Now Read This</h3>
@@ -156,11 +166,12 @@ query ($slug: String!) {
     frontmatter {
       title
       subtitle
+      author
       date (formatString: "DD MMMM YYYY")
       tags
       featuredImage {
         childImageSharp {
-          fluid(maxWidth: 1200, maxHeight: 600) {
+          fluid(maxWidth: 850, maxHeight: 400) {
             ...GatsbyImageSharpFluid
           }
         }

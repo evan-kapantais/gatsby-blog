@@ -37,7 +37,7 @@ const Container = styled.div `
   header {
     text-align: center;
     position: relative;
-    margin: 5rem auto 10rem auto;
+    margin: 10rem auto;
 
     h1 {
       text-transform: uppercase;
@@ -100,7 +100,7 @@ const IndexPage = ({ data }) => {
     <Layout notitle='true'>
       <SEO title='Home' />
       <Container>
-        <header>
+        {/* <header>
           <Logo>
             <img src={require('../images/noose.png')} alt=""/>
           </Logo>
@@ -108,7 +108,7 @@ const IndexPage = ({ data }) => {
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
           <SocialContainer />
-        </header>
+        </header> */}
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>

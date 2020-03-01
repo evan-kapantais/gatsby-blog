@@ -7,7 +7,7 @@ import HamburgerMenu from './hamburger'
 
 const StyledHeader = styled.header `
   width: 100%;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
@@ -32,6 +32,10 @@ const StyledHeader = styled.header `
       text-transform: uppercase;
     }
 
+    p {
+      margin: 0;
+    }
+
   @media (max-width: 670px) {
     box-shadow: ${props => props.notitle ? 'none' : '0 0 3px lightgrey'};
     padding: 0.5rem 1rem;
@@ -48,6 +52,7 @@ const Header = (props) => {
           site {
             siteMetadata {
               title
+              subtitle
               description
               author
             }
@@ -55,12 +60,13 @@ const Header = (props) => {
         }
       `}
       render={data => (
-        <StyledHeader notitle={props.notitle}>
-          <Link to='/'>
+        <StyledHeader>
+          {/* <Link to='/'>
             <img src={require('../images/noose.png')} alt=''/>
-          </Link>
+          </Link> */}
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
+            <p>{data.site.siteMetadata.subtitle}</p>
           </Link>
           <HamburgerMenu />
         </StyledHeader>

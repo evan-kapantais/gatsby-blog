@@ -7,8 +7,10 @@ import Tag from './tag'
 
 const Card = styled.div`
   transition: all 300ms ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
 
   &:hover { transform: translateY(-5px); }
 
