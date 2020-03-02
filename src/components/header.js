@@ -7,8 +7,10 @@ import HamburgerMenu from './hamburger'
 
 const StyledHeader = styled.header `
   width: 100%;
+  margin: 0 auto;
   padding: 2rem;
   display: flex;
+  display: ${props => props.noheader ? 'none' : 'flex'};
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
   transition: all 500ms ease-in-out;
@@ -60,7 +62,7 @@ const Header = (props) => {
         }
       `}
       render={data => (
-        <StyledHeader>
+        <StyledHeader notitle={props.notitle} noheader={props.noheader}>
           {/* <Link to='/'>
             <img src={require('../images/noose.png')} alt=''/>
           </Link> */}

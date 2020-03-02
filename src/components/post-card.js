@@ -12,7 +12,7 @@ const Card = styled.article `
   border-radius: 3px;
   transition: all 300ms ease;
 
-  &:hover {transform: translateY(-5px);}
+  &:hover {transform: translateY(-5px); box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);}
 `
 
 const CardHeader = styled.div `

@@ -12,7 +12,7 @@ import Tag from '../components/tag'
 
 const PostHeader = styled.div `
   max-width: 850px;
-  margin: 10rem auto 2rem auto;
+  margin: 4rem auto 2rem auto;
   /* text-align: center; */
 
   h1 {

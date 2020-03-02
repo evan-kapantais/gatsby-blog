@@ -17,7 +17,7 @@ const StyledLayout = styled.div `
 const Layout = (props) => {
   return (
     <StyledLayout>
-      <Header notitle={props.notitle} />
+      <Header notitle={props.notitle} noheader={props.noheader}/>
       <main>{props.children}</main>
       <Footer />
     </StyledLayout>

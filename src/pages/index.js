@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
@@ -21,23 +21,14 @@ import SocialContainer from '../components/social'
 // TODO: rss feed?
 // TODO: add dark mode
 
-const Logo = styled.div `
-  margin: 0;
-
-  img {
-    display: block;
-    width: 100px;
-    height: 100px;
-    margin: 0;
-  }
-`
-
 const Container = styled.div `
+  margin: 10rem auto;
 
   header {
     text-align: center;
+    max-width: 700px;
+    margin: 4rem auto;
     position: relative;
-    margin: 10rem auto;
 
     h1 {
       text-transform: uppercase;
@@ -97,18 +88,17 @@ const BlogWrapper = styled.div `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout notitle='true'>
+    <Layout noheader>
       <SEO title='Home' />
       <Container>
-        {/* <header>
-          <Logo>
-            <img src={require('../images/noose.png')} alt=""/>
-          </Logo>
+        <header>
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-          <SocialContainer />
-        </header> */}
+          <Link to='/about'>About</Link>
+          <Link to='/contact'>Contact</Link>
+          {/* <SocialContainer /> */}
+        </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
