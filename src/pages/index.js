@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import Footer from '../components/footer'
 import SocialContainer from '../components/social'
+import NavLink from '../components/nav-link'
 
 // TODO: optimise SEO
 // TODO: image attributions
@@ -25,7 +26,7 @@ import SocialContainer from '../components/social'
 const Container = styled.div `
   display: flex;
 
-  header {
+  section:first-child {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -44,7 +45,10 @@ const Container = styled.div `
       top: 2rem;
       left: 2rem;
 
-      a {margin-right: 1rem;}
+      * {
+        margin-right: 1rem;
+        mix-blend-mode: difference;
+      }
 
       a:last-child {margin: 0;}
     }
@@ -61,13 +65,14 @@ const Container = styled.div `
     }
   }
 
-  section {
+  section:last-child {
     margin-left: 509.75px;
+    width: 100%;
   }
 `
 
 const BlogWrapper = styled.div `
-  padding: 0 8rem;
+  padding: 0 15%;
 
   div:last-child hr {display: none;}
 `
@@ -76,11 +81,11 @@ const IndexPage = ({ data }) => {
   return (
     <Container>
       <SEO title='Home' />
-        <header>
+        <section>
           <nav>
-            <Link to='/'>Blog</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/contact'>Contact</Link>
+            <NavLink to='/' text='Blog' />
+            <NavLink to='/about' text='About' />
+            <NavLink to='/contact' text='Contact' />
           </nav>
           <div>
             <h1>{data.site.siteMetadata.title}</h1>
@@ -88,7 +93,7 @@ const IndexPage = ({ data }) => {
             <p>{data.site.siteMetadata.description}</p>
           </div>
           {/* <SocialContainer /> */}
-        </header>
+        </section>
         <section>
           <BlogWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (

@@ -1,5 +1,6 @@
 ---
 title: Religion And The Destruction Of Childhood
+subtitle: Child abuse, the Church and the continuous complacency surrounding its practices
 author: Evan Kapantais
 date: '2018-07-03'
 featuredImage: ./images/bernard-law.jpg
