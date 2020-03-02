@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
+import Footer from '../components/footer'
 import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
@@ -22,93 +23,81 @@ import SocialContainer from '../components/social'
 // TODO: add dark mode
 
 const Container = styled.div `
-  margin: 10rem auto;
+  display: flex;
 
   header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    max-width: 700px;
-    margin: 4rem auto;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 6rem;
+    background:  #222333 url('https://source.unsplash.com/collection/1976082/1600x900') no-repeat center / cover;
+    color: #fff;
+    background-blend-mode: overlay;
+    
+    nav {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
 
-    h1 {
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      a {margin-right: 1rem;}
+
+      a:last-child {margin: 0;}
     }
-
-    p {margin: 0.5rem;}
 
     div {
-      margin: 2rem;
-      display: flex;
-      justify-content: center;
+      mix-blend-mode: difference;
 
-      a {
-        margin-right: 1rem;
-        width: 24px;
-        height: 24px;
-        display: block;
-        position: relative;
-
-        &:last-child {margin: 0;}
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          height: 3px;
-          width: 100%;
-          background: #333;
-          opacity: 0;
-          transition: all 400ms ease;
-        }
-
-        &:hover::after {
-          bottom: -8px;
-          opacity: 1;
-        }
-
-        img {
-          margin: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
+      h1 {
+        text-transform: uppercase;
+        margin-bottom: 1rem;
       }
+  
+      p {margin: 0.5rem;}
     }
+  }
+
+  section {
+    margin-left: 509.75px;
   }
 `
 
 const BlogWrapper = styled.div `
-  max-width: 700px;
-  margin: 2rem auto;
+  padding: 0 8rem;
 
   div:last-child hr {display: none;}
 `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout noheader>
+    <Container>
       <SEO title='Home' />
-      <Container>
         <header>
-          <h1>{data.site.siteMetadata.title}</h1>
-          <p>{data.site.siteMetadata.subtitle}</p>
-          <p>{data.site.siteMetadata.description}</p>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
+          <nav>
+            <Link to='/'>Blog</Link>
+            <Link to='/about'>About</Link>
+            <Link to='/contact'>Contact</Link>
+          </nav>
+          <div>
+            <h1>{data.site.siteMetadata.title}</h1>
+            <p>{data.site.siteMetadata.subtitle}</p>
+            <p>{data.site.siteMetadata.description}</p>
+          </div>
           {/* <SocialContainer /> */}
         </header>
-        <BlogWrapper>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div key={node.frontmatter.title}>
-              <PostCard node={node} />
-              <hr />
-            </div>
-          ))}
-        </BlogWrapper>
+        <section>
+          <BlogWrapper>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <PostCard key={node.frontmatter.title} node={node} />
+            ))}
+          </BlogWrapper>
+          <Footer />
+        </section>
       </Container>
-    </Layout>
   );
 }
 
