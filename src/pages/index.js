@@ -6,7 +6,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import Footer from '../components/footer'
-import SocialContainer from '../components/social'
 import NavLink from '../components/nav-link'
 
 // TODO: optimise SEO
@@ -35,7 +34,7 @@ const Container = styled.div `
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0 6rem;
+    padding: 0 4rem;
     background:  #222333 url('https://source.unsplash.com/collection/1976082/1600x900') no-repeat center / cover;
     color: #fff;
     background-blend-mode: overlay;
@@ -66,13 +65,17 @@ const Container = styled.div `
   }
 
   section:last-child {
-    margin-left: 509.75px;
+    margin-left: 445.75px;
     width: 100%;
+
+    h1 {
+      margin: 2rem 0;
+    }
   }
 `
 
 const BlogWrapper = styled.div `
-  padding: 0 15%;
+  padding: 0 10%;
 
   div:last-child hr {display: none;}
 `
@@ -92,9 +95,9 @@ const IndexPage = ({ data }) => {
             <p>{data.site.siteMetadata.subtitle}</p>
             <p>{data.site.siteMetadata.description}</p>
           </div>
-          {/* <SocialContainer /> */}
         </section>
         <section>
+          <h1 style={{textAlign: `center`}}>Blog</h1>
           <BlogWrapper>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <PostCard key={node.frontmatter.title} node={node} />
