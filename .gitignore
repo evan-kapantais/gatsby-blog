@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # legacy folder
-legacy
+# legacy
 
 # General text files
 # *.txt
