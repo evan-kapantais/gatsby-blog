@@ -14,6 +14,7 @@ import NavLink from '../components/nav-link'
 // TODO: configure page logo 64x64 and 32x32 (for apps)
 // TODO: check mailto link on a mac (works on windows and iphone)
 // TODO: add tag sort method at homepage and display tags below if sorted like so
+// TODO: rework tags page
 // TODO: query all images
 // TODO: replace Markdown with MDX
 // TODO: check duplicate transformer-remark plugin
@@ -68,9 +69,7 @@ const Container = styled.div `
     margin-left: 445.75px;
     width: 100%;
 
-    h1 {
-      margin: 2rem 0;
-    }
+    h1 {margin: 2rem 0;}
   }
 `
 
