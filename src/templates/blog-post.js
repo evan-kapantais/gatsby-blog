@@ -5,33 +5,51 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
-// import FontSize from '../components/font-size'
 import Tag from '../components/tag'
+import NavLink from '../components/nav-link'
 
 // TODO: show similar posts or not if there are not any
 
-const PostHeader = styled.div `
-  max-width: 850px;
-  margin: 4rem auto 2rem auto;
-  /* text-align: center; */
+const SBlogPost = styled.div `
+  aside {
+    position: fixed;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 40%;
+    background-color: #222333;
 
-  h1 {
-    font-size: 4rem;
-    margin: 1rem auto;
+    nav {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin: 1rem auto;
+      color: #fff;
+    }
+
+    h2 {
+      font-family: 'Questrial', sans-serif;
+      font-weight: normal;
+      color: #ddd;
+    }
+
+    h4 {color: #ddd;}
+
+    @media only screen and (max-width: 750px) {
+      margin: 4rem auto;
+      
+      h1 {font-size: 3rem;}
+    }
   }
 
-  h2 {
-    font-family: 'Questrial', sans-serif;
-    font-weight: normal;
-    color: #777;
-  }
-
-  h4 {color: #777;}
-
-  @media only screen and (max-width: 750px) {
-    margin: 4rem auto;
-    
-    h1 {font-size: 3rem;}
+  section {
+    margin-left: 40%;
   }
 `
 
@@ -42,7 +60,7 @@ const FeatureImageWrapper = styled.div `
 `
 
 const PostContainer = styled.div `
-  max-width: 850px;
+  /* max-width: 850px; */
   margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
@@ -124,34 +142,43 @@ const blogPost = ({ data }) => {
   const { title, subtitle, author, date, tags } = data.markdownRemark.frontmatter;
 
   return (
-    <Layout>
-      <PostHeader>
-        <h4>{date}</h4>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-      </PostHeader>
-      <FeatureImageWrapper>
-        <Img style={{zIndex: -2}} fluid={featuredImage} />
-      </FeatureImageWrapper>
-      <PostContainer>
-        <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-        <footer>
-          <p>by <b>{author}</b></p>
-          {tags.map(tag => (
-            <Tag key={tag} tag={tag} />
-          ))}
-        </footer>
-        <hr />
-        <MorePosts>
-          <h3 to='/'>Now Read This</h3>
-          <MorePostsWrapper>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <SmallPost key={node.frontmatter.title} node={ node }/>
+    <SBlogPost>
+      <aside>
+        <nav>
+          <NavLink to='/' text='Blog'/>
+          <NavLink to='/about' text='About'/>
+          <NavLink to='/contact' text='Contact'/>
+        </nav>
+        <div>
+          <h4>{date}</h4>
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
+        </div>
+      </aside>
+      <section>
+        <FeatureImageWrapper>
+          <Img style={{zIndex: -2}} fluid={featuredImage} />
+        </FeatureImageWrapper>
+        <PostContainer>
+          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+          <footer>
+            <p>by <b>{author}</b></p>
+            {tags.map(tag => (
+              <Tag key={tag} tag={tag} />
             ))}
-          </MorePostsWrapper>
-        </MorePosts>
-      </PostContainer>
-    </Layout>
+          </footer>
+          <hr />
+          <MorePosts>
+            <h3 to='/'>Now Read This</h3>
+            <MorePostsWrapper>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <SmallPost key={node.frontmatter.title} node={ node }/>
+              ))}
+            </MorePostsWrapper>
+          </MorePosts>
+        </PostContainer>
+      </section>
+    </SBlogPost>
   );
 }
 
