@@ -80,9 +80,9 @@ const Content = styled.div `
 const SideCard = ({ node }) => {
 
   const { title, date, tags } = node.frontmatter;
-  const { excerpt, timeToRead } = node;
-  const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
+  const { timeToRead } = node;
   const { slug } = node.fields;
+  const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
 
   return (
     <Card>
@@ -95,7 +95,6 @@ const SideCard = ({ node }) => {
             <h2>{title}</h2>
             <h4>{date}</h4>
           </header>
-          <p>{excerpt}</p>
           <footer>
             <div>
               {tags.map(tag => (

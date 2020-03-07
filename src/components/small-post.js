@@ -14,9 +14,7 @@ const Card = styled.div`
 
   &:hover { transform: translateY(-5px); }
 
-  * {
-    margin: 0;
-  }
+  * { margin: 0;}
 `
 
 const Content = styled.div`
@@ -66,9 +64,7 @@ const SmallPost = ({ node }) => {
         <Link to={`/${node.fields.slug}`}>
         <header>
           <h3>{node.frontmatter.title}</h3>
-          {/* <h5>{node.frontmatter.date}</h5> */}
         </header>
-        {/* <p>{node.excerpt}</p> */}
         </Link>
         <footer>
           <div>

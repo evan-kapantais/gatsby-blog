@@ -4,6 +4,8 @@ subtitle: A case of misguided political correctness where safe doesn't always me
 author: Evan Kapantais
 date: '2020-02-22'
 featuredImage: ./images/daniil-kuzelev-C4G18Paw0d4-unsplash.jpg
+featuredImageSource: https://unsplash.com/photos/C4G18Paw0d4
+featuredImageCaption: Daniil Kuželev on Unsplash
 tags: ['thoughts']
 ---
 

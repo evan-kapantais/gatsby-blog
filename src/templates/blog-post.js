@@ -7,8 +7,10 @@ import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 import Tag from '../components/tag'
 import NavLink from '../components/nav-link'
+import SideCard from '../components/side-card'
 
 // TODO: show similar posts or not if there are not any
+// TODO: query featured image data
 
 const SBlogPost = styled.div `
   aside {
@@ -19,6 +21,7 @@ const SBlogPost = styled.div `
     align-items: center;
     padding: 0 2rem;
     max-width: 40%;
+    color: #fff;
     background-color: #222333;
 
     nav {
@@ -29,17 +32,26 @@ const SBlogPost = styled.div `
 
     h1 {
       font-size: 4rem;
-      margin: 1rem auto;
+      margin: 2rem auto 1rem auto;
       color: #fff;
     }
 
     h2 {
       font-family: 'Questrial', sans-serif;
+      margin: 1rem auto 2rem auto; 
       font-weight: normal;
       color: #ddd;
     }
 
     h4 {color: #ddd;}
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      * {margin: 0;}
+    }
 
     @media only screen and (max-width: 750px) {
       margin: 4rem auto;
@@ -53,16 +65,20 @@ const SBlogPost = styled.div `
   }
 `
 
-const FeatureImageWrapper = styled.div `
+const FeatureImageWrapper = styled.figure `
   margin: 2rem auto;
+
+  figcaption {
+    padding: 0.5rem 0;
+    color: #777;
+  }
 `
 
 const PostContainer = styled.div `
-  /* max-width: 850px; */
   margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
-  padding: 0 6rem;
+  padding: 0 10%;
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
@@ -119,15 +135,13 @@ const PostContainer = styled.div `
 `
 
 const MorePosts = styled.div`
-  /* padding: 1rem; */
-
   h3 {margin-bottom: 4rem;}
 `
 
 const MorePostsWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+  /* gap: 2rem; */
 
   @media only screen and (max-width: 822px) {
     max-width: 500px;
@@ -138,7 +152,7 @@ const MorePostsWrapper = styled.div`
 const blogPost = ({ data }) => {
 
   const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-  const { title, subtitle, author, date, tags } = data.markdownRemark.frontmatter;
+  const { title, subtitle, author, date, tags, featuredImageSource, featuredImageCaption } = data.markdownRemark.frontmatter;
 
   return (
     <SBlogPost>
@@ -153,26 +167,31 @@ const blogPost = ({ data }) => {
             <h4>{date}</h4>
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
-          </div>
-        </aside>
-        <section>
-          <PostContainer>
-            <FeatureImageWrapper>
-              <Img fluid={featuredImage} />
-            </FeatureImageWrapper>
-            <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
             <footer>
               <p>by <b>{author}</b></p>
               {tags.map(tag => (
                 <Tag key={tag} tag={tag} />
               ))}
             </footer>
+          </div>
+        </aside>
+        <section>
+          <PostContainer>
+            <FeatureImageWrapper>
+              <Img fluid={featuredImage} />
+              <figcaption>
+                <a href={featuredImageSource}>
+                {featuredImageCaption}
+                </a>
+              </figcaption>
+            </FeatureImageWrapper>
+            <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
             <hr />
             <MorePosts>
               <h3 to='/'>Now Read This</h3>
               <MorePostsWrapper>
                 {data.allMarkdownRemark.edges.map(({ node }) => (
-                  <SmallPost key={node.frontmatter.title} node={ node }/>
+                  <SideCard key={node.frontmatter.title} node={ node }/>
                 ))}
               </MorePostsWrapper>
             </MorePosts>
@@ -197,6 +216,8 @@ query ($slug: String!) {
       author
       date (formatString: "DD MMMM YYYY")
       tags
+      featuredImageSource
+      featuredImageCaption
       featuredImage {
         childImageSharp {
           fluid(maxWidth: 850, maxHeight: 400) {
