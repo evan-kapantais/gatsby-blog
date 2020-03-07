@@ -6,6 +6,9 @@ const SLink = styled(Link) `
   position: relative;
   color: #fff;
   font-weight: 600;
+  margin-right: 1rem;
+
+  &:last-child {margin-right: 0;}
 
   &::after {
     content: '';
