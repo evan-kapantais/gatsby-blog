@@ -54,9 +54,7 @@ const SBlogPost = styled.div `
 `
 
 const FeatureImageWrapper = styled.div `
-  position: relative;
-  max-width: 850px;
-  margin: 4rem auto;
+  margin: 2rem auto;
 `
 
 const PostContainer = styled.div `
@@ -64,6 +62,7 @@ const PostContainer = styled.div `
   margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
+  padding: 0 6rem;
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
@@ -143,41 +142,43 @@ const blogPost = ({ data }) => {
 
   return (
     <SBlogPost>
-      <aside>
-        <nav>
-          <NavLink to='/' text='Blog'/>
-          <NavLink to='/about' text='About'/>
-          <NavLink to='/contact' text='Contact'/>
-        </nav>
-        <div>
-          <h4>{date}</h4>
-          <h1>{title}</h1>
-          <h2>{subtitle}</h2>
-        </div>
-      </aside>
-      <section>
-        <FeatureImageWrapper>
-          <Img style={{zIndex: -2}} fluid={featuredImage} />
-        </FeatureImageWrapper>
-        <PostContainer>
-          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-          <footer>
-            <p>by <b>{author}</b></p>
-            {tags.map(tag => (
-              <Tag key={tag} tag={tag} />
-            ))}
-          </footer>
-          <hr />
-          <MorePosts>
-            <h3 to='/'>Now Read This</h3>
-            <MorePostsWrapper>
-              {data.allMarkdownRemark.edges.map(({ node }) => (
-                <SmallPost key={node.frontmatter.title} node={ node }/>
+      <Layout>
+        <aside>
+          <nav>
+            <NavLink to='/' text='Blog'/>
+            <NavLink to='/about' text='About'/>
+            <NavLink to='/contact' text='Contact'/>
+          </nav>
+          <div>
+            <h4>{date}</h4>
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
+          </div>
+        </aside>
+        <section>
+          <PostContainer>
+            <FeatureImageWrapper>
+              <Img fluid={featuredImage} />
+            </FeatureImageWrapper>
+            <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+            <footer>
+              <p>by <b>{author}</b></p>
+              {tags.map(tag => (
+                <Tag key={tag} tag={tag} />
               ))}
-            </MorePostsWrapper>
-          </MorePosts>
-        </PostContainer>
-      </section>
+            </footer>
+            <hr />
+            <MorePosts>
+              <h3 to='/'>Now Read This</h3>
+              <MorePostsWrapper>
+                {data.allMarkdownRemark.edges.map(({ node }) => (
+                  <SmallPost key={node.frontmatter.title} node={ node }/>
+                ))}
+              </MorePostsWrapper>
+            </MorePosts>
+          </PostContainer>
+        </section>
+      </Layout>
     </SBlogPost>
   );
 }
