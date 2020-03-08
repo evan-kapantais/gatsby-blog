@@ -5,8 +5,9 @@ import styled from 'styled-components'
 const SLink = styled(Link) `
   position: relative;
   color: #fff;
-  font-weight: 600;
+  font-size: 1.2rem;
   margin-right: 1rem;
+  letter-spacing: 1px;
 
   &:last-child {margin-right: 0;}
 

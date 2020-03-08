@@ -12,14 +12,28 @@ const StyledLayout = styled.div `
   justify-content: space-between;
   min-height: 100vh;
   width: 100%;
+
+  & > main {
+    & > aside {
+      position: fixed;
+      height: 100%;
+      padding: 0 2rem;
+      width: 40%;
+      color: #fff;
+      background-color: #222333;
+    }
+
+    & > section {
+      margin-left: 40%;
+    }
+  }
+  
 `
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
     <StyledLayout>
-      {/* <Header notitle={props.notitle} noheader={props.noheader}/> */}
-      <main>{props.children}</main>
-      {/* <Footer /> */}
+      <main>{ children }</main>
     </StyledLayout>
   )
 }

@@ -8,6 +8,8 @@ import PostCard from '../components/post-card'
 import Footer from '../components/footer'
 import NavLink from '../components/nav-link'
 
+// TODO: new layout
+// TODO: grid view toggle
 // TODO: optimise SEO
 // TODO: image attributions
 // TODO: page metadata with React Helmet
@@ -26,18 +28,12 @@ import NavLink from '../components/nav-link'
 const Container = styled.div `
   display: flex;
 
-  section:first-child {
-    height: 100vh;
+  aside {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 0 4rem;
     background:  #222333 url('https://source.unsplash.com/collection/1976082/1600x900') no-repeat center / cover;
-    color: #fff;
     background-blend-mode: overlay;
     
     nav {
@@ -57,6 +53,7 @@ const Container = styled.div `
       mix-blend-mode: difference;
 
       h1 {
+        font-size: 4rem;
         text-transform: uppercase;
         margin-bottom: 1rem;
       }
@@ -65,9 +62,8 @@ const Container = styled.div `
     }
   }
 
-  section:last-child {
-    margin-left: 445.75px;
-    width: 100%;
+  section {
+    margin-left: 40%;
 
     h1 {margin: 2rem 0;}
   }
@@ -75,6 +71,9 @@ const Container = styled.div `
 
 const BlogWrapper = styled.div `
   padding: 0 10%;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem; */
 
   div:last-child hr {display: none;}
 `
@@ -82,28 +81,30 @@ const BlogWrapper = styled.div `
 const IndexPage = ({ data }) => {
   return (
     <Container>
-      <SEO title='Home' />
-        <section>
-          <nav>
-            <NavLink to='/' text='Blog' />
-            <NavLink to='/about' text='About' />
-            <NavLink to='/contact' text='Contact' />
-          </nav>
-          <div>
-            <h1>{data.site.siteMetadata.title}</h1>
-            <p>{data.site.siteMetadata.subtitle}</p>
-            <p>{data.site.siteMetadata.description}</p>
-          </div>
-        </section>
-        <section>
-          <h1 style={{textAlign: `center`}}>Blog</h1>
-          <BlogWrapper>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <PostCard key={node.frontmatter.title} node={node} />
-            ))}
-          </BlogWrapper>
-          <Footer />
-        </section>
+      <Layout>
+        <SEO title='Home' />
+          <aside>
+            <nav>
+              <NavLink to='/' text='Blog' />
+              <NavLink to='/about' text='About' />
+              <NavLink to='/contact' text='Contact' />
+            </nav>
+            <div>
+              <h1>{data.site.siteMetadata.title}</h1>
+              <p>{data.site.siteMetadata.subtitle}</p>
+              <p>{data.site.siteMetadata.description}</p>
+            </div>
+          </aside>
+          <section>
+            <h1 style={{textAlign: `center`}}>Blog</h1>
+            <BlogWrapper>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <PostCard key={node.frontmatter.title} node={node} />
+              ))}
+            </BlogWrapper>
+            <Footer />
+          </section>
+        </Layout>
       </Container>
   );
 }

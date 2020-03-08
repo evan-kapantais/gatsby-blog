@@ -14,13 +14,6 @@ import SideCard from '../components/side-card'
 
 const SBlogPost = styled.div `
   aside {
-    position: fixed;
-    height: 100%;
-    padding: 0 2rem;
-    max-width: 40%;
-    color: #fff;
-    background-color: #222333;
-
     nav {
       padding: 2rem 0;
     }
@@ -62,10 +55,6 @@ const SBlogPost = styled.div `
       
       h1 {font-size: 3rem;}
     }
-  }
-
-  section {
-    margin-left: 40%;
   }
 `
 
