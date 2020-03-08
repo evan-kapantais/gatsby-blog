@@ -4,34 +4,37 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import SmallPost from '../components/small-post'
 import Tag from '../components/tag'
 import NavLink from '../components/nav-link'
 import SideCard from '../components/side-card'
 
 // TODO: show similar posts or not if there are not any
 // TODO: query featured image data
+// TODO: responsive
 
 const SBlogPost = styled.div `
   aside {
     position: fixed;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0 2rem;
     max-width: 40%;
     color: #fff;
     background-color: #222333;
 
     nav {
-      position: absolute;
-      top: 2rem;
-      left: 2rem;
+      padding: 2rem 0;
+    }
+
+    main {
+      margin-top: 4rem;
+    }
+
+    & main > div:first-child {
+      margin: 4rem auto;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       margin: 2rem auto 1rem auto;
       color: #fff;
     }
@@ -43,14 +46,15 @@ const SBlogPost = styled.div `
       color: #ddd;
     }
 
-    h4 {color: #ddd;}
-
     footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      * {margin: 0;}
+      
+      h4 {
+        color: #ddd;
+        margin: 0;  
+      }
     }
 
     @media only screen and (max-width: 750px) {
@@ -65,19 +69,9 @@ const SBlogPost = styled.div `
   }
 `
 
-const FeatureImageWrapper = styled.figure `
-  margin: 2rem auto;
-
-  figcaption {
-    padding: 0.5rem 0;
-    color: #777;
-  }
-`
-
 const PostContainer = styled.div `
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 5px;
+  margin: 4rem auto;
+  max-width: 1000px;
   padding: 0 10%;
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
@@ -135,13 +129,10 @@ const PostContainer = styled.div `
 `
 
 const MorePosts = styled.div`
-  h3 {margin-bottom: 4rem;}
+  & > h3 {margin-bottom: 4rem;}
 `
 
 const MorePostsWrapper = styled.div`
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
-  /* gap: 2rem; */
 
   @media only screen and (max-width: 822px) {
     max-width: 500px;
@@ -163,28 +154,22 @@ const blogPost = ({ data }) => {
             <NavLink to='/about' text='About'/>
             <NavLink to='/contact' text='Contact'/>
           </nav>
-          <div>
-            <h4>{date}</h4>
+          <main>
+            <Img fluid={featuredImage}/>
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
             <footer>
-              <p>by <b>{author}</b></p>
+            <h4>{date}</h4>
+            <div>
               {tags.map(tag => (
                 <Tag key={tag} tag={tag} />
               ))}
+            </div>
             </footer>
-          </div>
+          </main>
         </aside>
         <section>
           <PostContainer>
-            <FeatureImageWrapper>
-              <Img fluid={featuredImage} />
-              <figcaption>
-                <a href={featuredImageSource}>
-                {featuredImageCaption}
-                </a>
-              </figcaption>
-            </FeatureImageWrapper>
             <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
             <hr />
             <MorePosts>

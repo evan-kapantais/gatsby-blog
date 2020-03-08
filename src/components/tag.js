@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const StyledLink = styled(Link) `
+  display: inline-block;
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 0.8rem;

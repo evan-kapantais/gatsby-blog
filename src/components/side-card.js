@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+import Tag from './tag'
+
 // TODO: responsive
 
 const Card = styled.div `
@@ -11,6 +13,7 @@ const Card = styled.div `
   &:hover {
     transform: translateY(-0.3rem);
   }
+
   a {
     margin: 6rem 0;
     display: flex;
@@ -23,19 +26,16 @@ const ImageWrapper = styled.div `
 
 const Content = styled.div `
   flex: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 0 2rem;
 
   header {
+    min-height: 120px;
+    margin-bottom: 2rem;
 
-    * {
-      margin: 0;
-    }
+    * {margin: 0;}
 
     h2 {
-      font-size: 2rem; 
+      font-size: 1.8rem; 
       margin-bottom: 0.7rem;
 
       @media (max-width: 1215px) {
@@ -43,14 +43,13 @@ const Content = styled.div `
       }
     }
 
-    h4 {
-      color: #666;
-      font-weight: normal;
-      font-family: 'Raleway', sans-serif;
+    h3 {
+      color: #777;
+      font-size: 1.2rem;
     }
   }
 
-  p { line-height: 1.75; }
+  p {line-height: 1.75;}
 
   footer {
   display: flex;
@@ -59,18 +58,8 @@ const Content = styled.div `
 
   * { margin: 0; }
 
-  a { 
-    display: inline;
-    font-size: .8rem;
-    font-weight: 600;
-    color: rgb(3, 159, 255);
-    margin: 0;
-    margin-right: .5rem;
-    text-transform: capitalize;
-
-    &:last-child { margin-right: 0; }
-
-    &:hover { text-decoration: underline; }
+  div > * {
+    display: inline-block;
   }
 
     h6 { color: #666; }
@@ -79,7 +68,7 @@ const Content = styled.div `
 
 const SideCard = ({ node }) => {
 
-  const { title, date, tags } = node.frontmatter;
+  const { title, subtitle, date, tags } = node.frontmatter;
   const { timeToRead } = node;
   const { slug } = node.fields;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
@@ -93,12 +82,12 @@ const SideCard = ({ node }) => {
         <Content>
           <header>
             <h2>{title}</h2>
-            <h4>{date}</h4>
+            <h3>{subtitle}</h3>
           </header>
           <footer>
             <div>
               {tags.map(tag => (
-              <Link to={`/tags/${tag}`}># {tag} </Link>
+              <Tag tag={tag} />
               ))}
             </div>
               <h6>{timeToRead} Minute Read</h6>
