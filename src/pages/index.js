@@ -58,7 +58,10 @@ const Container = styled.div `
         margin-bottom: 1rem;
       }
   
-      p {margin: 0.5rem;}
+      p {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -71,9 +74,6 @@ const Container = styled.div `
 
 const BlogWrapper = styled.div `
   padding: 0 10%;
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem; */
 
   div:last-child hr {display: none;}
 `

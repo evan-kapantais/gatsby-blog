@@ -22,6 +22,11 @@ const SBlogPost = styled.div `
       margin-top: 4rem;
     }
 
+    figcaption {
+      color: #ddd;
+      padding: 0.5rem 0;
+    }
+
     & main > div:first-child {
       margin: 4rem auto;
     }
@@ -132,7 +137,7 @@ const MorePostsWrapper = styled.div`
 const blogPost = ({ data }) => {
 
   const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-  const { title, subtitle, author, date, tags, featuredImageSource, featuredImageCaption } = data.markdownRemark.frontmatter;
+  const { title, subtitle, date, tags, featuredImageSource, featuredImageCaption } = data.markdownRemark.frontmatter;
 
   return (
     <SBlogPost>
@@ -144,16 +149,23 @@ const blogPost = ({ data }) => {
             <NavLink to='/contact' text='Contact'/>
           </nav>
           <main>
-            <Img fluid={featuredImage}/>
+            <figure>
+              <Img fluid={featuredImage}/>
+              <figcaption>
+                <a href={featuredImageSource}>
+                  {featuredImageCaption}
+                </a>
+              </figcaption>
+            </figure>
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
             <footer>
-            <h4>{date}</h4>
-            <div>
-              {tags.map(tag => (
-                <Tag key={tag} tag={tag} />
-              ))}
-            </div>
+              <h4>{date}</h4>
+              <div>
+                {tags.map(tag => (
+                  <Tag key={tag} tag={tag} />
+                ))}
+              </div>
             </footer>
           </main>
         </aside>
@@ -187,7 +199,6 @@ query ($slug: String!) {
     frontmatter {
       title
       subtitle
-      author
       date (formatString: "DD MMMM YYYY")
       tags
       featuredImageSource
