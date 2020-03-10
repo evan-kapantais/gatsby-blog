@@ -24,7 +24,7 @@ import SocialContainer from '../components/social'
 const Container = styled.div `
   margin: 10rem auto;
 
-  header {
+  & > header {
     text-align: center;
     max-width: 700px;
     margin: 4rem auto;
@@ -80,10 +80,10 @@ const Container = styled.div `
 `
 
 const BlogWrapper = styled.div `
-  max-width: 700px;
+  max-width: 600px;
   margin: 2rem auto;
 
-  div:last-child hr {display: none;}
+  /* div:last-child hr {display: none;} */
 `
 
 const IndexPage = ({ data }) => {
@@ -95,15 +95,13 @@ const IndexPage = ({ data }) => {
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
           {/* <SocialContainer /> */}
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
-              <hr />
+              {/* <hr /> */}
             </div>
           ))}
         </BlogWrapper>
