@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Tag from '../components/tag'
 import NavLink from '../components/nav-link'
+import Footer from '../components/footer'
 import SideCard from '../components/side-card'
 
 // TODO: show similar posts or not if there are not any
@@ -14,12 +15,16 @@ import SideCard from '../components/side-card'
 
 const SBlogPost = styled.div `
   aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     nav {
       padding: 2rem 0;
     }
 
     main {
-      margin-top: 4rem;
+      /* margin-top: 4rem; */
     }
 
     figcaption {
@@ -168,6 +173,7 @@ const blogPost = ({ data }) => {
               </div>
             </footer>
           </main>
+          <Footer />
         </aside>
         <section>
           <PostContainer>

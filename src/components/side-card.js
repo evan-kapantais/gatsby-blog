@@ -11,22 +11,29 @@ const Card = styled.div `
   transition: all 300ms ease;
 
   &:hover {
-    transform: translateY(-0.3rem);
+    
   }
 
   a {
-    margin: 6rem 0;
+    margin: 4rem 0;
     display: flex;
   }
 `
 
 const ImageWrapper = styled.div `
   flex: 2;
+
+  & > div {
+    height: 100%;
+  }
+
+  /* @media (max-width: 1200px) {display: none;} */
 `
 
 const Content = styled.div `
   flex: 3;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  position: relative;
 
   header {
     min-height: 120px;
@@ -35,8 +42,7 @@ const Content = styled.div `
     * {margin: 0;}
 
     h2 {
-      font-size: 1.8rem; 
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.5rem;
 
       @media (max-width: 1215px) {
         font-size: 1.7rem;
@@ -45,7 +51,7 @@ const Content = styled.div `
 
     h3 {
       color: #777;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 
@@ -55,6 +61,11 @@ const Content = styled.div `
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+
 
   * { margin: 0; }
 
