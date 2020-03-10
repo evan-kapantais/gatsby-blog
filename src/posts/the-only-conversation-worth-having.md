@@ -1,5 +1,6 @@
 ---
 title: The Only Conversation Worth Having
+subtitle: Why the question of religion is always the most important one to ask
 author: Evan Kapantais
 date: '2019-12-26'
 featuredImage: ./images/hitchens-blair.jpg

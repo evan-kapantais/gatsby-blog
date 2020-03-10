@@ -22,7 +22,6 @@ import SocialContainer from '../components/social'
 // TODO: add dark mode
 
 const Container = styled.div `
-  margin: 10rem auto;
 
   & > header {
     text-align: center;
