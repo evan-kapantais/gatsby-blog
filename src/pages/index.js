@@ -35,54 +35,12 @@ const Container = styled.div `
     }
 
     p {margin: 0.5rem;}
-
-    div {
-      margin: 2rem;
-      display: flex;
-      justify-content: center;
-
-      a {
-        margin-right: 1rem;
-        width: 24px;
-        height: 24px;
-        display: block;
-        position: relative;
-
-        &:last-child {margin: 0;}
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          height: 3px;
-          width: 100%;
-          background: #333;
-          opacity: 0;
-          transition: all 400ms ease;
-        }
-
-        &:hover::after {
-          bottom: -8px;
-          opacity: 1;
-        }
-
-        img {
-          margin: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
   }
 `
 
 const BlogWrapper = styled.div `
   max-width: 600px;
-  margin: 2rem auto;
-
-  /* div:last-child hr {display: none;} */
+  margin: 4rem auto;
 `
 
 const IndexPage = ({ data }) => {
@@ -94,13 +52,11 @@ const IndexPage = ({ data }) => {
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-          {/* <SocialContainer /> */}
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
-              {/* <hr /> */}
             </div>
           ))}
         </BlogWrapper>

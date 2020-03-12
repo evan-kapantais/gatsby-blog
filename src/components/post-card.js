@@ -6,31 +6,36 @@ import styled, { keyframes } from 'styled-components'
 import Tag from './tag'
 
 const Card = styled.article `
-  margin: 2rem 0;
-  border-radius: 3px;
   position: relative;
+  padding: 2rem 0;
+  border-radius: 5px;
   transition: all 300ms ease;
 
-  header {
-    margin: 0 auto 2rem auto;
+  * {
+    margin: 0;
+  }
 
-    * {margin: 0;}
+  &:hover {
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    header {
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    h3 {
-      color: #777;
-      font-weight: normal;
+    footer {
+      h5, div {
+        opacity: 1;
+        transform: translateY(0);
       }
-
-    h4 {
-      flex: 3;
-      color: #666;
-      font-weight: normal;
     }
+  }
+
+  header {
+    color: #444;
+    transform: translateY(-5px);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+
 
     @media only screen and (max-width: 590px) {
       display: block;
@@ -40,48 +45,65 @@ const Card = styled.article `
     }
   }
 
+  main {
+    margin: 1rem 0;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #777;
+      font-weight: normal;
+    }
+  }
+
   footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    h6 {
-      color: #666; 
-      margin: 0;
+    h5 {
+      color: #444;
+      transform: translateY(5px);
+      opacity: 0;
+      transition: all 300ms 100ms ease-in-out;
+    }
+
+    & > div {
+      opacity: 0;
+      transition: all 300ms 100ms ease-in-out;
     }
   }
 `
 
-const ImageWrapper = styled.div `
-  margin-bottom: 2rem;
-`
-
 const PostCard = ({ node }) => {
 
-  const { title, subtitle, tags } = node.frontmatter;
+  const { title, subtitle, date, tags } = node.frontmatter;
   const { timeToRead } = node;
-  const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
+  // const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
   return (
       <Card>
         <Link to={`/${slug}`}>
-          {/* <ImageWrapper>
-            <Img fluid={featuredImage} />
-          </ImageWrapper> */}
           <header>
+            <h5>{date}</h5>
+          </header>
+          <main>
             <h2>{title}</h2>
             <h3>{subtitle}</h3>
-          </header>
+          </main>
+          <footer>
+            <h5>{timeToRead} Minute Read</h5>
+            <div>
+              {tags.map(tag => (
+              <Tag key={tag} tag={tag} />
+              ))}
+            </div>
+          </footer>
         </Link>
-        <footer>
-          {/* <div>
-            {tags.map(tag => (
-            <Tag key={tag} tag={tag} />
-            ))}
-          </div>
-            <h6>{timeToRead} Minute Read</h6> */}
-        </footer>
       </Card>
   );
 }
