@@ -1,54 +1,61 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Tag from './tag'
 
 const Card = styled.article `
-  margin: 4rem auto;
-  max-width: 650px;
-  padding: 2rem;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  position: relative;
+  padding: 2rem 0;
+  border-radius: 5px;
   transition: all 300ms ease;
 
-  &:hover {transform: translateY(-5px); box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);}
-`
+  * {
+    margin: 0;
+  }
 
-const CardContent = styled.div `
+  &:hover {
+
+    header {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    footer {
+      h5, div {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
 
   header {
-    margin: 0 auto 4rem auto;
-    text-align: center;
+    color: #444;
+    transform: translateY(-5px);
+    opacity: 0;
+    transition: all 300ms ease-in-out;
 
-    * {margin: 0;}
 
+    @media only screen and (max-width: 590px) {
+      display: block;
+      text-align: center;
+
+      div {margin-bottom: 0.5rem;}
+    }
+  }
+
+  main {
+    margin: 1rem 0;
 
     h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      }
+    }
 
     h3 {
       color: #777;
       font-weight: normal;
-      }
-
-    h4 {
-      flex: 3;
-      color: #666;
-      text-align: right;
-      font-weight: normal;
-    }
-    
-    @media only screen and (max-width: 590px) {
-      display: block;
-      text-align: center;
-      
-      div {margin-bottom: 0.5rem;}
-      
-      h4 {text-align: center;}
     }
   }
 
@@ -57,43 +64,45 @@ const CardContent = styled.div `
     justify-content: space-between;
     align-items: center;
 
-    h6 {
-      color: #666; margin: 0;
+    h5 {
+      color: #444;
+      transform: translateY(5px);
+      opacity: 0;
+      transition: all 300ms 100ms ease-in-out;
+    }
+
+    & > div {
+      opacity: 0;
+      transition: all 300ms 100ms ease-in-out;
     }
   }
-`
-
-const ImageWrapper = styled.div `
-  margin-bottom: 2rem;
 `
 
 const PostCard = ({ node }) => {
 
   const { title, subtitle, date, tags } = node.frontmatter;
   const { timeToRead } = node;
-  const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
+  // const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
   return (
       <Card>
         <Link to={`/${slug}`}>
-          <ImageWrapper>
-            <Img fluid={featuredImage} />
-          </ImageWrapper>
-          <CardContent>
-            <header>
-              <h2>{title}</h2>
-              <h3>{subtitle}</h3>
-            </header>
-            <footer>
-              <div>
-                {tags.map(tag => (
-                <Tag key={tag} tag={tag} />
-                ))}
-              </div>
-                <h6>{timeToRead} Minute Read</h6>
-            </footer>
-          </CardContent>
+          <header>
+            <h5>{date}</h5>
+          </header>
+          <main>
+            <h2>{title}</h2>
+            <h3>{subtitle}</h3>
+          </main>
+          <footer>
+            <h5>{timeToRead} Minute Read</h5>
+            <div>
+              {tags.map(tag => (
+              <Tag key={tag} tag={tag} />
+              ))}
+            </div>
+          </footer>
         </Link>
       </Card>
   );

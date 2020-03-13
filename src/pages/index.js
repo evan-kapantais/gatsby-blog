@@ -26,12 +26,8 @@ import NavLink from '../components/nav-link'
 // TODO: add dark mode
 
 const Container = styled.div `
-  display: flex;
 
-  aside {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  & > header {
     text-align: center;
     background:  #222333 url('https://source.unsplash.com/collection/1976082/1600x900') no-repeat center / cover;
     background-blend-mode: overlay;
@@ -49,20 +45,7 @@ const Container = styled.div `
       a:last-child {margin: 0;}
     }
 
-    div {
-      mix-blend-mode: difference;
-
-      h1 {
-        font-size: 4rem;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-      }
-  
-      p {
-        margin: 0.5rem 0;
-        font-size: 1.2rem;
-      }
-    }
+    p {margin: 0.5rem;}
   }
 
   section {
@@ -73,26 +56,24 @@ const Container = styled.div `
 `
 
 const BlogWrapper = styled.div `
-  padding: 0 10%;
-
-  div:last-child hr {display: none;}
+  max-width: 600px;
+  margin: 4rem auto;
 `
 
 const IndexPage = ({ data }) => {
   return (
-    <Container>
-      <Layout>
-        <SEO title='Home' />
-          <aside>
-            <nav>
-              <NavLink to='/' text='Blog' />
-              <NavLink to='/about' text='About' />
-              <NavLink to='/contact' text='Contact' />
-            </nav>
-            <div>
-              <h1>{data.site.siteMetadata.title}</h1>
-              <p>{data.site.siteMetadata.subtitle}</p>
-              <p>{data.site.siteMetadata.description}</p>
+    <Layout noheader>
+      <SEO title='Home' />
+      <Container>
+        <header>
+          <h1>{data.site.siteMetadata.title}</h1>
+          <p>{data.site.siteMetadata.subtitle}</p>
+          <p>{data.site.siteMetadata.description}</p>
+        </header>
+        <BlogWrapper>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <div key={node.frontmatter.title}>
+              <PostCard node={node} />
             </div>
           </aside>
           <section>
