@@ -14,68 +14,29 @@ import SideCard from '../components/side-card'
 // TODO: responsive
 
 const SBlogPost = styled.div `
-  aside {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    nav {
-      padding: 2rem 0;
-    }
-
-    main {
-      /* margin-top: 4rem; */
-    }
-
-    figcaption {
-      color: #ddd;
-      padding: 0.5rem 0;
-    }
-
-    & main > div:first-child {
-      margin: 4rem auto;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 2rem auto 1rem auto;
-      color: #fff;
-    }
-
-    h2 {
-      font-family: 'Questrial', sans-serif;
-      margin: 1rem auto 2rem auto; 
-      font-weight: normal;
-      color: #ddd;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      
-      h4 {
-        color: #ddd;
-        margin: 0;  
-      }
-    }
-
-    @media only screen and (max-width: 750px) {
-      margin: 4rem auto;
-      
-      h1 {font-size: 3rem;}
-    }
-  }
 `
 
 const PostContainer = styled.div `
-  margin: 4rem auto;
-  max-width: 1000px;
-  padding: 0 10%;
+  /* max-width: 750px; */
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
   @media (max-width: 700px) {padding: 2.5rem 1rem;}
+
+  header {
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 0 1rem 0;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: #444;
+    }
+  }
   
   article {
     line-height: 2rem;
@@ -147,36 +108,12 @@ const blogPost = ({ data }) => {
   return (
     <SBlogPost>
       <Layout>
-        <aside>
-          <nav>
-            <NavLink to='/' text='Blog'/>
-            <NavLink to='/about' text='About'/>
-            <NavLink to='/contact' text='Contact'/>
-          </nav>
-          <main>
-            <figure>
-              <Img fluid={featuredImage}/>
-              <figcaption>
-                <a href={featuredImageSource}>
-                  {featuredImageCaption}
-                </a>
-              </figcaption>
-            </figure>
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
-            <footer>
-              <h4>{date}</h4>
-              <div>
-                {tags.map(tag => (
-                  <Tag key={tag} tag={tag} />
-                ))}
-              </div>
-            </footer>
-          </main>
-          <Footer />
-        </aside>
         <section>
           <PostContainer>
+            <header>
+              <h1>{title}</h1>
+              <h3>{subtitle}</h3>
+            </header>
             <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
             <hr />
             <MorePosts>

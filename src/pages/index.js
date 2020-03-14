@@ -29,8 +29,6 @@ const Container = styled.div `
 
   & > header {
     text-align: center;
-    background:  #222333 url('https://source.unsplash.com/collection/1976082/1600x900') no-repeat center / cover;
-    background-blend-mode: overlay;
     
     nav {
       position: absolute;
@@ -65,28 +63,21 @@ const IndexPage = ({ data }) => {
     <Layout noheader>
       <SEO title='Home' />
       <Container>
-        <header>
+        {/* <header>
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-        </header>
-        <BlogWrapper>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div key={node.frontmatter.title}>
-              <PostCard node={node} />
-            </div>
-          </aside>
-          <section>
-            <h1 style={{textAlign: `center`}}>Blog</h1>
-            <BlogWrapper>
-              {data.allMarkdownRemark.edges.map(({ node }) => (
-                <PostCard key={node.frontmatter.title} node={node} />
-              ))}
-            </BlogWrapper>
-            <Footer />
-          </section>
-        </Layout>
+        </header> */}
+        <main>
+          <BlogWrapper>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <PostCard key={node.frontmatter.title} node={node} />
+            ))}
+          </BlogWrapper>
+        </main>
+        {/* <Footer /> */}
       </Container>
+    </Layout>
   );
 }
 

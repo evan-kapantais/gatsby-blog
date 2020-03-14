@@ -7,7 +7,8 @@ import Tag from './tag'
 
 const Card = styled.article `
   position: relative;
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
+  margin: 2rem auto;
   border-radius: 5px;
   transition: all 300ms ease;
 

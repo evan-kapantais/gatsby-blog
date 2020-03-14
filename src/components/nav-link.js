@@ -4,9 +4,9 @@ import styled from 'styled-components'
 
 const SLink = styled(Link) `
   position: relative;
-  color: #fff;
   margin-right: 1rem;
   letter-spacing: 1px;
+  text-transform: capitalize;
 
   &:last-child {margin-right: 0;}
 
@@ -17,9 +17,9 @@ const SLink = styled(Link) `
     left: 0;
     height: 2px;
     width: 100%;
-    background-color: #fff;
+    background-color: #000;
     opacity: 0;
-    transition: all 300ms ease;
+    transition: all 300ms ease-in-out;
   }
 
   &:hover::after {
@@ -27,9 +27,9 @@ const SLink = styled(Link) `
   }
 `
 
-const NavLink = ({ to, text }) => {
+const NavLink = ({ link }) => {
   return (
-    <SLink to={to}>{text}</SLink>
+    <SLink to={`/${link}`}>{link}</SLink>
   );
 }
 

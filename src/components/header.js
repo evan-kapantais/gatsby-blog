@@ -3,12 +3,13 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import HamburgerMenu from './hamburger'
+// import HamburgerMenu from './hamburger'
+import NavLink from './nav-link'
 
 const StyledHeader = styled.header `
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 0;
   display: flex;
   display: ${props => props.noheader ? 'none' : 'flex'};
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
@@ -63,14 +64,15 @@ const Header = (props) => {
       `}
       render={data => (
         <StyledHeader notitle={props.notitle} noheader={props.noheader}>
-          {/* <Link to='/'>
-            <img src={require('../images/noose.png')} alt=''/>
-          </Link> */}
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
             <p>{data.site.siteMetadata.subtitle}</p>
           </Link>
-          <HamburgerMenu />
+          <nav>
+            <NavLink link='home' />
+            <NavLink link='about' />
+            <NavLink link='contact' />
+          </nav>
         </StyledHeader>
       )}
     />

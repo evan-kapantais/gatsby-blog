@@ -11,29 +11,18 @@ const StyledLayout = styled.div `
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
 
-  & > main {
-    & > aside {
-      position: fixed;
-      height: 100%;
-      padding: 0 2rem;
-      width: 40%;
-      color: #fff;
-      background-color: #222333;
-    }
-
-    & > section {
-      margin-left: 40%;
-    }
-  }
-  
+  main {margin: 4rem auto;}
 `
 
 const Layout = ({ children }) => {
   return (
     <StyledLayout>
+      <Header />
       <main>{ children }</main>
+      <Footer />
     </StyledLayout>
   )
 }
