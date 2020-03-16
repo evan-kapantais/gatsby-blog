@@ -45,17 +45,10 @@ const Container = styled.div `
 
     p {margin: 0.5rem;}
   }
-
-  section {
-    margin-left: 40%;
-
-    h1 {margin: 2rem 0;}
-  }
 `
 
 const BlogWrapper = styled.div `
   max-width: 600px;
-  margin: 4rem auto;
 `
 
 const IndexPage = ({ data }) => {

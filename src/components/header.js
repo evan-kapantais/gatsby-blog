@@ -9,7 +9,7 @@ import NavLink from './nav-link'
 const StyledHeader = styled.header `
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem;
   display: flex;
   display: ${props => props.noheader ? 'none' : 'flex'};
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};

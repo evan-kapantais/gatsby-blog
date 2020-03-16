@@ -4,7 +4,7 @@ subtitle: Child abuse, the Church and the continuous complacency surrounding its
 author: Evan Kapantais
 date: '2018-07-03'
 featuredImage: ./images/bernard-law.jpg
-tags: ['religion', 'crime']
+tags: ['religion']
 ---
 
 On the evening of the 23rd of March a young woman from Cyprus was found unconscious in her home and was later pronounced dead after having been transferred to the hospital. Elena Frantzi was only 29 when she allegedly took her own life after having endured a lifetime of rape and abuse in the hands of her foster parents.

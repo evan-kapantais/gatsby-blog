@@ -17,13 +17,13 @@ const SBlogPost = styled.div `
 `
 
 const PostContainer = styled.div `
-  /* max-width: 750px; */
+  max-width: 750px;
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
   @media (max-width: 700px) {padding: 2.5rem 1rem;}
 
-  header {
+  & > header {
     margin-bottom: 4rem;
 
     h1 {
@@ -31,14 +31,13 @@ const PostContainer = styled.div `
       margin: 0 0 1rem 0;
     }
 
-    h3 {
+    h2 {
       font-weight: 400;
-      font-size: 1.5rem;
       color: #444;
     }
   }
   
-  article {
+  & > article {
     line-height: 2rem;
     font-family: inherit;
     font-weight: 400;
@@ -85,7 +84,7 @@ const PostContainer = styled.div `
     }
   }
 
-  hr {margin: 2rem auto;}
+  & > hr {margin: 2rem auto;}
 `
 
 const MorePosts = styled.div`
@@ -108,24 +107,23 @@ const blogPost = ({ data }) => {
   return (
     <SBlogPost>
       <Layout>
-        <section>
-          <PostContainer>
-            <header>
-              <h1>{title}</h1>
-              <h3>{subtitle}</h3>
-            </header>
-            <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-            <hr />
-            <MorePosts>
-              <h3 to='/'>Now Read This</h3>
-              <MorePostsWrapper>
-                {data.allMarkdownRemark.edges.map(({ node }) => (
-                  <SideCard key={node.frontmatter.title} node={ node }/>
-                ))}
-              </MorePostsWrapper>
-            </MorePosts>
-          </PostContainer>
-        </section>
+        <PostContainer>
+          <header>
+            <Tag tag={tags} size='1.4rem' />
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
+          </header>
+          <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
+          <hr />
+          <MorePosts>
+            <h3 to='/'>Now Read This</h3>
+            <MorePostsWrapper>
+              {data.allMarkdownRemark.edges.map(({ node }) => (
+                <SideCard key={node.frontmatter.title} node={ node }/>
+              ))}
+            </MorePostsWrapper>
+          </MorePosts>
+        </PostContainer>
       </Layout>
     </SBlogPost>
   );
