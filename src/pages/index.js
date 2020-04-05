@@ -95,9 +95,7 @@ const IndexPage = ({ data }) => {
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
-          {/* <SocialContainer /> */}
+          <SocialContainer />
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
