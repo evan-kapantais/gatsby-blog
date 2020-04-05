@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
+import FeaturedPost from '../components/featured-post'
 import SocialContainer from '../components/social'
 
 // TODO: optimise SEO
@@ -80,7 +81,7 @@ const Container = styled.div `
 `
 
 const BlogWrapper = styled.div `
-  max-width: 700px;
+  /* max-width: 700px; */
   margin: 2rem auto;
 
   div:last-child hr {display: none;}
@@ -91,19 +92,19 @@ const IndexPage = ({ data }) => {
     <Layout noheader>
       <SEO title='Home' />
       <Container>
-        <header>
+        {/* <header>
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
           <Link to='/about'>About</Link>
           <Link to='/contact'>Contact</Link>
-          {/* <SocialContainer /> */}
-        </header>
+        </header> */}
         <BlogWrapper>
+          <FeaturedPost node={data.allMarkdownRemark.edges[0].node} />
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
-              <hr />
+              {/* <hr /> */}
             </div>
           ))}
         </BlogWrapper>
