@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -21,7 +22,10 @@ module.exports = {
               maxWidth: 800,
               markdownCaptions: true,
             }
-          }
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`
+          },
         ]
       },
     },
@@ -73,6 +77,7 @@ module.exports = {
         trackingId: "UA-69171075-2",
       },
     },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

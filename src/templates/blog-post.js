@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
-// import FontSize from '../components/font-size'
 import Tag from '../components/tag'
 
 // TODO: show similar posts or not if there are not any
@@ -118,41 +117,52 @@ const MorePostsWrapper = styled.div`
   }
 `
 
-const blogPost = ({ data }) => {
+class blogPost extends React.Component {
 
-  const featuredImage = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-  const { title, subtitle, author, date, tags } = data.markdownRemark.frontmatter;
+  async componentDidMount() {
+    try {
+      const deckdeckgoHighlightCodeLoader = require("@deckdeckgo/highlight-code/dist/loader")
+      await deckdeckgoHighlightCodeLoader.defineCustomElements(window);
+  } catch (err) {
+    console.error(err);
+    }
+  }
+  
+  render() {
+    const featuredImage = this.props.data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
+    const { title, subtitle, author, date, tags } = this.props.data.markdownRemark.frontmatter;
 
-  return (
-    <Layout>
-      <PostHeader>
-        <h4>{date}</h4>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-      </PostHeader>
-      <FeatureImageWrapper>
-        <Img style={{zIndex: -2}} fluid={featuredImage} />
-      </FeatureImageWrapper>
-      <PostContainer>
-        <article dangerouslySetInnerHTML={{__html: data.markdownRemark.html}}/>
-        <footer>
-          <p>by <b>{author}</b></p>
-          {tags.map(tag => (
-            <Tag key={tag} tag={tag} />
-          ))}
-        </footer>
-        <hr />
-        <MorePosts>
-          <h3 to='/'>Now Read This</h3>
-          <MorePostsWrapper>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <SmallPost key={node.frontmatter.title} node={ node }/>
+    return (
+      <Layout>
+        <PostHeader>
+          <h4>{date}</h4>
+          <h1>{title}</h1>
+          <h2>{subtitle}</h2>
+        </PostHeader>
+        <FeatureImageWrapper>
+          <Img style={{zIndex: -2}} fluid={featuredImage} />
+        </FeatureImageWrapper>
+        <PostContainer>
+          <article dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
+          <footer>
+            <p>by <b>{author}</b></p>
+            {tags.map(tag => (
+              <Tag key={tag} tag={tag} />
             ))}
-          </MorePostsWrapper>
-        </MorePosts>
-      </PostContainer>
-    </Layout>
-  );
+          </footer>
+          <hr />
+          <MorePosts>
+            <h3 to='/'>Now Read This</h3>
+            <MorePostsWrapper>
+              {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
+                <SmallPost key={node.frontmatter.title} node={ node }/>
+              ))}
+            </MorePostsWrapper>
+          </MorePosts>
+        </PostContainer>
+      </Layout>
+    );
+  }
 }
 
 export const query = graphql`
