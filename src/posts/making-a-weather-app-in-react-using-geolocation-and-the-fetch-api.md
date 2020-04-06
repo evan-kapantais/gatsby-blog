@@ -8,17 +8,17 @@ tags: ['web-dev']
 ---
 
 ## Table of Contents
-  [1. Concept](#concept)
-  [2. Project Setup](#setup)
-  [3. Initialisation & Basic Styling](#init)
-  [4. Getting Our API Key And Adding It To Our Project](#api)
-  [5. Fetching Our Data](#fetching)
-  [6. Getting The User's Position](#position)
-  [7. Adding Placeholder Data And Styling Our Container](#placeholder)
-  [8. Passing Data To Our Components: The Problem](#problem)
-  [9. Passing Data To Our Components: The Solution Pt.1](#solution-01)
-  [10. Passing Data To Our Components: The Solution Pt.2](#solution-02)
-  [11. Bonus Step: Storing User Preferences In The Browser's Storage](#bonus)
+  1. [Concept](#concept)
+  2. [Project Setup](#setup)
+  3. [Initialisation & Basic Styling](#init)
+  4. [Getting Our API Key And Adding It To Our Project](#api)
+  5. [Fetching Our Data](#fetching)
+  6. [Getting The User's Position](#position)
+  7. [Adding Placeholder Data And Styling Our Container](#placeholder)
+  8. [Passing Data To Our Components: The Problem](#problem)
+  9. [Passing Data To Our Components: The Solution Pt.1](#solution-01)
+  10. [Passing Data To Our Components: The Solution Pt.2](#solution-02)
+  11. [Bonus Step: Storing User Preferences In The Browser's Storage](#bonus)
 
 ## Concept <a name='concept'></a>
 
@@ -94,7 +94,7 @@ export default App;
 
 Nothing fancy so far. We only have a fixed-width-and-height container with basic styling. Below is our initial setup for `App.scss` and `index.scss`. I am using the former to style specific elements of the app and the latter for global styles.
 
-```Scss
+```scss
 // App.scss
 
 .App {
@@ -516,7 +516,7 @@ import clockIcon from '../images/clock.png'
 
 Below is the styling we will add to our weather data.
 
-```Scss
+```scss
 // App.scss
 
 .container {
@@ -896,7 +896,7 @@ onClick = () => {
 }
 ```
 
-```Scss
+```scss
 // App.scss
 
 .btn-main {
@@ -959,7 +959,7 @@ export const StatusData = ({ status }) => {
 }
 ```
 
-```Scss
+```scss
 // App.scss
 
 .status-message {

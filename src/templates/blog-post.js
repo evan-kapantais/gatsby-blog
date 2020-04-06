@@ -12,7 +12,6 @@ import Tag from '../components/tag'
 const PostHeader = styled.div `
   max-width: 850px;
   margin: 4rem auto 2rem auto;
-  /* text-align: center; */
 
   h1 {
     font-size: 4rem;
@@ -56,6 +55,11 @@ const PostContainer = styled.div `
     font-weight: 400;
     font-size: 1.1rem;
 
+    ul,
+    ol {
+      line-height: 1.5rem;
+    }
+
     a {
       color: rgb(3, 159, 255);
 
@@ -80,9 +84,12 @@ const PostContainer = styled.div `
     }
 
     blockquote {
-      border-left: 5px solid #333;
-      padding-left: 20px;
-      margin: 2rem auto;
+      border-left: 5px solid #272936;
+      padding: 1rem;
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+      & > p {margin: 0;}
     }
   }
 
