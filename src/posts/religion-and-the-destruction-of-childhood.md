@@ -1,5 +1,6 @@
 ---
 title: Religion And The Destruction Of Childhood
+subtitle: ''
 author: Evan Kapantais
 date: '2018-07-03'
 featuredImage: ./images/bernard-law.jpg

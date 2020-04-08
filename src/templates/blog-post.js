@@ -7,6 +7,8 @@ import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 import Tag from '../components/tag'
 
+import ideaImg from '../images/idea.png'
+
 // TODO: show similar posts or not if there are not any
 
 const PostHeader = styled.div `
@@ -52,8 +54,6 @@ const PostContainer = styled.div `
   article {
     line-height: 2rem;
     font-family: inherit;
-    font-weight: 400;
-    font-size: 1.1rem;
 
     ul,
     ol {
@@ -84,10 +84,23 @@ const PostContainer = styled.div `
     }
 
     blockquote {
+      position: relative;
       border-left: 5px solid #272936;
       padding: 1rem;
+      padding-left: ${props => props.isProgramming ? '3rem' : '1rem'};
       border-radius: 2px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+      &::before {
+        content: '';
+        display: ${props => props.isProgramming ? 'block' : 'none'};
+        position: absolute;
+        background: url(${ideaImg}) no-repeat center / cover;
+        width: 24px;
+        height: 24px;
+        top: 1.3rem;
+        left: 1rem;
+      }
 
       & > p {margin: 0;}
     }
@@ -108,7 +121,6 @@ const PostContainer = styled.div `
 `
 
 const MorePosts = styled.div`
-  /* padding: 1rem; */
 
   h3 {margin-bottom: 4rem;}
 `
@@ -149,8 +161,9 @@ class blogPost extends React.Component {
         <FeatureImageWrapper>
           <Img style={{zIndex: -2}} fluid={featuredImage} />
         </FeatureImageWrapper>
-        <PostContainer>
-          <article dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
+        <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
+          <article 
+          dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
           <footer>
             <p>by <b>{author}</b></p>
             {tags.map(tag => (

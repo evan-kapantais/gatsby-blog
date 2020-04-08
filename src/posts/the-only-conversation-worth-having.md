@@ -1,5 +1,6 @@
 ---
 title: The Only Conversation Worth Having
+subtitle: A perspective on the public's aversion towards any discussion on religion. 
 author: Evan Kapantais
 date: '2019-12-26'
 featuredImage: ./images/hitchens-blair.jpg
