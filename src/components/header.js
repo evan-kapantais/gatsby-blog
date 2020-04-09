@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import HamburgerMenu from './hamburger'
-import NavLink from './nav-link'
+import { NavLink, SpecialLink } from './nav-link'
 
 const StyledHeader = styled.div `
   position: ${props => props.position || 'relative'};
@@ -75,8 +75,8 @@ const Header = (props) => {
           <nav>
             <NavLink to='politics'/>
             <NavLink to='religion'/>
-            <NavLink to='literature'/>
-            <NavLink to='tech'/>
+            <NavLink to='books'/>
+            <SpecialLink to='tech'/>
           </nav>
         </StyledHeader>
       )}

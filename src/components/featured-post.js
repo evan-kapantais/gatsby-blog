@@ -5,18 +5,17 @@ import styled from 'styled-components'
 
 import Tag from './tag'
 
-const Wrapper = styled.section `
+const Section = styled.section `
   padding: 4rem;
 
   & > h2 {
     color: darkred;
-
-    
   }
 `
 
-const Card = styled.article `
-  margin: 0 0rem;
+const Card = styled.div `
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +59,7 @@ const FeaturedPost = ({ node }) => {
   const { slug } = node.fields;
 
   return (
-    <Wrapper>
+    <Section>
       <h2>Latest Story</h2>
       <Card>
         <Link to={`/${slug}`}>
@@ -73,7 +72,7 @@ const FeaturedPost = ({ node }) => {
           </header>
         </Link>
       </Card>
-    </Wrapper>
+    </Section>
   );
 }
 

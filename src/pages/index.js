@@ -1,14 +1,12 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import FeaturedPost from '../components/featured-post'
-import SocialContainer from '../components/social'
-
-import heroImg from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg';
+import Tag from '../components/tag'
 
 import '../stylesheets/index.scss'
 
@@ -27,22 +25,50 @@ import '../stylesheets/index.scss'
 // TODO: add dark mode
 
 const IndexPage = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges;
+  const latestPost = posts[0].node;
+  const olderPosts = posts.slice(1);
+
+  console.log(latestPost);
 
   return (
     <Layout>
       <SEO title='Home' />
       <div className='container'>
-        <section class='hero-section'>
+        <section className='hero-section'>
           <h1><span>A blog by</span> Evan Kapantais</h1>
         </section>
-        <FeaturedPost node={data.allMarkdownRemark.edges[0].node} />
-        <div className='blog-wrapper'>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
+        <section className='featured-section'>
+          <div className='section-wrapper'>
+            <h2 className='section-heading'>Latest Story</h2>
+            <div className='featured-post'>
+            <Link className='image-link' to={`/${latestPost.fields.slug}`}>
+              {/* <Img fluid={latestPost.frontmatter.featuredImage.childImageSharp.fluid} /> */}
+              <img src={require(`../${latestPost.frontmatter.directImage}`)} alt=""/>
+            </Link>
+            <Link className='content-link' to={`/${latestPost.fields.slug}`}>
+              <header>
+                <h1>{latestPost.frontmatter.title}</h1>
+                <h3>{latestPost.frontmatter.subtitle}</h3>
+              </header>
+              <footer>
+                {latestPost.frontmatter.tags.map(tag => (
+                  <Tag tag={tag}/>
+                ))}
+                <h5>{latestPost.timeToRead} minute read</h5>
+              </footer>
+            </Link>
+            </div>
+          </div>
+        </section>
+        {/* <FeaturedPost node={latestPost} /> */}
+        {/* <div className='blog-wrapper'>
+          {olderPosts.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
@@ -74,6 +100,7 @@ export const postsQuery = graphql`
           date (formatString: "D MMMM YYYY")
           author
           tags
+          directImage
           featuredImage {
             childImageSharp {
               fluid (maxWidth: 700, maxHeight: 350) {
