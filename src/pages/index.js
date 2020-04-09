@@ -8,6 +8,10 @@ import PostCard from '../components/post-card'
 import FeaturedPost from '../components/featured-post'
 import SocialContainer from '../components/social'
 
+import heroImg from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg';
+
+import '../stylesheets/index.scss'
+
 // TODO: optimise SEO
 // TODO: image attributions
 // TODO: page metadata with React Helmet
@@ -22,93 +26,24 @@ import SocialContainer from '../components/social'
 // TODO: rss feed?
 // TODO: add dark mode
 
-const Container = styled.div `
-  margin: 10rem auto;
-
-  header {
-    text-align: center;
-    max-width: 700px;
-    margin: 4rem auto;
-    position: relative;
-
-    h1 {
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    p {margin: 0.5rem;}
-
-    div {
-      margin: 2rem;
-      display: flex;
-      justify-content: center;
-
-      a {
-        margin-right: 1rem;
-        width: 24px;
-        height: 24px;
-        display: block;
-        position: relative;
-
-        &:last-child {margin: 0;}
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          height: 3px;
-          width: 100%;
-          background: #333;
-          opacity: 0;
-          transition: all 400ms ease;
-        }
-
-        &:hover::after {
-          bottom: -8px;
-          opacity: 1;
-        }
-
-        img {
-          margin: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
-  }
-`
-
-const BlogWrapper = styled.div `
-  /* max-width: 700px; */
-  margin: 2rem auto;
-
-  div:last-child hr {display: none;}
-`
-
 const IndexPage = ({ data }) => {
+
   return (
-    <Layout noheader>
+    <Layout>
       <SEO title='Home' />
-      <Container>
-        {/* <header>
-          <h1>{data.site.siteMetadata.title}</h1>
-          <p>{data.site.siteMetadata.subtitle}</p>
-          <p>{data.site.siteMetadata.description}</p>
-          <Link to='/about'>About</Link>
-          <Link to='/contact'>Contact</Link>
-        </header> */}
-        <BlogWrapper>
-          <FeaturedPost node={data.allMarkdownRemark.edges[0].node} />
+      <div className='container'>
+        <section class='hero-section'>
+          <h1><span>A blog by</span> Evan Kapantais</h1>
+        </section>
+        <FeaturedPost node={data.allMarkdownRemark.edges[0].node} />
+        <div className='blog-wrapper'>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
-              {/* <hr /> */}
             </div>
           ))}
-        </BlogWrapper>
-      </Container>
+        </div>
+      </div>
     </Layout>
   );
 }

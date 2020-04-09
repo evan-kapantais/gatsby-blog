@@ -5,10 +5,19 @@ import styled from 'styled-components'
 
 import Tag from './tag'
 
+const Wrapper = styled.section `
+  padding: 4rem;
+
+  & > h2 {
+    color: darkred;
+
+    
+  }
+`
+
 const Card = styled.article `
-  margin: 6rem;
+  margin: 0 0rem;
   display: flex;
-  /* max-width: 700px; */
   justify-content: center;
   align-items: center;
 
@@ -19,17 +28,15 @@ const Card = styled.article `
   a:last-child {
     flex: 1;
   }
-
+  
   header {
     margin: 0 auto 2rem auto;
-    text-align: center;
     max-width: 80%;
 
     * {margin: 0;}
 
 
-    h2 {
-      font-size: 2rem;
+    h1 {
       margin-bottom: 1rem;
       }
 
@@ -45,10 +52,6 @@ const Card = styled.article `
   }
 `
 
-const ImageWrapper = styled.div `
-  margin-bottom: 2rem;
-`
-
 const FeaturedPost = ({ node }) => {
 
   const { title, subtitle, date, tags } = node.frontmatter;
@@ -57,19 +60,20 @@ const FeaturedPost = ({ node }) => {
   const { slug } = node.fields;
 
   return (
+    <Wrapper>
+      <h2>Latest Story</h2>
       <Card>
         <Link to={`/${slug}`}>
-          <ImageWrapper>
-            <Img fluid={featuredImage} />
-          </ImageWrapper>
+          <Img fluid={featuredImage} />
         </Link>
         <Link to={`/${slug}`}>
           <header>
-            <h2>{title}</h2>
+            <h1>{title}</h1>
             <h3>{subtitle}</h3>
           </header>
         </Link>
       </Card>
+    </Wrapper>
   );
 }
 

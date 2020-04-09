@@ -6,13 +6,18 @@ import styled from 'styled-components'
 import Tag from './tag'
 
 const Card = styled.article `
-  margin: 4rem 0;
-  padding: 2rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* margin: 4rem 0; */
+  /* padding: 2rem; */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+  /* max-width: 600px; */
   border-radius: 3px;
   transition: all 300ms ease;
 
-  &:hover {transform: translateY(-5px); box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);}
+  /* &:hover {transform: translateY(-5px); box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);} */
+
+  a:first-child > div:first-child {
+    margin-bottom: 2rem;
+  }
 `
 
 const CardHeader = styled.div `
@@ -50,10 +55,6 @@ const CardHeader = styled.div `
   }
 `
 
-const CardContent = styled.div`
-  p { line-height: 1.75; }
-`
-
 const ImageWrapper = styled.div `
   margin-bottom: 2rem;
 `
@@ -71,24 +72,21 @@ const CardFooter = styled.div `
 const PostCard = ({ node }) => {
 
   const { title, subtitle, date, tags } = node.frontmatter;
-  const { excerpt, timeToRead } = node;
+  const { timeToRead } = node;
   const featuredImage = node.frontmatter.featuredImage.childImageSharp.fluid;
   const { slug } = node.fields;
 
   return (
       <Card>
         <Link to={`/${slug}`}>
-          <ImageWrapper>
+          {/* <ImageWrapper> */}
             <Img fluid={featuredImage} />
-          </ImageWrapper>
+          {/* </ImageWrapper> */}
           <CardHeader>
             <h2>{title}</h2>
             <h3>{subtitle}</h3>
             {/* <h4>{date}</h4> */}
           </CardHeader>
-          <CardContent>
-            {/* <div dangerouslySetInnerHTML={{__html: excerpt}} /> */}
-          </CardContent>
         </Link>
         <CardFooter>
           <div>

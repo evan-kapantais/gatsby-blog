@@ -4,15 +4,20 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import HamburgerMenu from './hamburger'
+import NavLink from './nav-link'
 
-const StyledHeader = styled.header `
+const StyledHeader = styled.div `
+  position: ${props => props.position || 'relative'};
+  top: 0;
+  display: ${props => props.noheader ? 'none' : 'flex'};
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
-  display: flex;
-  display: ${props => props.noheader ? 'none' : 'flex'};
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
+  background: #fff;
+  z-index: 999;
   transition: all 500ms ease-in-out;
 
   & > a:first-child,
@@ -62,15 +67,17 @@ const Header = (props) => {
         }
       `}
       render={data => (
-        <StyledHeader notitle={props.notitle} noheader={props.noheader}>
-          {/* <Link to='/'>
-            <img src={require('../images/noose.png')} alt=''/>
-          </Link> */}
+        <StyledHeader notitle={props.notitle} noheader={props.noheader} position={props.position}>
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
-            <p>{data.site.siteMetadata.subtitle}</p>
           </Link>
-          <HamburgerMenu />
+          {/* <HamburgerMenu /> */}
+          <nav>
+            <NavLink to='politics'/>
+            <NavLink to='religion'/>
+            <NavLink to='literature'/>
+            <NavLink to='tech'/>
+          </nav>
         </StyledHeader>
       )}
     />

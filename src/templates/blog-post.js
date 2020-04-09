@@ -13,7 +13,6 @@ import Tag from '../components/tag'
 const PostHeader = styled.div `
   max-width: 850px;
   margin: 4rem auto 2rem auto;
-  /* text-align: center; */
 
   h1 {
     font-size: 4rem;
@@ -124,7 +123,7 @@ const blogPost = ({ data }) => {
   const { title, subtitle, author, date, tags } = data.markdownRemark.frontmatter;
 
   return (
-    <Layout>
+    <Layout position='fixed'>
       <PostHeader>
         <h4>{date}</h4>
         <h1>{title}</h1>
