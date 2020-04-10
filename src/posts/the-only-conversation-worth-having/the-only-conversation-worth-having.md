@@ -3,7 +3,7 @@ title: The Only Conversation Worth Having
 subtitle: A perspective on the public's aversion towards any discussion on religion. 
 author: Evan Kapantais
 date: '2019-12-26'
-featuredImage: ./images/hitchens-blair.jpg
+featuredImage: hitchens-blair.jpg
 tags: ['religion']
 ---
 
@@ -11,7 +11,7 @@ A sentence that doesn't stir up any particularly arousing emotion, to be sure, b
 
 > "In other words, that the discussion about what is good, what is beautiful, what is noble, what is pure, and what is true could always go on. Why is that important? Why would I like to do that? Because that’s the only conversation worth having. And whether it goes on or not after I die, I don’t know. But, I do know that it is the conversation I want to have while I am still alive. Which means that to me the offer of certainty, the offer of complete security, the offer of an impermeable faith that can’t give way is an offer of something not worth having. I want to live my life taking the risk all the time that I don’t know anything like enough yet… that I haven’t understood enough… that I can’t know enough… that I am always hungrily operating on the margins of a potentially great harvest of future knowledge and wisdom. I wouldn’t have it any other way."
 
-![Christopher Hitchens in his apartment in Washington, DC ](images/christopherhitchens.jpg)
+![Christopher Hitchens in his apartment in Washington, DC ](christopherhitchens.jpg)
 
 If you are unfamiliar with Hitchens' work, dear reader, I would urge you to look into his decades-worth of books, articles and talks that are now easily accessible to you. He has tremendously shifted my life towards a better direction and I am confident when saying that, if you are on the lookout for someone to reinforce the accuracy of your moral compass, he can be the one to assume that role for you.
 

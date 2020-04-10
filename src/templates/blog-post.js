@@ -42,14 +42,16 @@ const FeatureImageWrapper = styled.div `
 `
 
 const PostContainer = styled.div `
-  max-width: 850px;
+  max-width: 800px;
   margin: 2rem auto;
   background: #fff;
   border-radius: 5px;
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
-  /* @media (max-width: 700px) {padding: 2.5rem 1rem;} */
+  img {
+    width: 100%;
+  }
   
   article {
     line-height: 2rem;
@@ -166,9 +168,11 @@ class blogPost extends React.Component {
           dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
           <footer>
             <p>by <b>{author}</b></p>
-            {tags.map(tag => (
-              <Tag key={tag} tag={tag} />
-            ))}
+            <div>
+              {tags.map(tag => (
+                <Tag key={tag} tag={tag} />
+              ))}
+            </div>
           </footer>
           <hr />
           <MorePosts>

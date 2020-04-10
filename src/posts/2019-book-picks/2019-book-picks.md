@@ -3,7 +3,7 @@ title: 2019 Book Picks
 subtitle: My favourite books for 2019 and why you should read them.
 author: Evan Kapantais
 date: '2020-01-08'
-featuredImage: ./images/sharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg
+featuredImage: sharon-mccutcheon-eMP4sYPJ9x0-unsplash.jpg
 tags: ['books']
 ---
 

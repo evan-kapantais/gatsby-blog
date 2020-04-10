@@ -3,7 +3,7 @@ title: A Matter Of Language
 subtitle: A case of misguided political correctness where safe doesn't always mean just.
 author: Evan Kapantais
 date: '2020-02-22'
-featuredImage: ./images/daniil-kuzelev-C4G18Paw0d4-unsplash.jpg
+featuredImage: daniil-kuzelev-C4G18Paw0d4-unsplash.jpg
 tags: ['thoughts']
 ---
 

@@ -3,7 +3,7 @@ title: Religion And The Destruction Of Childhood
 subtitle: ''
 author: Evan Kapantais
 date: '2018-07-03'
-featuredImage: ./images/bernard-law.jpg
+featuredImage: bernard-law.jpg
 tags: ['religion', 'crime']
 ---
 
@@ -11,7 +11,7 @@ On the evening of the 23rd of March a young woman from Cyprus was found unconsci
 
 The news of the woman’s death made the headlines for a couple of days after her death, but that was it. Like every case that rightly deserves our attention and outrage, as well as the attention of each respective government agency and news outlet, it was forgotten in mere days. Elena was not famous; not a celebrity, not an actor, not a pop star, so her 11 minutes of fame were quickly done away with. It appears that such news have become some sort of a triviality that our societies are growing increasingly numb to. Although Elena’s name is bound to fade from the public’s memory before long, the time is long overdue for the public to speak up and condemn the atrocious behaviour of the sick individuals who forced her actions and were complicit in her abuse.
 
-![Elena Frantzi / Facebook](images/elena-frantzi.jpg)
+![Elena Frantzi / Facebook](elena-frantzi.jpg)
 
 At the age of four, and because of her mother being a drug addict, Elena was given to her foster family by the government. Her foster father, Stylianos Savas was a priest. Like many helpless children who have happened over the years to have the privilege of priestly care, she was repeatedly raped all the way through her childhood. When she tried to speak up at the age of ten — and I can only imagine the courage and resolve it takes to do so — no one believed her. Ax expected, the mental and physical rape, torture and abuse held on. Some years later, another attempt was made and, being an adult now, her allegations were taken seriously. Her godly caretaker was convicted in 2013 and, enjoying the justice that the pious so suspiciously often do, served a mere two years in prison only to be released in 2015.
 
@@ -21,7 +21,7 @@ It takes a very credulous and deluded individual to believe that this is justice
 
 Readers that have been following the Church's dealings might have already drawn a parallel to the case of cardinal Bernard Francis Law. Law, the former archbishop emeritus of Boston, was involved in a much publicized scandal back in 2001 when he was accused of taking part in the cover up of several cases of child molestation in his church. Although there were no allegations of him directly partaking in these vile crimes, could anyone in their right mind ever possibly excuse him for turning a blind eye? After a series of high-profile allegations and the exquisite work done by the Spotlight team of the Boston Globe, Law finally resigned from the Archdiocese of Boston on December 13, 2002. As per usual, these events failed to signal the end of Law’s reign as a high-profile member of the Hole See. Far from it. Hardly a year later, he was appointed archpriest of the Basilica di Santa Maria Maggiore in Rome.
 
-![Bernard Law / Joe Readle](images/bernard-law-01.jpg)
+![Bernard Law / Joe Readle](bernard-law-01.jpg)
 
 ### CONTRADICTIONS
 
