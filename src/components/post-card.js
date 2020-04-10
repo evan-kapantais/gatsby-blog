@@ -7,7 +7,7 @@ import Tag from './tag'
 
 const Card = styled.article `
   margin: 4rem 0;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   transition: all 300ms ease;

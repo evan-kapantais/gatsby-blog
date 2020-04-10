@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
+// TODO: gatsby-plugin-offline
 // TODO: add 'back to top' button
 // TODO: optimise SEO
 // TODO: image attributions
@@ -81,7 +82,7 @@ const Container = styled.div `
 `
 
 const BlogWrapper = styled.div `
-  max-width: 700px;
+  max-width: 650px;
   margin: 2rem auto;
 
   div:last-child hr {display: none;}
