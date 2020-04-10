@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 import SocialContainer from '../components/social'
 
+// TODO: add 'back to top' button
 // TODO: optimise SEO
 // TODO: image attributions
 // TODO: page metadata with React Helmet
