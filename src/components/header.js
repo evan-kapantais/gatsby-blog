@@ -38,11 +38,13 @@ const StyledHeader = styled.header `
       margin: 0;
     }
 
-  @media (max-width: 670px) {
+    @media (max-width: 670px) {
     box-shadow: ${props => props.notitle ? 'none' : '0 0 3px lightgrey'};
-    padding: 0.5rem 1rem;
+    padding: 1rem;
 
-    h1 {font-size: 1rem;}
+    h1 {font-size: 1.2rem;}
+
+    p {font-size: 0.8rem;}
   }
 `
 
