@@ -4,14 +4,10 @@ import styled from 'styled-components'
 const Menu = styled.div `
   width: 40px;
   height: 40px;
-  background: ${props => props.isOpen ? '#fff' : '#000'};
-  background: #000;
-  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   z-index: 999;
   transition: all 800ms ease-in-out;
 
@@ -22,8 +18,7 @@ const Menu = styled.div `
     height: 2px;
     border-radius: 2px;
     margin: 2px auto;
-    background: ${props => props.isOpen ? '#000' : '#fff'};
-    background: #fff;
+    background: #000;
     transition: all 500ms ease;
 
     &:first-child {
@@ -181,7 +176,6 @@ class HamburgerMenu extends React.Component  {
               <img src={require('../images/instagram-colour.png')} alt=""/>
             </a>
             <a href="mailto:evankapantais@gmail.com?subject=Hey%20Evan!" onClick={this.clickLink}>say hello</a>
-            {/* <a href="https://evankapantais.com" onClick={this.clickLink}>my web stuff website</a> */}
           </main>
           <footer>
             <small>&copy; Evan Kapantais</small>

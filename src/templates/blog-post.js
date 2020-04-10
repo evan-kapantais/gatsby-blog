@@ -10,6 +10,7 @@ import Tag from '../components/tag'
 import ideaImg from '../images/idea.png'
 
 // TODO: show similar posts or not if there are not any
+// TODO: smaller headings on small screens
 
 const PostHeader = styled.div `
   max-width: 850px;
