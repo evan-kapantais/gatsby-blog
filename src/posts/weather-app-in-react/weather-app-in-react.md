@@ -4,7 +4,7 @@ subtitle: Using the fetch api, geolocation and data from openweathermap.org to m
 author: Evan Kapantais
 date: '2020-04-10'
 featuredImage: sara-the-freak-A4UojtraSrw-unsplash.jpg
-tags: ['programming', 'gatsby', 'api']
+tags: ['programming', 'react', 'api']
 ---
 
 ## Table of Contents
