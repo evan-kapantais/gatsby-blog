@@ -63,9 +63,6 @@ const Header = (props) => {
       `}
       render={data => (
         <StyledHeader notitle={props.notitle} noheader={props.noheader}>
-          {/* <Link to='/'>
-            <img src={require('../images/noose.png')} alt=''/>
-          </Link> */}
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
             <p>{data.site.siteMetadata.subtitle}</p>

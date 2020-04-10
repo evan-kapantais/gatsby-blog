@@ -49,7 +49,7 @@ const PostContainer = styled.div `
 
   @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
 
-  @media (max-width: 700px) {padding: 2.5rem 1rem;}
+  /* @media (max-width: 700px) {padding: 2.5rem 1rem;} */
   
   article {
     line-height: 2rem;

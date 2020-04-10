@@ -12,6 +12,10 @@ const StyledLayout = styled.div `
   justify-content: space-between;
   min-height: 100vh;
   width: 100%;
+
+  main {
+    padding: 0 2rem;
+  }
 `
 
 const Layout = (props) => {
