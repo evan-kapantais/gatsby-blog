@@ -14,13 +14,13 @@ const StyledLayout = styled.div `
   width: 100%;
 
   main {
-    padding: 0 2rem;
+    padding: ${props => props.padding || '0 2rem'};
   }
 `
 
 const Layout = (props) => {
   return (
-    <StyledLayout>
+    <StyledLayout padding={props.padding}>
       <Header 
       notitle={props.notitle} 
       noheader={props.noheader}

@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 
+import heroImg from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg'
+
 // TODO: add search
 // TODO: optimise SEO
 // TODO: image attributions
@@ -28,12 +30,13 @@ const Container = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url(${heroImg}) no-repeat 50% 20% / cover;
+    background-attachment: fixed;
     height: 100vh;
     text-align: center;
-    max-width: 700px;
     margin: 0 auto;
     user-select: none;
-
+    
     &::after {
       content: '';
       position: absolute;
@@ -45,10 +48,12 @@ const Container = styled.div `
       border-right: 2px solid #222333;
       transform: rotate(45deg);
     }
-
+    
     h1 {
+      mix-blend-mode: difference;
+      color: #fff;
       position: relative;
-      margin: 0 0 0.5rem 0;
+      margin: 0;
       padding: 0;
       font-size: 4rem;
     }
@@ -69,14 +74,13 @@ const BlogWrapper = styled.div `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout noheader>
+    <Layout noheader padding='0'>
       <SEO title='Home' />
       <Container>
         <header>
-          <img src={require('../images/icons/campfire.svg')} alt=""/>
+          <img src={require('../images/icons/bonfire.png')} alt=""/>
           <h1>THE BONFIRE</h1>
           <p>A blog by Evan Kapantais</p>
-
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
