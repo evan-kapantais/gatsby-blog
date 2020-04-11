@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -21,20 +21,43 @@ import PostCard from '../components/post-card'
 // TODO: add dark mode
 
 const Container = styled.div `
-  margin: 10rem auto;
+  /* margin: 10rem auto; */
 
   header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
     max-width: 700px;
-    margin: 4rem auto;
-    position: relative;
+    margin: 0 auto;
+    user-select: none;
 
-    h1 {
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border-bottom: 2px solid #222333;
+      border-right: 2px solid #222333;
+      transform: rotate(45deg);
     }
 
-    p {margin: 0.5rem;}
+    h1 {
+      position: relative;
+      margin: 0 0 0.5rem 0;
+      padding: 0;
+      font-size: 4rem;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+    }
   }
 `
 
@@ -51,15 +74,16 @@ const IndexPage = ({ data }) => {
       <SEO title='Home' />
       <Container>
         <header>
-          <h1>{data.site.siteMetadata.title}</h1>
-          <p>{data.site.siteMetadata.subtitle}</p>
-          <p>{data.site.siteMetadata.description}</p>
+          <img src={require('../images/icons/campfire.svg')} alt=""/>
+          <h1>THE BONFIRE</h1>
+          <p>A blog by Evan Kapantais.</p>
+
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.frontmatter.title}>
               <PostCard node={node} />
-              <hr />
+              {/* <hr /> */}
             </div>
           ))}
         </BlogWrapper>

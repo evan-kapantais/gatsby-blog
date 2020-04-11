@@ -7,19 +7,19 @@ import Tag from './tag'
 
 const Card = styled.div `
   margin: 4rem 0;
-  padding: 1rem;
+  padding: 1.5rem;
   height: 100%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   transition: all 300ms ease;
 
-  &:hover {transform: translateY(-5px); box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);}
+  &:hover img {
+    transform: scale(1.1);
+  }
 `
 
 const CardHeader = styled.div `
   margin: 0 auto 2rem auto;
-  text-align: center;
-  max-width: 80%;
 
   * {margin: 0;}
 
@@ -50,11 +50,6 @@ const CardHeader = styled.div `
     h4 {text-align: center;}
   }
 `
-
-const CardContent = styled.div`
-  p { line-height: 1.75; }
-`
-
 const ImageWrapper = styled.div `
   margin-bottom: 2rem;
 `
@@ -80,14 +75,17 @@ const PostCard = ({ node }) => {
     <Card key={title}>
       <Link to={`/${slug}`}>
         <ImageWrapper>
-          <Img fluid={featuredImage} />
+          <Img
+          fluid={featuredImage}
+          imgStyle={{
+            transition: 'all 500ms ease',
+          }}
+          />
         </ImageWrapper>
         <CardHeader>
           <h2>{title}</h2>
           <h3>{subtitle}</h3>
         </CardHeader>
-        <CardContent>
-        </CardContent>
       </Link>
       <CardFooter>
         <div>
