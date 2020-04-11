@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import HamburgerMenu from './hamburger'
 
 const StyledHeader = styled.header `
+  position: ${props => props.position || 'fixed'};
+  top: 0;
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
@@ -13,6 +15,9 @@ const StyledHeader = styled.header `
   display: ${props => props.noheader ? 'none' : 'flex'};
   justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
   align-items: center;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 999;
   transition: all 500ms ease-in-out;
 
   & > a:first-child,
@@ -38,7 +43,7 @@ const StyledHeader = styled.header `
       margin: 0;
     }
 
-    @media (max-width: 670px) {
+    @media (max-width: 700px) {
     box-shadow: ${props => props.notitle ? 'none' : '0 0 3px lightgrey'};
     padding: 1rem;
 
@@ -64,7 +69,11 @@ const Header = (props) => {
         }
       `}
       render={data => (
-        <StyledHeader notitle={props.notitle} noheader={props.noheader}>
+        <StyledHeader 
+        notitle={props.notitle} 
+        noheader={props.noheader}
+        position={props.position}
+        >
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
             <p>{data.site.siteMetadata.subtitle}</p>

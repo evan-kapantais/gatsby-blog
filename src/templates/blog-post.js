@@ -7,10 +7,86 @@ import Layout from '../components/layout'
 import SmallPost from '../components/small-post'
 import Tag from '../components/tag'
 
-import ideaImg from '../images/idea.png'
+import ideaImg from '../images/icons/idea.png'
 
 // TODO: show similar posts or not if there are not any
 // TODO: smaller headings on small screens
+// TODO: back to top button
+
+const PostContainer = styled.div `
+max-width: 800px;
+margin: 12rem auto 4rem auto;
+background: #fff;
+border-radius: 5px;
+
+article {
+  line-height: 2rem;
+  font-family: inherit;
+
+  ul,
+  ol {
+    line-height: 1.5rem;
+  }
+
+  a {
+    color: rgb(3, 159, 255);
+
+    &:hover {text-decoration: underline;}
+  }
+
+  p {margin-bottom: 1rem;}
+
+  h2 {
+    font-size: 2rem;
+    margin: 3rem 0 1rem 0;
+  }
+
+  h3 {
+    margin: 2rem auto 1rem auto;
+    font-family: inherit;
+  }
+
+  h4 {
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  blockquote {
+    position: relative;
+    border-left: 5px solid #272936;
+    padding: 1rem;
+    padding-left: ${props => props.isProgramming ? '3rem' : '1rem'};
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      content: '';
+      display: ${props => props.isProgramming ? 'block' : 'none'};
+      position: absolute;
+      background: url(${ideaImg}) no-repeat center / cover;
+      width: 24px;
+      height: 24px;
+      top: 1.3rem;
+      left: 1rem;
+    }
+
+    & > p {margin: 0;}
+  }
+}
+
+& > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+hr {margin: 2rem auto;}
+`
 
 const PostHeader = styled.div `
   max-width: 850px;
@@ -37,90 +113,9 @@ const PostHeader = styled.div `
 `
 
 const FeatureImageWrapper = styled.div `
-  position: relative;
-  max-width: 850px;
+  /* position: relative; */
+  /* max-width: 850px; */
   margin: 4rem auto;
-`
-
-const PostContainer = styled.div `
-  max-width: 800px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 5px;
-
-  @media(max-width: 1000px) {margin: 0 auto 4rem auto;}
-
-  img {
-    width: 100%;
-  }
-  
-  article {
-    line-height: 2rem;
-    font-family: inherit;
-
-    ul,
-    ol {
-      line-height: 1.5rem;
-    }
-
-    a {
-      color: rgb(3, 159, 255);
-
-      &:hover {text-decoration: underline;}
-    }
-
-    p {margin-bottom: 1rem;}
-
-    h2 {
-      font-size: 2rem;
-      margin: 3rem 0 1rem 0;
-    }
-
-    h3 {
-      margin: 2rem auto 1rem auto;
-      font-family: inherit;
-    }
-
-    h4 {
-      font-weight: 300;
-      margin-bottom: 1rem;
-    }
-
-    blockquote {
-      position: relative;
-      border-left: 5px solid #272936;
-      padding: 1rem;
-      padding-left: ${props => props.isProgramming ? '3rem' : '1rem'};
-      border-radius: 2px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
-      &::before {
-        content: '';
-        display: ${props => props.isProgramming ? 'block' : 'none'};
-        position: absolute;
-        background: url(${ideaImg}) no-repeat center / cover;
-        width: 24px;
-        height: 24px;
-        top: 1.3rem;
-        left: 1rem;
-      }
-
-      & > p {margin: 0;}
-    }
-  }
-
-  & > footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0;
-
-    p {
-      margin: 0;
-    }
-  }
-
-  hr {margin: 2rem auto;}
 `
 
 const MorePosts = styled.div`
@@ -156,15 +151,15 @@ class blogPost extends React.Component {
 
     return (
       <Layout>
-        <PostHeader>
-          <h4>{date}</h4>
-          <h1>{title}</h1>
-          <h2>{subtitle}</h2>
-        </PostHeader>
-        <FeatureImageWrapper>
-          <Img style={{zIndex: -2}} fluid={featuredImage} />
-        </FeatureImageWrapper>
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
+          <PostHeader>
+            <h4>{date}</h4>
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
+          </PostHeader>
+          <FeatureImageWrapper>
+            <Img fluid={featuredImage} />
+          </FeatureImageWrapper>
           <article 
           dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
           <footer>

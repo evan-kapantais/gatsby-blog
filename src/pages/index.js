@@ -5,9 +5,8 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostCard from '../components/post-card'
-import SocialContainer from '../components/social'
 
-// TODO: add 'back to top' button
+// TODO: add search
 // TODO: optimise SEO
 // TODO: image attributions
 // TODO: page metadata with React Helmet
@@ -16,7 +15,6 @@ import SocialContainer from '../components/social'
 // TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images
 // TODO: replace Markdown with MDX
-// TODO: check duplicate transformer-remark plugin
 // TODO: configure a newsletter
 // TODO: split posts in more pages
 // TODO: rss feed?
@@ -37,46 +35,6 @@ const Container = styled.div `
     }
 
     p {margin: 0.5rem;}
-
-    div {
-      margin: 2rem;
-      display: flex;
-      justify-content: center;
-
-      a {
-        margin-right: 1rem;
-        width: 24px;
-        height: 24px;
-        display: block;
-        position: relative;
-
-        &:last-child {margin: 0;}
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 0;
-          height: 3px;
-          width: 100%;
-          background: #333;
-          opacity: 0;
-          transition: all 400ms ease;
-        }
-
-        &:hover::after {
-          bottom: -8px;
-          opacity: 1;
-        }
-
-        img {
-          margin: 0;
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
   }
 `
 
@@ -96,7 +54,6 @@ const IndexPage = ({ data }) => {
           <h1>{data.site.siteMetadata.title}</h1>
           <p>{data.site.siteMetadata.subtitle}</p>
           <p>{data.site.siteMetadata.description}</p>
-          <SocialContainer />
         </header>
         <BlogWrapper>
           {data.allMarkdownRemark.edges.map(({ node }) => (

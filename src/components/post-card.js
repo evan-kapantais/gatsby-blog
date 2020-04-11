@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import Tag from './tag'
 
-const Card = styled.article `
+const Card = styled.div `
   margin: 4rem 0;
   padding: 1rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -84,10 +84,8 @@ const PostCard = ({ node }) => {
           <CardHeader>
             <h2>{title}</h2>
             <h3>{subtitle}</h3>
-            {/* <h4>{date}</h4> */}
           </CardHeader>
           <CardContent>
-            {/* <div dangerouslySetInnerHTML={{__html: excerpt}} /> */}
           </CardContent>
         </Link>
         <CardFooter>
