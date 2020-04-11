@@ -76,7 +76,6 @@ const Header = (props) => {
         >
           <Link to='/'>
             <h1>{data.site.siteMetadata.title}</h1>
-            <p>{data.site.siteMetadata.subtitle}</p>
           </Link>
           <HamburgerMenu />
         </StyledHeader>

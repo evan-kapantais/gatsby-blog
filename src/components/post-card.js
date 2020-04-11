@@ -8,6 +8,7 @@ import Tag from './tag'
 const Card = styled.div `
   margin: 4rem 0;
   padding: 1rem;
+  height: 100%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   transition: all 300ms ease;
@@ -76,27 +77,27 @@ const PostCard = ({ node }) => {
   const { slug } = node.fields;
 
   return (
-      <Card>
-        <Link to={`/${slug}`}>
-          <ImageWrapper>
-            <Img fluid={featuredImage} />
-          </ImageWrapper>
-          <CardHeader>
-            <h2>{title}</h2>
-            <h3>{subtitle}</h3>
-          </CardHeader>
-          <CardContent>
-          </CardContent>
-        </Link>
-        <CardFooter>
-          <div>
-            {tags.map(tag => (
-            <Tag key={tag} tag={tag} />
-            ))}
-          </div>
-            <h6>{timeToRead} Minute Read</h6>
-        </CardFooter>
-      </Card>
+    <Card key={title}>
+      <Link to={`/${slug}`}>
+        <ImageWrapper>
+          <Img fluid={featuredImage} />
+        </ImageWrapper>
+        <CardHeader>
+          <h2>{title}</h2>
+          <h3>{subtitle}</h3>
+        </CardHeader>
+        <CardContent>
+        </CardContent>
+      </Link>
+      <CardFooter>
+        <div>
+          {tags.map(tag => (
+          <Tag key={tag} tag={tag} />
+          ))}
+        </div>
+          <h6>{timeToRead} Minute Read</h6>
+      </CardFooter>
+    </Card>
   );
 }
 
