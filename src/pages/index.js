@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -21,7 +21,6 @@ import PostCard from '../components/post-card'
 // TODO: add dark mode
 
 const Container = styled.div `
-  /* margin: 10rem auto; */
 
   header {
     position: relative;
@@ -76,7 +75,7 @@ const IndexPage = ({ data }) => {
         <header>
           <img src={require('../images/icons/campfire.svg')} alt=""/>
           <h1>THE BONFIRE</h1>
-          <p>A blog by Evan Kapantais.</p>
+          <p>A blog by Evan Kapantais</p>
 
         </header>
         <BlogWrapper>
