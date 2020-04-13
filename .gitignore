@@ -5,8 +5,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# drafts folder
+drafts
+
+# legacy folder
+legacy
+
 # General text files
-*.txt
+# *.txt
 
 # Runtime data
 pids

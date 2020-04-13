@@ -1,13 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Evan Kapantais`,
-    description: `Writer, developer, learner.`,
+    title: `The Bonfire`,
+    subtitle: `Writer, developer, learner.`,
+    description: `This is my blog.`,
     author: `Evan Kapantais`,
+    url: `https://blog.evankapantais.com`,
   },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -18,22 +21,11 @@ module.exports = {
               maxWidth: 800,
               markdownCaptions: true,
             }
-          }
+          },
+          {
+            resolve: `gatsby-remark-highlight-code`,
+          },
         ]
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
       },
     },
     {
@@ -41,13 +33,6 @@ module.exports = {
       options: {
         name: `posts`,
         path: `${__dirname}/src/posts`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `post-images`,
-        path: `${__dirname}/src/posts/images`
       },
     },
     `gatsby-transformer-sharp`,
@@ -61,6 +46,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+        icon: `src/images/icons/bonfire-white.png`
       },
     },
     {
@@ -69,8 +55,5 @@ module.exports = {
         trackingId: "UA-69171075-2",
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }

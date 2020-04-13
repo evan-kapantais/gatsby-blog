@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 
 const BrandLink = styled(Link) `
   display: ${props => props.notitle ? 'none' : 'flex'};
+  align-items: center;
   min-width: 278px;
 
   img {

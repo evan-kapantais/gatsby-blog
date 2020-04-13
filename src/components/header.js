@@ -1,33 +1,54 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import Mode from './mode'
 import HamburgerMenu from './hamburger'
-import Brand from './brand'
-import DarkMode from './mode'
 
 const StyledHeader = styled.header `
+  position: fixed;
+  top: 0;
   width: 100%;
-  padding: 1rem;
-  height: 100px;
+  margin: 0 auto;
+  padding: 2rem;
   display: flex;
-  justify-content: ${props => props.notitle ? 'flex-end' : 'space-between'};
-  align-items: flex-start;
-  transition: all 500ms ease-in-out;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(238, 238, 238, 0.96);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: all 250ms ease-in-out;
 
-  div {
+  a:first-child {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 24px;
+      margin-right: 0.5rem;
+    }
+  }
+
+  > div {
     display: flex;
     align-items: center;
   }
 
-  @media (max-width: 450px) {
-    display: auto;
+  h1 {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    line-height: 1;
+    user-select: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 700px) {
+    padding: 1rem;
   }
 `
 
-const Header = (props) => {
-  
+export const Header = (props) => {
   return (
     <StaticQuery
       query={graphql`
@@ -35,6 +56,7 @@ const Header = (props) => {
           site {
             siteMetadata {
               title
+              subtitle
               description
               author
             }
@@ -42,16 +64,46 @@ const Header = (props) => {
         }
       `}
       render={data => (
-        <StyledHeader notitle={props.notitle}>
-          <Brand notitle={props.notitle} title={data.site.siteMetadata.title}/>
+        <StyledHeader>
+          <Link to='/'>
+            <img src={require('../images/icons/bonfire.png')} alt='site logo'/>
+            <h1>{data.site.siteMetadata.title}</h1>
+          </Link>
           <div>
-            <DarkMode />
-            <HamburgerMenu />
+            <Mode/>
+            <HamburgerMenu/>
           </div>
         </StyledHeader>
       )}
     />
   );
+}
+
+const SIndexHeader = styled.header `
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+  z-index: 999;
+
+  @media (max-width: 700px) {padding: 1rem;}
+  
+  > img {
+    width: 24px;
+  }
+`
+
+export const IndexHeader = () => {
+  return (
+    <SIndexHeader>
+      <Mode/>
+      <HamburgerMenu/>
+    </SIndexHeader>
+  )
 }
 
 Header.propTypes = {

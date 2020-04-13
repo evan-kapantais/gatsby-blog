@@ -2,37 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SocialContainer = styled.div `
-  margin: ${props => props.margin || `2rem 0`};
   display: flex;
-  justify-content: ${props => props.justify || 'center'};
+  justify-content: space-between;
 
   a {
-    margin-right: 1rem;
-    width: 24px;
-    height: 24px;
+    margin-right: 0.7rem;
+    width: 20px;
+    height: 20px;
     display: block;
     position: relative;
 
     &:last-child {margin: 0;}
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      height: 3px;
-      width: 100%;
-      background: #333;
-      opacity: 0;
-      transition: all 400ms ease;
-    }
-
-    &:hover::after {
-      bottom: -8px;
-      opacity: 1;
-    }
-
     img {
+      width: 100%;
       margin: 0;
       position: absolute;
       top: 0;
@@ -43,14 +26,17 @@ const SocialContainer = styled.div `
 
 const Social = (props) => (
   <SocialContainer margin={props.margin} justify={props.justify}>
+    <a href="https://github.com/evan-kapantais">
+      <img src={require('../images/icons/social/dev.png')} alt=''/>
+    </a>
     <a href="https://twitter.com/evankapantais">
-      <img src={require('../images/twitter.png')} alt=''/>
+      <img src={require('../images/icons/social/twitter-colour.png')} alt=''/>
     </a>
     <a href="https://www.instagram.com/evan_kapantais/">
-      <img src={require('../images/instagram.png')} alt=''/>
+      <img src={require('../images/icons/social/instagram-colour.png')} alt=''/>
     </a>
     <a href="https://github.com/evan-kapantais">
-      <img src={require('../images/github.png')} alt=''/>
+      <img src={require('../images/icons/social/github-colour.png')} alt=''/>
     </a>
   </SocialContainer>
 );

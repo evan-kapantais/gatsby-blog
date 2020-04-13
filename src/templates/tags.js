@@ -8,30 +8,35 @@ import Seo from '../components/seo'
 import PostCard from '../components/post-card'
 import Tag from '../components/tag'
 
-// TODO: add more-tags list
-
 const Container = styled.div `
   display: grid;
   grid-template-columns: 2fr 5fr;
   margin: 5rem auto;
   padding: 0 2rem;
 
-  section:first-child {
-    position: relative;    
-    border-right: 1px solid;
+  @media (max-width: 900px) {
+    display: block;
+    max-width: 700px;
+  }
+`
 
-    div {
-      position: sticky;
-      top: 2rem;
+const Header = styled.section `
+  position: relative;    
+  border-right: 1px solid lightgrey;
+
+  & > div {
+    position: sticky;
+    top: 2rem;
+
+    header {
 
       h3 {
         margin: 0;
         line-height: 1.5;
-        text-transform: capitalize;
-  
+
         a {
           color: rgb(3, 159, 255);
-  
+
           &:hover {text-decoration: underline;}
         }
       }
@@ -45,6 +50,7 @@ const Container = styled.div `
   }
 
   @media (max-width: 900px) {
+<<<<<<< HEAD
     display: block;
     max-width: 700px;
 
@@ -52,30 +58,38 @@ const Container = styled.div `
       border: none;
 
       & > div {
+=======
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: none;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid lightgrey;
+
+    & > div {
+        width: 100%;
+>>>>>>> wip
         padding-left: 1rem;
+        display: flex;
+        justify-content: space-between;
   
         br {display: none;}
       }
-    }
   }
-`
 
-const Posts = styled.div `
-  max-width: 700px;
-  margin: 0 auto 0 4rem;
-  justify-content: center;
-
-  article:first-child {margin-top: 0;}
-
-  div:last-child hr {display: none;}
-
-  @media (max-width: 900px) {
-    margin: 0 auto;
+  @media (max-width: 450px) {
+    & > div {
+      display: block;
+    }
   }
 `
 
 const MoreTags = styled.div`
   padding: 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> wip
   p {margin-bottom: 0.5rem;}
 
   div {
@@ -95,6 +109,21 @@ const MoreTags = styled.div`
   }
 `
 
+const Posts = styled.section `
+  max-width: 700px;
+  margin: 0 auto 0 4rem;
+  justify-content: center;
+
+  article:first-child {margin-top: 0;}
+
+  div:last-child hr {display: none;}
+
+  @media (max-width: 900px) {
+    margin: 0 auto;
+  }
+`
+
+
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const { edges, totalCount } = data.taggedBooks;
@@ -103,20 +132,22 @@ const Tags = ({ pageContext, data }) => {
     <Layout>
       <Seo title='Tags' />
       <Container>
-        <section>
+        <Header>
           <div>
-            <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
-            <p>{totalCount} posts found</p>
+            <header>
+              <h3><Link to={`/tags/${tag}`}>#{tag}</Link></h3>
+              <p>{totalCount} post{totalCount > 1 ? 's' : ''} found</p>
+            </header>
             <MoreTags>
               <p>More Tags</p>
               <div>
                 {data.allTags.group.map(({ tag }) => (
-                  <Tag tag={tag} />
+                  <Tag key={tag} tag={tag} />
                 ))}
               </div>
             </MoreTags>
           </div>
-        </section>
+        </Header>
         <Posts>
           {edges.map(({ node }) => (
             <div>
