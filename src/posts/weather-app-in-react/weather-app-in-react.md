@@ -118,7 +118,7 @@ Nothing fancy so far. We only have a fixed-width-and-height container with basic
   user-select: none;
 }
 ```
-
+---
 ```scss
 // index.scss
 * {

@@ -11,16 +11,14 @@ import ideaImg from '../images/icons/idea.png'
 
 // TODO: show similar posts or not if there are not any
 // TODO: smaller headings on small screens
-// TODO: back to top button
 
 const PostContainer = styled.div `
 max-width: 800px;
-margin: 12rem auto 4rem auto;
-background: #fff;
-border-radius: 5px;
+margin: 10rem auto 4rem auto;
+padding: 0 1.5rem;
 
 article {
-  line-height: 2rem;
+  line-height: 1.8rem;
   font-family: inherit;
 
   ul,
@@ -93,7 +91,7 @@ const PostHeader = styled.div `
   margin: 4rem auto 2rem auto;
 
   h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: 1rem auto;
   }
 
@@ -113,8 +111,6 @@ const PostHeader = styled.div `
 `
 
 const FeatureImageWrapper = styled.div `
-  /* position: relative; */
-  /* max-width: 850px; */
   margin: 4rem auto;
 `
 
@@ -150,7 +146,10 @@ class blogPost extends React.Component {
     const { title, subtitle, author, date, tags } = this.props.data.markdownRemark.frontmatter;
 
     return (
-      <Layout>
+      <Layout 
+      title={title}
+      padding='0 2rem'
+      >
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
           <PostHeader>
             <h4>{date}</h4>

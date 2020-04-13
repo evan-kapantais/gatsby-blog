@@ -19,6 +19,7 @@ body {
   font-family: 'Questrial', sans-serif;
   font-weight: normal;
   margin: 0;
+  background: #eee;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   word-wrap: break-word;
@@ -114,6 +115,7 @@ hr {
   height: 0;
   overflow: visible;
 }
+button:focus {outline: none;}
 button,
 input,
 optgroup,
@@ -162,8 +164,6 @@ h4,
 h5, 
 h6 {
   font-family: 'Josefin Sans', sans-serif;
-  padding: 0;
-  margin: 0 0 1.45rem 0;
   color: inherit;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
@@ -209,7 +209,7 @@ dl,
 dd,
 img {
   padding: 0;
-  margin: 0 0 1.45rem 0;
+  margin: 0;
 }
 hr {
   margin: 0 0 calc(1.45rem - 1px) 0;

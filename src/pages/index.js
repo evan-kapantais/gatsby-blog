@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 import PostCard from '../components/post-card'
 
 import heroImg from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg'
@@ -24,43 +23,28 @@ import heroImg from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg'
 
 const Container = styled.div `
 
-  header {
+  & > header {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(${heroImg}) no-repeat 50% 20% / cover;
-    background-attachment: fixed;
+    background: url(${heroImg}) no-repeat 50% 40% / cover;
     height: 100vh;
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    box-shadow: inset 0 -200px 200px #eee;
+    /* filter: invert(); */
     user-select: none;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      width: 12px;
-      height: 12px;
-      border-bottom: 2px solid #222333;
-      border-right: 2px solid #222333;
-      transform: rotate(45deg);
+
+    h1,
+    p {
+      mix-blend-mode: difference;
     }
     
     h1 {
-      mix-blend-mode: difference;
-      color: #fff;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      font-size: 4rem;
-    }
-
-    img {
-      width: 64px;
-      height: 64px;
+      font-size: 5rem;
     }
   }
 `
@@ -74,20 +58,15 @@ const BlogWrapper = styled.div `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout noheader padding='0'>
-      <SEO title='Home' />
+    <Layout>
       <Container>
         <header>
-          <img src={require('../images/icons/bonfire.png')} alt=""/>
-          <h1>THE BONFIRE</h1>
+          <h1>{data.site.siteMetadata.title}</h1>
           <p>A blog by Evan Kapantais</p>
         </header>
         <BlogWrapper>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <div key={node.frontmatter.title}>
-              <PostCard node={node} />
-              {/* <hr /> */}
-            </div>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+            <PostCard node={node} key={node.frontmatter.title}/>
           ))}
         </BlogWrapper>
       </Container>

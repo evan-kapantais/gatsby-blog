@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import heroImg from '../images/fabrice-villard-Du41jIaI5Ww-unsplash.jpg'
+
 const Menu = styled.div `
-  width: 40px;
-  height: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,6 +51,7 @@ const Panel = styled.div`
   flex-direction: column;
   padding: 2rem 1rem;
   background: #fff;
+  background: url(${heroImg}) no-repeat 25% 70% / cover;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   z-index: 990;
   transition: all 500ms ease;
@@ -184,7 +185,6 @@ class HamburgerMenu extends React.Component  {
         </Menu>
         <Panel
         isOpen={this.state.isOpen} 
-        // onMouseLeave={this.mouseLeave} 
         onTouchMove={this.closePanel}
         >
           <header>
