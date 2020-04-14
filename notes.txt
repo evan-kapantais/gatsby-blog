@@ -1,4 +1,4 @@
-Fonts
+# Fonts
 
 Work Sans
 Open Sans
@@ -7,3 +7,31 @@ Questrial
 
 paragraphs - Questrial
 headings - Josefin Sans
+
+# Prev Burger Menu
+
+ div {
+    width: 15px;
+    height: 2px;
+    border-radius: 2px;
+    margin: 2px auto;
+    background: #000;
+    transition: all 500ms ease;
+
+    &:first-child {
+      transform-origin: center;
+      transform: ${props => props.isOpen ? 'rotate(45deg) translate(4px, 5px)' : 'none'};
+      width: ${props => props.isOpen ? '20px' : '15px'};
+      transition-delay: 200ms;
+    }
+    
+    &:nth-child(2) {
+      transform: ${props => props.isOpen ? 'translateX(100px)' : 'none'};
+    }
+    
+    &:last-child {
+      transform: ${props => props.isOpen ? 'rotate(-45deg) translate(4px, -4px)' : 'none'};
+      width: ${props => props.isOpen ? '20px' : '15px'};
+      transition-delay: 200ms;
+    }
+  }

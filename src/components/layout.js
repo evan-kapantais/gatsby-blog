@@ -1,11 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Header, IndexHeader } from "./header"
-import Footer from "./footer"
-import "../stylesheets/layout.scss"
-import SEO from "./seo"
+import '../stylesheets/layout.scss'
+
+import SEO from './seo'
+import { Header, IndexHeader } from './header'
+import Footer from './footer'
+import MenuPanel from './menu-panel'
 
 const StyledLayout = styled.div `
   position: relative;
@@ -22,6 +24,9 @@ const Layout = (props) => {
   return (
     <StyledLayout>
       <SEO title={path === '/' ? 'Home' : props.title}/>
+      <MenuPanel
+      
+      />
       {path === '/' ? <IndexHeader/> : <Header/>}
       <main padding={path === '/' ? '0' : '0 2rem'}>{props.children}</main>
       <Footer />

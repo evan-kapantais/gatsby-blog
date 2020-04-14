@@ -25,6 +25,7 @@ const StyledFooter = styled.footer `
   small > span {
     display: inline-block;
     user-select: none;
+    line-height: 1;
     animation: ${Beat} 1s ease infinite forwards;
   }
 
@@ -46,9 +47,9 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <StyledFooter>
-      <small>Made with <span role='img' aria-label='heart'>❤️</span>and <GatsbyLink href="https://www.gatsbyjs.org/">Gatsby</GatsbyLink>.</small>
       <small>&copy; Evan Kapantais, {year}</small>
-      <Social />
+      <small>Made with <span role='img' aria-label='heart'>❤️</span>and <GatsbyLink href="https://www.gatsbyjs.org/">Gatsby</GatsbyLink>.</small>
+      {/* <Social /> */}
     </StyledFooter>
   )
 }

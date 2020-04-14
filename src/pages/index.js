@@ -52,6 +52,7 @@ const Container = styled.div `
 const BlogWrapper = styled.div `
   max-width: 650px;
   margin: 2rem auto;
+  padding: 0 2rem;
 
   div:last-child hr {display: none;}
 `

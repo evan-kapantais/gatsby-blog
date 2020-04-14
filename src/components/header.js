@@ -70,7 +70,7 @@ export const Header = (props) => {
             <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <div>
-            <Mode/>
+            {/* <Mode/> */}
             <HamburgerMenu/>
           </div>
         </StyledHeader>
@@ -100,7 +100,7 @@ const SIndexHeader = styled.header `
 export const IndexHeader = () => {
   return (
     <SIndexHeader>
-      <Mode/>
+      {/* <Mode/> */}
       <HamburgerMenu/>
     </SIndexHeader>
   )
