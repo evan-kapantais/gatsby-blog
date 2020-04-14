@@ -115,7 +115,6 @@ const FeatureImageWrapper = styled.div `
 `
 
 const MorePosts = styled.div`
-
   h3 {margin-bottom: 4rem;}
 `
 

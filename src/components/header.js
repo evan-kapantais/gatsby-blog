@@ -20,7 +20,7 @@ const StyledHeader = styled.header `
   z-index: 999;
   transition: all 250ms ease-in-out;
 
-  a:first-child {
+  > a:first-child {
     display: flex;
     align-items: center;
 
