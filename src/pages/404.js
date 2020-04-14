@@ -39,7 +39,7 @@ const Container = styled.div `
 `
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout title='Hollow'>
     <SEO title="404: Not found" />
     <Container>
       <h1>404</h1>

@@ -59,7 +59,7 @@ const BlogWrapper = styled.div `
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout>
+    <Layout title='Resting'>
       <Container>
         <header>
           <h1>{data.site.siteMetadata.title}</h1>
