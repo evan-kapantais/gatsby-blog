@@ -19,16 +19,12 @@ const StyledLayout = styled.div `
 `
 
 const Layout = (props) => {
-  // const path = window.location.pathname;
-
   return (
     <StyledLayout>
-      <SEO title={window.location.path === '/' ? 'Home' : props.title}/>
-      <MenuPanel
-      
-      />
-      {window.location.path === '/' ? <IndexHeader/> : <Header/>}
-      <main padding={window.location.path === '/' ? '0' : '0 2rem'}>{props.children}</main>
+      <SEO title={window.location.pathname === '/' ? 'Home' : props.title}/>
+      {/* <MenuPanel/> */}
+      {window.location.pathname === '/' ? <IndexHeader/> : <Header/>}
+      <main padding={window.location.pathname === '/' ? '0' : '0 2rem'}>{props.children}</main>
       <Footer />
     </StyledLayout>
   )

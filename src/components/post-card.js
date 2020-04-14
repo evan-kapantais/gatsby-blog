@@ -10,7 +10,6 @@ const Card = styled.div `
   padding: 1.5rem;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
   border-radius: 3px;
   transition: all 300ms ease;
 
@@ -18,11 +17,9 @@ const Card = styled.div `
     transform: scale(1.1);
   }
 
-  > img {
-    margin-bottom: 2rem;
-  }
+  > img {margin-bottom: 2rem;}
 
-  header {
+  > header {
     margin: 0 auto 2rem auto;
 
     * {margin: 0;}
@@ -51,27 +48,21 @@ const Card = styled.div `
     }
   }
 
-  footer {
+  > footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    h6 {
-      color: #666; margin: 0;
-    }
+    h6 {color: #666; margin: 0;}
   }
 
   @media (max-width: 700px) {
     max-width: 500px;
 
     header {
-      h2 {
-        font-size: 1.6rem;
-      }
+      h2 {font-size: 1.6rem;}
 
-      h3 {
-        font-size: 1.3rem;
-      }
+      h3 {font-size: 1.3rem;}
     }
   }
 
@@ -79,13 +70,9 @@ const Card = styled.div `
     max-width: 400px;
 
     header {
-      h2 {
-        font-size: 1.4rem;
-      }
+      h2 {font-size: 1.4rem;}
 
-      h3 {
-        font-size: 1.2rem;
-      }
+      h3 {font-size: 1.2rem;}
     }
   }
 `

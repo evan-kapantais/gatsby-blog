@@ -5,7 +5,7 @@ const SocialContainer = styled.div `
   display: flex;
   justify-content: space-between;
 
-  a {
+  > a {
     margin-right: 0.7rem;
     width: 20px;
     height: 20px;
@@ -14,7 +14,7 @@ const SocialContainer = styled.div `
 
     &:last-child {margin: 0;}
 
-    img {
+    > img {
       width: 100%;
       margin: 0;
       position: absolute;

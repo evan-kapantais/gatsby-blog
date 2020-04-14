@@ -1,8 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import Social from './social'
-
 const Beat = keyframes`
   0% { transform: scale(1); }
 
@@ -31,9 +29,8 @@ const StyledFooter = styled.footer `
 
   @media (max-width: 700px) {
     padding: 1rem;
-    & > div {
-      display: none;
-    }
+
+    & > div {display: none;}
   }
 `
 
@@ -49,7 +46,6 @@ const Footer = () => {
     <StyledFooter>
       <small>&copy; Evan Kapantais, {year}</small>
       <small>Made with <span role='img' aria-label='heart'>❤️</span>and <GatsbyLink href="https://www.gatsbyjs.org/">Gatsby</GatsbyLink>.</small>
-      {/* <Social /> */}
     </StyledFooter>
   )
 }

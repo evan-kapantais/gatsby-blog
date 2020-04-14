@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import { MenuOpen } from './menu-buttons'
 import MenuPanel from './menu-panel'
 
-class HamburgerMenu extends React.Component  {
+class HamburgerMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

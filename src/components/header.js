@@ -3,7 +3,6 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Mode from './mode'
 import HamburgerMenu from './hamburger'
 
 const StyledHeader = styled.header `
@@ -70,7 +69,6 @@ export const Header = (props) => {
             <h1>{data.site.siteMetadata.title}</h1>
           </Link>
           <div>
-            {/* <Mode/> */}
             <HamburgerMenu/>
           </div>
         </StyledHeader>
@@ -100,7 +98,6 @@ const SIndexHeader = styled.header `
 export const IndexHeader = () => {
   return (
     <SIndexHeader>
-      {/* <Mode/> */}
       <HamburgerMenu/>
     </SIndexHeader>
   )
