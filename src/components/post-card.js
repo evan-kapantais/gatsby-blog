@@ -19,7 +19,7 @@ const Card = styled.div `
 
   > img {margin-bottom: 2rem;}
 
-  > header {
+  header {
     margin: 0 auto 2rem auto;
 
     * {margin: 0;}
