@@ -11,7 +11,7 @@ const Bounce = keyframes `
   }
   
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-8px);
   }
 
   to {
@@ -34,29 +34,20 @@ const Panel = styled.div `
   background: url(${panelImg}) no-repeat center / cover;
   transition: all 500ms ease-in-out;
 
-  > div {
-    max-width: 600px;
-
-    > header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-  }
-
-  main {
+  > main {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     a {
       position: relative;
-      display: block;
-      margin: 0 1rem;
+      /* display: ${props => props.isOpen ? 'block' : 'hidden'}; */
+      margin: 0 0.5rem;
       user-select: none;
-      width: 64px;
-      height: 64px;
-      overflow: hidden;
-      transition: all 200ms ease;
+      width: 32px;
+      height: 32px;
+      transition: all 500ms 400ms ease-in-out;
+      opacity: ${props => props.isOpen ? 1: 0};
 
       &:hover {
         animation: ${Bounce} 500ms cubic-bezier(.21,.45,.89,.56) forwards;
@@ -76,32 +67,27 @@ const MenuPanel = (props) => {
       isOpen={props.isOpen}
       onClick={props.togglePanel}
       />
-      <div>
-        {/* <header>
-          <h1>Say hi!</h1>
-        </header> */}
-        <main>
-          <a href='https://github.com/evan-kapantais' onClick={props.clickLink}>
-            <img src={require('../images/icons/social/github-colour.png')} alt=""/>
-          </a>
-          <a href='https://dev.to/evankapantais' onClick={props.clickLink}>
-            <img src={require('../images/icons/social/dev.png')} alt=""/>
-          </a>
-          <a
-          style={{
-            borderRadius: '50%'
-          }}
-          href='https://medium.com/@evan_kapantais' onClick={props.clickLink}>
-            <img src={require('../images/icons/social/medium.png')} alt=""/>
-          </a>
-          <a href='https://twitter.com/evankapantais' onClick={props.clickLink}>
-            <img src={require('../images/icons/social/twitter-colour.png')} alt=""/>
-          </a>
-          <a href='https://instagram.com/evan_kapantais' onClick={props.clickLink}>
-            <img src={require('../images/icons/social/instagram-colour.png')} alt=""/>
-          </a>
-        </main>
-      </div>
+      <main>
+        <a href='https://github.com/evan-kapantais' onClick={props.clickLink}>
+          <img src={require('../images/icons/social/github-colour.png')} alt=""/>
+        </a>
+        <a href='https://dev.to/evankapantais' onClick={props.clickLink}>
+          <img src={require('../images/icons/social/dev.png')} alt=""/>
+        </a>
+        <a
+        style={{
+          borderRadius: '50%'
+        }}
+        href='https://medium.com/@evan_kapantais' onClick={props.clickLink}>
+          <img src={require('../images/icons/social/medium.png')} alt=""/>
+        </a>
+        <a href='https://twitter.com/evankapantais' onClick={props.clickLink}>
+          <img src={require('../images/icons/social/twitter-colour.png')} alt=""/>
+        </a>
+        <a href='https://instagram.com/evan_kapantais' onClick={props.clickLink}>
+          <img src={require('../images/icons/social/instagram-colour.png')} alt=""/>
+        </a>
+      </main>`
     </Panel>
   );
 }
