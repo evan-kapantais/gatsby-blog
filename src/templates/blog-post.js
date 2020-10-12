@@ -1,122 +1,148 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
-import Layout from '../components/layout'
-import SmallPost from '../components/small-post'
-import Tag from '../components/tag'
+import Layout from '../components/layout';
+import SmallPost from '../components/SmallPost';
 
-import ideaImg from '../images/icons/idea.png'
+import ideaImg from '../images/icons/idea.png';
 
 // TODO: show similar posts or not if there are not any
 // TODO: smaller headings on small screens
 
-const PostContainer = styled.div `
-max-width: 800px;
-margin: 10rem auto 4rem auto;
-padding: 0 1.5rem;
+const PostContainer = styled.div`
+  max-width: calc(960px + 4rem);
+  margin: 10rem auto 4rem auto;
+  padding: 0 2rem;
 
-article {
-  line-height: 1.8rem;
-  font-family: inherit;
-
-  ul,
-  ol {
-    line-height: 1.5rem;
-  }
-
-  a {
-    color: rgb(3, 159, 255);
-
-    &:hover {text-decoration: underline;}
-  }
-
-  p {margin-bottom: 1rem;}
-
-  h2 {
-    font-size: 2rem;
-    margin: 3rem 0 1rem 0;
-  }
-
-  h3 {
-    margin: 2rem auto 1rem auto;
+  article {
+    margin: 0 auto;
+    max-width: 800px;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
     font-family: inherit;
-  }
 
-  h4 {
-    font-weight: 300;
-    margin-bottom: 1rem;
-  }
-
-  blockquote {
-    position: relative;
-    border-left: 5px solid #272936;
-    padding: 1rem;
-    padding-left: ${props => props.isProgramming ? '3rem' : '1rem'};
-    border-radius: 2px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
-    &::before {
-      content: '';
-      display: ${props => props.isProgramming ? 'block' : 'none'};
-      position: absolute;
-      background: url(${ideaImg}) no-repeat center / cover;
-      width: 24px;
-      height: 24px;
-      top: 1.3rem;
-      left: 1rem;
+    ul,
+    ol {
+      line-height: 1.5rem;
+      list-style-position: inside;
     }
 
-    & > p {margin: 0;}
+    a {
+      color: rgb(3, 159, 255);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 3rem 0 1rem 0;
+    }
+
+    h3 {
+      margin: 2rem auto 1rem auto;
+      font-family: inherit;
+    }
+
+    h4 {
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    blockquote {
+      position: relative;
+      margin: 4rem 0;
+      border-left: 5px solid #272936;
+      padding: 1rem;
+      padding-left: ${props => (props.isProgramming ? '3rem' : '1rem')};
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+      &::before {
+        content: '';
+        display: ${props => (props.isProgramming ? 'block' : 'none')};
+        position: absolute;
+        background: url(${ideaImg}) no-repeat center / cover;
+        width: 24px;
+        height: 24px;
+        top: 1.3rem;
+        left: 1rem;
+      }
+
+      & > p {
+        margin: 0;
+      }
+    }
+
+    .deckgo-highlight-code-carbon {
+      margin: 4rem 0;
+    }
   }
-}
 
-& > footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 2rem 0;
-
-  p {
-    margin: 0;
+  > hr {
+    margin: 6rem auto;
   }
-}
+`;
 
-hr {margin: 2rem auto;}
-`
-
-const PostHeader = styled.div `
+const PostHeader = styled.div`
   max-width: 850px;
   margin: 4rem auto 2rem auto;
 
-  h1 {
+  .category {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #7fceff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .article-title {
     font-size: 3.5rem;
-    margin: 1rem auto;
+    margin: 0 auto 2rem auto;
   }
 
-  h2 {
-    font-family: 'Questrial', sans-serif;
-    font-weight: normal;
+  .article-subtitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: #777;
+    font-weight: 400;
   }
 
-  h4 {color: #777;}
+  hr {
+    margin: 2rem auto;
+  }
+
+  .post-info {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #777;
+    font-weight: 600;
+  }
 
   @media only screen and (max-width: 750px) {
     margin: 4rem auto;
-    
-    h1 {font-size: 3rem;}
-  }
-`
 
-const FeatureImageWrapper = styled.div `
+    .article-title {
+      font-size: 3rem;
+    }
+  }
+`;
+
+const FeatureImageWrapper = styled.div`
   margin: 4rem auto;
-`
+
+  .gatsby-image-wrapper {
+    min-height: 350px;
+  }
+`;
 
 const MorePosts = styled.div`
-  h3 {margin-bottom: 4rem;}
-`
+  h3 {
+    margin-bottom: 2rem;
+  }
+`;
 
 const MorePostsWrapper = styled.div`
   display: grid;
@@ -127,53 +153,55 @@ const MorePostsWrapper = styled.div`
     max-width: 500px;
     margin: 0 auto;
   }
-`
+`;
 
 class blogPost extends React.Component {
-
   async componentDidMount() {
     try {
-      const deckdeckgoHighlightCodeLoader = require("@deckdeckgo/highlight-code/dist/loader")
+      const deckdeckgoHighlightCodeLoader = require('@deckdeckgo/highlight-code/dist/loader');
       await deckdeckgoHighlightCodeLoader.defineCustomElements(window);
-  } catch (err) {
-    console.error(err);
+    } catch (err) {
+      console.error(err);
     }
   }
-  
+
   render() {
-    const featuredImage = this.props.data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid;
-    const { title, subtitle, author, date, tags } = this.props.data.markdownRemark.frontmatter;
+    const featuredImage = this.props.data.markdownRemark.frontmatter
+      .featuredImage.childImageSharp.fluid;
+    const {
+      title,
+      subtitle,
+      date,
+      tags,
+    } = this.props.data.markdownRemark.frontmatter;
+    const { timeToRead } = this.props.data.markdownRemark;
 
     return (
-      <Layout 
-      title={title}
-      padding='0 2rem'
-      >
+      <Layout title={title} padding="0 2rem">
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
           <PostHeader>
-            <h4>{date}</h4>
-            <h1>{title}</h1>
-            <h2>{subtitle}</h2>
+            <p className="category">{tags[0]}</p>
+            <h1 className="article-title">{title}</h1>
+            <h2 className="article-subtitle">{subtitle}</h2>
+            <hr />
+            <p className="post-info">
+              {date} • {timeToRead} Min Read
+            </p>
           </PostHeader>
           <FeatureImageWrapper>
             <Img fluid={featuredImage} />
           </FeatureImageWrapper>
-          <article 
-          dangerouslySetInnerHTML={{__html: this.props.data.markdownRemark.html}}/>
-          <footer>
-            <p>by <b>{author}</b></p>
-            <div>
-              {tags.map(tag => (
-                <Tag key={tag} tag={tag} />
-              ))}
-            </div>
-          </footer>
+          <article
+            dangerouslySetInnerHTML={{
+              __html: this.props.data.markdownRemark.html,
+            }}
+          />
           <hr />
           <MorePosts>
-            <h3 to='/'>Now Read This</h3>
+            <h3>Recent Posts</h3>
             <MorePostsWrapper>
               {this.props.data.allMarkdownRemark.edges.map(({ node }) => (
-                <SmallPost key={node.frontmatter.title} node={ node }/>
+                <SmallPost key={node.frontmatter.title} node={node} />
               ))}
             </MorePostsWrapper>
           </MorePosts>
@@ -184,46 +212,51 @@ class blogPost extends React.Component {
 }
 
 export const query = graphql`
-query ($slug: String!) {
-  markdownRemark (fields: { slug: { eq: $slug } }) {
-    html
-    timeToRead
-    fields {
-      slug
-    }
-    frontmatter {
-      title
-      subtitle
-      author
-      date (formatString: "DD MMMM YYYY")
-      tags
-      featuredImage {
-        childImageSharp {
-          fluid(maxWidth: 850, maxHeight: 400) {
-            ...GatsbyImageSharpFluid
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      timeToRead
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        subtitle
+        author
+        date(formatString: "DD MMM YYYY")
+        tags
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 850, maxHeight: 600) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
-  }
-  allMarkdownRemark (limit: 4, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {ne: $slug}}}) {
-    edges {
-      node {
-        html
-        excerpt
-        timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          subtitle
-          date (formatString: "D MMMM YYYY")
-          tags
-          featuredImage {
-            childImageSharp {
-              fluid (maxWidth: 500) {
-                ...GatsbyImageSharpFluid
+    allMarkdownRemark(
+      limit: 2
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fields: { slug: { ne: $slug } } }
+    ) {
+      edges {
+        node {
+          html
+          excerpt
+          timeToRead
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            subtitle
+            date(formatString: "D MMMM YYYY")
+            tags
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -231,7 +264,6 @@ query ($slug: String!) {
       }
     }
   }
-}
-`
+`;
 
 export default blogPost;

@@ -1,15 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import '../stylesheets/layout.scss'
+import '../stylesheets/layout.scss';
 
-import SEO from './seo'
-import { Header, IndexHeader } from './header'
-import Footer from './footer'
+import SEO from './seo';
+import { Header, IndexHeader } from './header';
+import Navbar from '../components/Navbar';
+import Footer from './Footer';
 
-const StyledLayout = styled.div `
-  position: relative;
+const StyledLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,21 +19,24 @@ const StyledLayout = styled.div `
   main {
     padding: ${props => props.padding || 0};
   }
-`
+`;
 
-const Layout = (props) => {
+const Layout = props => {
   return (
     <StyledLayout>
-      <SEO title={props.title}/>
-      {props.title === 'Resting' ? <IndexHeader/> : <Header/>}
-      <main padding={props.title === 'Resting' ? '0' : '0 2rem'}>{props.children}</main>
+      <SEO title={props.title} />
+      {/* {props.title === "Resting" ? <IndexHeader /> : <Header />} */}
+      <Navbar />
+      <main padding={props.title === 'Resting' ? '0' : '0 2rem'}>
+        {props.children}
+      </main>
       <Footer />
     </StyledLayout>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

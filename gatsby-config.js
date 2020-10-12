@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `The Bonfire`,
-    subtitle: `Writer, developer, learner.`,
+    title: `Evan Kapantais`,
+    subtitle: `A blog about everything`,
     description: `This is my blog.`,
     author: `Evan Kapantais`,
     url: `https://blog.evankapantais.com`,
+    icon: 'images/icons/logo-02-02-white-background.png',
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -20,12 +21,12 @@ module.exports = {
             options: {
               maxWidth: 800,
               markdownCaptions: true,
-            }
+            },
           },
           {
             resolve: `gatsby-remark-highlight-code`,
           },
-        ]
+        ],
       },
     },
     {
@@ -46,14 +47,14 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icons/bonfire-white.png`
+        icon: `src/images/icons/logo_02.png`,
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-69171075-2",
+        trackingId: 'UA-69171075-2',
       },
     },
   ],
-}
+};

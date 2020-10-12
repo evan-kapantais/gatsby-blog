@@ -1,6 +1,6 @@
 ---
-title: Making A Weather App In React Using Geolocation And The Fetch API
-subtitle: Using the fetch api, geolocation and data from openweathermap.org to make a simple weather application.
+title: Weather App in React
+subtitle: Using geolocation, the fetch api and data from Open Weather Map.
 author: Evan Kapantais
 date: '2020-04-10'
 featuredImage: sara-the-freak-A4UojtraSrw-unsplash.jpg
@@ -8,17 +8,18 @@ tags: ['programming', 'react', 'api']
 ---
 
 ## Table of Contents
-  1. [Concept](#concept)
-  2. [Project Setup](#setup)
-  3. [Initialisation & Basic Styling](#init)
-  4. [Getting Our API Key And Adding It To Our Project](#api)
-  5. [Fetching Our Data](#fetching)
-  6. [Getting The User's Position](#position)
-  7. [Adding Placeholder Data And Styling Our Container](#placeholder)
-  8. [Passing Data To Our Components: The Problem](#problem)
-  9. [Passing Data To Our Components: The Solution Pt.1](#solution-01)
-  10. [Passing Data To Our Components: The Solution Pt.2](#solution-02)
-  11. [Bonus Step: Storing User Preferences In The Browser's Storage](#bonus)
+
+1. [Concept](#concept)
+2. [Project Setup](#setup)
+3. [Initialisation & Basic Styling](#init)
+4. [Getting Our API Key And Adding It To Our Project](#api)
+5. [Fetching Our Data](#fetching)
+6. [Getting The User's Position](#position)
+7. [Adding Placeholder Data And Styling Our Container](#placeholder)
+8. [Passing Data To Our Components: The Problem](#problem)
+9. [Passing Data To Our Components: The Solution Pt.1](#solution-01)
+10. [Passing Data To Our Components: The Solution Pt.2](#solution-02)
+11. [Bonus Step: Storing User Preferences In The Browser's Storage](#bonus)
 
 ## Concept <a name='concept'></a>
 
@@ -72,16 +73,14 @@ class App extends React.Component {
     this.state = {
       status: 'init',
       isLoaded: false,
-      weatherData: null
-    }
+      weatherData: null,
+    };
   }
 
   render() {
     return (
-      <div className='App'>
-        <div className='container'>
-          
-        </div>
+      <div className="App">
+        <div className="container"></div>
       </div>
     );
   }
@@ -96,7 +95,8 @@ Nothing fancy so far. We only have a fixed-width-and-height container with basic
 // App.scss
 .App {
   height: 100vh;
-  background: url('https://source.unsplash.com/collection/1408037/1600x900') no-repeat center / cover;
+  background: url('https://source.unsplash.com/collection/1408037/1600x900')
+    no-repeat center / cover;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -118,7 +118,9 @@ Nothing fancy so far. We only have a fixed-width-and-height container with basic
   user-select: none;
 }
 ```
+
 ---
+
 ```scss
 // index.scss
 * {
@@ -142,7 +144,7 @@ Now that we have our key, there is a special way we need to handle it in our pro
 
 The way we will store our API key in the project is by creating a new `.env` file. A name for the file is not required (just like `.gitignore` files), as these are a bit different in functionality. Files with the `.env` extension are generally hidden from browsers and that's why they are perfect for storing sensitive data. What is also special about them, is that there is a certain way we can access them from our application, which we'll see later on. In these types of files we usually follow the specific syntax `KEY_NAME=VALUE` for naming things. We use all uppercase letters with underscores, while there are no spaces around `=`.
 
-Since we used `create-react-app` to create our project, we are forced by it to prefix our key name with `REACT_APP_`, otherwise it will not work. Now we will create an `.env` file in the root of our project with our key stored like this. 
+Since we used `create-react-app` to create our project, we are forced by it to prefix our key name with `REACT_APP_`, otherwise it will not work. Now we will create an `.env` file in the root of our project with our key stored like this.
 
 ```
 REACT_APP_WEATHER_KEY=983h6791jda03fh29glka4765e94h8d5
@@ -150,7 +152,7 @@ REACT_APP_WEATHER_KEY=983h6791jda03fh29glka4765e94h8d5
 
 (This key is a placeholder - it won't work. Be sure to replace it with the key you get from Open Weather.)
 
-> Since we need to protect our key we need to also add our `.env` file to our `.gitignore` list so that it is not added to version control. If we don't - and our repository is public - anyone can view the key. 
+> Since we need to protect our key we need to also add our `.env` file to our `.gitignore` list so that it is not added to version control. If we don't - and our repository is public - anyone can view the key.
 
 ```
 // .gitignore
@@ -180,7 +182,7 @@ yarn-error.log*
 
 ## Fetching Our Data <a name='fetching'></a>
 
-With our key added to the project, we now need a way to get our weather data. For that, we will create a function called `getWeatherData` and use our key to reach Open Weather's endpoint. 
+With our key added to the project, we now need a way to get our weather data. For that, we will create a function called `getWeatherData` and use our key to reach Open Weather's endpoint.
 
 > For the purposes of this post we are only going to be dealing with information regarding the current weather, although the API offers services like forecast, historical data and so on. Examples on how to use the API are well documented on Open Weather's website.
 
@@ -193,50 +195,49 @@ getWeatherData = () => {
   const weatherApi = `http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`;
 
   fetch(weatherApi, { signal: this.controllerSignal })
-  .then(response => response.json())
-  .then(
-    (result) => {
+    .then(response => response.json())
+    .then(
+      result => {
+        console.log(result);
 
-      console.log(result);
+        const { name } = result;
+        const { country } = result.sys;
+        const { temp, temp_min, temp_max, feels_like, humidity } = result.main;
+        const { description, icon } = result.weather[0];
+        const { speed, deg } = result.wind;
 
-      const { name } = result;
-      const { country } = result.sys;
-      const { temp, temp_min, temp_max, feels_like, humidity } = result.main;
-      const { description, icon } = result.weather[0];
-      const { speed, deg } = result.wind;
-
-      this.setState({
-        isLoaded: true,
-        weatherData: {
-          name,
-          country,
-          description,
-          icon,
-          temp: temp.toFixed(1),
-          feels_like: feels_like.toFixed(1),
-          temp_min: temp_min.toFixed(1),
-          temp_max: temp_max.toFixed(1),
-          speed,
-          deg,
-          humidity
-        }
-      });
-    },
-    (error) => {
-      this.setState({
-        isLoaded: true,
-        error
-      });
-    }
-  );
-}
+        this.setState({
+          isLoaded: true,
+          weatherData: {
+            name,
+            country,
+            description,
+            icon,
+            temp: temp.toFixed(1),
+            feels_like: feels_like.toFixed(1),
+            temp_min: temp_min.toFixed(1),
+            temp_max: temp_max.toFixed(1),
+            speed,
+            deg,
+            humidity,
+          },
+        });
+      },
+      error => {
+        this.setState({
+          isLoaded: true,
+          error,
+        });
+      }
+    );
+};
 ```
 
 To test out the API we will used a fixed location first and when we proceed further we will substitute this with the actual location of the user.
 
 We can see on the second line how the API key is actually going to be used to get the weather of London, UK. Some things to notice here about the syntax:
 
-1. We use `q=London`  to specify the location we are after.
+1. We use `q=London` to specify the location we are after.
 2. Every parameter of the call needs to be separated by an ampersand (`&`).
 3. We are using `units=metric` to convert from imperial units.
 4. In order to use our environment variable, we need this specific syntax: `process.env.VARIABLE_NAME`. This way our program will look for our variable in the `.env` file at the root of our project.
@@ -258,14 +259,17 @@ componentWillUnmount() {
   this.abortController.abort();
 }
 ```
+
 ---
+
 1. The fetch API always returns a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) object that we can use to extract the weather data we're after. To do so, we need to chain a `then` method, passing in that response object and turning it into [JSON](https://www.w3schools.com/whatis/whatis_json.asp) so we only have to deal with the object containing the actual data.
 2. On the second and final `then` method, we pass in the result of the first one (which now contains our data).
-3.  Now we need to store that data somewhere so we can access it throughout our application. The easiest way to do so is to store it into our class's `state` object. The first step we are taking, although not a necessary one, is to [destructure](https://codetower.github.io/es6-features/#Destructuring) our data into variables so our function look a bit cleaner.
+3. Now we need to store that data somewhere so we can access it throughout our application. The easiest way to do so is to store it into our class's `state` object. The first step we are taking, although not a necessary one, is to [destructure](https://codetower.github.io/es6-features/#Destructuring) our data into variables so our function look a bit cleaner.
 4. We are setting the state's `isLoaded` value to `true` and then populating the `weatherData` object with the information we need from the API's returned object.
 5. For values 5 - 8, we are rounding the default two decimal points to one, as it doesn't make much sense to be that specific when it comes to temperature degrees.
 6. To handle any possible errors, we are chaining an additional function that takes the thrown error as an argument and adds it to our class's state.
-> Notice here how, instead of writing `name: name`, we can just add the variable name and that creates a key string with the same name. Thus `name` becomes `name: name_value`, temp becomes `temp: temp_value` and so on.
+   > Notice here how, instead of writing `name: name`, we can just add the variable name and that creates a key string with the same name. Thus `name` becomes `name: name_value`, temp becomes `temp: temp_value` and so on.
+
 ---
 
 That's everything we need to do to get our data with the fetch API. Before moving on, it would be nice to see that we are actually getting back the data we are requesting successfully. For that reason, we are logging to the console our JSON-formatted result, and calling `getWeatherData()` when our component mounts to the DOM like so.
@@ -284,27 +288,28 @@ Ta-dah! All the data we need is right there. Now on to the fun stuff.
 
 ## Getting The User's Position <a name='position'></a>
 
-We are going to utilise the Navigator interface we mentioned earlier to get the position of the user. We are additionally going to make a couple of checks to confirm that geolocation tracking is  available and whether it is allowed by the user.
+We are going to utilise the Navigator interface we mentioned earlier to get the position of the user. We are additionally going to make a couple of checks to confirm that geolocation tracking is available and whether it is allowed by the user.
 
 Under our Abort Controller definition, we are going to create a new function called `weatherInit` to initialise this behaviour.
 
 ```javascript
 weatherInit = () => {
-
-  const success = (position) => {
+  const success = position => {
     this.getWeatherData(position.coords.latitude, position.coords.longitude);
-  }
-  
+  };
+
   const error = () => {
     alert('Unable to retrieve location.');
-  }
-  
+  };
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   } else {
-    alert('Your browser does not support location tracking, or permission is denied.');
+    alert(
+      'Your browser does not support location tracking, or permission is denied.'
+    );
   }
-}
+};
 ```
 
 A few things are happening here. When our program runs this function, control passes directly to the `if / else` statement at the bottom. This checks if Geolocation is actually available in the browser. If it isn't control passes immediately to the `else` statement and an alert with a message is displayed. If it is, we call the `getCurrentPosition` method of the interface and passing in as arguments two callback functions for `success` and `error`, functions which we have defined above. This is what will happen next:
@@ -340,69 +345,76 @@ class App extends React.Component {
     this.state = {
       status: 'init',
       isLoaded: false,
-      weatherData: null
-    }
+      weatherData: null,
+    };
   }
 
   abortController = new AbortController();
   controllerSignal = this.abortController.signal;
 
   weatherInit = () => {
-
-    const success = (position) => {
+    const success = position => {
       this.getWeatherData(position.coords.latitude, position.coords.longitude);
-    }
-    
+    };
+
     const error = () => {
       alert('Unable to retrieve location.');
-    }
-    
+    };
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
-      alert('Your browser does not support location tracking, or permission is denied.');
+      alert(
+        'Your browser does not support location tracking, or permission is denied.'
+      );
     }
-  }
+  };
 
   getWeatherData = (lat, lon) => {
     const weatherApi = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`;
 
     fetch(weatherApi, { signal: this.controllerSignal })
-    .then(response => response.json())
-    .then(
-      (result) => {
-        console.log(result);
-        const { name } = result;
-        const { country } = result.sys;
-        const { temp, temp_min, temp_max, feels_like, humidity } = result.main;
-        const { description, icon } = result.weather[0];
-        const { speed, deg } = result.wind;
+      .then(response => response.json())
+      .then(
+        result => {
+          console.log(result);
+          const { name } = result;
+          const { country } = result.sys;
+          const {
+            temp,
+            temp_min,
+            temp_max,
+            feels_like,
+            humidity,
+          } = result.main;
+          const { description, icon } = result.weather[0];
+          const { speed, deg } = result.wind;
 
-        this.setState({
-          isLoaded: true,
-          weatherData: {
-            name,
-            country,
-            description,
-            icon,
-            temp: temp.toFixed(1),
-            feels_like: feels_like.toFixed(1),
-            temp_min: temp_min.toFixed(1),
-            temp_max: temp_max.toFixed(1),
-            speed,
-            deg,
-            humidity
-          }
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    );
-  }
+          this.setState({
+            isLoaded: true,
+            weatherData: {
+              name,
+              country,
+              description,
+              icon,
+              temp: temp.toFixed(1),
+              feels_like: feels_like.toFixed(1),
+              temp_min: temp_min.toFixed(1),
+              temp_max: temp_max.toFixed(1),
+              speed,
+              deg,
+              humidity,
+            },
+          });
+        },
+        error => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  };
 
   componentDidMount() {
     this.weatherInit();
@@ -414,10 +426,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='App'>
-        <div className='container'>
-          
-        </div>
+      <div className="App">
+        <div className="container"></div>
       </div>
     );
   }
@@ -434,54 +444,52 @@ Our new file now looks like this.
 
 ```javascript
 // src/components/WeatherData.js
-import React from 'react'
+import React from 'react';
 
 export const WeatherData = () => {
-  
   return (
     <>
       <header>
         <div>
-          <img 
-          src={require(`../images/clock.png`)} 
-          alt='time icon'
-          />
+          <img src={require(`../images/clock.png`)} alt="time icon" />
           <h5>5:43 PM</h5>
         </div>
         <h5>Tuesday, January 13</h5>
       </header>
       <main>
-        <div className='weather-main'>
-          <img 
-          src={`http://openweathermap.org/img/wn/10d@2x.png`} alt='weather icon'
-          className='weather-icon'/>
+        <div className="weather-main">
+          <img
+            src={`http://openweathermap.org/img/wn/10d@2x.png`}
+            alt="weather icon"
+            className="weather-icon"
+          />
           <div>
             <h2>Athens, GR</h2>
-            <h3 className='description'>Light Rain</h3>
+            <h3 className="description">Light Rain</h3>
           </div>
         </div>
-        <div className='temp-main'>
+        <div className="temp-main">
           <h5>Feels like 9°</h5>
-          <h1 className='temperature'>12°</h1>
-          <div className='hi-lo'>
+          <h1 className="temperature">12°</h1>
+          <div className="hi-lo">
             <h5>H 16°</h5>
             <h5>L 7°</h5>
           </div>
         </div>
       </main>
       <footer>
-        <div className='weather-prop'>
-          <img src={require('../images/wind.png')} alt=''/>
+        <div className="weather-prop">
+          <img src={require('../images/wind.png')} alt="" />
           <h4>SE 2.3 KPH</h4>
         </div>
-        <div className='weather-prop'>
-          <img src={require('../images/drop.png')} alt=''/>
+        <div className="weather-prop">
+          <img src={require('../images/drop.png')} alt="" />
           <h4>72 %</h4>
         </div>
       </footer>
     </>
   );
-}
+};
 ```
 
 Some things to note here:
@@ -489,10 +497,9 @@ Some things to note here:
 Instead of returning a `div`, or any other known HTML element, we are returning what is called a [React Fragment](https://reactjs.org/docs/fragments.html). A Fragment groups the content we want to return without adding an additional parent node to the DOM. We are doing this because we already have a container that will house our elements and an additional `div` would be superfluous. Below you can see an alternative way of declaring Fragments. The advantages of using the full name, is that now we can add attributes and keys to them. In our case, this won't be needed so we are using the shorthand version instead.
 
 ```javascript
-<React.Fragment>
-[...]
-</React.Fragment>
+<React.Fragment>[...]</React.Fragment>
 ```
+
 In order to use images in React Components, we either need to use the special `require` syntax with object literal injection, or we can otherwise import it at the top of the file like below.
 
 ```javascript
@@ -528,7 +535,7 @@ Below is the styling we will add to our weather data.
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     div:first-child {
       display: flex;
       justify-content: space-between;
@@ -554,7 +561,7 @@ Below is the styling we will add to our weather data.
       .weather-icon {
         width: 128px;
       }
-  
+
       .description {
         text-transform: capitalize;
         font-size: 0.85rem;
@@ -563,14 +570,17 @@ Below is the styling we will add to our weather data.
     }
 
     .temp-main {
+      .temperature {
+        font-size: 6rem;
+      }
 
-      .temperature {font-size: 6rem;}
-  
       .hi-lo {
         display: flex;
         justify-content: center;
-  
-        > * {margin: 0 0.5rem;}
+
+        > * {
+          margin: 0 0.5rem;
+        }
       }
     }
   }
@@ -624,20 +634,18 @@ One thing we will also do to spice things up a bit is create a `Clock` component
 
 ```javascript
 // src/components/Clock.js
-import React from 'react'
+import React from 'react';
 
 export class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       time: new Date().toLocaleTimeString(),
-    }
+    };
   }
 
   componentDidMount() {
-    this.intervalID = setInterval(() =>
-      this.tick(), 
-      1000);
+    this.intervalID = setInterval(() => this.tick(), 1000);
   }
 
   componentWillUnmount() {
@@ -646,14 +654,12 @@ export class Clock extends React.Component {
 
   tick() {
     this.setState({
-      time: new Date().toLocaleTimeString('en-US', {timeStyle: 'short'}),
+      time: new Date().toLocaleTimeString('en-US', { timeStyle: 'short' }),
     });
   }
 
   render() {
-    return (
-      <h5>{this.state.time}</h5>
-    );
+    return <h5>{this.state.time}</h5>;
   }
 }
 ```
@@ -677,7 +683,7 @@ import { Clock } from '../components/Clock'
 
 ## Passing Data To Our Component: The Problem <a name='problem'></a>
 
-Since we have already written our code to get the user's coordinates, fetch the data for their location and  populate our class's state with it, we can now safely remove the placeholder data from our `WeatherData.js` file and pass in the data from our class.
+Since we have already written our code to get the user's coordinates, fetch the data for their location and populate our class's state with it, we can now safely remove the placeholder data from our `WeatherData.js` file and pass in the data from our class.
 
 What we need to do first is pass the data to our `WeatherData` component.
 
@@ -703,7 +709,7 @@ Afterwards, we can access the data from our child component by adding it as an a
 export const WeatherData = ({ data }) => {
 
   const { name, country, temp, description, temp_min, temp_max, icon, feels_like, speed, deg, humidity } = data;
-  
+
   return (
     [...]
   );
@@ -744,7 +750,7 @@ weatherInit = () => {
   // 2
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
-  } 
+  }
   // 3
   else {
     alert('Your browser does not support location tracking, or permission is denied.');
@@ -769,12 +775,12 @@ weatherInit = () => {
     this.setState({status: 'fetching'});
     this.getWeatherData(position.coords.latitude, position.coords.longitude);
   }
-  
+
   const error = () => {
     this.setState({status: 'unable'});
     alert('Unable to retrieve location.');
   }
-  
+
   if (navigator.geolocation) {
     this.setState({status: 'fetching'});
     navigator.geolocation.getCurrentPosition(success, error);
@@ -826,6 +832,7 @@ getWeatherData = (lat, lon) => {
   );
 }
 ```
+
 Now our state is updated to reflect every change that happens in our program. This is going to help us determine what information we should show in our container and prevent any `null` data from passing to our `WeaterData` component.
 
 In order to realise that, we need an additional function right below `getWeatherData()` that is going to take the status of our app as an argument and, depending on it, render the appropriate information. Then we are going to call this function from our container itself as shown below.
@@ -836,8 +843,8 @@ returnActiveView = (status) => {
   switch(status) {
     case 'init':
       return(
-        <button 
-        className='btn-main' 
+        <button
+        className='btn-main'
         onClick={this.onClick}
         >
           Get My Location
@@ -868,8 +875,8 @@ Below is the simple hander for the button click and its associated styling.
 ```javascript
 // App.js
 onClick = () => {
-    this.weatherInit();
-  }
+  this.weatherInit();
+};
 ```
 
 ```scss
@@ -888,7 +895,7 @@ onClick = () => {
   width: fit-content;
   margin: calc(50% - 31px) auto 0 auto;
   transition: all 200ms ease;
-  
+
   &:hover {
     background: rgba(0, 0, 0, 0.5);
   }
@@ -907,7 +914,7 @@ Now let's configure the `StatusData` component where we will display our `status
 
 ```javascript
 // components/StatusData.js
-import React from 'react'
+import React from 'react';
 
 export const StatusData = ({ status }) => {
   let statusMessage = '';
@@ -927,10 +934,8 @@ export const StatusData = ({ status }) => {
       break;
   }
 
-  return (
-    <h3 className='status-message'>{statusMessage}</h3>
-  );
-}
+  return <h3 className="status-message">{statusMessage}</h3>;
+};
 ```
 
 ```scss
@@ -952,24 +957,62 @@ In our `src` folder we will create another one called `helpers`, and in there cr
 
 ```javascript
 // helpers/text-arrays.js
-export const Months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+export const Months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
-export const Weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+export const Weekdays = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
 
-export const WindDirection = ['N','NNE','NE', 'ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+export const WindDirection = [
+  'N',
+  'NNE',
+  'NE',
+  'ENE',
+  'E',
+  'ESE',
+  'SE',
+  'SSE',
+  'S',
+  'SSW',
+  'SW',
+  'WSW',
+  'W',
+  'WNW',
+  'NW',
+  'NNW',
+];
 ```
 
 ```javascript
 // helpers/utils.js
-import { WindDirection, Months, Weekdays } from './text-arrays'
+import { WindDirection, Months, Weekdays } from './text-arrays';
 
-export const DegreesToDirection = (degrees) => {
-  const value = Math.floor((degrees / 22.5) + 0.5);
+export const DegreesToDirection = degrees => {
+  const value = Math.floor(degrees / 22.5 + 0.5);
   return WindDirection[value % 16];
-}
+};
 
 const date = new Date();
-export const Month =  Months[date.getMonth()];
+export const Month = Months[date.getMonth()];
 export const Weekday = Weekdays[date.getDay()];
 export const Day = date.getDate();
 ```
@@ -979,69 +1022,86 @@ Of course we could have added all this stuff in our component, but hey, we need 
 Let's add these in our component and finalise it.
 
 ```javascript
-import React from 'react'
+import React from 'react';
 
-import { DegreesToDirection, Month, Weekday, Day } from '../helpers/utils'
-import { Clock } from './Clock'
+import { DegreesToDirection, Month, Weekday, Day } from '../helpers/utils';
+import { Clock } from './Clock';
 
 export const WeatherData = ({ data }) => {
-  const { name, country, temp, description, temp_min, temp_max, icon, feels_like, speed, deg, humidity } = data;
+  const {
+    name,
+    country,
+    temp,
+    description,
+    temp_min,
+    temp_max,
+    icon,
+    feels_like,
+    speed,
+    deg,
+    humidity,
+  } = data;
 
   return (
     <>
       <header>
         <div>
-          <img 
-          src={require(`../images/clock.png`)} 
-          alt='time icon'
-          />
+          <img src={require(`../images/clock.png`)} alt="time icon" />
           <Clock />
         </div>
-        <h5>{Weekday}, {Month} {Day}</h5>
+        <h5>
+          {Weekday}, {Month} {Day}
+        </h5>
       </header>
       <main>
-        <div className='weather-main'>
-          <img 
-          src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt='weather icon'
-          className='weather-icon'/>
+        <div className="weather-main">
+          <img
+            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+            alt="weather icon"
+            className="weather-icon"
+          />
           <div>
-            <h2>{name}, {country}</h2>
-            <h3 className='description'>{description}</h3>
+            <h2>
+              {name}, {country}
+            </h2>
+            <h3 className="description">{description}</h3>
           </div>
         </div>
-        <div className='temp-main'>
+        <div className="temp-main">
           <h5>Feels like {feels_like} °</h5>
-          <h1 className='temperature'>{temp}°</h1>
-          <div className='hi-lo'>
+          <h1 className="temperature">{temp}°</h1>
+          <div className="hi-lo">
             <h5>H {temp_max}°</h5>
             <h5>L {temp_min}°</h5>
           </div>
         </div>
       </main>
       <footer>
-        <div className='weather-prop'>
-          <img src={require('../images/wind.png')} alt=''/>
-          <h4>{DegreesToDirection(deg)} {speed} KPH</h4>
+        <div className="weather-prop">
+          <img src={require('../images/wind.png')} alt="" />
+          <h4>
+            {DegreesToDirection(deg)} {speed} KPH
+          </h4>
         </div>
-        <div className='weather-prop'>
-          <img src={require('../images/drop.png')} alt=''/>
+        <div className="weather-prop">
+          <img src={require('../images/drop.png')} alt="" />
           <h4>{humidity} %</h4>
         </div>
       </footer>
     </>
   );
-}
-```   
+};
+```
 
 Our application is now working correctly through and through. Nice!
 
 ## Bonus Step: Storing User Preferences In The Browser's Storage <a name='bonus'></a>
 
-You might have noticed by now that whenever the page reloads the app resets to its initial state, which is to render a single button. For a small app like ours this is not an issue, but we can still make the user's experience more seamless. What we want, then, is our user's settings stored somewhere. As we aren't working with a backend to store them in a database on a server, we can use the browser's built-in storage to do so. 
+You might have noticed by now that whenever the page reloads the app resets to its initial state, which is to render a single button. For a small app like ours this is not an issue, but we can still make the user's experience more seamless. What we want, then, is our user's settings stored somewhere. As we aren't working with a backend to store them in a database on a server, we can use the browser's built-in storage to do so.
 
 > The browser provides two options for storing information: [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage). Both of these use the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) to store key-value pairs in the browser that can be accessed and modified through Javascript. Everything registered to session storage is cleared out once the tab accessing it has closed, but local storage's information is persistent even when the browser window closes. For the sake of convenience, then, we are going to be using localStorage to store our preferences.
 
-We will begin our process once the component mounts on the DOM. There, we will check if there is an item called `location-allowed` (the name is set by us) stored in Local Storage, and if there is we will immediately call `weatherInit()` without requiring the user to click our button, since they have already given us permission to track their location. 
+We will begin our process once the component mounts on the DOM. There, we will check if there is an item called `location-allowed` (the name is set by us) stored in Local Storage, and if there is we will immediately call `weatherInit()` without requiring the user to click our button, since they have already given us permission to track their location.
 
 If there is no object with that key name we can exit the function and initialise our app normally.
 
@@ -1059,35 +1119,36 @@ componentDidMount() {
 The next and final step is to move back up to `weatherInit()` and add the following lines to our function.
 
 ```javascript
-// App.js 
+// App.js
 weatherInit = () => {
-
-  const success = (position) => {
-    this.setState({status: 'fetching'});
+  const success = position => {
+    this.setState({ status: 'fetching' });
     localStorage.setItem('location-allowed', true);
     this.getWeatherData(position.coords.latitude, position.coords.longitude);
-  }
-  
+  };
+
   const error = () => {
-    this.setState({status: 'unable'});
+    this.setState({ status: 'unable' });
     localStorage.removeItem('location-allowed');
     alert('Unable to retrieve location.');
-  }
-  
+  };
+
   if (navigator.geolocation) {
-    this.setState({status: 'fetching'});
+    this.setState({ status: 'fetching' });
     navigator.geolocation.getCurrentPosition(success, error);
   } else {
-    this.setState({status: 'unsupported'});
-    alert('Your browser does not support location tracking, or permission is denied.');
+    this.setState({ status: 'unsupported' });
+    alert(
+      'Your browser does not support location tracking, or permission is denied.'
+    );
   }
-}
+};
 ```
 
 The above is pretty straightforward. If location tracking is supported and the user doesn't allow tracking, control passes to the `error` function which removes our key from storage. If there is no key, our added line has no effect.
 
 Otherwise, our object is created in the `success` function so when the page is reloaded we fetch the data without the initial steps.
 
-That's it. With a few more lines we save ourselves the hassle of having to go through the initial phase every time the user visits our page. 
+That's it. With a few more lines we save ourselves the hassle of having to go through the initial phase every time the user visits our page.
 
 Our app is now complete. On to the next one!
