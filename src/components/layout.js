@@ -5,10 +5,8 @@ import styled from 'styled-components';
 import '../stylesheets/layout.scss';
 
 import SEO from './seo';
-import { Header, IndexHeader } from './header';
 import Navbar from '../components/Navbar';
 import Footer from './Footer';
-import SubscribeOverlay from '../components/SubscribeOverlay';
 
 const StyledLayout = styled.div`
   display: flex;
@@ -25,7 +23,6 @@ const StyledLayout = styled.div`
 const Layout = props => {
   return (
     <StyledLayout>
-      <SubscribeOverlay />
       <SEO title={props.title} />
       <Navbar />
       <main padding={props.title === 'Resting' ? '0' : '0 2rem'}>
