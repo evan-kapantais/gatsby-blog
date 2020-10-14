@@ -47,7 +47,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icons/logo_02.png`,
+        // icon: `src/images/icons/logo-02-02-white-background.png`,
       },
     },
     {

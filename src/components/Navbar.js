@@ -16,6 +16,10 @@ const Nav = styled.nav`
   background: ${props => (props.home ? 'transparent' : '#111')};
   z-index: 1;
 
+  #nav-brand {
+    width: 22px;
+  }
+
   .nav-container {
     max-width: calc(960px + 4rem);
     width: 100%;
@@ -98,6 +102,15 @@ const Navbar = () => {
     <Nav home={pathname === '/' && true}>
       <div className="nav-container">
         <div>
+          {pathname !== '/' && (
+            <Link to="/">
+              <img
+                id="nav-brand"
+                src={require('../images/icons/logo-02-02-white-background.png')}
+                alt="brand logo"
+              />
+            </Link>
+          )}
           <Link className="nav-link" to="/">
             Home
           </Link>

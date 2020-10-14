@@ -22,11 +22,19 @@ const PageWrapper = styled.div`
     border-radius: 3px;
     overflow: hidden;
 
+    @media only screen and (max-width: 645px) {
+      flex-direction: column;
+    }
+
     .image-wrapper {
       position: relative;
       min-height: 450px;
       width: 100%;
       filter: grayscale(0.9);
+
+      @media only screen and (max-width: 645px) {
+        min-height: 350px;
+      }
 
       img {
         width: 100%;
@@ -43,6 +51,11 @@ const PageWrapper = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
+
+      @media only screen and (max-width: 645px) {
+        width: 100%;
+        justify-content: flex-start;
+      }
 
       h1 {
         font-size: 4rem;

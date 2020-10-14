@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import Layout from '../components/layout';
 import PostCard from '../components/PostCard';
 import FeaturedPostCard from '../components/FeaturedPostCard';
-import Navbar from '../components/Navbar';
+import SEO from '../components/seo';
 
-import HeaderImage from '../images/peter-gargiulo-cGNCepznaV8-unsplash.jpg';
+// import HeaderImage from '../images/peter-gargiulo-cGNCepznaV8-unsplash.jpg';
+import HeaderImage from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg';
 
 // TODO: add search
 // TODO: optimise SEO
@@ -24,23 +25,28 @@ import HeaderImage from '../images/peter-gargiulo-cGNCepznaV8-unsplash.jpg';
 // TODO: add dark mode
 
 const Container = styled.div`
-  & > header {
+  > header {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url(${HeaderImage}) no-repeat center / cover;
-    /* background: radial-gradient(black 20%, #111 80%); */
+    background: url(${HeaderImage}) no-repeat 50% 35% / cover;
+
     height: 45vh;
-    color: #fff;
+
+    h1,
+    p {
+      color: #fff;
+      mix-blend-mode: difference;
+    }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
     }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -65,10 +71,6 @@ const BlogWrapper = styled.div`
   hr {
     margin: 4rem 0;
   }
-`;
-
-const FeaturedArticle = styled.div`
-  /* margin: 4rem auto; */
 `;
 
 const BlogGrid = styled.div`
@@ -96,6 +98,7 @@ const IndexPage = ({ data }) => {
   const featuredArticle = data.allMarkdownRemark.edges[0].node;
   return (
     <Layout title="Home">
+      <SEO title="Home" />
       <Container>
         <header>
           <div className="heading-container">
@@ -109,12 +112,12 @@ const IndexPage = ({ data }) => {
           <p>{data.site.siteMetadata.subtitle}</p>
         </header>
         <BlogWrapper>
-          <FeaturedArticle>
+          <div>
             <FeaturedPostCard
               node={featuredArticle}
               key={featuredArticle.frontmatter.title}
             />
-          </FeaturedArticle>
+          </div>
           <hr />
           <BlogGrid>
             {data.allMarkdownRemark.edges.slice(1).map(({ node }) => (

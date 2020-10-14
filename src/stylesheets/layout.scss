@@ -36,6 +36,23 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(215, 215, 215);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7daad7;
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #51a8ff;
+}
+
 article,
 aside,
 details,
