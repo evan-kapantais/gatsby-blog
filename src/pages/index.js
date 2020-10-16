@@ -7,8 +7,7 @@ import PostCard from '../components/PostCard';
 import FeaturedPostCard from '../components/FeaturedPostCard';
 import SEO from '../components/seo';
 
-// import HeaderImage from '../images/peter-gargiulo-cGNCepznaV8-unsplash.jpg';
-import HeaderImage from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg';
+import HeaderImage from '../images/pine.jpg';
 
 // TODO: add search
 // TODO: optimise SEO
@@ -16,11 +15,8 @@ import HeaderImage from '../images/cristina-gottardi-4L-AyDJM-yM-unsplash.jpg';
 // TODO: page metadata with React Helmet
 // TODO: configure page logo 64x64 and 32x32 (for apps)
 // TODO: check mailto link on a mac (works on windows and iphone)
-// TODO: add tag sort method at homepage and display tags below if sorted like so
 // TODO: query all images
-// TODO: replace Markdown with MDX
 // TODO: configure a newsletter
-// TODO: split posts in more pages
 // TODO: rss feed?
 // TODO: add dark mode
 
@@ -31,9 +27,9 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 60vh;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background: url(${HeaderImage}) no-repeat 50% 35% / cover;
-
-    height: 45vh;
 
     h1,
     p {

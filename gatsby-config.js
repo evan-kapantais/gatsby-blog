@@ -5,7 +5,7 @@ module.exports = {
     description: `This is my blog.`,
     author: `Evan Kapantais`,
     url: `https://blog.evankapantais.com`,
-    icon: 'images/icons/logo-02-02-white-background.png',
+    icon: 'images/icons/brand/logo-03-solid-on-black.svg',
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -19,7 +19,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 1200,
               markdownCaptions: true,
             },
           },

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import '../stylesheets/layout.scss';
 
 import SEO from './seo';
-import Navbar from '../components/Navbar';
+import Navbar from './Navbar';
 import Footer from './Footer';
 
 const StyledLayout = styled.div`

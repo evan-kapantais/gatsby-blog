@@ -65,7 +65,7 @@ const Nav = styled.nav`
 
   .nav-link {
     position: relative;
-    color: rgb(215, 215, 215);
+    color: ${props => (props.home ? '#777' : 'rgb(215, 215, 215)')};
     transition: all 300ms ease;
 
     &:after {
@@ -74,14 +74,14 @@ const Nav = styled.nav`
       bottom: -10px;
       left: 0;
       width: 100%;
-      height: 1px;
+      height: 2px;
       opacity: 0;
-      background: #fff;
+      background: ${props => (props.home ? '#333' : '#fff')};
       transition: all 300ms ease;
     }
 
     &:hover {
-      color: #fff;
+      color: ${props => (props.home ? '#222' : '#fff')};
     }
 
     &:hover:after {
@@ -96,7 +96,11 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
-  const pathname = window.location.pathname;
+  let pathname;
+
+  if (typeof window !== 'undefined') {
+    pathname = window.location.pathname;
+  }
 
   return (
     <Nav home={pathname === '/' && true}>
@@ -121,7 +125,7 @@ const Navbar = () => {
         <div>
           <a href="https://github.com/evan-kapantais">
             <img
-              src={require('../images/icons/social/GitHub-Mark-Light-64px.png')}
+              src={require('../images/icons/social/GitHub-Mark-64px.png')}
               alt="github logo"
               className="nav-social-icon"
               aria-label="social network icon"
@@ -129,7 +133,7 @@ const Navbar = () => {
           </a>
           <a href="https://www.facebook.com/evankapantais/">
             <img
-              src={require('../images/icons/social/f_logo_RGB-White_58.png')}
+              src={require('../images/icons/social/f_logo_RGB-Black_100.png')}
               alt="facebook logo"
               className="nav-social-icon"
               aria-label="social network icon"
@@ -137,7 +141,7 @@ const Navbar = () => {
           </a>
           <a href="https://twitter.com/evankapantais">
             <img
-              src={require('../images/icons/social/Twitter_Social_Icon_Circle_White.png')}
+              src={require('../images/icons/social/Twitter_Logo_Black.png')}
               alt="twitter logo"
               className="nav-social-icon"
               aria-label="social network icon"

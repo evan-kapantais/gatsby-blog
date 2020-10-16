@@ -1,7 +1,7 @@
 const path = require('path');
 const _ = require('lodash');
 
-// TODO: replace /blog path with /[tag-name] path 
+// TODO: replace /blog path with /[tag-name] path
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -12,19 +12,21 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug
+      value: slug,
     });
   }
-}
+};
 
-exports.createPages = async({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`);
   const tagTemplate = path.resolve(`./src/templates/tags.js`);
 
   const res = await graphql(`
     query {
-      postsRemark: allMarkdownRemark (sort: { order: DESC , fields: [frontmatter___date]}) {
+      postsRemark: allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
         edges {
           node {
             fields {
@@ -37,7 +39,7 @@ exports.createPages = async({ graphql, actions, reporter }) => {
         }
       }
       tagsGroup: allMarkdownRemark {
-        group (field: frontmatter___tags) {
+        group(field: frontmatter___tags) {
           fieldValue
         }
       }
@@ -56,20 +58,20 @@ exports.createPages = async({ graphql, actions, reporter }) => {
       component: blogPostTemplate,
       path: `/${node.fields.slug}`,
       context: {
-        slug: node.fields.slug
-      }
-    });
-  });
-
-  const tags = res.data.tagsGroup.group;
-
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
-      component: tagTemplate,
-      context: {
-        tag: tag.fieldValue,
+        slug: node.fields.slug,
       },
     });
   });
-}
+
+  // const tags = res.data.tagsGroup.group;
+
+  // tags.forEach(tag => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+  //     component: tagTemplate,
+  //     context: {
+  //       tag: tag.fieldValue,
+  //     },
+  //   });
+  // });
+};
