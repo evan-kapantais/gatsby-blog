@@ -7,9 +7,8 @@ const Card = styled.div`
   transition: all 300ms ease;
 
   .post-image-wrapper {
-    border-radius: 3px;
-    overflow: hidden;
     min-height: 280px;
+    overflow: hidden;
 
     .gatsby-image-wrapper {
       min-height: 280px;
@@ -18,6 +17,7 @@ const Card = styled.div`
 
   img {
     margin-bottom: 2rem;
+    border-radius: 3px;
     filter: grayscale(0.3);
   }
 
