@@ -128,7 +128,7 @@ const Navbar = () => {
         <div>
           <a href="https://github.com/evan-kapantais">
             <img
-              src={require('../images/icons/social/GitHub-Mark-64px.png')}
+              src={require('../images/icons/social/github.svg')}
               alt="github logo"
               className="nav-social-icon"
               aria-label="social network icon"
@@ -136,7 +136,7 @@ const Navbar = () => {
           </a>
           <a href="https://www.facebook.com/evankapantais/">
             <img
-              src={require('../images/icons/social/f_logo_RGB-Black_100.png')}
+              src={require('../images/icons/social/facebook-1.svg')}
               alt="facebook logo"
               className="nav-social-icon"
               aria-label="social network icon"
@@ -144,7 +144,7 @@ const Navbar = () => {
           </a>
           <a href="https://twitter.com/evankapantais">
             <img
-              src={require('../images/icons/social/Twitter_Logo_Black.png')}
+              src={require('../images/icons/social/twitter.svg')}
               alt="twitter logo"
               className="nav-social-icon"
               aria-label="social network icon"
