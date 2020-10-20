@@ -1,6 +1,7 @@
 ---
 title: Weather App in React
 subtitle: Using geolocation, the fetch api and data from Open Weather Map.
+description: A complete weather web application using location tracking and the fetch API.
 author: Evan Kapantais
 date: '2020-04-10'
 featuredImage: sara-the-freak-A4UojtraSrw-unsplash.jpg
