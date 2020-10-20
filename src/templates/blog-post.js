@@ -182,6 +182,15 @@ class blogPost extends React.Component {
     return (
       <Layout>
         <SEO post={this.props.data.markdownRemark} />
+        {/*  */}
+        {/* <div id="fb-root"></div>
+        <script
+          async
+          defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0"
+          nonce="J0Co13Hc"
+        ></script> */}
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
           <PostHeader>
             <p className="category">{tags[0]}</p>
@@ -200,6 +209,33 @@ class blogPost extends React.Component {
               __html: this.props.data.markdownRemark.html,
             }}
           />
+          <div
+            className="fb-share-button"
+            data-href="https://blog.evankapantais.com/a-matter-of-language"
+            data-layout="button"
+            data-size="large"
+          >
+            <a
+              target="_blank"
+              href={`https://www.facebook.com/sharer/sharer.php?u=https://blog.evankapantais.com/${this.props.data.markdownRemark.fields.slug}&src=sdkpreparse`}
+              className="fb-xfbml-parse-ignore"
+            >
+              Share
+            </a>
+          </div>
+          <iframe
+            src="https://www.facebook.com/plugins/share_button.php?href=https://blog.evankapantais.com/2019-book-picks&layout=button&size=large&width=77&height=28&appId"
+            width="77"
+            height="28"
+            style={{
+              border: 'none',
+              overflow: 'hidden',
+            }}
+            scrolling="no"
+            frameBorder="0"
+            allowtransparency="true"
+            allow="encrypted-media"
+          ></iframe>
           <hr />
           <MorePosts>
             <h3>Recent Posts</h3>
