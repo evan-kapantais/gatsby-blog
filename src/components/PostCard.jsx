@@ -18,7 +18,7 @@ const Card = styled.div`
 
   img {
     margin-bottom: 2rem;
-    filter: grayscale(1);
+    filter: grayscale(0.3);
   }
 
   &:hover img {

@@ -90,7 +90,6 @@ const BlogGrid = styled.div`
 `;
 
 const IndexPage = ({ data }) => {
-  console.log(data.site.siteMetadata.icon);
   const featuredArticle = data.allMarkdownRemark.edges[0].node;
   return (
     <Layout title="Home">
@@ -105,7 +104,7 @@ const IndexPage = ({ data }) => {
             />
             <h1>{data.site.siteMetadata.title}</h1>
           </div>
-          <p>{data.site.siteMetadata.subtitle}</p>
+          <p>{data.site.siteMetadata.description}</p>
         </header>
         <BlogWrapper>
           <div>
@@ -131,7 +130,6 @@ export const postsQuery = graphql`
     site {
       siteMetadata {
         title
-        subtitle
         description
         author
         icon

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import HeaderImage from '../images/pine.jpg';
 
 const Nav = styled.nav`
   position: ${props => (props.home ? 'absolute' : 'fixed')};
@@ -12,8 +13,10 @@ const Nav = styled.nav`
   text-transform: uppercase;
   font-size: 0.85rem;
   font-weight: 600;
-  color: white;
-  background: ${props => (props.home ? 'transparent' : '#111')};
+  background: ${props =>
+    props.home ? 'transparent' : `url(${HeaderImage}) no-repeat 50% 0 / cover`};
+  box-shadow: ${props =>
+    props.home ? 'none' : '0 2px 5px rgba(0, 0, 0, 0.2)'};
   z-index: 1;
 
   #nav-brand {
@@ -65,7 +68,7 @@ const Nav = styled.nav`
 
   .nav-link {
     position: relative;
-    color: ${props => (props.home ? '#777' : 'rgb(215, 215, 215)')};
+    color: #777;
     transition: all 300ms ease;
 
     &:after {
@@ -76,12 +79,12 @@ const Nav = styled.nav`
       width: 100%;
       height: 2px;
       opacity: 0;
-      background: ${props => (props.home ? '#333' : '#fff')};
+      background: #333;
       transition: all 300ms ease;
     }
 
     &:hover {
-      color: ${props => (props.home ? '#222' : '#fff')};
+      color: #333;
     }
 
     &:hover:after {

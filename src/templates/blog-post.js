@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import SEO from '../components/seo';
 
 import Layout from '../components/layout';
 import SmallPost from '../components/SmallPost';
@@ -168,16 +169,19 @@ class blogPost extends React.Component {
   render() {
     const featuredImage = this.props.data.markdownRemark.frontmatter
       .featuredImage.childImageSharp.fluid;
+
     const {
       title,
       subtitle,
       date,
       tags,
     } = this.props.data.markdownRemark.frontmatter;
+
     const { timeToRead } = this.props.data.markdownRemark;
 
     return (
-      <Layout title={title} padding="0 2rem">
+      <Layout>
+        <SEO post={this.props.data.markdownRemark} />
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
           <PostHeader>
             <p className="category">{tags[0]}</p>

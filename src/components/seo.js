@@ -1,10 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+function SEO({ post }) {
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -12,70 +11,44 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            url
           }
         }
       }
     `
-  )
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const defaults = data.site.siteMetadata;
+
+  const title = post?.frontmatter.title || defaults.title;
+  const description = post?.frontmatter.subtitle || defaults.description;
+  const url =
+    typeof post !== 'undefined'
+      ? `${defaults.url}/${post.fields.slug}`
+      : defaults.url;
+  const image = post?.frontmatter.featuredImage.childImageSharp.fluid || '';
+  const type = typeof post !== 'undefined' ? 'article' : 'website';
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`${site.siteMetadata.title} | %s`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
-  )
+    <Helmet title={title} titleTemplate={`%s | ${defaults.title}`}>
+      <title>{title}</title>
+      <link rel="canonical" href={url} />
+      <meta name="description" content={description} />
+      {image && <meta name="image" content={image} />}
+
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      {image && <meta property="og:image" content={image} />}
+
+      <meta name="twitter:card" content="sumary_large_image" />
+      <meta name="twitter:creator" content={defaults.author} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      {image && <meta name="twitter:image" content={image} />}
+    </Helmet>
+  );
 }
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
-
-export default SEO
+export default SEO;

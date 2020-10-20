@@ -36,7 +36,7 @@ const Card = styled.div`
     }
 
     img {
-      filter: grayscale(1);
+      filter: grayscale(0.3);
     }
   }
 
