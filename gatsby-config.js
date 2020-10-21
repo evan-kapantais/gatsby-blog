@@ -5,6 +5,7 @@ module.exports = {
     author: `Evan Kapantais`,
     url: `https://blog.evankapantais.com`,
     icon: 'images/icons/brand/logo-03-solid-on-black.svg',
+    twitterHandle: 'evankapantais',
   },
   plugins: [
     `gatsby-plugin-sass`,

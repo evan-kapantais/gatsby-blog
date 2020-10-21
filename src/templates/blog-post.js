@@ -3,6 +3,10 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import SEO from '../components/seo';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+} from '../components/ShareButton';
 
 import Layout from '../components/layout';
 import SmallPost from '../components/SmallPost';
@@ -86,10 +90,30 @@ const PostContainer = styled.div`
   > hr {
     margin: 6rem auto;
   }
+
+  .share-wrapper {
+  }
+
+  .share-wrapper {
+    img {
+      width: 20px;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .share-wrapper-bottom {
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+
+    > img {
+      margin: 0 0.5rem 0 0;
+    }
+  }
 `;
 
 const PostHeader = styled.div`
-  max-width: 850px;
+  max-width: 800px;
   margin: 4rem auto 2rem auto;
 
   .category {
@@ -115,11 +139,18 @@ const PostHeader = styled.div`
     margin: 2rem auto;
   }
 
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .post-info {
     text-transform: uppercase;
     font-size: 0.8rem;
     color: #777;
     font-weight: 600;
+    margin: 0;
   }
 
   @media only screen and (max-width: 750px) {
@@ -177,66 +208,59 @@ class blogPost extends React.Component {
       tags,
     } = this.props.data.markdownRemark.frontmatter;
 
+    const siteUrl = this.props.data.site.siteMetadata.url;
+    const slug = this.props.data.markdownRemark.fields.slug;
+
     const { timeToRead } = this.props.data.markdownRemark;
 
     return (
       <Layout>
         <SEO post={this.props.data.markdownRemark} />
-        {/*  */}
-        {/* <div id="fb-root"></div>
-        <script
-          async
-          defer
-          crossOrigin="anonymous"
-          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0"
-          nonce="J0Co13Hc"
-        ></script> */}
+
         <PostContainer isProgramming={tags.find(tag => tag === 'programming')}>
           <PostHeader>
             <p className="category">{tags[0]}</p>
             <h1 className="article-title">{title}</h1>
             <h2 className="article-subtitle">{subtitle}</h2>
             <hr />
-            <p className="post-info">
-              {date} • {timeToRead} Min Read
-            </p>
+            <div>
+              <p className="post-info">
+                {date} • {timeToRead} Min Read
+              </p>
+              <div className="share-wrapper">
+                <FacebookShareButton url={`${siteUrl}/${slug}`} />
+                <TwitterShareButton
+                  url={`${siteUrl}/${slug}`}
+                  text={title}
+                  via={this.props.data.site.siteMetadata.twitterHandle}
+                />
+              </div>
+            </div>
           </PostHeader>
+
           <FeatureImageWrapper>
             <Img fluid={featuredImage} />
           </FeatureImageWrapper>
+
           <article
             dangerouslySetInnerHTML={{
               __html: this.props.data.markdownRemark.html,
             }}
           />
-          <div
-            className="fb-share-button"
-            data-href="https://blog.evankapantais.com/a-matter-of-language"
-            data-layout="button"
-            data-size="large"
-          >
-            <a
-              target="_blank"
-              href={`https://www.facebook.com/sharer/sharer.php?u=https://blog.evankapantais.com/${this.props.data.markdownRemark.fields.slug}&src=sdkpreparse`}
-              className="fb-xfbml-parse-ignore"
-            >
-              Share
-            </a>
+
+          <div className="share-wrapper share-wrapper-bottom">
+            <img
+              src={require('../images/icons/social/facebook-1.svg')}
+              alt="facebook icon"
+            />
+            <img
+              src={require('../images/icons/social/twitter.svg')}
+              alt="facebook icon"
+            />
           </div>
-          <iframe
-            src="https://www.facebook.com/plugins/share_button.php?href=https://blog.evankapantais.com/2019-book-picks&layout=button&size=large&width=77&height=28&appId"
-            width="77"
-            height="28"
-            style={{
-              border: 'none',
-              overflow: 'hidden',
-            }}
-            scrolling="no"
-            frameBorder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
+
           <hr />
+
           <MorePosts>
             <h3>Recent Posts</h3>
             <MorePostsWrapper>
@@ -253,6 +277,12 @@ class blogPost extends React.Component {
 
 export const query = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        url
+        twitterHandle
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead
