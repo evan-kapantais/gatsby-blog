@@ -26,7 +26,7 @@ function SEO({ post }) {
     typeof post !== 'undefined'
       ? `${defaults.url}/${post.fields.slug}`
       : defaults.url;
-  const image = post?.frontmatter.featuredImage.childImageSharp.fluid || '';
+  const image = post?.frontmatter.featuredImage.childImageSharp.fluid.src || '';
   const type = typeof post !== 'undefined' ? 'article' : 'website';
 
   return (
