@@ -164,6 +164,7 @@ const PostHeader = styled.div`
 
 const FeatureImageWrapper = styled.div`
   margin: 4rem auto;
+  max-width: 800px;
 
   .gatsby-image-wrapper {
     min-height: 350px;
