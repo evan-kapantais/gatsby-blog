@@ -37,6 +37,24 @@ export const TwitterShareButton = ({ url, text, via }) => {
   );
 };
 
+export const LinkedinShareButton = ({ url, title, summary }) => {
+  return (
+    <a
+      href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}&source=https://blog.evankapantais.com&summary=${summary}`}
+      target="_blank"
+    >
+      <img
+        style={{
+          width: `20px`,
+          height: `20px`,
+        }}
+        src={require('../images/icons/social/linkedin-1.svg')}
+        alt="Twitter Icon"
+      />
+    </a>
+  );
+};
+
 FacebookShareButton.propTypes = {
   url: PropTypes.string.isRequired,
 };

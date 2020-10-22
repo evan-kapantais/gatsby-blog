@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import {
   FacebookShareButton,
   TwitterShareButton,
+  LinkedinShareButton,
 } from '../components/ShareButton';
 
 import Layout from '../components/layout';
@@ -23,7 +24,7 @@ const PostContainer = styled.div`
 
   article {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 850px;
     font-size: 1.2rem;
     line-height: 2.2rem;
     font-family: inherit;
@@ -92,9 +93,6 @@ const PostContainer = styled.div`
   }
 
   .share-wrapper {
-  }
-
-  .share-wrapper {
     img {
       width: 20px;
       display: inline-block;
@@ -103,7 +101,7 @@ const PostContainer = styled.div`
   }
 
   .share-wrapper-bottom {
-    max-width: 800px;
+    max-width: 850px;
     margin: 2rem auto 0 auto;
 
     > img {
@@ -113,7 +111,7 @@ const PostContainer = styled.div`
 `;
 
 const PostHeader = styled.div`
-  max-width: 800px;
+  max-width: 850px;
   margin: 4rem auto 2rem auto;
 
   .category {
@@ -164,7 +162,7 @@ const PostHeader = styled.div`
 
 const FeatureImageWrapper = styled.div`
   margin: 4rem auto;
-  max-width: 800px;
+  max-width: 850px;
 
   .gatsby-image-wrapper {
     min-height: 350px;
@@ -234,6 +232,11 @@ class blogPost extends React.Component {
                   url={`${siteUrl}/${slug}`}
                   text={title}
                   via={this.props.data.site.siteMetadata.twitterHandle}
+                />
+                <LinkedinShareButton
+                  url={`${siteUrl}/${slug}`}
+                  title={title}
+                  summary={subtitle}
                 />
               </div>
             </div>
