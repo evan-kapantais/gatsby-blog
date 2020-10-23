@@ -370,3 +370,30 @@ li>p {
     font-size: 100%;
   }
 }
+
+// Social Links
+
+.social-link {
+  margin-left: 0.5rem;
+}
+
+.social-svg {
+  width: 20px;
+  transition: all 300ms ease;
+}
+
+.social-svg-dark {
+  fill: #777;
+
+  &:hover {
+    fill: #333;
+  }
+}
+
+.social-svg-light {
+  fill: rgb(211, 211, 211);
+
+  &:hover {
+    fill: #fff;
+  }
+}

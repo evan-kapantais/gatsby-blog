@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import HeaderImage from '../images/pine.jpg';
+import SocialLinks from './SocialLinks';
 
 const Nav = styled.nav`
   position: ${props => (props.home ? 'absolute' : 'fixed')};
@@ -35,41 +36,13 @@ const Nav = styled.nav`
       display: flex;
       align-items: center;
     }
-
-    > div:first-child {
-      a {
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-
-    > div:last-child {
-      a {
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-
-  a,
-  .subscribe-button {
-    margin: 0 0.5rem;
   }
 
   .nav-link {
     position: relative;
     color: #777;
     transition: all 300ms ease;
+    margin-right: 1rem;
 
     &:after {
       content: '';
@@ -92,10 +65,6 @@ const Nav = styled.nav`
       bottom: -5px;
     }
   }
-
-  .nav-social-icon {
-    width: 20px;
-  }
 `;
 
 const Navbar = () => {
@@ -110,7 +79,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div>
           {pathname !== '/' && (
-            <Link to="/">
+            <Link className="nav-link" to="/">
               <img
                 id="nav-brand"
                 src={require('../images/icons/logo-02-02-white-background.png')}
@@ -125,32 +94,7 @@ const Navbar = () => {
             About
           </Link>
         </div>
-        <div>
-          <a href="https://github.com/evan-kapantais">
-            <img
-              src={require('../images/icons/social/github.svg')}
-              alt="github logo"
-              className="nav-social-icon"
-              aria-label="social network icon"
-            />
-          </a>
-          <a href="https://www.facebook.com/evankapantais/">
-            <img
-              src={require('../images/icons/social/facebook-1.svg')}
-              alt="facebook logo"
-              className="nav-social-icon"
-              aria-label="social network icon"
-            />
-          </a>
-          <a href="https://twitter.com/evankapantais">
-            <img
-              src={require('../images/icons/social/twitter.svg')}
-              alt="twitter logo"
-              className="nav-social-icon"
-              aria-label="social network icon"
-            />
-          </a>
-        </div>
+        <SocialLinks color="dark" />
       </div>
     </Nav>
   );
