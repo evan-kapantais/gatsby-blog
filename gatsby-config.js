@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Evan Kapantais`,
-    description: `A blog about politics, religion and ideas.`,
+    title: `Circe`,
+    description: `Where ideas happen.`,
     author: `Evan Kapantais`,
     url: `https://blog.evankapantais.com`,
     icon: 'images/icons/brand/logo-03-solid-on-black.svg',

@@ -85,14 +85,8 @@ const Footer = () => {
       </div>
       <div className="bottom-footer">
         <div className="footer-container">
-          <small>
-            Made with{' '}
-            <span role="img" aria-label="heart">
-              ❤️
-            </span>{' '}
-            and <GatsbyLink href="https://www.gatsbyjs.org/">Gatsby</GatsbyLink>
-          </small>
-          <small>&copy; Evan Kapantais, {year}</small>
+          <small>Website by Evan Kapantais</small>
+          <small>&copy; Circe, {year}</small>
         </div>
       </div>
     </StyledFooter>

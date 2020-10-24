@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import HeaderImage from '../images/pine.jpg';
-import SocialLinks from './SocialLinks';
 
 const Nav = styled.nav`
   position: ${props => (props.home ? 'absolute' : 'fixed')};
@@ -29,7 +28,7 @@ const Nav = styled.nav`
     width: 100%;
     padding: 1.5rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: ${props => (props.home ? 'flex-end' : 'space-between')};
     align-items: center;
 
     > div {
@@ -77,16 +76,12 @@ const Navbar = () => {
   return (
     <Nav home={pathname === '/' && true}>
       <div className="nav-container">
+        {pathname !== '/' && (
+          <Link className="navbar-brand" to="/">
+            Circe
+          </Link>
+        )}
         <div>
-          {pathname !== '/' && (
-            <Link className="nav-link" to="/">
-              <img
-                id="nav-brand"
-                src={require('../images/icons/logo-02-02-white-background.png')}
-                alt="brand logo"
-              />
-            </Link>
-          )}
           <Link className="nav-link" to="/">
             Home
           </Link>
@@ -94,7 +89,6 @@ const Navbar = () => {
             About
           </Link>
         </div>
-        <SocialLinks color="dark" />
       </div>
     </Nav>
   );
