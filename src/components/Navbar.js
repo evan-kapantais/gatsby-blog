@@ -11,7 +11,7 @@ const Nav = styled.nav`
   left: 50%;
   transform: translateX(-50%);
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   background: ${props =>
     props.home ? 'transparent' : `url(${HeaderImage}) no-repeat 50% 0 / cover`};
@@ -87,6 +87,9 @@ const Navbar = () => {
           </Link>
           <Link className="nav-link" to="/about">
             About
+          </Link>
+          <Link className="nav-link" to="/contact">
+            Contact
           </Link>
         </div>
       </div>

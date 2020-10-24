@@ -407,3 +407,93 @@ li>p {
     color: blueviolet;
   }
 }
+
+// Contact Page
+
+$shadow-offset: 50px;
+
+#contact {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+
+  .contact-card {
+    display: flex;
+    max-width: 800px;
+    // border: 2px solid #333;
+    box-shadow: 0 0 3px lightgrey;
+    transition: all 300ms ease;
+
+    &.no-shadow {
+      box-shadow: 0 0 violet, 0 0 blueviolet;
+    }
+
+    &.focus-shadow {
+      box-shadow: -20px 20px violet, 20px -20px blueviolet;
+    }
+
+    &.submit-shadow {
+      box-shadow: -50px 50px violet, 50px -50px blueviolet;
+    }
+  
+    .content {
+      padding: 2rem;
+    }
+  
+    .image-wrapper {
+      position: relative;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: 60% 50%;
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  input,
+  textarea {
+    color: #333;
+    padding: 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    outline: none;
+
+    &:focus {
+      border: 1px solid blueviolet;
+    }
+  }
+
+  input[type=email],
+  input[placeholder=subject],
+  textarea {
+    width: 100%;
+  }
+
+  button[type=submit] {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: violet;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 2px;
+    color: #fff;
+    transition: all 300ms ease;
+  }
+  
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
