@@ -101,7 +101,7 @@ const PostContainer = styled.div`
   }
 
   .share-wrapper-bottom {
-    max-width: 850px;
+    max-width: 960px;
     margin: 2rem auto 0 auto;
 
     > img {
