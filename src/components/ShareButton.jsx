@@ -6,6 +6,7 @@ export const FacebookShareButton = ({ url }) => {
     <a
       href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
       target="_blank"
+      rel="noreferrer"
     >
       <img
         style={{
@@ -24,6 +25,7 @@ export const TwitterShareButton = ({ url, text, via }) => {
     <a
       href={`https://twitter.com/intent/tweet?text=${text}&url=${url}&via=${via}`}
       target="_blank"
+      rel="noreferrer"
     >
       <img
         style={{
@@ -42,6 +44,7 @@ export const LinkedinShareButton = ({ url, title, summary }) => {
     <a
       href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}&source=https://blog.evankapantais.com&summary=${summary}`}
       target="_blank"
+      rel="noreferrer"
     >
       <img
         style={{
