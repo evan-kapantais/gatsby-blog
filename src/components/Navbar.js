@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import HeaderImage from '../images/pine.jpg';
 
 const Nav = styled.nav`
-  position: ${props => (props.home ? 'absolute' : 'fixed')};
+  position: ${props =>
+    props.home ? 'absolute' : props.contact ? 'relative' : 'fixed'};
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,9 +15,11 @@ const Nav = styled.nav`
   font-size: 0.8rem;
   font-weight: 600;
   background: ${props =>
-    props.home ? 'transparent' : `url(${HeaderImage}) no-repeat 50% 0 / cover`};
+    props.home || props.contact
+      ? 'transparent'
+      : `url(${HeaderImage}) no-repeat 50% 0 / cover`};
   box-shadow: ${props =>
-    props.home ? 'none' : '0 2px 5px rgba(0, 0, 0, 0.2)'};
+    props.home || props.contact ? 'none' : '0 2px 5px rgba(0, 0, 0, 0.2)'};
   z-index: 1;
 
   #nav-brand {
@@ -73,8 +76,13 @@ const Navbar = () => {
     pathname = window.location.pathname;
   }
 
+  console.log(pathname);
+
   return (
-    <Nav home={pathname === '/' && true}>
+    <Nav
+      home={pathname === '/' && true}
+      contact={pathname === '/contact' && true}
+    >
       <div className="nav-container">
         {pathname !== '/' && (
           <Link className="navbar-brand" to="/">

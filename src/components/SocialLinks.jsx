@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SocialLinks = ({ color }) => {
+const SocialLinks = ({ color, className }) => {
   return (
-    <div>
+    <div className={className}>
       <a className="social-link" href="https://www.instagram.com/circe_blog/">
         <svg
           className={`social-svg social-svg-${color}`}

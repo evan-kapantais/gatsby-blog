@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Questrial&display=swap');
+$primary-color: blueviolet;
+$secondary-color: violet;
 
 * {
   margin: 0;
@@ -373,6 +374,18 @@ li>p {
 
 // Social Links
 
+.center-items {
+  text-align: center;
+
+  .social-link {
+    margin: 0 0.2rem;
+  }
+
+  .social-svg {
+    width: 24px;
+  }
+}
+
 .social-link {
   margin-left: 0.5rem;
 }
@@ -404,17 +417,15 @@ li>p {
 
   &::first-letter {
     font-weight: 600;
-    color: blueviolet;
+    color: $primary-color;
   }
 }
 
 // Contact Page
 
-$shadow-offset: 50px;
-
 #contact {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 71px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -422,35 +433,38 @@ $shadow-offset: 50px;
 
   .contact-card {
     display: flex;
-    max-width: 800px;
-    // border: 2px solid #333;
+    width: 960px;
     box-shadow: 0 0 3px lightgrey;
     transition: all 300ms ease;
 
     &.no-shadow {
-      box-shadow: 0 0 violet, 0 0 blueviolet;
+      box-shadow: 0 0 $secondary-color, 0 0 $primary-color;
     }
 
     &.focus-shadow {
-      box-shadow: -20px 20px violet, 20px -20px blueviolet;
+      box-shadow: -20px 20px $secondary-color, 20px -20px $primary-color;
     }
 
     &.submit-shadow {
-      box-shadow: -50px 50px violet, 50px -50px blueviolet;
+      box-shadow: -50px 50px $secondary-color, 50px -50px $primary-color;
     }
   
     .content {
       padding: 2rem;
     }
-  
-    .image-wrapper {
-      position: relative;
 
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: 60% 50%;
+    .image-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $primary-color;
+      color: $secondary-color;
+      
+      h1 {
+        font-size: 4rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
       }
     }
   }
@@ -458,6 +472,15 @@ $shadow-offset: 50px;
   h2 {
     margin-bottom: 2rem;
   }
+
+  label {
+    display: block;
+   color: rgb(120, 120, 120);
+   font-weight: 600;
+   font-size: 0.85rem;
+   margin-bottom: 0.5rem;
+  }
+
 
   input,
   textarea {
@@ -469,12 +492,12 @@ $shadow-offset: 50px;
     outline: none;
 
     &:focus {
-      border: 1px solid blueviolet;
+      border: 1px solid $primary-color;
     }
   }
 
   input[type=email],
-  input[placeholder=subject],
+  input[placeholder=Subject],
   textarea {
     width: 100%;
   }
@@ -482,7 +505,7 @@ $shadow-offset: 50px;
   button[type=submit] {
     padding: 0.5rem 1rem;
     border: none;
-    background: violet;
+    background: $secondary-color;
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: 600;
@@ -496,4 +519,49 @@ $shadow-offset: 50px;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
+}
+
+// Success Page
+
+#success {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-message-container {
+  overflow: hidden;
+  padding: 5px 0;
+  margin-bottom: 2rem;
+}
+
+.success-message {
+  color: $primary-color;
+  font-size: 4rem;
+  transform: translateY(100%);
+  transition: all 500ms ease;
+  
+  >span {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $secondary-color;
+  }
+
+  &.shown {
+    transform: translateY(0);
+  }
+}
+
+.back-home {
+  display: block;
+  background: $secondary-color;
+  padding: 1rem;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 2rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
 }
