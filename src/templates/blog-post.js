@@ -99,15 +99,6 @@ const PostContainer = styled.div`
       margin-left: 0.5rem;
     }
   }
-
-  .share-wrapper-bottom {
-    max-width: 960px;
-    margin: 2rem auto 0 auto;
-
-    > img {
-      margin: 0 0.5rem 0 0;
-    }
-  }
 `;
 
 const PostHeader = styled.div`
@@ -251,17 +242,6 @@ class blogPost extends React.Component {
               __html: this.props.data.markdownRemark.html,
             }}
           />
-
-          <div className="share-wrapper share-wrapper-bottom">
-            <img
-              src={require('../images/icons/social/facebook-1.svg')}
-              alt="facebook icon"
-            />
-            <img
-              src={require('../images/icons/social/twitter.svg')}
-              alt="facebook icon"
-            />
-          </div>
 
           <hr />
 
