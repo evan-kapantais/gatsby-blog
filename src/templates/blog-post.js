@@ -19,12 +19,12 @@ import ideaImg from '../images/icons/idea.png';
 
 const PostContainer = styled.div`
   max-width: calc(960px + 4rem);
-  margin: 10rem auto 4rem auto;
+  margin: 8rem auto 4rem auto;
   padding: 0 2rem;
 
   article {
     margin: 0 auto;
-    max-width: 850px;
+    max-width: 960px;
     font-size: 1.2rem;
     line-height: 2.2rem;
     font-family: inherit;
@@ -111,7 +111,7 @@ const PostContainer = styled.div`
 `;
 
 const PostHeader = styled.div`
-  max-width: 850px;
+  max-width: 960px;
   margin: 4rem auto 2rem auto;
 
   .category {
@@ -162,7 +162,7 @@ const PostHeader = styled.div`
 
 const FeatureImageWrapper = styled.div`
   margin: 4rem auto;
-  max-width: 850px;
+  max-width: 960px;
 
   .gatsby-image-wrapper {
     min-height: 350px;
