@@ -14,12 +14,12 @@ const ContactPage = () => {
     handleHover: e => {
       const card = document.querySelector('.contact-card');
       card.classList.add('submit-shadow');
-      e.target.style.background = 'blueviolet';
+      e.target.classList.add('submit-button-hover');
     },
     handleLeave: e => {
       const card = document.querySelector('.contact-card');
       card.classList.remove('submit-shadow');
-      e.target.style.background = 'violet';
+      e.target.classList.remove('submit-button-hover');
     },
     handleFocus: () => {
       const card = document.querySelector('.contact-card');

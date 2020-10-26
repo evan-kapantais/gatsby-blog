@@ -73,9 +73,6 @@ const Footer = () => {
             <Link className="footer-nav-link" to="/">
               Home
             </Link>
-            <Link className="footer-nav-link" to="/about">
-              About
-            </Link>
             <Link className="footer-nav-link" to="/">
               Contact
             </Link>
