@@ -97,11 +97,6 @@ const IndexPage = ({ data }) => {
       <Container>
         <header>
           <div className="heading-container">
-            <img
-              className="brand-logo"
-              src={require(`../${data.site.siteMetadata.icon}`)}
-              alt=""
-            />
             <h1>{data.site.siteMetadata.title}</h1>
           </div>
           <p>{data.site.siteMetadata.description}</p>

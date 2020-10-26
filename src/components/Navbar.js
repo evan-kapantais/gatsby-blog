@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import HeaderImage from '../images/pine.jpg';
 
 const Nav = styled.nav`
-  position: ${props =>
-    props.home ? 'absolute' : props.contact ? 'relative' : 'fixed'};
+  position: ${props => (props.home ? 'absolute' : 'relative')};
   display: flex;
   justify-content: center;
   width: 100%;
@@ -14,12 +13,6 @@ const Nav = styled.nav`
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 600;
-  background: ${props =>
-    props.home || props.contact
-      ? 'transparent'
-      : `url(${HeaderImage}) no-repeat 50% 0 / cover`};
-  box-shadow: ${props =>
-    props.home || props.contact ? 'none' : '0 2px 5px rgba(0, 0, 0, 0.2)'};
   z-index: 1;
 
   #nav-brand {
