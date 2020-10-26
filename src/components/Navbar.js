@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import HeaderImage from '../images/pine.jpg';
 
 const Nav = styled.nav`
   position: ${props => (props.home ? 'absolute' : 'relative')};
@@ -38,6 +37,10 @@ const Nav = styled.nav`
     color: #777;
     transition: all 300ms ease;
     margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &:after {
       content: '';
