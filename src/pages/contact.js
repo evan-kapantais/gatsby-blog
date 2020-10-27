@@ -62,7 +62,7 @@ const ContactPage = () => {
                     }}
                     onFocus={formEvents.handleFocus}
                     onBlur={formEvents.handleBlur}
-                    // required
+                    required
                   />
                 </div>
                 <div>
@@ -87,7 +87,7 @@ const ContactPage = () => {
                 onChange={e => setEmail(e.target.value)}
                 onFocus={formEvents.handleFocus}
                 onBlur={formEvents.handleBlur}
-                // required
+                required
               />
               <label htmlFor="subject">Subject</label>
               <input
@@ -110,7 +110,7 @@ const ContactPage = () => {
                 onChange={e => setText(e.target.value)}
                 onFocus={formEvents.handleFocus}
                 onBlur={formEvents.handleBlur}
-                // required
+                required
               ></textarea>
               <button
                 onMouseEnter={e => formEvents.handleHover(e)}
